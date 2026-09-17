@@ -290,7 +290,8 @@ def render(title, proj, crop, items, wall_segs, scale=3.2, pad=26):
 
     L = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W:.0f} {H:.0f}" '
          f'role="img" aria-label="{esc(title)}" '
-         f'style="max-width:100%;height:auto;color:currentColor">']
+         f'style="display:block;margin:0 auto;max-width:100%;max-height:80vh;'
+         f'height:auto;color:currentColor">']
     L.append(f'<defs><clipPath id="{cid}"><rect x="{fx:.1f}" y="{fy:.1f}" '
              f'width="{fw:.1f}" height="{fh:.1f}"/></clipPath></defs>')
     L.append(f'<g clip-path="url(#{cid})" fill="none" stroke="currentColor" '
@@ -456,10 +457,24 @@ def explain(view, all_items, all_walls, levels):
                if lv["elevation"] < z1 and lv["elevation"] + lv["height"] > z0]
     print(f"  levels in view: {', '.join(spanned) or '(none)'}")
 
-    d0, d1 = depth2(b3, proj)
-    axis = {"plan": "z", "section-ns": "x", "section-ew": "y"}[proj]
-    print(f"  slice depth: {(d1 - d0) / 12:.1f} ft along {axis} "
-          f"(the axis the drawing cannot show)")
+    if proj == "plan":
+        # In plan the third axis is culled by level rather than by the box's
+        # own z, because a duct's elevation routinely straddles two levels and
+        # a level is the unit a reader thinks in. So the height picks levels;
+        # it does not clip.
+        print("  depth culling: by level (the box's height selects them, "
+              "it does not clip)")
+    else:
+        d0, d1 = depth2(b3, proj)
+        axis = "x" if proj == "section-ns" else "y"
+        print(f"  slice depth: {(d1 - d0) / 12:.1f} ft along {axis} "
+              f"(the axis the drawing cannot show)")
+
+    ar = (x1 - x0) / max(0.1, y1 - y0) if proj == "plan" else None
+    if ar is not None and not 0.5 <= ar <= 2.0:
+        shape = "tall and narrow" if ar < 1 else "wide and short"
+        print(f"  note: {ar:.2f}:1 is {shape} — it will render small on a page "
+              f"(capped at 80vh)")
 
     items, ws = collect(b3, all_items, all_walls, proj, spanned)
     print(f"  drawn: {len(items)} objects, {len(ws)} walls\n")

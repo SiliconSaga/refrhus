@@ -48,6 +48,19 @@ Return plenum
 
 **Both kitchen faces have been redrawn at the sizes the schedule asked for** — the SE supply from 2x15 to 4x15 (806 → 403 fpm) and the return from 3x20 to 8x14 (602 → 323). Getting the SE supply's 4″ of height still needs a cabinet moved or modified, so the model now records a decision that the carpentry has yet to catch up with.
 
+### The north return trunk, and why an oval is not its box
+
+Everything north of the return plenum funnels through two segments in series, both carrying the same **625 CFM** — kitchen 251, main bed 227, kids room and utility 147.
+
+| Segment | Section | Free area | fpm |
+|---|:-:|---:|---:|
+| `North return trunk 1` — the vertical drop into the plenum | 12x12 rect | 144 in² | **625** |
+| `North return trunk 2 [oval]` — the horizontal run | 14x18 oval | 210 in² | 429 |
+
+**Trunk 2 was widened from 12x14 because its `[oval]` tag costs it area the box does not show.** The model draws a rectangular solid; the tag says what gets fabricated. A flat oval of the same overall dimensions has a semicircular end at each side rather than a corner, so 12x14 is **137 in² of airway, not 168** — and 656 fpm, not the 536 the box implies. Reading section area off the drawn box overstates every `[oval]` run in the model by roughly 20%, and the parts list prints the box because that is what a shop needs to know it must fit.
+
+**That makes trunk 1 the binding constraint**, at 625 fpm through a genuinely rectangular 144 in². It is a 64″ vertical drop straight onto the plenum, so the fix is not the same kind of change as widening a horizontal run in a joist bay: it has to clear the plenum top and whatever the joist framing allows around it. **Unmeasured, and worth a look on the same site visit as the return split.**
+
 ## Modelling caveats
 
 Cross-section assumes the longest edge is the run direction; where a box is nearly cubic that assumption is weak. **No elbows, tees, takeoffs or transitions are modelled**, so run lengths are centre-line and indicative, and **total effective length is not derivable from this model**. That matters more than it sounds, because effective length is what a static-pressure argument turns on — and static pressure is what decides the one-unit-versus-two question.

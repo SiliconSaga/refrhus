@@ -181,6 +181,12 @@ w("Future runs excluded. Round sizes are **airway** — confirm whether a suppli
   "inner or outer diameter on double-wall before ordering, because getting it backwards "
   "costs two inches of diameter on every round run at once.")
 w("")
+w("**An `oval` section is the box it must fit inside, not its airway.** A flat oval "
+  "turns each corner into a semicircular end, so a run listed 14x18 carries about "
+  "210 in² against the 252 the two numbers multiply to — roughly 20% less on every "
+  "oval run here. The box is what is printed because the box is what has to clear the "
+  "framing; size the airflow off the airway.")
+w("")
 w("| Section | Material | Linear feet |")
 w("|---|---|---:|")
 for (s, mat), ln in sorted(tally.items(), key=lambda kv: -kv[1]):

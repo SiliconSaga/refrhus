@@ -35,7 +35,7 @@ Lengths are centre-line and **do not deduct for fittings**, so they run long at 
 | Run | Levels | Segs | Section | Material | Length | Bends |
 |---|---|:-:|:-:|:-:|---:|:-:|
 | North return branch for kitchen | Basement | 4 | 8x8 / 6x14 | oval | 19.0 ft | 3 |
-| North return trunk | Basement | 2 | 12x12 / 12x14 | rect / oval | 12.2 ft | 1 |
+| North return trunk | Basement | 2 | 12x12 / 14x18 | rect / oval | 12.2 ft | 1 |
 | Return branch for kids room and basement NE | basement-main-transition, Basement, Main | 3 | 6x10 / 8x8 | rect | 12.5 ft | 2 |
 | Return branch for main bedroom | basement-main-transition | 3 | 4x8 / 4x10 | rect | 26.4 ft | 2 |
 | Return branch for office | 2nd floor | 2 | 6x10 | rect | 11.0 ft | 1 |
@@ -80,6 +80,8 @@ Lengths are centre-line and **do not deduct for fittings**, so they run long at 
 
 Future runs excluded. Round sizes are **airway** — confirm whether a supplier quotes inner or outer diameter on double-wall before ordering, because getting it backwards costs two inches of diameter on every round run at once.
 
+**An `oval` section is the box it must fit inside, not its airway.** A flat oval turns each corner into a semicircular end, so a run listed 14x18 carries about 210 in² against the 252 the two numbers multiply to — roughly 20% less on every oval run here. The box is what is printed because the box is what has to clear the framing; size the airflow off the airway.
+
 | Section | Material | Linear feet |
 |---|---|---:|
 | 8″ ø | dwspiral | 71.7 |
@@ -94,7 +96,7 @@ Future runs excluded. Round sizes are **airway** — confirm whether a supplier 
 | 12x12 | rect | 11.3 |
 | 11x11 | rect | 8.3 |
 | 8x16 | rect | 8.2 |
-| 12x14 | oval | 6.8 |
+| 14x18 | oval | 6.8 |
 | 6″ ø | dwspiral | 6.7 |
 | 6x8 | rect | 5.5 |
 | 8x10 | rect | 4.8 |
