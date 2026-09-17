@@ -18,18 +18,15 @@ The replacement compares *runs against the same model at a known commit*: regene
 
 ## The professional reports
 
-`manual-j-professional/` — ACCA-approved Manual J by NJ Energy Auditor (JL), commissioned 2026-08. Three *progressions* modelling the same house at increasing tightness, which together form the do-the-envelope-work-first decision tool: each one shows what the equipment could shrink to if the preceding work is done.
+An ACCA-approved Manual J by NJ Energy Auditor, commissioned 2026-08, in three progressions modelling the house at increasing tightness: **as-is 54,260**, plus insulation 44,067, plus air sealing 40,901 BTU/hr heating.
 
-| File | What it models | Heat | Cool |
-|---|---|---:|---:|
-| `2026-08-12-manual-j-progression-a-as-is.pdf` | As-is today | 54,260 | 28,485 |
-| `2026-08-12-manual-j-progression-b-plus-insulation.pdf` | + insulation | — | — |
-| `2026-08-12-manual-j-progression-c-plus-air-sealing.pdf` | + air sealing | — | — |
-| `2026-08-12-3d-floorplan.pdf` | Their scan-derived floor plan | — | — |
+**[The figures are summarised on their own page](professional-manual-j.md)** — design conditions, every construction assembly with its area and U-value, and the infiltration measurement. That summary is the source of the area-weighted U-values this project's side-car carries.
 
-**Read page 3 of any progression first.** The *Construction Details* table is where the real information is — every assembly with its area, U-value and HTM. Page 6 carries General / Internal / Infiltration / Ventilation.
+**The reports themselves are not published.** They were produced for the owner as a customer rather than for redistribution, so this site carries the numbers our work depends on and not the documents.
 
-### Two things in these PDFs that are easy to miss
+### Two things in the reports that are easy to miss
+
+Both are set out in full on [the summary page](professional-manual-j.md); in short.
 
 **The measured blower door exists only in handwriting.** Progression C's Infiltration panel prints `Blower Door · 1,751 CFM50 · ACH 0.32`, but is annotated **"speculative"** — C models the *proposed post-air-sealing* state. The margin note beside it is the real measurement:
 

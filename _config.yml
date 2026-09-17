@@ -60,7 +60,11 @@ exclude:
   - Gemfile.lock
   - README.md
   - .github/
-  # Figure keys are fragments meant to be `include`d beside their SVG. Left
-  # alone they would each become a page of their own, because
-  # optional-front-matter renders every stray `.md` in the tree.
-  - "assets/schematics/*.key.md"
+  # Source images the model was traced against. They stay in the repo because
+  # the tracing is only checkable against them, but nothing on the site links
+  # them, and `SurveyAlone.png` carries the street number and tax block/lot.
+  # Publishing an unreferenced image of the property survey serves nobody.
+  - OriginalFloorPlan.png
+  - OriginalPlanHVAC.png
+  - LargerFloorplanMudroomHvacV2.png
+  - SurveyAlone.png

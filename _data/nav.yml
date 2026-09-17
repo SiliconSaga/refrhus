@@ -36,6 +36,8 @@
   children:
     - title: Manual J index
       url: /hvac/
+    - title: The professional Manual J
+      url: /hvac/professional-manual-j/
     - title: Current Eldr run
       url: /hvac/eldr-report/
     - title: Surface-temperature protocol
