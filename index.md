@@ -8,7 +8,7 @@ A 1950s house in West Orange, NJ, rebuilt as a dimensioned architectural model a
 
 The model is not a sketch. Every exterior dimension is measured — joist by joist in the basement, the chimney on all three floors, the posts to the eighth of an inch — and cross-registered so the levels stack. Room volumes, wall areas, window orientations and duct runs are read straight out of that geometry rather than estimated from floor area.
 
-On top of it, [Eldr](https://github.com/SiliconSaga/eldr) computes the ACCA chain:
+On top of it, Eldr computes the ACCA chain:
 
 | | |
 |---|---|

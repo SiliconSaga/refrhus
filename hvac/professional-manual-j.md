@@ -132,7 +132,9 @@ So the measured as-is figure is **3,751 CFM50 → ACH 0.68**, and that is what `
 
 The arithmetic was checked against Eldr's own conditioned volume, which at the time came to 16,457 ft³: 3,751 CFM50 × 60 ÷ 16,457 = 13.7 ACH50, over an LBL N-factor of ~20 (two storeys, shielding class 4) = **0.68**. Two engines agreeing on a volume neither took from the other is a real cross-check.
 
-**That volume has since moved to 16,859 ft³** as the basement was measured and the model gained detail, which puts the same blower-door reading at ACH **0.67**. The side-car still carries 0.68. The difference is worth about 170 BTU/hr against a 40,331 total — below every other open item — but the figure is derived rather than measured, so it should be re-derived whenever the volume moves.
+**That volume has since moved to 16,859 ft³** as the basement was measured and the model gained detail, which puts the same blower-door reading at ACH **0.67**. The side-car deliberately still carries **0.68**.
+
+**Holding it is the point, not an oversight.** The volume is still moving — 563 ft² of second-floor ceiling is undrawn, and drawing it will raise the conditioned volume again and push the derived ACH back down. Re-deriving on every intermediate geometry change would churn the headline load by a few hundred BTU/hr in each direction while converging on nothing. The N-factor of ~20 is itself a rule of thumb, so 0.67 against 0.68 sits inside the method's own precision. **Re-derive once the second-floor geometry is complete**, not before.
 
 **They load below-grade surfaces at the full outdoor ΔT.** Divide HTM by U on every below-grade row — 16.58/0.293, 16.82/0.297, 4.98/0.088, and the slab's 1.13/0.020 — and all four give **56.6**, against their design ΔT of 57 × the 0.995 elevation factor. The soil path lives *inside* the U-value, which is why U-0.293 sits far below bare 8″ masonry (~1.0 on its own).
 

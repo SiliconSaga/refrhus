@@ -25,10 +25,16 @@ The projection tag is optional and defaults to `plan`:
 
 HOW BIG TO DRAW THE BOX
 -----------------------
-**Roughly 6–10 ft across.** The plenum view below is 8.7 x 7.6 ft and holds 28
-objects, which is the busy end of readable; under about 4 ft you have zoomed
-past the context that makes the close-up worth having. Aim for one junction
-and everything that lands on it.
+**Big enough to hold its subject whole.** Aim at one junction and the things
+that land on it; `--explain` reports how much of each caught object falls
+inside and how far the box would have to grow to hold the rest. The plenum
+view is 4.5 x 12 ft and holds 27 objects, 14 of them whole — the twelve feet
+are not a choice, they are the length of the return plenum. Under about 4 ft
+you have zoomed past the context that makes a close-up worth having.
+
+**Keep the aspect between about 1:2 and 2:1 where the subject allows.** A long
+thin crop renders small on a page, because the drawing is capped at 80vh to
+stop it forcing a screenful of scroll.
 
 **All three dimensions are read, in both projections.** The two the drawing
 shows are the crop. The third is a slice: it decides what is near enough to
@@ -74,6 +80,11 @@ HOME = os.path.join(ROOT, "sh3d-internals", "Home.xml")
 OUTDIR = os.path.join(ROOT, "assets", "schematics")
 
 PROJECTIONS = ("plan", "section-ns", "section-ew")
+
+# Named furniture that is structure rather than equipment or contents: the
+# things a duct has to miss. Deliberately narrow — a basement holds plenty of
+# objects, and drawing all of them buries the ductwork the view exists for.
+STRUCTURE = re.compile(r"\b(post|pole|column|chimney)\b")
 
 PROJ_WORDS = {
     "plan": "looking down, north up the page",
@@ -175,6 +186,13 @@ def pieces(root, levels):
             kind = "register"
         elif "duct" in low:
             kind = "duct"
+        elif STRUCTURE.search(low):
+            # Structure the ductwork has to route around. Drawn as context
+            # rather than as subject, and only when it shares the drawing's
+            # height band — a girder at 74-84in is simply above a plenum view
+            # and adds nothing to it. That height test is what keeps this from
+            # becoming a second inventory.
+            kind = "structure"
         else:
             continue
         body = nm.split(":", 1)[-1].strip() if ":" in nm else nm
@@ -182,7 +200,8 @@ def pieces(root, levels):
         tag = m.group(1) if m else None
         bare = re.sub(r"\s*\[[\w-]+\]\s*", " ", body).strip()
         z0, z1 = zrange(el, levels)
-        side = "return" if "return" in bare.lower() else "supply"
+        side = ("structure" if kind == "structure"
+                else "return" if "return" in bare.lower() else "supply")
         out.append({
             "kind": kind,
             "name": bare,
@@ -277,7 +296,13 @@ def overlaps(box, crop):
 # ------------------------------------------------------------------- render
 
 def esc(s):
-    return (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
+    """Escape for SVG text *and* for double-quoted attributes.
+
+    The quote matters: a view named `View: 6" plenum` reaches this
+    through `aria-label="..."` and would close the attribute early.
+    """
+    return (s.replace("&", "&amp;").replace("<", "&lt;")
+            .replace(">", "&gt;").replace('"', "&quot;"))
 
 
 def render(title, proj, crop, items, wall_segs, scale=3.2, pad=26):
@@ -318,8 +343,21 @@ def render(title, proj, crop, items, wall_segs, scale=3.2, pad=26):
                      f'height="{yb - ya:.1f}" opacity="0.12" fill="currentColor" '
                      f'stroke="none"/>')
 
+    # Structure first and muted, so it reads as the basement the ducts are in
+    # rather than as more ductwork. It carries no number: it is context, and
+    # numbering it would pad the key with things nobody is specifying.
+    for it in items:
+        if it["kind"] != "structure":
+            continue
+        pts = " ".join(f"{P(a, b)[0]:.1f},{P(a, b)[1]:.1f}"
+                       for a, b in poly_of(it, proj))
+        L.append(f'<polygon points="{pts}" fill="currentColor" fill-opacity="0.30" '
+                 f'stroke="currentColor" stroke-width="1" stroke-opacity="0.45"/>')
+
     labels = []
     for it in items:
+        if it["kind"] == "structure":
+            continue
         pts = " ".join(f"{P(a, b)[0]:.1f},{P(a, b)[1]:.1f}" for a, b in poly_of(it, proj))
         if it["future"]:
             colour, dash, op = FUTURE, ' stroke-dasharray="4 3"', 0.10
@@ -417,6 +455,15 @@ def collect(b3, all_items, all_walls, proj, keep_levels=None):
         if proj == "plan":
             if keep_levels and it["level"] not in keep_levels:
                 continue
+            # Ductwork is culled by level, because a run's elevation routinely
+            # straddles two. Structure is culled by the box's own height band
+            # instead: a girder at 74-84in is simply above a plenum drawn at
+            # 4-40in, and including it would put a bar across the figure
+            # representing something the ducts never meet.
+            if it["kind"] == "structure":
+                s0, s1 = it["z0"], it["z1"]
+                if s1 < b3[2] or s0 > b3[5]:
+                    continue
         else:
             e0, e1 = depth2(box3_of(it), proj)
             if e1 < d0 or e0 > d1:
@@ -632,7 +679,11 @@ def main():
         ]
         for i, (_, _, it, _) in enumerate(labels, 1):
             side = "future" if it["future"] else it["side"]
-            block.append(f"| {i} | {it['name']} | {side} | {it['level']} |")
+            # A pipe in a model name would open extra columns and
+            # shift every cell after it, silently.
+            name = it["name"].replace("|", "&#124;")
+            lvl = it["level"].replace("|", "&#124;")
+            block.append(f"| {i} | {name} | {side} | {lvl} |")
         blockdir = os.path.join(ROOT, "_includes", "schematics")
         os.makedirs(blockdir, exist_ok=True)
         blockpath = os.path.join(blockdir, f"{slug}-{proj}.md")

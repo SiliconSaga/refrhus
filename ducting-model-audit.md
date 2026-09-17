@@ -8,13 +8,30 @@ What the drawn model says about itself, and where it disagrees with the [registe
 
 ## The plenum area
 
-Where all four supply trunks leave the air handler and the three return trunks arrive, drawn straight from `Home.xml` rather than by hand — so it cannot drift from the model the way a hand-drawn diagram does. Green is supply, yellow return, grey walls; each colour is the one the object carries in Sweet Home 3D.
+Where the trunks leave and arrive, drawn straight from `Home.xml` rather than by hand — so it cannot drift from the model the way a hand-drawn diagram does. Green is supply, yellow return; each is the colour the object carries in Sweet Home 3D. Walls and the two basement posts are grey context.
 
-The crop comes from a box named `View: Plenum area [plan]` drawn in the model itself, so moving the plenum and re-dragging the box re-cuts the figure. Runs that leave the region are clipped at the frame, which is what a close-up should do to them.
+The crop comes from a box named `View: Plenum area [plan]` drawn in the model itself, so moving the plenum and re-dragging the box re-cuts the figure. Runs leaving the region are clipped at the frame, which is what a close-up should do to them. The air handler sits between the two plenums and is not drawn — the plenums are what the ducts connect to, and the unit's own footprint is in [the scheme](ducting-scheme.md).
 
 {% include schematics/plenum-area-plan.md %}
 
-Two things this view is for. **The supply plenum takes four trunks directly** rather than one trunk splitting later, which is what keeps the largest duct in the house a 10″ instead of a 16″. And **the return plenum is ten feet long** — it runs along the joist bay rather than sitting as a box, which is why the north return arrives along its length instead of at one end.
+### Which end connects to what
+
+The plenums are very different shapes, and the figure is hard to read without knowing why. Position is given as a percentage along each plenum's long axis.
+
+| Plenum | Size | Connection | Where |
+|---|---|---|---|
+| **Supply** | 24 × 12 in, 2 ft | SW supply trunk | 25% — west end |
+| | | North supply trunk | 73% |
+| | | SE supply trunk | 77% — east end |
+| **Return** | 20 × 120 in, 10 ft | North return trunk | 10% — north end |
+| | | SW return trunk | 84% |
+| | | SE return trunk | 96% — south end |
+
+**Three trunks each, and the supply plenum is two feet long.** All three supply trunks leave within 24 inches of each other, which is what keeps the largest duct in the house a 10″ rather than a 16″: nothing has to carry the whole 1,245 CFM anywhere, because the split happens at the plenum instead of downstream. *(An earlier version of this section said four supply trunks. The adjacency pass finds three — SW, North and SE. The register schedule's "four takeoffs" counts destinations served, not trunks drawn.)*
+
+**The return plenum is ten feet long because its connections are ten feet apart.** The north return arrives near the top at 10%, the SW and SE returns at the bottom at 84% and 96%. One plenum spanning between them replaces a collector duct running the same distance — the length is the job, not an oversight.
+
+**Adjacency alone would report seven connections on the return plenum and four on the supply**, because supply runs pass within three inches of the return plenum on their way past. Filtering to same-side contacts gives the three-and-three above. That is the same limit as the [topology section](#topology-cannot-be-inferred-from-geometry--only-the-return-side-works) below: touching is not joining, and here the side of the system is what separates them.
 
 ---
 
