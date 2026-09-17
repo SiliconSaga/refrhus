@@ -6,7 +6,7 @@ Raw readings live in [`wall-temperatures.csv`](wall-temperatures.csv). Nothing h
 
 ## Why bother
 
-Eldr's `basement_wall` U-value is currently a guess (0.07) that nobody has measured, and it is the single largest remaining disagreement with the professional Manual J — see [`../README.md`](../README.md). Interior surface temperature measures it directly, because the interior air film is a known resistance:
+Eldr's `basement_wall` U-value is currently a guess (0.07) that nobody has measured, and it is the single largest remaining disagreement with the professional Manual J — see [the load comparison](../index.md). Interior surface temperature measures it directly, because the interior air film is a known resistance:
 
 ```
 q      = (T_air − T_surface) / R_film        BTU/hr·ft²      R_film ≈ 0.68 for still air, vertical

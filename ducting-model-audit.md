@@ -6,6 +6,18 @@ What the drawn model says about itself, and where it disagrees with the [registe
 
 ---
 
+## The plenum area
+
+Where all four supply trunks leave the air handler and the three return trunks arrive, drawn straight from `Home.xml` rather than by hand — so it cannot drift from the model the way a hand-drawn diagram does. Green is supply, yellow return, grey walls; each colour is the one the object carries in Sweet Home 3D.
+
+The crop comes from a box named `View: Plenum area [plan]` drawn in the model itself, so moving the plenum and re-dragging the box re-cuts the figure. Runs that leave the region are clipped at the frame, which is what a close-up should do to them.
+
+{% include schematics/plenum-area-plan.md %}
+
+Two things this view is for. **The supply plenum takes four trunks directly** rather than one trunk splitting later, which is what keeps the largest duct in the house a 10″ instead of a 16″. And **the return plenum is ten feet long** — it runs along the joist bay rather than sitting as a box, which is why the north return arrives along its length instead of at one end.
+
+---
+
 ## Connectivity
 
 A 3D adjacency pass over all 74 duct objects and 25 registers at 3″ tolerance. **Every run joins something, no trunk or plenum dead-ends mid-run, and every register attaches to a duct** — the supply, SE, north and SW systems are all continuous as drawn.

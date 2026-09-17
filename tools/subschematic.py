@@ -75,6 +75,12 @@ OUTDIR = os.path.join(ROOT, "assets", "schematics")
 
 PROJECTIONS = ("plan", "section-ns", "section-ew")
 
+PROJ_WORDS = {
+    "plan": "looking down, north up the page",
+    "section-ns": "section looking west, north to the left",
+    "section-ew": "section looking north, east to the right",
+}
+
 # Sweet Home 3D's own convention for this model: green supply, yellow return.
 # These are only the fallback — a piece's `color` attribute wins, so a drawing
 # matches what the owner sees on screen rather than a second scheme they have
@@ -607,19 +613,36 @@ def main():
         path = os.path.join(args.outdir, f"{slug}-{proj}.svg")
         with open(path, "w", encoding="utf-8") as fh:
             fh.write(svg + "\n")
-        # The numbers on the drawing are meaningless without this, so it is
-        # written next to the SVG rather than left to be transcribed by hand.
-        key = [f"| # | Run | Side | Level |", "|--:|---|:-:|---|"]
+        # A number on the drawing means nothing without its key, so the two
+        # are emitted as one includable block rather than as two files a page
+        # has to remember to pair up. A figure that ships without its key is
+        # how the first pass of these ended up unreadable.
+        rel = os.path.relpath(path, ROOT)
+        block = [
+            f'<figure class="schematic">',
+            f'  <img src="{{{{ "/{rel}" | relative_url }}}}" '
+            f'alt="{esc(title)} — {proj} view, generated from the model">',
+            f'  <figcaption>{esc(title)} — {PROJ_WORDS[proj]}. '
+            f'{len(items)} objects; every figure below is read from '
+            f'<code>Home.xml</code>.</figcaption>',
+            f'</figure>',
+            "",
+            "| # | Run | Side | Level |",
+            "|--:|---|:-:|---|",
+        ]
         for i, (_, _, it, _) in enumerate(labels, 1):
             side = "future" if it["future"] else it["side"]
-            key.append(f"| {i} | {it['name']} | {side} | {it['level']} |")
-        keypath = os.path.join(args.outdir, f"{slug}-{proj}.key.md")
-        with open(keypath, "w", encoding="utf-8") as fh:
-            fh.write("\n".join(key) + "\n")
+            block.append(f"| {i} | {it['name']} | {side} | {it['level']} |")
+        blockdir = os.path.join(ROOT, "_includes", "schematics")
+        os.makedirs(blockdir, exist_ok=True)
+        blockpath = os.path.join(blockdir, f"{slug}-{proj}.md")
+        with open(blockpath, "w", encoding="utf-8") as fh:
+            fh.write("\n".join(block) + "\n")
 
-        print(f"wrote {os.path.relpath(path, ROOT)}  "
-              f"({len(items)} objects, {len(ws)} walls, {proj})")
-        print(f"wrote {os.path.relpath(keypath, ROOT)}")
+        print(f"wrote {rel}  ({len(items)} objects, {len(ws)} walls, {proj})")
+        print(f"wrote {os.path.relpath(blockpath, ROOT)}")
+        print(f"   include it with: "
+              f"{{% include schematics/{slug}-{proj}.md %}}")
 
 
 if __name__ == "__main__":

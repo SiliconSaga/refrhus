@@ -1,3 +1,8 @@
+<figure class="schematic">
+  <img src="{{ "/assets/schematics/plenum-area-plan.svg" | relative_url }}" alt="Plenum area — plan view, generated from the model">
+  <figcaption>Plenum area — looking down, north up the page. 25 objects; every figure below is read from <code>Home.xml</code>.</figcaption>
+</figure>
+
 | # | Run | Side | Level |
 |--:|---|:-:|---|
 | 1 | Supply branch for play room east 2 | supply | Basement |
