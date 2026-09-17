@@ -11,8 +11,8 @@ The main floor is served by basement runs — south through the under-stair spac
 | Largest trunk | 12x16 |
 | Straight duct | 344 ft across 29 runs |
 | Registers and grilles | 15 supply, 8 return |
-| Faces outside the velocity band | 2 — both kitchen, cabinetry-constrained |
-| Worst constraint | Main-floor return, 374 CFM asked of a 4x8 |
+| Faces outside the velocity band | None |
+| Worst constraint | Main bed return, 227 CFM design against a buried duct good for ~91 |
 
 Two contractors have instead proposed a second air handler in the knee-wall attic. That option is compared against this one [below](#one-air-handler-or-two).
 

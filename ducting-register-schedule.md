@@ -25,7 +25,7 @@ Airflow is biased on purpose — **second floor ×1.35**, **basement ×0.70**, m
 | 2nd | Upper Bath | 28 | — | — | — | — | — | — | — | — | — | — | | No supply — wants electric heat |
 | 2nd | Upstairs Hallway | 20 | — | — | — | — | — | — | — | — | — | — | | Swept by transit only |
 
-Rectangular sizes are the shallowest option holding an **aspect ratio at or under 4:1**. Flatter than that costs friction and makes fittings awkward, so a 3x20 is not a real substitute for a 4x14 even though the areas are similar.
+Rectangular sizes are the shallowest option holding an **aspect ratio at or under 4:1**. Flatter than that costs friction and makes fittings awkward, so a 3x20 is not a substitute for a 4x14 even though the areas are similar.
 
 **Two return decisions are baked into the table above.**
 
@@ -49,14 +49,14 @@ Targets: supplies **500–750 fpm** is the normal band and 600 is where this doc
 
 **This is not Manual T.** Throw, spread, drop and NC need the room's dimensions against a specific manufacturer's catalogue, and the choice of *where* on the wall or floor matters as much as the size. Treat the faces below as the starting schedule a contractor prices, not as a selection.
 
-Faces below are **as drawn in the model**, sized against available space, with the resulting velocity computed. Five need attention.
+Faces below are **as drawn in the model**, sized against available space, with the resulting velocity computed. Every face is now inside its band.
 
 | Level | Register | CFM | Face | fpm | Verdict |
 |---|---|---:|:-:|---:|---|
 | Basement | Future Media — NW ceiling `[circular]` | 85 | 5x10 | 326 | ok |
 | Basement | Utility — SE ceiling `[circular]` | 82 | 5x10 | 315 | ok |
 | Main | Kitchen — SW | 126 | 6x11 | 367 | ok |
-| Main | Kitchen — SE | 126 | 2x15 | **806** | **too fast** |
+| Main | Kitchen — SE | 126 | 4x15 | 403 | ok |
 | Main | Main Bed — NE | 113 | 6x11 | 329 | ok |
 | Main | Main Bed — W | 113 | 6x11 | 329 | ok |
 | Main | Living room — NW | 71 | 5x10 | 273 | ok |
@@ -71,7 +71,7 @@ Faces below are **as drawn in the model**, sized against available space, with t
 | | **Supply registers** | | | | **15** |
 | Basement | Future Media — SW ceiling `[circular]` | 84 | 5x12 | 202 | ok |
 | Basement | Utility — NE ceiling `[circular]` | 83 | 5x12 | 199 | ok |
-| Main | Kitchen | 251 | 3x20 | **602** | **too fast** |
+| Main | Kitchen | 251 | 8x14 | 323 | ok |
 | Main | Main Bed | 227 | 5x9 | 726 | Matches its duct — see below |
 | Main | Living room | 143 | 6x12 | 286 | ok |
 | Main | Kids Room | 64 | 4x10 | 230 | ok |
@@ -79,16 +79,18 @@ Faces below are **as drawn in the model**, sized against available space, with t
 | 2nd | Office — SW | 113 | 6x8 | 339 | ok |
 | | **Return grilles** | | | | **8** |
 
-### Two still to settle — both in the kitchen, both constrained by cabinetry
+### The two kitchen faces, now settled
 
-| Register | Now | fpm | Wants | fpm |
+Both were constrained by cabinetry and both have been redrawn at the size this schedule asked for:
+
+| Register | Was | fpm | Now | fpm |
 |---|:-:|---:|:-:|---:|
 | Kitchen — SE supply | 2x15 | 806 | **4x15** | 403 |
 | Kitchen return | 3x20 | 602 | **8x14** | 323 |
 
-**The kitchen SE register is the one worth building around.** At 2″ of height under the cabinetry it runs 806 fpm — not marginal, audible, and in a kitchen where people stand. Moving one cabinet over for 4″ of height halves it to 403; modifying the cabinet does the same. Either is a better trade than living with it, because this is the register a person stands beside while cooking. **Both options are construction decisions rather than duct decisions**, which is why the model still carries the 2″ version. Note that 806 fpm assumes a generous 75% free area — a real louvred face makes it worse, not better.
+**The kitchen SE register was the one worth building around.** At 2″ of height under the cabinetry it ran 806 fpm — not marginal, audible, and in a kitchen where people stand. The 4″ height halves it to 403. **Getting that height is still a construction decision** — one cabinet moves over, or the cabinet is modified — so the drawn 4x15 records the decision rather than removing the work. Note that 403 fpm assumes a generous 75% free area; a heavier louvred face runs faster.
 
-**The kitchen return is about area, not length.** 251 CFM needs roughly 120 in² at 300 fpm, and the drawn 3x20 gives 60. What it does *not* need is to stay 20″ long. Preserving the drawn dimension and growing only the other gives 6x20 — a 3.3:1 grille nobody stocks.
+**The kitchen return was about area, not length.** 251 CFM needs roughly 120 in² at 300 fpm, and the 3x20 gave 60. What it did *not* need was to stay 20″ long: preserving the drawn dimension and growing only the other gives 6x20, a 3.3:1 grille nobody stocks.
 
 | Target | Area | Sensible face |
 |---|---:|:-:|
@@ -96,7 +98,7 @@ Faces below are **as drawn in the model**, sized against available space, with t
 | 350 fpm | 103 in² | **8x14** |
 | 500 fpm — the ceiling | 72 in² | 6x12 |
 
-**8x14 is the pick** — a stock size at 323 fpm. 6x12 is defensible if space is tight, at the cost of a return you can hear. The current 3x20 is outside the range at either end.
+**8x14 is the pick** — a stock size at 323 fpm, and what the model now carries. 6x12 is defensible if space is tight, at the cost of a return you can hear.
 
 If the 3″ height is fixed by cabinetry, no single grille solves it — 3x40 would be needed, and the answer is two openings rather than one enormous one.
 
@@ -106,18 +108,20 @@ If the 3″ height is fixed by cabinetry, no single grille solves it — 3x40 wo
 
 ### The main-floor return path is the real bottleneck
 
-This is larger than every grille question combined. As drawn, **`Return branch for both main bedrooms` is a single 4x8 running 30 ft**, and three returns hang off it: Main Bed, Kids Room, and — since the utility return was tapped into the Kids Room branch — the Utility Room as well.
+It was a single 4x8 running 30 ft with three returns hanging off it — Main Bed 227, Kids Room 64, and the Utility Room's 83 via the Kids Room tap. That is 374 CFM through 32 in², about **1,680 fpm**.
 
-| | CFM |
-|---|---:|
-| Main Bed | 227 |
-| Kids Room | 64 |
-| Utility Room | 83 |
-| **Through one 4x8** | **374** |
+**The run is now split at the point where it stops being buried**, which is the remedy this section used to argue for:
 
-A 4x8 is 32 in². At 374 CFM that is about **1,680 fpm** — not a sizing error to nudge, a duct carrying roughly four times what it should. Even at the ~91 CFM this duct is believed to actually pass, the two rooms behind it are being starved by the same constraint that starves the bedroom.
+| Segment | Serves | CFM | Section | fpm |
+|---|---|---:|:-:|---:|
+| `Return branch for kids room and basement NE`, 8.9 ft | Kids Room + Utility | 147 | **6x10** | 353 |
+| `Return branch for main bedroom`, 21 ft | Main Bed | 227 | 4x8 | 1,022 |
 
-This is the same inaccessible crawlspace duct already flagged for the Main Bed, so **it is one problem wearing three hats, not three problems.** It also reframes the transfer-grille plan: a grille over the bedroom door relieves the bedroom, and does nothing for the Kids Room or Utility Room behind the same pinch. Verify the topology on site before pricing a fix — this reading comes from the drawn adjacency, and it is the one place where being wrong would be expensive in the other direction.
+**The two rooms behind the pinch are out from behind it.** The Kids Room and Utility Room now return through 60 in² at a quiet 353 fpm, where before they shared a duct running four times over.
+
+**The main bedroom segment still reads 1,022 fpm, and that number is notional.** It is the existing duct through the inaccessible crawlspace, drawn at the size it actually is. At the ~91 CFM it is believed to pass it runs 410 fpm and is quiet — the duct is not undersized for what goes through it, it is undersized for what the room wants. That gap is a capacity problem to solve at the grille or with a transfer path, not a duct to re-size in the model.
+
+The split still rests on drawn adjacency. **Verify the topology on site before pricing anything** — specifically that the open basement run really does extend as far as the model puts the split.
 
 **The Main Bed return is not in that list, though its number is the worst.** 726 fpm assumes 227 CFM actually arrives, and it cannot: behind that grille is the existing 7.5x4 through the inaccessible crawlspace, good for roughly 91 CFM. At 91 the 5x9 face runs 291 fpm and is perfectly quiet. **The grille is correctly sized for the duct; the duct is the problem**, and the plan of record remains a transfer grille over the bedroom door first.
 

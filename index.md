@@ -82,9 +82,9 @@ Against that, the proposed location has two costs. Attic air reaches an estimate
 
 **Total effective length is not derivable from this model.** No elbows, tees or takeoffs are drawn, and duct sizing uses a flat fitting factor rather than true equivalent lengths. Real fittings on a three-storey run add 50–150 ft of equivalent length. Since the one-unit-versus-two question turns on static pressure, this is the most consequential gap in the package.
 
-**The main-floor return path is undersized.** A single 4x8 duct running 30 ft through an inaccessible crawlspace carries the Main Bed, Kids Room and Utility Room returns — about 374 CFM through 32 in². The buried section cannot be changed; the basement run is open and can be enlarged. Worth verifying on site before pricing a remedy.
+**The main bedroom's return is undersized.** Its duct runs through an inaccessible crawlspace and passes roughly 91 CFM against a 227 CFM design. The rest of that run has been split off and enlarged, so the Kids Room and Utility Room are no longer behind the same pinch, but the bedroom still is. Worth verifying on site before pricing a remedy.
 
-**Two kitchen register faces run too fast.** The SE supply has 2″ of height under the cabinetry and runs 806 fpm; the return at 3x20 runs 602. Both need more face area, and both are construction decisions rather than duct decisions.
+**The kitchen SE supply needs cabinet work.** It is drawn at 4x15, which runs a comfortable 403 fpm, but the 4″ of height that requires means moving one cabinet over or modifying it. The drawing records the decision; the carpentry has not happened.
 
 **Some loads are deliberately biased.** Second-floor airflow is multiplied by 1.35 and the basement by 0.70, because the second floor runs hot and the basement holds temperature unconditioned. The second floor's ceiling area is modelled at 984 ft² against a professional report's 1,547, which makes the second-floor figures conservative.
 

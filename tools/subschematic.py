@@ -434,6 +434,73 @@ def collect(b3, all_items, all_walls, proj, keep_levels=None):
     return items, ws
 
 
+def explain(view, all_items, all_walls, levels):
+    """Say what a view box covers, in the terms the box is drawn in.
+
+    A box in Sweet Home 3D is invisible by design and its extent is hard to
+    judge on screen against ducts it overlaps, so the question "does this
+    actually contain the junction?" is not answerable in the app. This answers
+    it from the file, and reports the grow-by figures needed to hold the
+    partially-caught objects whole.
+    """
+    b3 = box3_of(view)
+    x0, y0, z0, x1, y1, z1 = b3
+    proj = view["tag"] if view["tag"] in PROJECTIONS else "plan"
+
+    print(f"View: {view['name']}  [{proj}]   drawn on {view['level']}")
+    print(f"  {(x1 - x0) / 12:.1f} ft E-W  x  {(y1 - y0) / 12:.1f} ft N-S  x  "
+          f"{(z1 - z0) / 12:.1f} ft tall")
+    print(f"  x {x0:.0f}-{x1:.0f}in   y {y0:.0f}-{y1:.0f}in   z {z0:.0f}-{z1:.0f}in")
+
+    spanned = [lv["name"] for lv in levels.values()
+               if lv["elevation"] < z1 and lv["elevation"] + lv["height"] > z0]
+    print(f"  levels in view: {', '.join(spanned) or '(none)'}")
+
+    d0, d1 = depth2(b3, proj)
+    axis = {"plan": "z", "section-ns": "x", "section-ew": "y"}[proj]
+    print(f"  slice depth: {(d1 - d0) / 12:.1f} ft along {axis} "
+          f"(the axis the drawing cannot show)")
+
+    items, ws = collect(b3, all_items, all_walls, proj, spanned)
+    print(f"  drawn: {len(items)} objects, {len(ws)} walls\n")
+
+    if not items:
+        print("  Nothing inside the box.\n")
+        return
+
+    # How much of each caught object is inside, and what it would take to hold
+    # it whole. Reported per object because "grow it a bit" is not actionable.
+    need = [0.0, 0.0, 0.0, 0.0]          # -x, -y, +x, +y, in inches
+    whole = 0
+    print(f"  {'':<4}{'object':<54}{'inside':>8}")
+    for it in sorted(items, key=lambda i: i["name"]):
+        e = box3_of(it)
+        ox = max(0.0, min(e[3], x1) - max(e[0], x0))
+        oy = max(0.0, min(e[4], y1) - max(e[1], y0))
+        frac = min(ox / max(0.1, e[3] - e[0]), oy / max(0.1, e[4] - e[1]))
+        if frac > 0.98:
+            whole += 1
+            mark = "full"
+        else:
+            mark = f"{frac * 100:.0f}%"
+            need[0] = max(need[0], x0 - e[0])
+            need[1] = max(need[1], y0 - e[1])
+            need[2] = max(need[2], e[3] - x1)
+            need[3] = max(need[3], e[4] - y1)
+        print(f"  {'[' + it['side'][:3] + ']':<4}{it['name']:<54}{mark:>8}")
+
+    print(f"\n  {whole} of {len(items)} drawn whole.")
+    if any(n > 0.5 for n in need):
+        print("  To hold every caught object whole, grow the box by:")
+        for label, n in zip(("west (-x)", "north (-y)", "east (+x)", "south (+y)"),
+                            need):
+            if n > 0.5:
+                print(f"    {label:<12} {n:6.0f} in  ({n / 12:.1f} ft)")
+        print(f"  Which would make it {(x1 - x0 + need[0] + need[2]) / 12:.1f} x "
+              f"{(y1 - y0 + need[1] + need[3]) / 12:.1f} ft.")
+    print()
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -447,6 +514,10 @@ def main():
     ap.add_argument("--levels", help="comma-separated level names to draw in plan; "
                                      "defaults to the levels the box's height spans")
     ap.add_argument("--list", action="store_true", help="list View: objects and exit")
+    ap.add_argument("--explain", action="store_true",
+                    help="report what each view covers — size, levels, and how "
+                         "much of each object falls inside — and how far the box "
+                         "would have to grow to hold them whole")
     args = ap.parse_args()
 
     root, levels = load(args.home)
@@ -461,6 +532,13 @@ def main():
             print("set it invisible, and drag it over the region you want.")
         for v in views:
             print(f"  {v['name']}  [{v['tag'] or 'plan'}]  on {v['level']}")
+        return
+
+    if args.explain:
+        if not views:
+            sys.exit("no View: objects in the model — nothing to explain")
+        for v in views:
+            explain(v, all_items, all_walls, levels)
         return
 
     jobs = []
