@@ -35,10 +35,9 @@ Lengths are centre-line and **do not deduct for fittings**, so they run long at 
 | Run | Levels | Segs | Section | Material | Length | Bends |
 |---|---|:-:|:-:|:-:|---:|:-:|
 | North return branch for kitchen | Basement | 4 | 8x8 / 6x14 | oval | 19.0 ft | 3 |
-| North return trunk | Basement | 2 | 12x12 / 10x12 | rect / oval | 12.2 ft | 1 |
-| Return branch for both main bedrooms | basement-main-transition | 1 | 4x8 | rect | 30.0 ft | 0 |
-| Return branch for main bed room | basement-main-transition | 2 | 4x8 / 4x10 | rect | 5.3 ft | 1 |
-| Return branch for main floor kids room | Basement, Main | 2 | 8x8 | rect | 3.7 ft | 1 |
+| North return trunk | Basement | 2 | 12x12 / 12x14 | rect / oval | 12.2 ft | 1 |
+| Return branch for kids room and basement NE | basement-main-transition, Basement, Main | 3 | 6x10 / 8x8 | rect | 12.5 ft | 2 |
+| Return branch for main bedroom | basement-main-transition | 3 | 4x8 / 4x10 | rect | 26.4 ft | 2 |
 | Return branch for office | 2nd floor | 2 | 6x10 | rect | 11.0 ft | 1 |
 | Return branch for play room south | 2nd floor | 2 | 6x10 | rect | 20.6 ft | 1 |
 | Return plenum | Basement | 1 | 12x20 | rect | 10.0 ft | 0 |
@@ -53,7 +52,7 @@ Lengths are centre-line and **do not deduct for fittings**, so they run long at 
 |---|---|:-:|:-:|
 | NE ceiling duct return from utility room | Basement | 5x12 | circular |
 | Return from kids room | Main | 4x10 | louvred |
-| Return from kitchen | Main | 3x20 | louvred |
+| Return from kitchen | Main | 8x14 | louvred |
 | Return from living room | Main | 6x12 | louvred |
 | Return from main bed | Main | 5x9 | louvred |
 | SW ceiling duct return from future media room | Basement | 5x12 | circular |
@@ -67,7 +66,7 @@ Lengths are centre-line and **do not deduct for fittings**, so they run long at 
 | NW supply for living room | Main | 5x10 | louvred |
 | S supply for play room | 2nd floor | 5x10 | louvred |
 | SE ceiling duct supply for utility room | Basement | 5x10 | circular |
-| SE supply for kitchen | Main | 2x15 | louvred |
+| SE supply for kitchen | Main | 4x15 | louvred |
 | SW supply for kitchen | Main | 6x11 | louvred |
 | Supply for kids room | Main | 6x12 | louvred |
 | Supply for main bath | Main | 5x8 | louvred |
@@ -84,9 +83,9 @@ Future runs excluded. Round sizes are **airway** — confirm whether a supplier 
 | Section | Material | Linear feet |
 |---|---|---:|
 | 8″ ø | dwspiral | 71.7 |
-| 6x10 | rect | 44.0 |
+| 6x10 | rect | 52.9 |
 | 4x10 | rect | 37.8 |
-| 4x8 | rect | 33.3 |
+| 4x8 | rect | 24.4 |
 | 9x9 | rect | 20.0 |
 | 8x8 | rect | 20.0 |
 | 8x8 | oval | 16.3 |
@@ -95,7 +94,7 @@ Future runs excluded. Round sizes are **airway** — confirm whether a supplier 
 | 12x12 | rect | 11.3 |
 | 11x11 | rect | 8.3 |
 | 8x16 | rect | 8.2 |
-| 10x12 | oval | 6.8 |
+| 12x14 | oval | 6.8 |
 | 6″ ø | dwspiral | 6.7 |
 | 6x8 | rect | 5.5 |
 | 8x10 | rect | 4.8 |
@@ -108,7 +107,7 @@ Future runs excluded. Round sizes are **airway** — confirm whether a supplier 
 | 5x8 | rect | 1.7 |
 | 4x7 | rect | 1.4 |
 | 4x9 | rect | 1.3 |
-| **Total** | | **344.5** |
+| **Total** | | **344.4** |
 
 ## Cost — planning grade only
 
@@ -117,12 +116,12 @@ Future runs excluded. Round sizes are **airway** — confirm whether a supplier 
 | Item | Quantity | Low | High |
 |---|---:|---:|---:|
 | Round duct, double-wall spiral | 98 ft | $1,178 | $2,944 |
-| Rectangular and oval, fabricated | 246 ft | $2,463 | $6,159 |
+| Rectangular and oval, fabricated | 246 ft | $2,463 | $6,156 |
 | Supply registers | 15 | $225 | $900 |
 | Return grilles | 8 | $200 | $800 |
-| Balancing dampers | 21 | $525 | $1,260 |
-| Duct only | | $3,641 | $9,102 |
-| **Subtotal — duct, trim and dampers** | | **$4,591** | **$12,062** |
+| Balancing dampers | 20 | $500 | $1,200 |
+| Duct only | | $3,640 | $9,100 |
+| **Subtotal — duct, trim and dampers** | | **$4,565** | **$12,000** |
 
 **All figures are pre-incentive.** No rebate, tax credit or utility programme is netted off anywhere in this document. Incentives change by year, by model and by jurisdiction, and a quote that quietly assumes one is a quote that cannot be compared against another.
 
@@ -167,14 +166,14 @@ The Bosch IDS Ultra is the candidate on file. Treat both rows as placeholders un
 
 | | Low | High |
 |---|---:|---:|
-| Ductwork, straight runs | $3,641 | $9,102 |
-| Fittings allowance (25–40% of duct) | $910 | $3,641 |
-| Registers, grilles, dampers | $950 | $2,960 |
+| Ductwork, straight runs | $3,640 | $9,100 |
+| Fittings allowance (25–40% of duct) | $910 | $3,640 |
+| Registers, grilles, dampers | $925 | $2,900 |
 | Equipment, 4-ton | $5,500 | $10,500 |
 | Filtration, UV, humidity | $1,200 | $3,000 |
-| **Total, pre-incentive** | **$12,201** | **$29,203** |
+| **Total, pre-incentive** | **$12,175** | **$29,140** |
 
-**Centre of mass is around $20,702**, and the upper band is what you get if every constrained thing turns out to be the hard version — duct fished through finished walls rather than run through open joists, the kitchen cabinetry modified rather than worked around, the high-end UV rather than coil lamps. A realistic landing spot sits below the top of the range rather than at it.
+**Centre of mass is around $20,658**, and the upper band is what you get if every constrained thing turns out to be the hard version — duct fished through finished walls rather than run through open joists, the kitchen cabinetry modified rather than worked around, the high-end UV rather than coil lamps. A realistic landing spot sits below the top of the range rather than at it.
 
 **Pre-incentive throughout.** Nothing here is netted against a rebate, credit or utility programme, so it can be compared against a quote line for line — and whatever incentives apply come off afterwards rather than being baked into a number nobody can reconcile.
 
@@ -195,8 +194,8 @@ On cost alone, the delta is a second indoor unit, a second filter, a second cond
 | Supply registers | 15 |
 | Return grilles | 8 |
 | — of which circular | 4 |
-| Branch runs (one balancing damper each) | 21 |
-| Inferred direction changes | 32 |
+| Branch runs (one balancing damper each) | 20 |
+| Inferred direction changes | 34 |
 
 **Damper every takeoff regardless of what the balance calculation says.** A branch without one cannot be adjusted after the fact, and the first season in a house is when the balance is discovered.
 
