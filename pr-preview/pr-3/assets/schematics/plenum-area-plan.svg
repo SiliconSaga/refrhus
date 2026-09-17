@@ -11,6 +11,8 @@
 <line x1="55.4" y1="267.5" x2="159.4" y2="267.5" stroke-width="11.2" opacity="0.18"/>
 <line x1="55.4" y1="350.0" x2="159.4" y2="350.0" stroke-width="11.2" opacity="0.18"/>
 <line x1="174.8" y1="314.0" x2="174.8" y2="365.2" stroke-width="12.8" opacity="0.18"/>
+<polygon points="26.4,347.2 46.4,347.2 46.4,365.2 26.4,365.2" fill="currentColor" fill-opacity="0.30" stroke="currentColor" stroke-width="1" stroke-opacity="0.45"/>
+<polygon points="36.2,66.4 52.8,66.4 52.8,86.2 36.2,86.2" fill="currentColor" fill-opacity="0.30" stroke="currentColor" stroke-width="1" stroke-opacity="0.45"/>
 <polygon points="28.2,287.3 28.2,255.3 41.0,255.3 41.0,287.3" fill="none" stroke="currentColor" stroke-width="2.6" opacity="0.28"/>
 <polygon points="28.2,287.3 28.2,255.3 41.0,255.3 41.0,287.3" fill="#28f200" fill-opacity="0.22" stroke="#28f200" stroke-width="1.4"/>
 <polygon points="65.5,309.7 65.5,271.3 142.3,271.3 142.3,309.7" fill="none" stroke="currentColor" stroke-width="2.6" opacity="0.28"/>
