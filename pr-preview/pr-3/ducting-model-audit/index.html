@@ -80,7 +80,7 @@
     <main class="content">
       <h1 id="duct-model-audit">Duct model audit</h1>
 
-<p>What the drawn model says about itself, and where it disagrees with the <a href="/refrhus/pr-preview/pr-3/ducting-register-schedule/">register schedule</a>. Currently <strong>73 <code class="language-plaintext highlighter-rouge">Ducting:</code> objects and 25 registers</strong>.</p>
+<p>What the drawn model says about itself, and where it disagrees with the <a href="/refrhus/pr-preview/pr-3/ducting-register-schedule/">register schedule</a>. Currently <strong>74 <code class="language-plaintext highlighter-rouge">Ducting:</code> objects and 25 registers</strong>.</p>
 
 <p><strong>Per-run sections, lengths and materials are not repeated here</strong> — they live in <a href="/refrhus/pr-preview/pr-3/ducting-parts-list/"><code class="language-plaintext highlighter-rouge">ducting-parts-list.md</code></a>, which is generated from the model on demand. This document carries only the findings that a table cannot: how the geometry was read, what the topology can and cannot tell us, and which sizing conclusions are contested.</p>
 
@@ -88,9 +88,9 @@
 
 <h2 id="connectivity">Connectivity</h2>
 
-<p>A 3D adjacency pass over all 73 duct objects and 25 registers at 3″ tolerance. <strong>Every run joins something, no trunk or plenum dead-ends mid-run, and every register attaches to a duct</strong> — the supply, SE, north and SW systems are all continuous as drawn.</p>
+<p>A 3D adjacency pass over all 74 duct objects and 25 registers at 3″ tolerance. <strong>Every run joins something, no trunk or plenum dead-ends mid-run, and every register attaches to a duct</strong> — the supply, SE, north and SW systems are all continuous as drawn.</p>
 
-<p><strong>Read Sweet Home 3D’s own rotated dimensions, not the raw ones.</strong> A piece tilted by <code class="language-plaintext highlighter-rouge">pitch</code> or <code class="language-plaintext highlighter-rouge">roll</code> carries <code class="language-plaintext highlighter-rouge">widthInPlan</code> / <code class="language-plaintext highlighter-rouge">depthInPlan</code> / <code class="language-plaintext highlighter-rouge">heightInPlan</code> — the bounding box <em>after</em> that tilt — and its <code class="language-plaintext highlighter-rouge">elevation</code> is measured to the bottom of that box, not of the upright model. Twenty-four of the 73 duct objects are tilted, all of them horizontal runs drawn as pitched cylinders. Reconstructing the rotation from <code class="language-plaintext highlighter-rouge">width</code>/<code class="language-plaintext highlighter-rouge">depth</code>/<code class="language-plaintext highlighter-rouge">height</code> instead puts those runs <strong>tens of inches off in elevation</strong> while leaving the plan position right — so they read as badly broken chains that look perfectly joined on screen. Only the yaw (<code class="language-plaintext highlighter-rouge">angle</code>) still needs applying, to the in-plan footprint.</p>
+<p><strong>Read Sweet Home 3D’s own rotated dimensions, not the raw ones.</strong> A piece tilted by <code class="language-plaintext highlighter-rouge">pitch</code> or <code class="language-plaintext highlighter-rouge">roll</code> carries <code class="language-plaintext highlighter-rouge">widthInPlan</code> / <code class="language-plaintext highlighter-rouge">depthInPlan</code> / <code class="language-plaintext highlighter-rouge">heightInPlan</code> — the bounding box <em>after</em> that tilt — and its <code class="language-plaintext highlighter-rouge">elevation</code> is measured to the bottom of that box, not of the upright model. Nineteen of the 74 carry a non-zero pitch or roll, all of them horizontal runs drawn as pitched cylinders. Reconstructing the rotation from <code class="language-plaintext highlighter-rouge">width</code>/<code class="language-plaintext highlighter-rouge">depth</code>/<code class="language-plaintext highlighter-rouge">height</code> instead puts those runs <strong>tens of inches off in elevation</strong> while leaving the plan position right — so they read as badly broken chains that look perfectly joined on screen. Only the yaw (<code class="language-plaintext highlighter-rouge">angle</code>) still needs applying, to the in-plan footprint.</p>
 
 <p>The SW return is the run that exposed this: trunks 3 and 4 overlap by 1″ in elevation (74–83″ and 82–91″), and a naive pass reported them 26″ apart. <strong>Two rounds of model edits chased that phantom before the reader was suspected</strong> — the owner’s own observation that the pieces touched was correct throughout.</p>
 
@@ -108,8 +108,9 @@
 <p>Joints here are a mix of butts and overlaps, so no single threshold separates a tee from a neighbour. <strong>The return side survives anyway</strong>, because its runs are sparse enough not to graze, and it walks into exactly the tree the design describes:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Return plenum
-├── North return trunk → kitchen branch, both-main-bedrooms
-│                        └── both-main-bedrooms → main bed, main floor kids
+├── North return trunk → kitchen branch
+│                      → main bedroom          (the buried 4x8)
+│                      → kids room + basement NE (the enlarged 6x10)
 ├── SE return trunk   → office, play room south      (the 2nd-floor riser)
 └── SW return trunk   → SW return branch (living room / SW basement)
 </code></pre></div></div>
@@ -120,13 +121,13 @@
 
 <h2 id="the-contested-sizing">The contested sizing</h2>
 
-<p><strong>The main-floor return path is the system’s real bottleneck</strong>, and it is not a grille problem. <code class="language-plaintext highlighter-rouge">Return branch for both main bedrooms</code> is a single <strong>4x8 running 30 ft</strong>, and three returns hang off it — Main Bed 227, Kids Room 64, and the Utility Room’s 83 via the Kids Room tap. That is ~374 CFM through 32 in².</p>
+<p><strong>The main-floor return path was the system’s bottleneck</strong> — a single 4x8 running 30 ft with Main Bed 227, Kids Room 64 and the Utility Room’s 83 all hanging off it, about 374 CFM through 32 in².</p>
 
-<p>It is the existing duct through the inaccessible crawlspace, so it is not a sizing error to correct in the model — but <strong>the pinch is only the buried section.</strong> The basement portion is open and can be enlarged at least as far as the splitter, and optionally onward to the Kids Room. This also reframes the remedy: a transfer grille above the bedroom door relieves the bedroom alone and does nothing for the two rooms behind the same constriction.</p>
+<p><strong>It is now drawn as two runs, split where the duct stops being buried.</strong> <code class="language-plaintext highlighter-rouge">Return branch for kids room and basement NE</code> takes the open basement portion at 6x10 over 8.9 ft, carrying 147 CFM at 353 fpm. <code class="language-plaintext highlighter-rouge">Return branch for main bedroom</code> keeps the buried 4x8 over 21 ft, because that is what is physically there. The two rooms that were behind the pinch are no longer behind it; the bedroom still is, and that remains a capacity problem to solve at the grille or with a transfer path rather than a duct to re-size.</p>
 
 <p><strong>The Utility Room return shares the Kids Room branch</strong>, which takes that branch from 64 CFM to 147. It is drawn at 8″, which runs 421 fpm and is fine; the 6″ the schedule originally specified would have run 747. A shared branch is sized for the sum, and once shared, the room name on it stops being the whole story.</p>
 
-<p><strong>Two kitchen faces remain constrained by cabinetry</strong> — the SE supply at 2″ of height running 806 fpm, and the return at 3x20 running 602. Both are construction decisions rather than duct decisions, which is why the model still carries them as drawn.</p>
+<p><strong>Both kitchen faces have been redrawn at the sizes the schedule asked for</strong> — the SE supply from 2x15 to 4x15 (806 → 403 fpm) and the return from 3x20 to 8x14 (602 → 323). Getting the SE supply’s 4″ of height still needs a cabinet moved or modified, so the model now records a decision that the carpentry has yet to catch up with.</p>
 
 <h2 id="modelling-caveats">Modelling caveats</h2>
 

@@ -123,7 +123,7 @@
 
 <p>Both utility closets have ample space for any combination or placement of ducts, so cabinet capacity is not a constraint on the layout. Plenums are 12×20, sized as an estimate that will be refined at install.</p>
 
-<p><strong>Carried as doc-only metadata</strong>, because there is no clean way to say it in the schematic: the <code class="language-plaintext highlighter-rouge">Return branch for both main bedrooms</code> is a single 4x8 running 30 ft and <strong>three returns hang off it</strong> — Main Bed 227, Kids Room 64, Utility Room 83, or about 374 CFM through 32 in². It is the existing duct through the inaccessible crawlspace, so it is not a sizing error to correct in the model. The pinch is only the <em>buried</em> section: the basement run is open and can be enlarged at least as far as the splitter. A transfer grille above the bedroom door relieves the bedroom alone and does nothing for the two rooms behind the same constriction. <strong>Treat the docs as the home for design metadata the model cannot express.</strong></p>
+<p><strong>Now expressed in the model rather than carried as doc-only metadata.</strong> The single 4x8 running 30 ft — Main Bed 227, Kids Room 64, Utility Room 83, about 374 CFM through 32 in² — is drawn as two runs split where the duct stops being buried. The open basement portion is 6x10 and carries the Kids Room and Utility returns at 353 fpm; the buried portion stays 4x8 because that is what is there. <strong>Splitting the object was what let the model say it</strong> — one run could only carry one section, so the distinction between the fixable half and the fixed half had to live in prose.</p>
 
 <hr />
 
@@ -334,9 +334,9 @@ Design airflow 1,217 → 1,241 CFM · Manual S 3.3 → 3.4 tons (recommendation 
 <p><strong>Still open, and all three are the owner’s call rather than modelling work:</strong></p>
 
 <ol>
-  <li><strong>The kitchen SE supply</strong> runs 806 fpm at 2″ of cabinet height and wants 4″. Moving one cabinet over or modifying the cabinet both solve it; either is a construction decision.</li>
-  <li><strong>The kitchen return</strong> at 3x20 needs roughly double the area, and wants to get <em>rounder</em> rather than longer — 8x14 against the drawn 3x20.</li>
-  <li><strong>The main-floor return path</strong>, the one worth a site visit before anything is priced. The buried section cannot change; the basement run is open and can be enlarged at least as far as the splitter.</li>
+  <li><strong>The kitchen SE supply’s 4″ of cabinet height.</strong> The model now draws 4x15 at 403 fpm, but getting the height still means moving one cabinet over or modifying it — a construction decision the drawing has run ahead of.</li>
+  <li><strong>Where the main-floor return stops being buried.</strong> The model now splits it there, so the split point is load-bearing: it decides how much duct can be enlarged. Worth a site visit before anything is priced.</li>
+  <li><strong>The main bedroom’s own return</strong>, which the split does not solve. The buried 4x8 passes roughly 91 CFM against a 227 CFM design, and the remedy is a transfer path rather than a duct.</li>
 </ol>
 
 <h2 id="what-to-be-upfront-about-in-the-package">What to be upfront about in the package</h2>
