@@ -181,6 +181,32 @@ w("Future runs excluded. Round sizes are **airway** — confirm whether a suppli
   "inner or outer diameter on double-wall before ordering, because getting it backwards "
   "costs two inches of diameter on every round run at once.")
 w("")
+w("### Where the round duct comes from")
+w("")
+w("Double-wall spiral is fabricator-made rather than a stocked wholesale item, and "
+  "two shops within reach of the house make it. Both confirmed from their own "
+  "published pages; neither has been quoted.")
+w("")
+w("| | Location | Round capability |")
+w("|---|---|---|")
+w("| **Universal Fabricating & Supply** | 25 Just Rd, Fairfield NJ — roughly 8 miles | "
+  "Single and double-wall spiral **3″–54″**, custom lengths to 20 ft |")
+w("| **Airside Sheet Metal** | 246 Brighton Rd, Andover NJ — roughly 30 miles | "
+  "**4″–60″**, stocked 4″–26″, 60,000 ft² shop |")
+w("")
+w("Fairfield is the near one and covers every size on this job. Andover is the "
+  "larger shop and the one more likely to have odd sizes on the floor.")
+w("")
+w("**The question to settle on the first call is inner versus outer diameter.** "
+  "Everything above is sized by *airway*, and on double-wall the insulation sits "
+  "inside the shell — so a supplier quoting outer diameter delivers roughly two "
+  "inches less airway than the schedule assumes, on every round run at once.")
+w("")
+w("Two smaller things worth raising at the same time: this job totals under 100 ft "
+  "of round across four diameters, which is a small order for a commercial shop and "
+  "may run into a minimum; and **9″ is the least common of the four sizes** here, so "
+  "it is the one most likely to be a special run rather than something on the rack.")
+w("")
 w("**An `oval` section is the box it must fit inside, not its airway.** A flat oval "
   "turns each corner into a semicircular end, so a run listed 14x18 carries about "
   "210 in² against the 252 the two numbers multiply to — roughly 20% less on every "
