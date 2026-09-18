@@ -1,7 +1,5 @@
 # Handover package — design plan
 
-Written 2026-09-07, deliberately before a context compaction, so the next session can pick this up cold.
-
 **Goal:** turn the duct design into something an HVAC company can be handed — a public GitHub Pages site with real navigation, backed by the measured model, carrying a parts list and renders. The company still favours a second air handler upstairs; this package is the argument against it, made in their own units.
 
 **`Cervator/refrhus` is public**, as is `SiliconSaga/eldr`. Refr Hus is a public worked example of GDD applied to home improvement, and public repos publish Pages on the free plan — so neither the Pages tier nor CI repo access is a constraint.

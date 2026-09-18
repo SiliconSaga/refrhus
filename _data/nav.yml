@@ -1,10 +1,19 @@
-# The left-hand contents. Order is reading order for someone who has never seen
-# the project: what is proposed, then what the house actually is, then the load
-# numbers underneath both, then what is still unmeasured.
+# The left-hand contents, in two tiers.
+#
+# The site serves two readers who need very different amounts of it. A
+# contractor needs the proposal — what to build and what it is sized against —
+# which is the first three groups. Everything under "Working notes" is the
+# owner's own record: how the house was measured, how the model is read, what
+# is still unknown. It stays public because the numbers above are only
+# checkable against it, but nobody pricing a job has to read it.
+#
+# Keep that boundary honest. A page a contractor needs belongs above it; one
+# written to be edited rather than read belongs below.
+
 - title: Overview
   url: /
 
-- title: The duct design
+- title: The proposal
   children:
     - title: Scheme and reasoning
       url: /ducting-scheme/
@@ -12,12 +21,17 @@
       url: /ducting-register-schedule/
     - title: Parts list and cost
       url: /ducting-parts-list/
-    - title: Handover plan
-      url: /ducting-handover-plan/
-    - title: Model audit
-      url: /ducting-model-audit/
 
-- title: The house
+- title: Load calculations
+  children:
+    - title: How the two compare
+      url: /hvac/
+    - title: The professional Manual J
+      url: /hvac/professional-manual-j/
+    - title: Current Eldr run
+      url: /hvac/eldr-report/
+
+- title: Working notes — the house
   children:
     - title: Construction history
       url: /HISTORY/
@@ -32,18 +46,16 @@
     - title: Basement post details
       url: /basement-post-details/
 
-- title: Load calculations
+- title: Working notes — model and method
   children:
-    - title: Manual J index
-      url: /hvac/
-    - title: The professional Manual J
-      url: /hvac/professional-manual-j/
-    - title: Current Eldr run
-      url: /hvac/eldr-report/
+    - title: Model audit
+      url: /ducting-model-audit/
+    - title: Handover plan
+      url: /ducting-handover-plan/
     - title: Surface-temperature protocol
       url: /hvac/measurements/
 
-- title: Still open
+- title: Still unmeasured
   children:
     - title: Measurement hit-list
       url: /schematic-hitlist/

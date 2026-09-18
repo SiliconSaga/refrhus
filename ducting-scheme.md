@@ -80,9 +80,7 @@ Rooms under 10 CFM get no dedicated run — door undercut or a transfer grille i
 
 Velocities run 191–576 fpm — inside the 500–750 supply band at the top end and comfortably under it elsewhere.
 
-> **This table was re-derived on 2026-09-18 and the previous one was badly stale.** It had been computed against a much earlier model state and understated every room — Kitchen 153 against 254, Future Media 73 against 124, Utility 70 against 118 — for a biased total of 875 CFM against today's 1,202. Six of the twelve rooms move up a nominal duct size as a result.
->
-> **The register schedule has not been re-derived**, so it still carries the older basis. It remains authoritative for what gets installed, and the gap between the two is now a known quantity rather than an unnoticed one. Re-deriving it is the outstanding task before anything is fabricated.
+> **The register schedule is built on an earlier, lower set of room loads** and has not been re-derived against these. It stays authoritative for what gets installed, so the two differ by a known margin — re-deriving it is the outstanding task before anything is fabricated.
 
 | | CFM | Round | Rectangular |
 |---|---:|---|---|
@@ -131,9 +129,9 @@ It carries **only the second floor**, not the whole 1,245 — the main floor is 
 | Four second-floor rooms, biased individually today | **301** | 9.23″ | 681 fpm |
 | Level total × 1.35 (238 → 321), closets included | **321** | 9.45″ | 727 fpm |
 
-**A 9″ round carries about 276 CFM at design friction** — which is to say the riser is sized exactly at its own design figure, with no headroom at all. An earlier version of this paragraph said a 9″ carries 357 and therefore "holds 276 and 321 alike". That conflated a **9×9 rectangular** duct — 9.84″ equivalent round, 357 CFM — with a 9″ round. They are not the same duct.
+**A 9″ round carries about 276 CFM at design friction**, so the riser is sized exactly at its own design figure with no headroom. (A *9×9 rectangular* duct is a different thing — 9.84″ equivalent round, 357 CFM — and the two are easy to confuse.)
 
-The correction does not overturn the design, but it removes the margin it claimed. At 301 the 9″ runs 681 fpm and at 321 it runs 727, both inside the 500–750 supply band and both at the top of it. Equal-friction sizing on either figure calls for a **10″** (552 and 589 fpm respectively).
+That leaves no margin, but it does not overturn the design. At 301 the 9″ runs 681 fpm and at 321 it runs 727, both inside the 500–750 supply band and both at the top of it. Equal-friction sizing on either figure calls for a **10″** (552 and 589 fpm respectively).
 
 **So the choice is explicit rather than incidental:** keep the 9″ and accept the top of the band, or take the 10″ and the quiet. Re-derive the schedule against current loads before anything is fabricated.
 
@@ -301,9 +299,7 @@ The wall the upstairs-east risers pass through, and the trickiest build in the s
 
 **Go rectangular, not round.** The depth budget is roughly two stud bays back to back (~7″), and a bay gives about 14.5″ clear. Three round 5–6″ ducts side by side need 15–18″ and fight the studs. Residential **wall-stack duct** — 3.25x10 or 3.25x12, purpose-made to run vertically between studs in a 2x4 wall — puts the shallow dimension across the wall depth and solves the problem directly. Oval is the fallback. Prefer running each duct *within* a bay so no stud needs notching; if a riser must cross one, verify the partition is non-load-bearing first, because the south-extension quirk muddies that.
 
-**The panel has to come off and still look intentional.** Build the built-in as a rigid self-bracing box so it does not rack when lifted, and hang it on a French cleat with a few concealed screws — rigidity gives the sturdiness, few fasteners give the removability. Hide screws inside shelf interiors, behind the coat rail, or under a toe-kick. **Put the removable seams on natural trim lines** — design the face as board-and-batten or stile-and-rail so the panel edges fall on a batten joint. That is the difference between millwork and an access hatch.
-
-The alternative to all of it is over-provisioning ducts up front so the wall never needs opening. This scheme deliberately takes the other bet: **fewer ducts, and a wall you can unscrew.**
+**The face comes off.** The built-in over it is designed as a removable panel on a French cleat, so the risers stay reachable without demolition — which is why this scheme runs fewer ducts through the wall rather than over-provisioning so it never has to be opened.
 
 ## Constraints from the rest of the basement
 
