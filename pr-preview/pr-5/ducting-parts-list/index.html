@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Duct parts list | Refr Hus</title>
+  <meta name="description" content="A 1950s house measured by hand, modelled in Sweet Home 3D, and run through a Manual J load calculation — with the duct design that came out of it.">
+  <link rel="stylesheet" href="/refrhus/pr-preview/pr-5/assets/css/style.css"><script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('refrhus-theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches
+                            ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {}
+  })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a href="/refrhus/pr-preview/pr-5/" class="site-title">Refr Hus</a>
+    <div class="header-actions"><button class="theme-toggle" type="button" id="theme-toggle"
+              onclick="window.__refrhusToggleTheme(this)">
+        <span class="theme-icon" aria-hidden="true">&#9728;</span>
+        <span class="theme-label">enable light mode</span>
+      </button>
+      <button class="nav-toggle" type="button" aria-label="Toggle contents"
+              aria-expanded="false" aria-controls="site-nav"
+              onclick="window.__refrhusToggleNav(this)">
+        &#9776;
+      </button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="site-nav" id="site-nav" aria-label="Contents">
+  <ul class="nav-list">
+    <li class="nav-item">
+      <a href="/refrhus/pr-preview/pr-5/">Overview</a>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">The proposal</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/pr-preview/pr-5/ducting-scheme/">Scheme and reasoning</a></li>
+        <li><a href="/refrhus/pr-preview/pr-5/ducting-register-schedule/">Register schedule</a></li>
+        <li><a href="/refrhus/pr-preview/pr-5/ducting-parts-list/">Parts list and cost</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">Calculations</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/pr-preview/pr-5/hvac/">How the two compare</a></li>
+        <li><a href="/refrhus/pr-preview/pr-5/hvac/professional-manual-j/">The professional Manual J</a></li>
+        <li><a href="/refrhus/pr-preview/pr-5/hvac/eldr-report/">Current Eldr run</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">The house as measured</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/pr-preview/pr-5/HISTORY/">Construction history</a></li>
+        <li><a href="/refrhus/pr-preview/pr-5/basement-structure/">Basement structure</a></li>
+        <li><a href="/refrhus/pr-preview/pr-5/basement-joists/">Basement joists</a></li>
+        <li><a href="/refrhus/pr-preview/pr-5/basement-measure-sheet/">Basement measurements</a></li>
+        <li><a href="/refrhus/pr-preview/pr-5/chimney-measure-sheet/">Chimney measurements</a></li>
+        <li><a href="/refrhus/pr-preview/pr-5/basement-post-details/">Basement post details</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">Appendix</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/pr-preview/pr-5/ducting-model-audit/">Model audit</a></li>
+        <li><a href="/refrhus/pr-preview/pr-5/schematic-hitlist/">Measurement hit-list</a></li>
+        <li><a href="/refrhus/pr-preview/pr-5/hvac/measurements/">Surface-temperature protocol</a></li>
+        <li><a href="/refrhus/pr-preview/pr-5/ducting-handover-plan/">How this package is built</a></li>
+        <li><a href="/refrhus/pr-preview/pr-5/scanning-plan/">3D scanning options</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+    <main class="content">
+      <h1 id="duct-parts-list">Duct parts list</h1>
+
+<p><strong>Generated from the model.</strong> Every figure below is read from the drawn objects — run membership from the object names, lengths and sections from the geometry, register faces from the frame objects. Regenerate it rather than editing it.</p>
+
+<p><strong>Fittings are not in this list.</strong> No elbows, tees, takeoffs, boots, transitions or hangers are modelled, and the bend counts below are inferred from segment-to-segment direction changes rather than drawn. A parts list that silently omitted fittings would read as complete when it is not — <strong>treat this as the straight-duct schedule and the fitting count as the contractor’s to supply.</strong> That is work they are better placed to do anyway, and asking for it is how the effective-length question gets answered.</p>
+
+<p>Lengths are centre-line and <strong>do not deduct for fittings</strong>, so they run long at every junction. Runs marked <em>future</em> are drawn but out of scope, and are excluded from the material totals.</p>
+
+<h2 id="supply-runs">Supply runs</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Run</th>
+      <th>Levels</th>
+      <th style="text-align: center">Segs</th>
+      <th style="text-align: center">Section</th>
+      <th style="text-align: center">Material</th>
+      <th style="text-align: right">Length</th>
+      <th style="text-align: center">Bends</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>North supply branch for living room east</td>
+      <td>Basement</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">8x8 / 4x7</td>
+      <td style="text-align: center">rect</td>
+      <td style="text-align: right">6.3 ft</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td>North supply branch for main bathroom</td>
+      <td>Basement, basement-main-transition</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">6x7 / 4x9</td>
+      <td style="text-align: center">rect</td>
+      <td style="text-align: right">3.7 ft</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td>North supply branch for orphaned kitchen register</td>
+      <td>Basement, basement-main-transition, Main</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">9x9 / 5x8 / 4x10</td>
+      <td style="text-align: center">rect</td>
+      <td style="text-align: right">5.3 ft</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td>North supply trunk</td>
+      <td>Basement</td>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">12x12 / 8x8 / 6x8 / 6x10</td>
+      <td style="text-align: center">rect</td>
+      <td style="text-align: right">11.7 ft</td>
+      <td style="text-align: center">3</td>
+    </tr>
+    <tr>
+      <td>SE supply branch splitter for office and kids room</td>
+      <td>Basement</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">8x8</td>
+      <td style="text-align: center">rect</td>
+      <td style="text-align: right">1.2 ft</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td>SE supply trunk</td>
+      <td>Basement, Main</td>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">12x16 / 8x16 / 11x11</td>
+      <td style="text-align: center">rect</td>
+      <td style="text-align: right">20.5 ft</td>
+      <td style="text-align: center">2</td>
+    </tr>
+    <tr>
+      <td>SW supply trunk</td>
+      <td>Basement</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">11x16</td>
+      <td style="text-align: center">rect</td>
+      <td style="text-align: right">2.6 ft</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td>Supply branch for little kids room</td>
+      <td>Basement, basement-main-transition</td>
+      <td style="text-align: center">5</td>
+      <td style="text-align: center">8″ ø / 8x8 / 8x10 / 4x10</td>
+      <td style="text-align: center">dwspiral / rect</td>
+      <td style="text-align: right">19.4 ft</td>
+      <td style="text-align: center">3</td>
+    </tr>
+    <tr>
+      <td>Supply branch for main bed north and basement east</td>
+      <td>Basement</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">8″ ø / 6x8</td>
+      <td style="text-align: center">dwspiral / rect</td>
+      <td style="text-align: right">12.0 ft</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td>Supply branch for main bed west</td>
+      <td>Main</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">4x10</td>
+      <td style="text-align: center">rect</td>
+      <td style="text-align: right">7.0 ft</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td>Supply branch for office east</td>
+      <td>Basement, basement-main-transition</td>
+      <td style="text-align: center">5</td>
+      <td style="text-align: center">8″ ø / 8x8 / 4x10</td>
+      <td style="text-align: center">dwspiral / rect</td>
+      <td style="text-align: right">27.4 ft</td>
+      <td style="text-align: center">2</td>
+    </tr>
+    <tr>
+      <td>Supply branch for office west</td>
+      <td>Main</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">8x8</td>
+      <td style="text-align: center">rect</td>
+      <td style="text-align: right">3.1 ft</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td>Supply branch for play room east</td>
+      <td>Basement</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">5″ ø / 4x10</td>
+      <td style="text-align: center">dwspiral / rect</td>
+      <td style="text-align: right">14.6 ft</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td>Supply branch for play room south</td>
+      <td>2nd floor</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">6x10</td>
+      <td style="text-align: center">rect</td>
+      <td style="text-align: right">9.7 ft</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td>Supply branch for west kitchen and west basement</td>
+      <td>Basement</td>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">8″ ø / 4x10</td>
+      <td style="text-align: center">dwspiral / rect</td>
+      <td style="text-align: right">23.0 ft</td>
+      <td style="text-align: center">3</td>
+    </tr>
+    <tr>
+      <td>Supply branch for west living room</td>
+      <td>Basement</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">6″ ø / 4x10</td>
+      <td style="text-align: center">dwspiral / rect</td>
+      <td style="text-align: right">8.7 ft</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td>Supply branch for west living room and future mud room</td>
+      <td>Basement</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">8″ ø</td>
+      <td style="text-align: center">dwspiral</td>
+      <td style="text-align: right">16.7 ft</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td>Supply plenum</td>
+      <td>Basement</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">12x20</td>
+      <td style="text-align: center">rect</td>
+      <td style="text-align: right">2.0 ft</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td>FUTURE supply branch for mud room <em>(future)</em></td>
+      <td>Basement</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">6″ ø</td>
+      <td style="text-align: center">dwspiral</td>
+      <td style="text-align: right">6.5 ft</td>
+      <td style="text-align: center">2</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="return-runs">Return runs</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Run</th>
+      <th>Levels</th>
+      <th style="text-align: center">Segs</th>
+      <th style="text-align: center">Section</th>
+      <th style="text-align: center">Material</th>
+      <th style="text-align: right">Length</th>
+      <th style="text-align: center">Bends</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>North return branch for kitchen</td>
+      <td>Basement</td>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">8x8 / 6x14</td>
+      <td style="text-align: center">oval</td>
+      <td style="text-align: right">19.0 ft</td>
+      <td style="text-align: center">3</td>
+    </tr>
+    <tr>
+      <td>North return trunk</td>
+      <td>Basement</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">12x12 / 14x18</td>
+      <td style="text-align: center">rect / oval</td>
+      <td style="text-align: right">12.2 ft</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td>Return branch for kids room and basement NE</td>
+      <td>basement-main-transition, Basement, Main</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">6x10 / 8x8</td>
+      <td style="text-align: center">rect</td>
+      <td style="text-align: right">12.5 ft</td>
+      <td style="text-align: center">2</td>
+    </tr>
+    <tr>
+      <td>Return branch for main bedroom</td>
+      <td>basement-main-transition</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">4x8 / 4x10</td>
+      <td style="text-align: center">rect</td>
+      <td style="text-align: right">26.4 ft</td>
+      <td style="text-align: center">2</td>
+    </tr>
+    <tr>
+      <td>Return branch for office</td>
+      <td>2nd floor</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">6x10</td>
+      <td style="text-align: center">rect</td>
+      <td style="text-align: right">11.0 ft</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td>Return branch for play room south</td>
+      <td>2nd floor</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">6x10</td>
+      <td style="text-align: center">rect</td>
+      <td style="text-align: right">20.6 ft</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td>Return plenum</td>
+      <td>Basement</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">12x20</td>
+      <td style="text-align: center">rect</td>
+      <td style="text-align: right">10.0 ft</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td>SE return trunk</td>
+      <td>Basement, Main</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">12x12 / 9x9</td>
+      <td style="text-align: center">rect</td>
+      <td style="text-align: right">18.3 ft</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td>SW return branch for living room and SW basement</td>
+      <td>Basement</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">4x12</td>
+      <td style="text-align: center">rect</td>
+      <td style="text-align: right">1.8 ft</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td>SW return trunk</td>
+      <td>Basement</td>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">9x9 / 9″ ø</td>
+      <td style="text-align: center">rect / dwspiral</td>
+      <td style="text-align: right">17.9 ft</td>
+      <td style="text-align: center">3</td>
+    </tr>
+    <tr>
+      <td>FUTURE North return branch for mud room <em>(future)</em></td>
+      <td>Crawlspace</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">6x6</td>
+      <td style="text-align: center">oval</td>
+      <td style="text-align: right">16.0 ft</td>
+      <td style="text-align: center">0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="registers-and-grilles">Registers and grilles</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Register</th>
+      <th>Level</th>
+      <th style="text-align: center">Face</th>
+      <th style="text-align: center">Style</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>NE ceiling duct return from utility room</td>
+      <td>Basement</td>
+      <td style="text-align: center">5x12</td>
+      <td style="text-align: center">circular</td>
+    </tr>
+    <tr>
+      <td>Return from kids room</td>
+      <td>Main</td>
+      <td style="text-align: center">4x10</td>
+      <td style="text-align: center">louvred</td>
+    </tr>
+    <tr>
+      <td>Return from kitchen</td>
+      <td>Main</td>
+      <td style="text-align: center">8x14</td>
+      <td style="text-align: center">louvred</td>
+    </tr>
+    <tr>
+      <td>Return from living room</td>
+      <td>Main</td>
+      <td style="text-align: center">6x12</td>
+      <td style="text-align: center">louvred</td>
+    </tr>
+    <tr>
+      <td>Return from main bed</td>
+      <td>Main</td>
+      <td style="text-align: center">5x9</td>
+      <td style="text-align: center">louvred</td>
+    </tr>
+    <tr>
+      <td>SW ceiling duct return from future media room</td>
+      <td>Basement</td>
+      <td style="text-align: center">5x12</td>
+      <td style="text-align: center">circular</td>
+    </tr>
+    <tr>
+      <td>SW return from office</td>
+      <td>2nd floor</td>
+      <td style="text-align: center">6x8</td>
+      <td style="text-align: center">louvred</td>
+    </tr>
+    <tr>
+      <td>SW return from play room</td>
+      <td>2nd floor</td>
+      <td style="text-align: center">6x12</td>
+      <td style="text-align: center">louvred</td>
+    </tr>
+    <tr>
+      <td>E supply for play room</td>
+      <td>2nd floor</td>
+      <td style="text-align: center">4x8</td>
+      <td style="text-align: center">louvred</td>
+    </tr>
+    <tr>
+      <td>NE floor supply for office</td>
+      <td>2nd floor</td>
+      <td style="text-align: center">4x10</td>
+      <td style="text-align: center">louvred</td>
+    </tr>
+    <tr>
+      <td>NE supply for living room</td>
+      <td>Main</td>
+      <td style="text-align: center">6x10</td>
+      <td style="text-align: center">louvred</td>
+    </tr>
+    <tr>
+      <td>NE supply for main bed</td>
+      <td>Main</td>
+      <td style="text-align: center">6x11</td>
+      <td style="text-align: center">louvred</td>
+    </tr>
+    <tr>
+      <td>NW ceiling duct supply for future media room</td>
+      <td>Basement</td>
+      <td style="text-align: center">5x10</td>
+      <td style="text-align: center">circular</td>
+    </tr>
+    <tr>
+      <td>NW supply for living room</td>
+      <td>Main</td>
+      <td style="text-align: center">5x10</td>
+      <td style="text-align: center">louvred</td>
+    </tr>
+    <tr>
+      <td>S supply for play room</td>
+      <td>2nd floor</td>
+      <td style="text-align: center">5x10</td>
+      <td style="text-align: center">louvred</td>
+    </tr>
+    <tr>
+      <td>SE ceiling duct supply for utility room</td>
+      <td>Basement</td>
+      <td style="text-align: center">5x10</td>
+      <td style="text-align: center">circular</td>
+    </tr>
+    <tr>
+      <td>SE supply for kitchen</td>
+      <td>Main</td>
+      <td style="text-align: center">4x15</td>
+      <td style="text-align: center">louvred</td>
+    </tr>
+    <tr>
+      <td>SW supply for kitchen</td>
+      <td>Main</td>
+      <td style="text-align: center">6x11</td>
+      <td style="text-align: center">louvred</td>
+    </tr>
+    <tr>
+      <td>Supply for kids room</td>
+      <td>Main</td>
+      <td style="text-align: center">6x12</td>
+      <td style="text-align: center">louvred</td>
+    </tr>
+    <tr>
+      <td>Supply for main bath</td>
+      <td>Main</td>
+      <td style="text-align: center">5x8</td>
+      <td style="text-align: center">louvred</td>
+    </tr>
+    <tr>
+      <td>Supply for main closet</td>
+      <td>Main</td>
+      <td style="text-align: center">4x8</td>
+      <td style="text-align: center">louvred</td>
+    </tr>
+    <tr>
+      <td>W floor supply for office</td>
+      <td>2nd floor</td>
+      <td style="text-align: center">4x10</td>
+      <td style="text-align: center">louvred</td>
+    </tr>
+    <tr>
+      <td>W supply for main bed</td>
+      <td>Main</td>
+      <td style="text-align: center">6x11</td>
+      <td style="text-align: center">louvred</td>
+    </tr>
+    <tr>
+      <td>FUTURE return from mud room <em>(future)</em></td>
+      <td>Garage</td>
+      <td style="text-align: center">5x11</td>
+      <td style="text-align: center">louvred</td>
+    </tr>
+    <tr>
+      <td>FUTURE supply for mud room <em>(future)</em></td>
+      <td>Garage</td>
+      <td style="text-align: center">5x11</td>
+      <td style="text-align: center">louvred</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="materials-summary">Materials summary</h2>
+
+<p>Future runs excluded. Round sizes are <strong>airway</strong> — confirm whether a supplier quotes inner or outer diameter on double-wall before ordering, because getting it backwards costs two inches of diameter on every round run at once.</p>
+
+<p><strong>An <code class="language-plaintext highlighter-rouge">oval</code> section is the box it must fit inside, not its airway.</strong> A flat oval turns each corner into a semicircular end, so a run listed 14x18 carries about 210 in² against the 252 the two numbers multiply to — roughly 20% less on every oval run here. The box is what is printed because the box is what has to clear the framing; size the airflow off the airway.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Section</th>
+      <th>Material</th>
+      <th style="text-align: right">Linear feet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>8″ ø</td>
+      <td>dwspiral</td>
+      <td style="text-align: right">71.7</td>
+    </tr>
+    <tr>
+      <td>6x10</td>
+      <td>rect</td>
+      <td style="text-align: right">52.9</td>
+    </tr>
+    <tr>
+      <td>4x10</td>
+      <td>rect</td>
+      <td style="text-align: right">37.8</td>
+    </tr>
+    <tr>
+      <td>4x8</td>
+      <td>rect</td>
+      <td style="text-align: right">24.4</td>
+    </tr>
+    <tr>
+      <td>9x9</td>
+      <td>rect</td>
+      <td style="text-align: right">20.0</td>
+    </tr>
+    <tr>
+      <td>8x8</td>
+      <td>rect</td>
+      <td style="text-align: right">20.0</td>
+    </tr>
+    <tr>
+      <td>8x8</td>
+      <td>oval</td>
+      <td style="text-align: right">16.3</td>
+    </tr>
+    <tr>
+      <td>9″ ø</td>
+      <td>dwspiral</td>
+      <td style="text-align: right">16.2</td>
+    </tr>
+    <tr>
+      <td>12x20</td>
+      <td>rect</td>
+      <td style="text-align: right">12.0</td>
+    </tr>
+    <tr>
+      <td>12x12</td>
+      <td>rect</td>
+      <td style="text-align: right">11.3</td>
+    </tr>
+    <tr>
+      <td>11x11</td>
+      <td>rect</td>
+      <td style="text-align: right">8.3</td>
+    </tr>
+    <tr>
+      <td>8x16</td>
+      <td>rect</td>
+      <td style="text-align: right">8.2</td>
+    </tr>
+    <tr>
+      <td>14x18</td>
+      <td>oval</td>
+      <td style="text-align: right">6.8</td>
+    </tr>
+    <tr>
+      <td>6″ ø</td>
+      <td>dwspiral</td>
+      <td style="text-align: right">6.7</td>
+    </tr>
+    <tr>
+      <td>6x8</td>
+      <td>rect</td>
+      <td style="text-align: right">5.5</td>
+    </tr>
+    <tr>
+      <td>8x10</td>
+      <td>rect</td>
+      <td style="text-align: right">4.8</td>
+    </tr>
+    <tr>
+      <td>12x16</td>
+      <td>rect</td>
+      <td style="text-align: right">4.0</td>
+    </tr>
+    <tr>
+      <td>5″ ø</td>
+      <td>dwspiral</td>
+      <td style="text-align: right">3.6</td>
+    </tr>
+    <tr>
+      <td>6x14</td>
+      <td>oval</td>
+      <td style="text-align: right">2.7</td>
+    </tr>
+    <tr>
+      <td>11x16</td>
+      <td>rect</td>
+      <td style="text-align: right">2.6</td>
+    </tr>
+    <tr>
+      <td>6x7</td>
+      <td>rect</td>
+      <td style="text-align: right">2.4</td>
+    </tr>
+    <tr>
+      <td>4x12</td>
+      <td>rect</td>
+      <td style="text-align: right">1.8</td>
+    </tr>
+    <tr>
+      <td>5x8</td>
+      <td>rect</td>
+      <td style="text-align: right">1.7</td>
+    </tr>
+    <tr>
+      <td>4x7</td>
+      <td>rect</td>
+      <td style="text-align: right">1.4</td>
+    </tr>
+    <tr>
+      <td>4x9</td>
+      <td>rect</td>
+      <td style="text-align: right">1.3</td>
+    </tr>
+    <tr>
+      <td><strong>Total</strong></td>
+      <td> </td>
+      <td style="text-align: right"><strong>344.4</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="cost--planning-grade-only">Cost — planning grade only</h2>
+
+<p><strong>Every figure here is a band, and the bands are wide on purpose.</strong> Fabrication, access and region move installed duct pricing more than size does, so a single number would imply a precision this does not have. Use it to compare options against each other, not to budget.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th style="text-align: right">Quantity</th>
+      <th style="text-align: right">Low</th>
+      <th style="text-align: right">High</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Round duct, double-wall spiral</td>
+      <td style="text-align: right">98 ft</td>
+      <td style="text-align: right">$1,178</td>
+      <td style="text-align: right">$2,944</td>
+    </tr>
+    <tr>
+      <td>Rectangular and oval, fabricated</td>
+      <td style="text-align: right">246 ft</td>
+      <td style="text-align: right">$2,463</td>
+      <td style="text-align: right">$6,156</td>
+    </tr>
+    <tr>
+      <td>Supply registers</td>
+      <td style="text-align: right">15</td>
+      <td style="text-align: right">$225</td>
+      <td style="text-align: right">$900</td>
+    </tr>
+    <tr>
+      <td>Return grilles</td>
+      <td style="text-align: right">8</td>
+      <td style="text-align: right">$200</td>
+      <td style="text-align: right">$800</td>
+    </tr>
+    <tr>
+      <td>Balancing dampers</td>
+      <td style="text-align: right">20</td>
+      <td style="text-align: right">$500</td>
+      <td style="text-align: right">$1,200</td>
+    </tr>
+    <tr>
+      <td>Duct only</td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right">$3,640</td>
+      <td style="text-align: right">$9,100</td>
+    </tr>
+    <tr>
+      <td><strong>Subtotal — duct, trim and dampers</strong></td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"><strong>$4,565</strong></td>
+      <td style="text-align: right"><strong>$12,000</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>All figures are pre-incentive.</strong> No rebate, tax credit or utility programme is netted off anywhere in this document. Incentives change by year, by model and by jurisdiction, and a quote that quietly assumes one is a quote that cannot be compared against another.</p>
+
+<p><strong>Fittings are missing from that subtotal and they are not a rounding error.</strong> Elbows, tees, takeoffs, boots and transitions commonly run <strong>30–50% of a duct job’s material cost</strong>, and none of them are modelled here — so treat the straight-duct figure as roughly two thirds of the real material story.</p>
+
+<h3 id="labour-is-already-inside-those-bands">Labour is already inside those bands</h3>
+
+<p>The $/ft figures above are <em>installed</em>, not material-only, so labour is not a line to add — it is most of what the band’s width represents. For sanity-checking a quote that separates them: duct labour alone runs roughly <strong>$5–15 per linear foot</strong>, and HVAC labour is <strong>$75–150 per hour per technician</strong>.</p>
+
+<p>Published estimates of labour’s <em>share</em> of a duct job disagree sharply — one puts it near 22% of a whole-house replacement, another at 60%. <strong>That spread is a signal, not noise:</strong> it is the difference between duct run through open basement joists and duct fished through finished walls. This house is both, which is why the bands here are wide and why a walkthrough quote will beat any figure on this page.</p>
+
+<h3 id="ducted-extras-priced-separately">Ducted extras, priced separately</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Installed</th>
+      <th>Note</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Media air cleaner</td>
+      <td><strong>$400–1,000</strong></td>
+      <td>A deep pleated filter in the return. The default choice, and the one with no downside beyond filter changes</td>
+    </tr>
+    <tr>
+      <td>UV treatment</td>
+      <td><strong>$400–800</strong>, up to $3,500</td>
+      <td>Coil-sterilising lamps at the low end; in-duct air treatment at the high end. Effectiveness claims vary far more than price does</td>
+    </tr>
+    <tr>
+      <td>Whole-house humidifier</td>
+      <td><strong>$400–1,200</strong>, up to $2,500</td>
+      <td>Bypass or steam. Steam costs more and holds a setpoint</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>A media cleaner has a real interaction with this design and the others do not.</strong> A deep filter adds static pressure to the return side, and the return side is already this system’s constraint — see the main-floor return path above. Size the filter cabinet generously and account for its pressure drop in the same breath as the return trunk, rather than adding it afterwards. <strong>The others are additions to the system; filtration is a change to it.</strong></p>
+
+<h3 id="equipment-and-why-the-number-to-quote-is-4-tons">Equipment, and why the number to quote is 4 tons</h3>
+
+<p>Manual S on the current model recommends <strong>3.5 tons</strong> — 40,331 BTU/hr is 3.4 tons of load. The figure worth quoting against is <strong>4.0</strong>, and the reason is the state of the model rather than a preference for headroom.</p>
+
+<p>The load calculation runs against geometry that is knowingly incomplete, and <strong>every gap in it points the same way</strong>:</p>
+
+<ul>
+  <li><strong>No grade line.</strong> Basement walls are classed below-grade over their whole height. Taking the professionals’ measured U-value alone moves the load to roughly 45,600 BTU/hr — 3.8 tons.</li>
+  <li><strong>The second-floor roof is not drawn.</strong> Ceiling area is modelled at 984 ft² against a professional report’s 1,547 — a third of that surface is missing, and it is the hot side of the house.</li>
+  <li><strong>The load has risen at almost every correction.</strong> 31,757 → 37,962 → 42,097, down to 39,694 only because the basement was finally <em>measured</em> rather than estimated, and back to <strong>40,331</strong> once the design station was corrected from Sweet Home 3D’s default to Newark. The sizing verdict on the existing 4-ton unit has flipped between oversized and well-matched three times.</li>
+</ul>
+
+<p><strong>A sizing verdict that flips with each correction is one to hold loosely.</strong> 3.5 tons is what today’s model says; 3.8 is what one known-missing input alone would make it; and the remaining gaps have not been priced at all. Rounding to the next tier is the cheap direction to be wrong in — an oversized heat pump with inverter turndown short-cycles far less than a single-stage unit would, while an undersized one has no remedy short of replacement.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th style="text-align: right">Installed, pre-incentive</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>3.5-ton cold-climate heat pump, this class</td>
+      <td style="text-align: right">$5,000–9,000</td>
+    </tr>
+    <tr>
+      <td><strong>4.0-ton — the tier to quote</strong></td>
+      <td style="text-align: right"><strong>$5,500–10,500</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The Bosch IDS Ultra is the candidate on file. Treat both rows as placeholders until a dealer quotes the specific model: published pricing for this equipment comes largely from aggregator sites rather than distributors.</p>
+
+<h2 id="whole-job-estimate">Whole-job estimate</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th style="text-align: right">Low</th>
+      <th style="text-align: right">High</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ductwork, straight runs</td>
+      <td style="text-align: right">$3,640</td>
+      <td style="text-align: right">$9,100</td>
+    </tr>
+    <tr>
+      <td>Fittings allowance (25–40% of duct)</td>
+      <td style="text-align: right">$910</td>
+      <td style="text-align: right">$3,640</td>
+    </tr>
+    <tr>
+      <td>Registers, grilles, dampers</td>
+      <td style="text-align: right">$925</td>
+      <td style="text-align: right">$2,900</td>
+    </tr>
+    <tr>
+      <td>Equipment, 4-ton</td>
+      <td style="text-align: right">$5,500</td>
+      <td style="text-align: right">$10,500</td>
+    </tr>
+    <tr>
+      <td>Filtration, UV, humidity</td>
+      <td style="text-align: right">$1,200</td>
+      <td style="text-align: right">$3,000</td>
+    </tr>
+    <tr>
+      <td><strong>Total, pre-incentive</strong></td>
+      <td style="text-align: right"><strong>$12,175</strong></td>
+      <td style="text-align: right"><strong>$29,140</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Centre of mass is around $20,658</strong>, and the upper band is what you get if every constrained thing turns out to be the hard version — duct fished through finished walls rather than run through open joists, the kitchen cabinetry modified rather than worked around, the high-end UV rather than coil lamps. A realistic landing spot sits below the top of the range rather than at it.</p>
+
+<p><strong>Pre-incentive throughout.</strong> Nothing here is netted against a rebate, credit or utility programme, so it can be compared against a quote line for line — and whatever incentives apply come off afterwards rather than being baked into a number nobody can reconcile.</p>
+
+<p>One caveat on the whole table: <strong>the fittings allowance is the weakest number in it.</strong> It is a percentage standing in for a count not yet made, on the one quantity this model explicitly cannot derive. It is also, not coincidentally, the same count that settles the one-unit-versus-two question — so asking for it buys an answer twice.</p>
+
+<h3 id="what-this-is-for-one-air-handler-or-two">What this is for: one air handler or two</h3>
+
+<p>The number that matters is not the total, it is <strong>the delta between one unit and two</strong>. The proposal is a second ducted handler in the <strong>north knee-wall attic</strong>, reached through the wall at the top of the stairs — so it is attic equipment, in a space our own model puts near 133°F on a summer design day. It is argued with on its merits in <a href="/refrhus/pr-preview/pr-5/ducting-scheme/"><code class="language-plaintext highlighter-rouge">ducting-scheme.md</code></a>.</p>
+
+<p>On cost alone, the delta is a second indoor unit, a second filter, a second condensate path — over a finished ceiling — a second service point reached through a knee-wall hatch, and a second maintenance schedule for as long as the house stands. Against a riser that <strong>has to be built anyway</strong> for the main floor.</p>
+
+<p><strong>But cost is not what decides it, and neither is static pressure alone.</strong> A north knee-wall unit does not reach the south side of those rooms, and the suggested remedy — a duct channel along the office wall — is itself a chase. Ask which registers the second unit can reach <em>before</em> asking whether one unit runs out of static pressure. The fitting counts settle the second question; only a site visit settles the first.</p>
+
+<h2 id="counts">Counts</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th style="text-align: right">Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Supply registers</td>
+      <td style="text-align: right">15</td>
+    </tr>
+    <tr>
+      <td>Return grilles</td>
+      <td style="text-align: right">8</td>
+    </tr>
+    <tr>
+      <td>— of which circular</td>
+      <td style="text-align: right">4</td>
+    </tr>
+    <tr>
+      <td>Branch runs (one balancing damper each)</td>
+      <td style="text-align: right">20</td>
+    </tr>
+    <tr>
+      <td>Inferred direction changes</td>
+      <td style="text-align: right">34</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Every takeoff wants a balancing damper, whatever the balance calculation says.</strong> A branch without one cannot be adjusted after the fact, and the first season in a house is when the balance is discovered.</p>
+
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>
+      The model, the engine and every document here are public.
+      <a href="https://github.com/SiliconSaga/refrhus">Source</a> ·
+      <a href="https://github.com/SiliconSaga/eldr">Eldr</a>
+    </p>
+  </footer>
+
+  <script>
+  (function () {
+    // --- theme -----------------------------------------------------------
+    // The button names the theme it will switch TO, icon and words agreeing:
+    // sitting in dark, it offers "☀ enable light mode".
+    function paintToggle(button, theme) {
+      var toDark = theme !== 'light';
+      button.querySelector('.theme-icon').textContent = toDark ? '☀' : '☽';
+      button.querySelector('.theme-label').textContent =
+        toDark ? 'enable light mode' : 'enable dark mode';
+    }
+
+    window.__refrhusToggleTheme = function (button) {
+      var next = document.documentElement.getAttribute('data-theme') === 'light'
+                 ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('refrhus-theme', next); } catch (e) {}
+      paintToggle(button, next);
+    };
+
+    // Correct the server-rendered label, which cannot know the resolved theme.
+    var toggle = document.getElementById('theme-toggle');
+    if (toggle) paintToggle(toggle, document.documentElement.getAttribute('data-theme'));
+
+    // --- contents --------------------------------------------------------
+    window.__refrhusToggleNav = function (button) {
+      var open = document.querySelector('.site-nav').classList.toggle('open');
+      button.setAttribute('aria-expanded', String(open));
+    };
+
+    // Mark the current page in the sidebar. Done client-side so the nav stays a
+    // plain data file rather than needing a per-page front-matter key.
+    var here = window.location.pathname.replace(/\/$/, '');
+    document.querySelectorAll('.site-nav a').forEach(function (a) {
+      if (a.getAttribute('href').replace(/\/$/, '') === here) {
+        a.classList.add('current');
+        a.setAttribute('aria-current', 'page');
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
