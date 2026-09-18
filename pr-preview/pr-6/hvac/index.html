@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HVAC — load calculations, professional and our own | Refr Hus</title>
+  <meta name="description" content="A 1950s house measured by hand, modelled in Sweet Home 3D, and run through a Manual J load calculation — with the duct design that came out of it.">
+  <link rel="stylesheet" href="/refrhus/pr-preview/pr-6/assets/css/style.css"><script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('refrhus-theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches
+                            ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {}
+  })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a href="/refrhus/pr-preview/pr-6/" class="site-title">Refr Hus</a>
+    <div class="header-actions"><button class="theme-toggle" type="button" id="theme-toggle"
+              onclick="window.__refrhusToggleTheme(this)">
+        <span class="theme-icon" aria-hidden="true">&#9728;</span>
+        <span class="theme-label">enable light mode</span>
+      </button>
+      <button class="nav-toggle" type="button" aria-label="Toggle contents"
+              aria-expanded="false" aria-controls="site-nav"
+              onclick="window.__refrhusToggleNav(this)">
+        &#9776;
+      </button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="site-nav" id="site-nav" aria-label="Contents">
+  <ul class="nav-list">
+    <li class="nav-item">
+      <a href="/refrhus/pr-preview/pr-6/">Overview</a>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">The proposal</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/pr-preview/pr-6/ducting-scheme/">Scheme and reasoning</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/ducting-register-schedule/">Register schedule</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/ducting-parts-list/">Parts list and cost</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">Calculations</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/pr-preview/pr-6/hvac/">How the two compare</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/hvac/professional-manual-j/">The professional Manual J</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/hvac/eldr-report/">Current Eldr run</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">The house as measured</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/pr-preview/pr-6/HISTORY/">Construction history</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/basement-structure/">Basement structure</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/basement-joists/">Basement joists</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/basement-measure-sheet/">Basement measurements</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/chimney-measure-sheet/">Chimney measurements</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/basement-post-details/">Basement post details</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">Appendix</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/pr-preview/pr-6/ducting-model-audit/">Model audit</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/schematic-hitlist/">Measurement hit-list</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/hvac/measurements/">Surface-temperature protocol</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/ducting-handover-plan/">How this package is built</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/scanning-plan/">3D scanning options</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+    <main class="content">
+      <h1 id="hvac--load-calculations-professional-and-our-own">HVAC — load calculations, professional and our own</h1>
+
+<p>Two independent Manual J estimates of this house, kept side by side so they can be compared. <a href="https://github.com/SiliconSaga/eldr">Eldr</a> is our own engine: it reads <code class="language-plaintext highlighter-rouge">../sh3d-internals/Home.xml</code> for geometry and <code class="language-plaintext highlighter-rouge">../eldr-sidecar.yaml</code> for the thermal assumptions geometry cannot hold.</p>
+
+<p>The design intent and duct scheme live one level up in <a href="/refrhus/pr-preview/pr-6/ducting-scheme/"><code class="language-plaintext highlighter-rouge">../ducting-scheme.md</code></a>. This directory is only load calculations and their inputs.</p>
+
+<h2 id="one-current-run-not-an-archive">One current run, not an archive</h2>
+
+<p><a href="/refrhus/pr-preview/pr-6/hvac/eldr-report/"><code class="language-plaintext highlighter-rouge">eldr-report.md</code></a> is <strong>generated</strong> — the engine’s output against the current model, overwritten on every regeneration. Do not edit it.</p>
+
+<p>This replaces a folder of dated runs, and the reasoning is worth keeping because it was a real trade. <strong>Totals lie by cancellation.</strong> Between two early runs the whole-house heating figure moved 0.7% while four components underneath it moved by thousands in opposite directions — basement walls and floor up by nearly 4,000 between them, infiltration down by 3,300. Anyone comparing bottom lines alone would have concluded nothing changed. That was the argument for archiving every run, and it was sound.</p>
+
+<p>What retired it is a <strong>better answer to the same problem</strong>. The archive compared <em>documents</em>, which only works while the documents describe the same house — and these did not. Each was produced by a different iteration of the schematic, so a difference between two of them mixed real thermal change with the schematic catching up to the building. Comparing them rewarded careful reading and still misled.</p>
+
+<p>The replacement compares <em>runs against the same model at a known commit</em>: regenerate on push, diff component-by-component in the pull request, and the cancellation problem is solved by the diff rather than by the reader’s diligence. Component drift becomes visible automatically instead of being available to whoever thinks to look.</p>
+
+<p><strong>Archive again if that ever stops being true.</strong> The practice was not wrong; it was the best available answer before the model was trustworthy enough for a diff to mean anything.</p>
+
+<h2 id="the-professional-reports">The professional reports</h2>
+
+<p>An ACCA-approved Manual J by NJ Energy Auditor, commissioned 2026-08, in three progressions modelling the house at increasing tightness: <strong>as-is 54,260</strong>, plus insulation 44,067, plus air sealing 40,901 BTU/hr heating.</p>
+
+<p><strong><a href="/refrhus/pr-preview/pr-6/hvac/professional-manual-j/">The figures are summarised on their own page</a></strong> — design conditions, every construction assembly with its area and U-value, and the infiltration measurement. That summary is the source of the area-weighted U-values this project’s side-car carries.</p>
+
+<p><strong>The reports themselves are not published.</strong> They were produced for the owner as a customer rather than for redistribution, so this site carries the numbers our work depends on and not the documents.</p>
+
+<p>Two readings in those reports are easy to get wrong and both are set out on <a href="/refrhus/pr-preview/pr-6/hvac/professional-manual-j/">the summary page</a>: the measured blower door exists only as a handwritten margin note (<strong>3,751 CFM50 → ACH 0.68</strong>, not the printed figure), and below-grade surfaces are loaded at the full outdoor ΔT with the soil path inside the U-value — which is what corrected Eldr from discounting twice.</p>
+
+<h2 id="our-runs">Our runs</h2>
+
+<p><a href="/refrhus/pr-preview/pr-6/hvac/eldr-report/"><code class="language-plaintext highlighter-rouge">eldr-report.md</code></a> — the current run. Regenerate after any change to the model or the side-car.</p>
+
+<p><strong>How the number got here</strong>, kept as a changelog because each step was a correction rather than because the documents behind them were worth keeping:</p>
+
+<ul>
+  <li><strong>The level stack</strong> replaced ceilings and floors derived from level <em>bounding boxes</em> with resolved surfaces, per-space buffer policies, hot-attic cooling and measured ACH.</li>
+  <li><strong>Measured assemblies</strong> adopted the professionals’ ceiling and crawl-floor U-values and the crawlspace’s observed winter temperature: heating 31,757 → <strong>37,962</strong>.</li>
+  <li><strong>Cooling gained its missing sensible infiltration term</strong> — it had only latent. Cooling 17,571 → <strong>20,794</strong>, airflow 610 → <strong>759 CFM</strong>, and duct sizes moved with it.</li>
+  <li><strong>The assembly true-up</strong> took the professionals’ measured wall, window and slab U-values, area-weighted off their Construction Details page, and corrected occupants 3 → 5. Heating → <strong>42,097</strong>.</li>
+  <li><strong>The basement measurement work</strong> then brought it down to <strong>39,694</strong> on geometry that is finally measured rather than estimated.</li>
+  <li><strong>Site coordinates</strong> replaced Sweet Home 3D’s factory default — which sat in lower Manhattan and had never been set — with West Orange’s town centroid. The design station moves New York → <strong>Newark, NJ</strong> and the 99% design temperature 15°F → 14°F, taking heating to the current <strong>40,331</strong>.</li>
+</ul>
+
+<p>The one verdict to watch across that sequence: the existing 4-ton unit has read as oversized, then well-matched, then oversized again. <strong>A sizing verdict that flips with each correction is a sizing verdict to hold loosely</strong> — which is the argument for rounding up rather than shaving down.</p>
+
+<p>Regenerate with the engine checked out beside this repo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">PYTHONPATH</span><span class="o">=</span>components/eldr components/eldr/.venv/bin/python <span class="nt">-m</span> eldr.cli <span class="se">\</span>
+  hoards/refrhus/sh3d-internals/Home.xml hoards/refrhus/eldr-sidecar.yaml
+
+<span class="c"># the narrative version, for handing to someone else — generate on demand, don't commit</span>
+<span class="nv">PYTHONPATH</span><span class="o">=</span>components/eldr components/eldr/.venv/bin/python <span class="nt">-m</span> eldr.cli <span class="se">\</span>
+  hoards/refrhus/sh3d-internals/Home.xml hoards/refrhus/eldr-sidecar.yaml <span class="nt">--overview</span>
+</code></pre></div></div>
+
+<p><strong>The overview is not committed.</strong> <code class="language-plaintext highlighter-rouge">--overview</code> wraps the same report body in about seventy lines of framing prose that barely changes between runs, so committing it would duplicate every number while adding nothing.</p>
+
+<p><code class="language-plaintext highlighter-rouge">--json</code> gives structured output; <code class="language-plaintext highlighter-rouge">--walls</code> lists wall ids for tagging.</p>
+
+<h2 id="where-the-two-still-disagree-and-why">Where the two still disagree, and why</h2>
+
+<p>Same house, two engines, and the gaps are now nameable rather than mysterious:</p>
+
+<p>Currently heating <strong>40,331</strong> against their <strong>54,260</strong>, or 74%. That ratio <em>fell</em> after the basement measurement work, which looks like regression and is not: the measured basement is smaller and better sealed than the estimate it replaced, so the remaining gap is now concentrated in things that can be named — the grade line and the undrawn second-floor roof surfaces — rather than spread thinly across assumptions nobody had checked.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Line</th>
+      <th style="text-align: right">Eldr</th>
+      <th style="text-align: right">Theirs</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Floor <strong>area</strong></td>
+      <td style="text-align: right">971.9 ft²</td>
+      <td style="text-align: right">978 ft²</td>
+      <td>✅ within 0.6%</td>
+    </tr>
+    <tr>
+      <td>Above-grade walls</td>
+      <td style="text-align: right">10,950</td>
+      <td style="text-align: right">10,432</td>
+      <td>✅ settled. <code class="language-plaintext highlighter-rouge">exterior_wall: 0.123</code> is their three non-garage rows area-weighted; we now run 5% <em>over</em></td>
+    </tr>
+    <tr>
+      <td>Windows</td>
+      <td style="text-align: right">4,730</td>
+      <td style="text-align: right">5,554</td>
+      <td>✅ largely settled. <code class="language-plaintext highlighter-rouge">window: 0.588</code> is their ten rows area-weighted over 152.5 ft²; area was already within 4%. The residual is the <em>distribution</em> — a blend cannot put the four single-pane units in the rooms that have them</td>
+    </tr>
+    <tr>
+      <td>Crawl floor load</td>
+      <td style="text-align: right">5,765</td>
+      <td style="text-align: right">~7,800</td>
+      <td>U matches (0.521). We apply the crawlspace’s <strong>observed</strong> 32 °F (factor 0.69); they model it as <em>exposed to outdoor air</em> (factor 1.0, which would give 8,290). <strong>A deliberate difference, not an error</strong> — see the side-car note</td>
+    </tr>
+    <tr>
+      <td>Slab</td>
+      <td style="text-align: right">746</td>
+      <td style="text-align: right">807</td>
+      <td>✅ resolved. <code class="language-plaintext highlighter-rouge">floor</code> corrected 0.05 → their measured <strong>0.020</strong> on 713.9 ft²; we had been overshooting 2.5×</td>
+    </tr>
+    <tr>
+      <td>Ceilings</td>
+      <td style="text-align: right">1,550</td>
+      <td style="text-align: right">5,008</td>
+      <td>U matches. <strong>One cause left, and it is geometry:</strong> their ceiling area is 1,547 ft² against our 984 — sloped and knee-wall surfaces on the incomplete 2nd floor. See the attic note below; the unvented attic is <em>not</em> an error</td>
+    </tr>
+    <tr>
+      <td>Below-grade walls</td>
+      <td style="text-align: right">4,370</td>
+      <td style="text-align: right">9,271</td>
+      <td>Convention matches since the below-grade fix. <code class="language-plaintext highlighter-rouge">basement_wall: 0.07</code> is <strong>deliberately not updated</strong>; see below</td>
+    </tr>
+    <tr>
+      <td>Basement wall <strong>area</strong></td>
+      <td style="text-align: right">~1,135 ft²</td>
+      <td style="text-align: right">774 ft²</td>
+      <td>They split each wall at the grade line; Eldr has no grade-line concept and classes the whole wall below-grade</td>
+    </tr>
+    <tr>
+      <td>Doors</td>
+      <td style="text-align: right">2,908</td>
+      <td style="text-align: right">2,233</td>
+      <td>We are <strong>over</strong>, and it is area not U: ~132 ft² of door against their 82.3 (38.9 opaque + 43.4 glass). Interior doors are being counted; a schematic fix, not a side-car one</td>
+    </tr>
+    <tr>
+      <td>Occupants</td>
+      <td style="text-align: right">5</td>
+      <td style="text-align: right">5</td>
+      <td>✅ reconciled. The actual headcount, and the ACCA bedrooms+1 convention, agree</td>
+    </tr>
+    <tr>
+      <td>SHR</td>
+      <td style="text-align: right">0.80</td>
+      <td style="text-align: right">0.90</td>
+      <td>Our assumed 30-grain humidity difference vs their station’s 27.805</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>The attic divergence is deliberate and ours to keep</strong>, and is not an Eldr error. The attic is unvented, and Eldr models the seasonal asymmetry correctly: a winter factor of <strong>0.50</strong> from the <code class="language-plaintext highlighter-rouge">vented: false</code> shorthand, and a summer factor of <strong>3.66</strong> resolved from a sol-air attic temperature. Being unvented <em>helps</em> in winter — stale air does not track outdoor temperature — and <em>hurts</em> in summer, when superheated air has nowhere to go. Declaring the attic vented to match their treatment would make the schematic less true to the house in order to close a number, which is backwards. The whole remaining ceiling gap is the 563 ft² of area we have not drawn.</p>
+
+<p><strong>Why <code class="language-plaintext highlighter-rouge">basement_wall</code> was left at 0.07.</strong> Their area-weighted below-grade U is 0.196 (bare 8” stone at 0.293/0.297, finished R-11 at 0.088). Applying that to <em>our</em> area gives <strong>12,236 BTU/hr against their 9,271</strong> — a 32% overshoot replacing today’s 53% undershoot, because our area is 47% too large for want of a grade line. Substituting one error for another is not accuracy. This one waits for the grade-line split or for measured wall temperatures.</p>
+
+<p><strong>Cooling infiltration was latent-only for a while</strong>, with no sensible term, which is part of why our SHR read low. Fixed: cooling gained the missing sensible term and the SHR moved 0.70 → 0.80.</p>
+
+<p>The pattern overall: <strong>the geometry agrees, and the assemblies are now mostly settled.</strong> Above-grade walls, windows, the slab and occupants are all reconciled against their measured values. What is left is three items, and only one of them is thermal:</p>
+
+<ol>
+  <li><strong>The grade line</strong> (4,901 BTU/hr) — structural. Eldr classes a whole basement wall as below-grade; they split it at grade. Blocks setting <code class="language-plaintext highlighter-rouge">basement_wall</code> honestly.</li>
+  <li><strong>The 2nd-floor ceiling area</strong> (3,458) — geometry. 984 ft² drawn against their 1,547; the knee-wall and sloped surfaces are not modelled.</li>
+  <li><strong>The phantom doors</strong> (−675, we are over) — geometry. Interior doors counted as envelope doors.</li>
+</ol>
+
+<p>Plus one deliberate divergence we intend to keep: the crawlspace’s observed 32 °F, and the unvented attic.</p>
+
+<h2 id="the-measurement-that-would-settle-the-most">The measurement that would settle the most</h2>
+
+<p>Interior surface temperature gives heat flux directly, because the interior air film is a known resistance:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>q = (T_air − T_surface) / 0.68        BTU/hr·ft²
+U_eff = q / (T_indoor − T_outdoor)
+</code></pre></div></div>
+
+<p>Taken on the <strong>bare cinder block</strong> and on the <strong>R-11 panelled</strong> section, that measures the two assemblies currently in dispute — their 0.293 and 0.088 against our 0.07 — without arguing about convention.</p>
+
+<p>Take a <strong>vertical profile, not a single reading</strong>: below grade the soil path lengthens with depth, so the wall runs coldest near the grade line and warmest at the slab. That gradient <em>is</em> the depth-dependent U that Manual J tabulates, measured on this house instead of read from a table. Every foot from slab to ceiling, on both wall types, and the slab too.</p>
+
+<p>Conditions matter more than instrument quality — a cold stable day, indoor temperature held for several hours, no sun on the wall, nothing blowing across it. Measure air temperature 2–3 ft off the wall and log the outdoor temperature at the same moment. An IR thermometer is fine on block and painted wood (emissivity ~0.9); a taped-on thermistor under a scrap of insulation is better. The weak link is that 0.68 film resistance, so treat results as ±10% — ample to separate 0.07 from 0.29.</p>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>
+      The model, the engine and every document here are public.
+      <a href="https://github.com/SiliconSaga/refrhus">Source</a> ·
+      <a href="https://github.com/SiliconSaga/eldr">Eldr</a>
+    </p>
+  </footer>
+
+  <script>
+  (function () {
+    // --- theme -----------------------------------------------------------
+    // The button names the theme it will switch TO, icon and words agreeing:
+    // sitting in dark, it offers "☀ enable light mode".
+    function paintToggle(button, theme) {
+      var toDark = theme !== 'light';
+      button.querySelector('.theme-icon').textContent = toDark ? '☀' : '☽';
+      button.querySelector('.theme-label').textContent =
+        toDark ? 'enable light mode' : 'enable dark mode';
+    }
+
+    window.__refrhusToggleTheme = function (button) {
+      var next = document.documentElement.getAttribute('data-theme') === 'light'
+                 ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('refrhus-theme', next); } catch (e) {}
+      paintToggle(button, next);
+    };
+
+    // Correct the server-rendered label, which cannot know the resolved theme.
+    var toggle = document.getElementById('theme-toggle');
+    if (toggle) paintToggle(toggle, document.documentElement.getAttribute('data-theme'));
+
+    // --- contents --------------------------------------------------------
+    window.__refrhusToggleNav = function (button) {
+      var open = document.querySelector('.site-nav').classList.toggle('open');
+      button.setAttribute('aria-expanded', String(open));
+    };
+
+    // Mark the current page in the sidebar. Done client-side so the nav stays a
+    // plain data file rather than needing a per-page front-matter key.
+    var here = window.location.pathname.replace(/\/$/, '');
+    document.querySelectorAll('.site-nav a').forEach(function (a) {
+      if (a.getAttribute('href').replace(/\/$/, '') === here) {
+        a.classList.add('current');
+        a.setAttribute('aria-current', 'page');
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

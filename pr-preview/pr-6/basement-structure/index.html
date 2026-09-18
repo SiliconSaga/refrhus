@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Basement structure — forensic map | Refr Hus</title>
+  <meta name="description" content="A 1950s house measured by hand, modelled in Sweet Home 3D, and run through a Manual J load calculation — with the duct design that came out of it.">
+  <link rel="stylesheet" href="/refrhus/pr-preview/pr-6/assets/css/style.css"><script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('refrhus-theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches
+                            ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {}
+  })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a href="/refrhus/pr-preview/pr-6/" class="site-title">Refr Hus</a>
+    <div class="header-actions"><button class="theme-toggle" type="button" id="theme-toggle"
+              onclick="window.__refrhusToggleTheme(this)">
+        <span class="theme-icon" aria-hidden="true">&#9728;</span>
+        <span class="theme-label">enable light mode</span>
+      </button>
+      <button class="nav-toggle" type="button" aria-label="Toggle contents"
+              aria-expanded="false" aria-controls="site-nav"
+              onclick="window.__refrhusToggleNav(this)">
+        &#9776;
+      </button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="site-nav" id="site-nav" aria-label="Contents">
+  <ul class="nav-list">
+    <li class="nav-item">
+      <a href="/refrhus/pr-preview/pr-6/">Overview</a>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">The proposal</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/pr-preview/pr-6/ducting-scheme/">Scheme and reasoning</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/ducting-register-schedule/">Register schedule</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/ducting-parts-list/">Parts list and cost</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">Calculations</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/pr-preview/pr-6/hvac/">How the two compare</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/hvac/professional-manual-j/">The professional Manual J</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/hvac/eldr-report/">Current Eldr run</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">The house as measured</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/pr-preview/pr-6/HISTORY/">Construction history</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/basement-structure/">Basement structure</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/basement-joists/">Basement joists</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/basement-measure-sheet/">Basement measurements</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/chimney-measure-sheet/">Chimney measurements</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/basement-post-details/">Basement post details</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">Appendix</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/pr-preview/pr-6/ducting-model-audit/">Model audit</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/schematic-hitlist/">Measurement hit-list</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/hvac/measurements/">Surface-temperature protocol</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/ducting-handover-plan/">How this package is built</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/scanning-plan/">3D scanning options</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+    <main class="content">
+      <h1 id="basement-structure--forensic-map">Basement structure — forensic map</h1>
+
+<p>The basement is the house’s only hard-measured level, so it’s the datum everything else
+re-registers to (see <code class="language-plaintext highlighter-rouge">HISTORY.md</code>). But it is <strong>not a uniform box</strong> — it grew in phases,
+so framing, edge conditions, and the post/beam lines <strong>stagger</strong> by zone. Companion to
+<code class="language-plaintext highlighter-rouge">basement-joists.md</code> (the joist grid + the E–W width).</p>
+
+<h2 id="working-strategy--interior-first">Working strategy — interior-first</h2>
+
+<p>Duct routing and air-handler clearances care about <strong>interior clear space</strong>, not the
+exterior envelope. So: build the model <strong>from the cinder inner faces inward</strong>, nail the
+<strong>interior N–S dimension</strong> (measured to the raw cinder face where exposed — the
+east/utility side has the most bare block), and leave the exterior/edge detailing
+(sill/rim/parge nuances, exact outer faces) for later or the scan. That’s enough to
+place ducts + size the air-handler space, and to firm up the Main floor and above.</p>
+
+<h2 id="three-zones-west--east">Three zones (west → east)</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  N ↑         west/den        │stairs│      east/utility
+   ┌────────────────────────────────────────────────────────┐
+   │ ●────────●────────●  north girder ─────────●NE ↑turns N │  3 N posts, W-wall→NE
+   │                                  chimney●══════●E(pocket)│  cross-beam, E side
+   │     ●SW─────●s-mid  (→ stairs)                           │  SW beam, further S
+   └────────────────────────────────────────────────────────┘
+      W wall              ‖jst-12       ‖jst-15         E wall
+                        (N-S zone-edge beams = stair sides)
+</code></pre></div></div>
+
+<ul>
+  <li><strong>West / den (carpet):</strong> garage to the west, <strong>kitchen crawlspace</strong> to the north.
+<strong>Rim joist alone</strong> — no visible sill (paneling hides it; “doesn’t feel like wood
+below”).</li>
+  <li><strong>Center / stairs:</strong> <strong>bathroom</strong> (≈stair-width) at the <strong>north</strong> end, <strong>stairs</strong> to
+the south, <strong>bar</strong> under/behind mid. A <strong>void with the main drain stack</strong> behind the
+bathroom (NE, at the east end of the kitchen crawlspace); drain + supply penetrate the
+rim into the extended kitchen. No sill plank, but the <strong>rim is ~2× thick</strong> (likely
+doubled when the extension was added).</li>
+  <li><strong>East / utility:</strong> <strong>bare foundation</strong> floor; <strong>electrical panel + sump in the SE
+corner</strong>; air handler, water heater, dead furnace, laundry. <strong>Heavy timber sill + rim</strong>.
+<strong>Bedroom crawlspace</strong> to the south (tight). An <strong>interior wall</strong> runs under the east
+zone-edge beam.</li>
+</ul>
+
+<h2 id="perimeter-framing-varies-by-wall--zone">Perimeter framing (varies by wall / zone)</h2>
+
+<ul>
+  <li><strong>East/utility:</strong> a heavy <strong>timber sill</strong> (~5.5″ — a 6× or built-up member, “beyond a
+4×4”) on a ~2″ sloped <strong>parge</strong> bed, with the <strong>rim (~1.5″) on its outer edge</strong> and a
+small lip inboard. Heavy timber sills are normal in the <em>original</em> section of an old
+foundation.</li>
+  <li><strong>West/den:</strong> <strong>rim alone</strong>, no visible sill (paneling).</li>
+  <li><strong>Center:</strong> no sill plank; <strong>rim ~2× thick</strong> (doubled at the extension).</li>
+  <li><strong>Consequence:</strong> there is <strong>no single block-face ↔ joist-end offset</strong>. Measure the
+interior clear span <strong>per zone / to the cinder face directly</strong>. The earlier <code class="language-plaintext highlighter-rouge">interior =
+L − 13″</code> shortcut only holds where a plain 1.5″ rim/sill applies.</li>
+</ul>
+
+<h2 id="beams--posts-staggered--the-phased-build-signature">Beams &amp; posts (staggered — the phased-build signature)</h2>
+
+<ul>
+  <li><strong>North girder:</strong> 3 posts, <strong>W wall → NE post</strong>, then <strong>turns north</strong> (does not reach
+the E wall).</li>
+  <li><strong>East cross-beam:</strong> <strong>chimney → E wall</strong>, seated in a <strong>cinder pocket</strong>; the east
+zone-edge beam (<code class="language-plaintext highlighter-rouge">joist-15</code>) passes <strong>behind the chimney without bearing on it</strong>, and
+the utility “middle joist” <strong>dead-ends against this cross-beam</strong>.</li>
+  <li><strong>SW beam:</strong> <strong>SW + south-middle posts</strong>, <strong>stairs → W wall</strong>, sitting <strong>further south</strong>
+than the east cross-beam — the two do <strong>not</strong> form one line.</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><strong>Zone-edge beams (N–S, ~3.5″):</strong> <code class="language-plaintext highlighter-rouge">joist-12</code> = den</td>
+          <td>stairs edge; <code class="language-plaintext highlighter-rouge">joist-15</code> =</td>
+        </tr>
+        <tr>
+          <td>stairs</td>
+          <td>utility edge (interior wall beneath it).</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>6 posts total; exact beam-line latitudes and the 6th post still to pin.</li>
+</ul>
+
+<h2 id="open-questions--scan-targets">Open questions / scan targets</h2>
+
+<ul>
+  <li><strong>North-center corner</strong> — bathroom + drain-stack void + doubled rim (pipes penetrate
+the rim into the extended kitchen). The odd part; leave loose for now.</li>
+  <li><strong>Bedroom crawlspace</strong> (S of utility) — un-enterable, peephole only; infer from the
+south-extension footprint + the single AC duct route until scanned.</li>
+  <li>Confirm <strong>actual joist / rim thickness</strong> (old lumber may exceed 1.5″).</li>
+  <li>Exact <strong>beam-line latitudes</strong> and the identity of the <strong>6th post</strong>.</li>
+  <li>Whether the <strong>west/den</strong> hides a sill under the paneling.</li>
+</ul>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>
+      The model, the engine and every document here are public.
+      <a href="https://github.com/SiliconSaga/refrhus">Source</a> ·
+      <a href="https://github.com/SiliconSaga/eldr">Eldr</a>
+    </p>
+  </footer>
+
+  <script>
+  (function () {
+    // --- theme -----------------------------------------------------------
+    // The button names the theme it will switch TO, icon and words agreeing:
+    // sitting in dark, it offers "☀ enable light mode".
+    function paintToggle(button, theme) {
+      var toDark = theme !== 'light';
+      button.querySelector('.theme-icon').textContent = toDark ? '☀' : '☽';
+      button.querySelector('.theme-label').textContent =
+        toDark ? 'enable light mode' : 'enable dark mode';
+    }
+
+    window.__refrhusToggleTheme = function (button) {
+      var next = document.documentElement.getAttribute('data-theme') === 'light'
+                 ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('refrhus-theme', next); } catch (e) {}
+      paintToggle(button, next);
+    };
+
+    // Correct the server-rendered label, which cannot know the resolved theme.
+    var toggle = document.getElementById('theme-toggle');
+    if (toggle) paintToggle(toggle, document.documentElement.getAttribute('data-theme'));
+
+    // --- contents --------------------------------------------------------
+    window.__refrhusToggleNav = function (button) {
+      var open = document.querySelector('.site-nav').classList.toggle('open');
+      button.setAttribute('aria-expanded', String(open));
+    };
+
+    // Mark the current page in the sidebar. Done client-side so the nav stays a
+    // plain data file rather than needing a per-page front-matter key.
+    var here = window.location.pathname.replace(/\/$/, '');
+    document.querySelectorAll('.site-nav a').forEach(function (a) {
+      if (a.getAttribute('href').replace(/\/$/, '') === here) {
+        a.classList.add('current');
+        a.setAttribute('aria-current', 'page');
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

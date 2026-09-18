@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3D scanning → agent-usable house data — options &amp; plan | Refr Hus</title>
+  <meta name="description" content="A 1950s house measured by hand, modelled in Sweet Home 3D, and run through a Manual J load calculation — with the duct design that came out of it.">
+  <link rel="stylesheet" href="/refrhus/pr-preview/pr-6/assets/css/style.css"><script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('refrhus-theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches
+                            ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {}
+  })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a href="/refrhus/pr-preview/pr-6/" class="site-title">Refr Hus</a>
+    <div class="header-actions"><button class="theme-toggle" type="button" id="theme-toggle"
+              onclick="window.__refrhusToggleTheme(this)">
+        <span class="theme-icon" aria-hidden="true">&#9728;</span>
+        <span class="theme-label">enable light mode</span>
+      </button>
+      <button class="nav-toggle" type="button" aria-label="Toggle contents"
+              aria-expanded="false" aria-controls="site-nav"
+              onclick="window.__refrhusToggleNav(this)">
+        &#9776;
+      </button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="site-nav" id="site-nav" aria-label="Contents">
+  <ul class="nav-list">
+    <li class="nav-item">
+      <a href="/refrhus/pr-preview/pr-6/">Overview</a>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">The proposal</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/pr-preview/pr-6/ducting-scheme/">Scheme and reasoning</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/ducting-register-schedule/">Register schedule</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/ducting-parts-list/">Parts list and cost</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">Calculations</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/pr-preview/pr-6/hvac/">How the two compare</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/hvac/professional-manual-j/">The professional Manual J</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/hvac/eldr-report/">Current Eldr run</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">The house as measured</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/pr-preview/pr-6/HISTORY/">Construction history</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/basement-structure/">Basement structure</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/basement-joists/">Basement joists</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/basement-measure-sheet/">Basement measurements</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/chimney-measure-sheet/">Chimney measurements</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/basement-post-details/">Basement post details</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">Appendix</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/pr-preview/pr-6/ducting-model-audit/">Model audit</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/schematic-hitlist/">Measurement hit-list</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/hvac/measurements/">Surface-temperature protocol</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/ducting-handover-plan/">How this package is built</a></li>
+        <li><a href="/refrhus/pr-preview/pr-6/scanning-plan/">3D scanning options</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+    <main class="content">
+      <h1 id="3d-scanning--agent-usable-house-data--options--plan">3D scanning → agent-usable house data — options &amp; plan</h1>
+
+<p>Distilled from the 2026-06 discussion. Raw scanner notes were in <code class="language-plaintext highlighter-rouge">scanning.txt</code> (now folded in here). House ground truth: <code class="language-plaintext highlighter-rouge">HISTORY.md</code>.</p>
+
+<h2 id="why-scan-at-all">Why scan at all</h2>
+
+<p>Every hard moment in the Refrhus rebuild traces to one missing thing: accurate ground truth. The floor plan was explicitly “not to scale,” the survey is a blurry JPEG good only for the footprint envelope, and the basement was mis-measured so the <em>whole house</em> was wrong. A scan is the ground truth we never had. It does not replace the model — it becomes a <em>reference</em> you trace against and overlay-check: a tool does the math, a vision-capable agent does the interpretation.</p>
+
+<h2 id="structured-output-vs-mesh">Structured output vs. mesh</h2>
+
+<p>Forget “which scanner” first. The real fork is <strong>what the output IS</strong>, because it changes the whole downstream pipeline:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th><strong>Structured</strong> (Apple RoomPlan)</th>
+      <th><strong>Mesh / point cloud</strong> (every dedicated scanner)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Output</td>
+      <td>walls/doors/windows as <strong>parametric data + dimensions</strong></td>
+      <td>a blob of triangles / points (<code class="language-plaintext highlighter-rouge">.obj</code>/<code class="language-plaintext highlighter-rouge">.ply</code>/<code class="language-plaintext highlighter-rouge">.e57</code>)</td>
+    </tr>
+    <tr>
+      <td>Agent-usable</td>
+      <td><strong>immediately</strong> — maps near-directly onto editable walls</td>
+      <td>needs an extraction step first</td>
+    </tr>
+    <tr>
+      <td>App use</td>
+      <td>could generate walls ~directly</td>
+      <td>place as a <strong>mock-up</strong> to trace, or slice to a floor plan</td>
+    </tr>
+    <tr>
+      <td>The catch</td>
+      <td><strong>simplifies everything to rectangles</strong> (see Accuracy)</td>
+      <td>richer geometry, but “walls” must be inferred</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The irony to internalize: the cheaper dedicated scanners give better geometry but less agent-ready structure; the phone/tablet gives weaker geometry but instant structure. The “scan a house, then ask the agent questions” dream is specifically the RoomPlan path. For this house right now, mesh is plenty, because the survey plus a small extraction step already supply the “walls” understanding.</p>
+
+<p><strong>A third category — photo-based (photogrammetry).</strong> Most Android 3D-scan apps (and any phone without a LiDAR sensor) reconstruct geometry from ordinary photos rather than a depth sensor. They’re the most accessible option — any camera works — but they produce an <em>unscaled</em> mesh: there is no metric reference, so scale must be set by hand from a known dimension, and fidelity trails both LiDAR and dedicated scanners, especially on blank/featureless walls. Useful for rough massing or a textured visual to eyeball, not for trustworthy wall dimensions. The clean way to place the three: <strong>RoomPlan = scaled structure</strong>, <strong>LiDAR / dedicated scanners = scaled geometry</strong>, <strong>photogrammetry = unscaled geometry</strong>. For our pipeline, a photogrammetry mesh can still be dropped in as a rough mock-up, but a survey/known-dimension scale step is mandatory before any measurement is trusted.</p>
+
+<h2 id="accuracy">Accuracy</h2>
+
+<ul>
+  <li><strong>iPad/iPhone LiDAR:</strong> ~±1–3 cm horizontal in good conditions, but peer-reviewed testing shows most points land ~10 cm off the reference on <em>dynamic</em> (walking) scans, and accuracy degrades as the area grows and pose changes accumulate. Great for one small room held still; shaky as one coherent whole-house capture.</li>
+  <li><strong>RoomPlan specifically</strong> reduces the room to rectangles — sloped/non-flat walls become primitive boxes, ceilings and height variation are ignored, and it does not give wall thickness. So the 2nd floor is out (angled knee-wall/roof geometry is exactly what it can’t represent), and wall thickness you’d still tape-measure (easy, and already being done).</li>
+  <li><strong>Reflective surfaces</strong> (mirrors, glass) distort LiDAR badly — mind the bathroom.</li>
+  <li><strong>Dedicated structured-light (Einstar/Revopoint)</strong> give higher raw fidelity and open meshes, but are optimized for <em>objects</em>; whole-<em>room</em> coherence depends on good tracking over featureless walls — verify room-scale tracking before trusting a big sweep.</li>
+</ul>
+
+<h2 id="scanner-options--updated-2026-prices-openness-reputation">Scanner options — updated 2026 prices, openness, reputation</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Cost (2026)</th>
+      <th>Output</th>
+      <th>Openness</th>
+      <th>Standalone?</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>iPad Pro 2020 (refurb)</strong></td>
+      <td><strong>~$450</strong></td>
+      <td>RoomPlan <strong>structured</strong> + <code class="language-plaintext highlighter-rouge">.obj</code> cloud</td>
+      <td>High (instant OBJ/USDZ)</td>
+      <td>n/a (a tablet)</td>
+      <td>Cheapest path to the structured/agent dream; ±3 cm, rectangles-only, 2nd floor out. No Apple gear owned yet, so this is a real $450, not “$0.”</td>
+    </tr>
+    <tr>
+      <td><strong>Einstar Vega</strong></td>
+      <td><strong>~$759 (seen $499 on sale)</strong></td>
+      <td>mesh <code class="language-plaintext highlighter-rouge">.obj/.stl/.ply</code></td>
+      <td>High (open formats)</td>
+      <td><strong>Yes</strong> (onboard 2K screen, wireless)</td>
+      <td>Plot twist: undercuts the iPad and is standalone + open. But mesh, <em>not</em> structured RoomPlan walls. Verify room-scale tracking.</td>
+    </tr>
+    <tr>
+      <td><strong>Revopoint Miraco</strong></td>
+      <td><strong>~$1,599</strong> ($1,300–1,919)</td>
+      <td>mesh <code class="language-plaintext highlighter-rouge">.obj/.stl/.ply/…</code></td>
+      <td>High (drag-and-drop, no cloud gate)</td>
+      <td><strong>Yes</strong></td>
+      <td>“Go-to prosumer standalone” reputation in 2026; handles mixed scales. The openness/scriptability sweet spot if this becomes a business.</td>
+    </tr>
+    <tr>
+      <td><strong>Einstar (original)</strong></td>
+      <td><strong>&lt;$1,000</strong></td>
+      <td>mesh</td>
+      <td>High (OBJ/STL/PLY)</td>
+      <td>No — <strong>tethered to a Windows PC</strong></td>
+      <td>Cheap, but a desktop software step sits in the loop.</td>
+    </tr>
+    <tr>
+      <td><strong>Leica BLK360 G1 (used)</strong></td>
+      <td>~$6–8k</td>
+      <td>point cloud (e57/ptx) + obj</td>
+      <td>Medium (needs Cyclone to register, then free export)</td>
+      <td>Tripod</td>
+      <td>Survey-grade; the “if it’s a business / whole-house coherent” tier.</td>
+    </tr>
+    <tr>
+      <td><strong>Faro Focus (used)</strong></td>
+      <td>~$13k</td>
+      <td>point cloud, industry-standard</td>
+      <td>High (open formats, easy 3rd-party)</td>
+      <td>Tripod</td>
+      <td>Pro open alternative; bigger/heavier than the Leica.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>(Prices move; treat as ballpark and re-check at purchase time. Sources at bottom.)</p>
+
+<h2 id="the-agent-pipeline">The agent pipeline</h2>
+
+<p>A scan becomes agent-usable through one small step: ingest the scan with a point-cloud library (Open3D in Python; CloudCompare for interactive cleanup), then turn it into something the model can act on. Three uses, cheapest-first:</p>
+
+<ol>
+  <li><strong>Slice → traceable floor plan.</strong> Cut the point cloud at ~1.2 m height to get a true-to-scale 2D plan image, then drop it into the tracing workflow as a background, replacing the not-to-scale floor plan. Highest value, lowest effort — this is an established research pipeline (slice → iterative-RANSAC line detection → floor plan, &gt;90% line accuracy).</li>
+  <li><strong>Plane-fit → wall coordinates.</strong> RANSAC plane-fit the vertical surfaces to get exact wall positions, then overlay-check the model against reality and flag where it diverges.</li>
+  <li><strong>Structured scan → walls directly.</strong> RoomPlan output becomes walls with minimal translation. Powerful but rectangle-limited; best for clean single-story rooms.</li>
+</ol>
+
+<p>This is the literal substrate for the “scan a house with a tablet, then ask the agent questions” idea: the scan is the perception input, a deterministic script does the geometry, and the agent reasons over the result.</p>
+
+<h2 id="recommendation">Recommendation</h2>
+
+<p><strong>For this house, right now:</strong> don’t buy anything on the critical path. The survey already anchors the footprint core, and room-by-room is enough — the only unmeasurable spot left is the crawlspace under the kitchen (a deferred TODO).</p>
+
+<ul>
+  <li><strong>If anyone can borrow a RoomPlan-capable Apple device for an afternoon:</strong> scan just the crawlspace, export both the structured model and a point cloud/<code class="language-plaintext highlighter-rouge">.obj</code>. Then build the ingest→slice→plane-fit tool and prove the whole pipeline on the one area that can’t be tape-measured. Best ROI, zero spend, unblocks a real TODO.</li>
+  <li><strong>If nobody has Apple gear:</strong> the crawlspace is tape-measurable with patience, so no purchase blocks this house. Don’t buy a $450 iPad for one crawlspace.</li>
+</ul>
+
+<p><strong>For the “scan-a-house-and-ask-the-agent” idea:</strong> this is the RoomPlan path (structured output is the magic), so an Apple device is on that roadmap — but pair it with the extraction pipeline to escape RoomPlan’s rectangle/no-thickness limits. If it grows toward whole-house coherent scans, that’s where a Revopoint Miraco (open, standalone, ~$1.6k) or a used Faro/BLK360 earns its keep. Make “open formats” a hard requirement evaluated per-vendor, not a nice-to-have.</p>
+
+<p><strong>The surprise to weigh:</strong> the Einstar Vega at ~$500–759 undercuts the refurb iPad and is open + standalone — so if the goal is “best open geometry per dollar” rather than “RoomPlan’s structured walls,” it may be the better first hardware buy. The question deciding iPad-vs-Vega is structured-output (agent-ready walls) vs. best-open-mesh-per-dollar.</p>
+
+<h2 id="open-questions">Open questions</h2>
+
+<ul>
+  <li>Does the friend already own a RoomPlan-capable Apple device? (Changes the right-now answer entirely — borrow beats buy.)</li>
+  <li>Is whole-house coherence needed soon, or is room-by-room fine for the foreseeable future? (Forks “phone/Vega is fine” vs. “tripod LiDAR.”)</li>
+  <li>Is “open formats” a hard requirement for the business, or negotiable? (Rules vendors in/out — especially the Leica’s Cyclone-register step.)</li>
+  <li>Android: still no mainstream phone with comparable LiDAR plus a RoomPlan-equivalent — worth a periodic re-check, but not a 2026 option. The photogrammetry apps (above) are the Android fallback: accessible but unscaled and lower-fidelity, so they don’t change the recommendation.</li>
+</ul>
+
+<h2 id="sources">Sources</h2>
+
+<ul>
+  <li>Revopoint Miraco — <a href="https://www.3dtechvalley.com/revopoint-miraco-review/">3DTechValley review</a>, <a href="https://www.3dsourced.com/3d-scanner-reviews/revopoint-miraco-review/">3DSourced</a>, <a href="https://www.digitalcameraworld.com/tech/scanners/revopoint-miraco-review-this-all-in-one-handheld-3d-scanner-makes-light-work-of-big-jobs">Digital Camera World</a></li>
+  <li>Einstar Vega — <a href="https://www.3dtechvalley.com/einstar-vega-3d-scanner-review/">3DTechValley review</a>, <a href="https://www.dynamism.com/shining-3d/einstar-vega-3d-scanner.html">Dynamism</a>, <a href="https://3dprinting.com/news/einstar-may-sales-for-makers-2026/">3DPrinting.com sale</a>; Einstar lineup — <a href="https://www.3dtechvalley.com/einstar-2-wireless-3d-scanner-review/">3DTechValley Einstar 2</a></li>
+  <li>Apple RoomPlan limits — <a href="https://volpis.com/blog/apple-roomplan-overview/">Volpis overview</a>, <a href="https://www.it-jim.com/blog/roomplan-framework-by-apple/">it-jim “Awful and Great”</a>, <a href="https://www.scanmanifold.com/blog-posts/roomplan-scan-contractors">ScanManifold</a></li>
+  <li>iPad Pro LiDAR accuracy — <a href="https://www.sciencedirect.com/science/article/pii/S2666165923000510">ScienceDirect indoor-mapping eval</a>, <a href="https://www.mdpi.com/2227-7080/9/2/25">MDPI vs industrial scanner</a>, <a href="https://www.tandfonline.com/doi/full/10.1080/16874048.2024.2408839">Tandfonline vs TLS</a></li>
+  <li>Point-cloud → floor-plan pipeline — <a href="https://www.sciencedirect.com/science/article/abs/pii/S2352710224008064">ScienceDirect iterative-RANSAC</a>, <a href="https://www.mdpi.com/2076-3417/10/8/2817">MDPI auto-2D-CAD</a>, <a href="https://hpi.de/doellner/publications/Document/matthias.trapp/GRAPP_2019_3_CR.pdf/8a3c70939dbca92c61b576331d3cfd56.html">HPI 2D/3D floor plans</a></li>
+  <li>Leica BLK360 G1 used — <a href="https://www.machinio.com/model/leica-blk360-g1">Machinio listings</a></li>
+</ul>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>
+      The model, the engine and every document here are public.
+      <a href="https://github.com/SiliconSaga/refrhus">Source</a> ·
+      <a href="https://github.com/SiliconSaga/eldr">Eldr</a>
+    </p>
+  </footer>
+
+  <script>
+  (function () {
+    // --- theme -----------------------------------------------------------
+    // The button names the theme it will switch TO, icon and words agreeing:
+    // sitting in dark, it offers "☀ enable light mode".
+    function paintToggle(button, theme) {
+      var toDark = theme !== 'light';
+      button.querySelector('.theme-icon').textContent = toDark ? '☀' : '☽';
+      button.querySelector('.theme-label').textContent =
+        toDark ? 'enable light mode' : 'enable dark mode';
+    }
+
+    window.__refrhusToggleTheme = function (button) {
+      var next = document.documentElement.getAttribute('data-theme') === 'light'
+                 ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('refrhus-theme', next); } catch (e) {}
+      paintToggle(button, next);
+    };
+
+    // Correct the server-rendered label, which cannot know the resolved theme.
+    var toggle = document.getElementById('theme-toggle');
+    if (toggle) paintToggle(toggle, document.documentElement.getAttribute('data-theme'));
+
+    // --- contents --------------------------------------------------------
+    window.__refrhusToggleNav = function (button) {
+      var open = document.querySelector('.site-nav').classList.toggle('open');
+      button.setAttribute('aria-expanded', String(open));
+    };
+
+    // Mark the current page in the sidebar. Done client-side so the nav stays a
+    // plain data file rather than needing a per-page front-matter key.
+    var here = window.location.pathname.replace(/\/$/, '');
+    document.querySelectorAll('.site-nav a').forEach(function (a) {
+      if (a.getAttribute('href').replace(/\/$/, '') === here) {
+        a.classList.add('current');
+        a.setAttribute('aria-current', 'page');
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
