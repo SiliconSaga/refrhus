@@ -74,7 +74,9 @@ Where the two still differ is documented line by line in [the calculations](hvac
 
 **One air handler**, moved to the basement — tucked under the stairs, in what used to be the bar area — with trunks running out to each part of the house.
 
-The feature that makes it work is a **stacked utility cabinet built alongside the chimney**, carrying supply and return from the basement up through the main floor to the second. Getting conditioned air upstairs is the usual difficulty with a Cape Cod, and it is why the alternative below reaches for a second unit in the attic. A cabinet inside the heated envelope solves the same problem without putting equipment or ductwork in an unconditioned space. This is the design documented here.
+The feature that makes it work is a **three-level chase alongside the chimney**, carrying supply and return from the basement up through the main floor to the second. Getting conditioned air upstairs is the usual difficulty with a Cape Cod, and it is why the alternative below reaches for a second unit in the attic. A chase inside the heated envelope solves the same problem without putting equipment or ductwork in unconditioned space.
+
+It is a full built-in cabinet on the basement and main floors; the second floor may take a smaller duct-only enclosure, or none at all if the risers lean diagonally through the main floor to emerge beyond the knee wall. The stack is wanted for more than ducts — wiring between floors, and the closet space each enclosure creates. This is the design documented here.
 
 **Two air handlers**, the second in the north knee-wall attic, reached through the wall at the top of the stairs. Proposed by the contractor.
 
@@ -87,7 +89,7 @@ The feature that makes it work is a **stacked utility cabinet built alongside th
 
 Two handlers buy genuine per-floor zoning, which a single unit cannot provide here: neither the basement nor the second floor alone can be a hard zone without starving the blower.
 
-Against that, the proposed location has two costs. Attic air reaches an estimated 133°F on a summer design day, and the unit, its coil and its supply ducts would sit in it. And a north knee-wall unit does not reach the south side of the upstairs rooms, which carry real load. The suggested remedy — a duct channel along the office wall into the small east attic — is itself a chase, and the single-unit design is built around one that stays inside the envelope and serves all three floors.
+Against that, the proposed location has two costs. Attic air reaches an estimated 133°F on a summer design day, and the unit, its coil and its supply ducts would sit in it. And a north knee-wall unit does not reach the south side of the upstairs rooms, which carry real load. The suggested remedy — a duct channel along the office wall into the small east attic — trades a short vertical run in warm space for a long horizontal one against an exterior wall, ending in the attic.
 
 **The deciding question is static pressure**, and answering it needs fitting counts the schematic does not carry yet. Those counts are a contractor's to produce, and they settle the question either way.
 

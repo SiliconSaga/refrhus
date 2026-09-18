@@ -29,13 +29,13 @@ Rectangular sizes are the shallowest option holding an **aspect ratio at or unde
 
 **Two return decisions are baked into the table above.**
 
-*The Utility Room return joins the Kids Room branch rather than a basement trunk.* That branch passes through the basement ceiling on its way down, so tapping it is the short path — but it means the branch carries **147 CFM, not 64**. It is drawn at 8″, which runs 421 fpm and is fine; the 6″ the schedule originally called for would have run 747 and been a mistake. **A shared branch is sized for the sum, and the room name on it stops being the whole story.**
+*The Utility Room return joins the Kids Room branch rather than a basement trunk.* That branch passes through the basement ceiling on its way down, so tapping it is the short path — but it means the branch carries **147 CFM, not 64**. It is drawn at 8″, which runs 421 fpm. A 6″ sized for the room alone would run 747. **A shared branch is sized for the sum, and the room name on it stops being the whole story.**
 
-*The basement runs two ceiling returns rather than one midline.* The earlier plan collapsed both rooms onto a single 167 CFM midline grille, which was the cheaper build — three new ducts instead of five. Drawing it settled the question the other way: the two rooms are separated by the stair and utility walls, so a single midline grille would have pulled almost entirely from whichever room it sat in, and the other would have had to give its air up through a doorway. Each room now returns where it is supplied, at **84 and 83 CFM**, the same total split two ways.
+*The basement runs two ceiling returns rather than one midline.* One shared midline grille would be the cheaper build — three new ducts instead of five — but the two rooms are separated by the stair and utility walls, so it would pull almost entirely from whichever room it sat in and leave the other giving its air up through a doorway. Each room returns where it is supplied, at **87 and 82 CFM**.
 
-*The Play Room gets two supplies, and the new one is sized as though it were the only one.* The existing east-wall duct is small enough to be suspect, so the new south-wall register is sized for the room's full 115 CFM rather than for half of it. If the east duct turns out to carry its share, the room is comfortably over-served and the damper takes it back; if it carries nothing, the room is still right. **Sizing the new duct for half would have made the room hostage to a duct nobody has measured.** Treat the east register as recovered capacity, not as a design assumption — it is the one supply in this house whose contribution is unknown.
+*The Play Room gets two supplies, and the new one is sized as though it were the only one.* The existing east-wall duct is small enough to be suspect, so the new south-wall register is sized for the room's full 117 CFM rather than for half of it. If the east duct turns out to carry its share, the room is comfortably over-served and the damper takes it back; if it carries nothing, the room is still right. **Sizing the new duct for half would have made the room hostage to a duct nobody has measured.** Treat the east register as recovered capacity, not as a design assumption — it is the one supply in this house whose contribution is unknown.
 
-*The second-floor returns are sized for the cross-flow split, not for their own rooms.* The Play Room's is sized at **168** rather than its own 115, so the option to drag air across from the Office exists without re-ducting. Their combined capacity is 281 against the 228 the floor actually needs — **the dampers set the real split**, and sizing for the larger case costs a nominal size, not a redesign.
+*The second-floor returns are sized for the cross-flow split, not for their own rooms.* The Play Room's is sized at **168** rather than its own 117, so the option to drag air across from the Office exists without re-ducting. Their combined capacity is 302 against the 251 the floor needs — **the dampers set the real split**, and sizing for the larger case costs a nominal size, not a redesign.
 
 Room-name mapping, since the model and these documents differ: the 2nd-floor "kids room" is **Play Room**; the main-floor "small kids room" is **Kids Room**; "bathroom" with supply only is **Main Bath**. The two basement supplies are named by position in the model and by room here — **"west basement" is Future Media Room**, **"basement east" is Utility Room**.
 
@@ -79,16 +79,16 @@ Faces below are **as drawn in the model**, sized against available space, with t
 | 2nd | Office — SW | 134 | 6x8 | 403 | ok |
 | | **Return grilles** | | | | **8** |
 
-### The two kitchen faces, now settled
+### The two kitchen faces
 
-Both were constrained by cabinetry and both have been redrawn at the size this schedule asked for:
+Both are constrained by cabinetry, and both are drawn at the size the airflow asks for:
 
-| Register | Was | fpm | Now | fpm |
-|---|:-:|---:|:-:|---:|
-| Kitchen — SE supply | 2x15 | 806 | **4x15** | 403 |
-| Kitchen return | 3x20 | 602 | **8x14** | 323 |
+| Register | Face | CFM | fpm |
+|---|:-:|---:|---:|
+| Kitchen — SE supply | 4x15 | 127 | 407 |
+| Kitchen return | 8x14 | 254 | 327 |
 
-**The kitchen SE register was the one worth building around.** At 2″ of height under the cabinetry it ran 806 fpm — not marginal, audible, and in a kitchen where people stand. The 4″ height halves it to 403. **Getting that height is still a construction decision** — one cabinet moves over, or the cabinet is modified — so the drawn 4x15 records the decision rather than removing the work. Note that 403 fpm assumes a generous 75% free area; a heavier louvred face runs faster.
+**The kitchen SE register needs 4″ of height, and getting it is carpentry.** At the 2″ the cabinetry currently leaves, the same airflow runs 806 fpm — audible, in a spot where somebody stands to cook. At 4″ it runs 407. One cabinet moves over, or the cabinet is modified; the drawn face assumes that happens. Note that 407 fpm assumes a generous 75% free area, so a heavier louvred face runs faster.
 
 **The kitchen return was about area, not length.** 251 CFM needs roughly 120 in² at 300 fpm, and the 3x20 gave 60. What it did *not* need was to stay 20″ long: preserving the drawn dimension and growing only the other gives 6x20, a 3.3:1 grille nobody stocks.
 
@@ -191,7 +191,7 @@ With the Upper Bath and Upstairs Hallway carrying no supply:
 
 ### Using return placement to balance the second floor
 
-Oversizing the Play Room's return to drag air across from the Office is a standard technique, and the numbers work. The only constraint is that the floor's two returns sum to 228.
+Oversizing the Play Room's return to drag air across from the Office is a standard technique, and the numbers work. The only constraint is that the floor's two returns sum to 251.
 
 | | Supply | Return | Net |
 |---|---:|---:|---|
@@ -239,7 +239,7 @@ The arithmetic here is unfriendly. Against a whole-house design of ~1,180 CFM, a
 | Zone calling alone | CFM | Versus minimum |
 |---|---:|---|
 | Basement | 167 | **14% — far below** |
-| 2nd floor | 228 | **19% — far below** |
+| 2nd floor | 251 | **21% — far below** |
 | Main | 737 | fine |
 | Basement + Main | 904 | fine |
 

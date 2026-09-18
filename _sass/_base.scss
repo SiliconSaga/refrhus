@@ -150,8 +150,14 @@ th, td {
   padding: 0.4rem 0.7rem;
   text-align: left;
   border-bottom: 1px solid var(--border);
+  // Numbers and sizes must not wrap mid-value — a "4x10" broken over two lines
+  // is unreadable.
   white-space: nowrap;
 }
+
+// The first column is almost always a name, and names are what make these
+// tables too wide. Let them wrap; every other column stays nowrap.
+th:first-child, td:first-child { white-space: normal; }
 
 th {
   font-weight: 600;
@@ -218,14 +224,30 @@ hr {
   display: flex;
   align-items: flex-start;
   gap: 2rem;
-  max-width: 1180px;
+  // Wide enough that the data tables stop scrolling sideways while the window
+  // still has empty margin either side of them. Prose keeps a readable measure
+  // separately, below, so widening the frame costs nothing in line length.
+  max-width: 1600px;
   margin: 0 auto;
   padding: 1.5rem 1.25rem 3rem;
 }
 
 .content {
   flex: 1;
-  min-width: 0;          // lets wide tables scroll instead of stretching the flex row
+  min-width: 0;          // a genuinely oversized table scrolls rather than stretches
+}
+
+// Running text keeps its ~65-character measure; tables, figures and code take
+// the whole column. Capping the container instead threw away exactly the width
+// the tables needed.
+.content > p,
+.content > ul,
+.content > ol,
+.content > blockquote,
+.content > h1,
+.content > h2,
+.content > h3,
+.content > h4 {
   max-width: 62rem;
 }
 

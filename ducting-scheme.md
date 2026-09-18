@@ -45,7 +45,7 @@ Design airflow from Eldr's per-room Manual J, on geometry that is deliberately c
 | 2nd floor | 238 | Office 100, Play Room 86 |
 | **Total** | **1,245** | |
 
-> **Two airflow totals appear across these documents and they are not interchangeable.** **1,245 CFM** is the whole-house design airflow Eldr computes, and the per-room figures now sum to the same number — the figure the *equipment* is sized on. **1,201** is the [register schedule](ducting-register-schedule.md)'s twelve rooms summed after the second-floor ×1.35 and basement ×0.70 biases. The 44 CFM between them is closets, chases and voids that fall below the threshold for a duct of their own — not staleness. **The schedule is authoritative for duct sizes; Eldr's total is authoritative for equipment.**
+> **Two airflow totals appear across these documents and they are not interchangeable.** **1,245 CFM** is the whole-house design airflow Eldr computes, and the per-room figures now sum to the same number — the figure the *equipment* is sized on. **1,201** is the [register schedule](ducting-register-schedule.md)'s twelve rooms summed after the second-floor ×1.35 and basement ×0.70 biases. The two differ because Eldr's figure covers **twenty** rooms: the eight the schedule gives no duct of their own — closets, the hallways, the bar area, the basement bath — carry about 49 CFM between them and are served by transfer. The biases then add roughly 6 back. **The schedule is authoritative for duct sizes; Eldr's total is authoritative for equipment.**
 
 **The main floor is the load** — two and a half times the second floor. That reframes the problem: the second floor is not the hard part *volumetrically*, it is the hard part *geometrically*. The distinction is worth holding onto when weighing the two proposals, because a second air handler adds capacity where the difficulty is access.
 
@@ -118,33 +118,22 @@ The chase is the whole argument in physical form. The standard, correct objectio
 
 It carries **only the second floor**, not the whole 1,245 — the main floor is fed from basement runs and never enters the chase. That is what keeps a chase this modest sufficient.
 
-**Two figures, two scopes — and they are not one multiplication apart.**
+**The riser carries the whole floor, and the floor is 301 CFM.** That is the four second-floor rooms on the [register schedule](ducting-register-schedule.md) — Play Room 117, Office 134, Upper Bath 28, Upstairs Hallway 22 — each biased ×1.35 at room level. Eldr's unbiased total for the level is 238.
 
-- **238 CFM** is Eldr's current unbiased second-floor total, aggregated across every room on the level.
-- **276 CFM** is the sum of the [register schedule](ducting-register-schedule.md)'s four second-floor rows — Play Room 115, Office 113, Upper Bath 28, Upstairs Hallway 20 — each biased at *room* level against an earlier model state, with the Play Room row since revised upward to carry the whole room rather than half of it.
+| | CFM | Exact | Duct | fpm |
+|---|---:|---:|:-:|---:|
+| **Supply riser** | **301** | 9.23″ | **10″** | 552 |
 
-**The schedule is authoritative for what gets installed, so the riser as specified is 276 at 9″.** Two fresh figures both sit above it:
+**A 9″ round carries about 276 CFM at design friction** — so a 9″ would run 681 fpm here: inside the 500–750 supply band, but at the top of it and with no headroom. The 10″ runs 552. (A *9×9 rectangular* duct is a different thing — 9.84″ equivalent round, 357 CFM — and the two are easy to confuse.)
 
-| Basis | CFM | Exact | At 9″ |
-|---|---:|---:|---:|
-| Register schedule, as built to | 276 | 8.93″ | 625 fpm |
-| Four second-floor rooms, biased individually today | **301** | 9.23″ | 681 fpm |
-| Level total × 1.35 (238 → 321), closets included | **321** | 9.45″ | 727 fpm |
-
-**A 9″ round carries about 276 CFM at design friction**, so the riser is sized exactly at its own design figure with no headroom. (A *9×9 rectangular* duct is a different thing — 9.84″ equivalent round, 357 CFM — and the two are easy to confuse.)
-
-That leaves no margin, but it does not overturn the design. At 301 the 9″ runs 681 fpm and at 321 it runs 727, both inside the 500–750 supply band and both at the top of it. Equal-friction sizing on either figure calls for a **10″** (552 and 589 fpm respectively).
-
-**So the choice is explicit rather than incidental:** keep the 9″ and accept the top of the band, or take the 10″ and the quiet. Re-derive the schedule against current loads before anything is fabricated.
-
-**Why the riser carries 276 when the floor's registers are scheduled for 228.** Upper Bath and Upstairs Hallway have no supply register: their 48 CFM reaches them as transfer air from the Play Room and Office, so the riser carries the whole floor's load while only two rooms have an opening for it. That is the design, not a discrepancy — but it means both registers pass more than their own room's share, and the schedule never said so.
+**Why the riser carries 301 when only two rooms have a supply register.** Upper Bath and Upstairs Hallway have none: their 50 CFM arrives as transfer air from the Play Room and Office, so the riser carries the whole floor's load while two openings deliver it. Both registers therefore pass more than their own room's share:
 
 | Register | Own room | Carries | Face | fpm |
 |---|---:|---:|:-:|---:|
-| Play Room — south | 115 | **139** | 5x10 | 535 |
-| Office — two floor registers | 113 | **137** | 4x10 each | 328 |
+| Play Room — south | 117 | **140** | 5x10 | 539 |
+| Office — two floor registers | 134 | **161** total, 80 each | 4x10 each | 386 |
 
-Both stay inside the 500–750 band, and still do on the re-derived 301 (583 and 358 fpm). **The transfer path is what has to be checked, not the sizes** — the bath and hallway only get their air if the doors are undercut and the return pulls through them.
+Both stay inside the band. **The transfer path is what has to be checked, not the sizes** — the bath and hallway only get their air if the doors are undercut and the return pulls through them.
 
 | Duct | CFM | Round | Rectangular |
 |---|---:|:-:|:-:|
@@ -203,7 +192,7 @@ Two supplies are the exceptions, and both are deliberate:
 
 A small duct-only enclosure on the second floor stays available if the diagonal proves awkward to frame. B keeps one quiet advantage worth recording: a diagonal face is a better place to turn a duct than a square corner, and a 45° transition carries roughly half the equivalent length of two 90s.
 
-**The attic is used deliberately, for returns only.** One return riser comes up and splits in two, running to the far corners of both rooms; supply arrives short and central. That is the governing principle applied.
+**The attic carries return, and one short supply run.** The return riser comes up and splits in two, reaching the far corners of both rooms. Supply mostly avoids the attic entirely — the office is fed straight up through its own floor — with one exception: a few feet of insulated supply to the play room's extra register. That is the governing principle applied, and the exception is kept short because length is what the principle is really about.
 
 ---
 
@@ -259,19 +248,17 @@ That is the whole reason retrofit attic equipment loses 20–30%, and it applies
 
 **A unit in the north knee-wall attic can reach the north side of those rooms and not the south.** That is not a detail to solve later; it decides what the scheme can deliver. The south side of the second floor carries load that the conservative numbers here already show, and they *understate* it: a third of that ceiling area is not drawn yet.
 
-The suggested remedy is a duct run in a channel along the east side of the office, into the small east knee-wall attic. **A channel along a finished wall is a chase.** If building a chase is acceptable, the objection to this design — which is built around a chase — was never about chases but about *which* one.
-
-The two compared:
+The suggested remedy is a duct run in a channel along the east side of the office, into the small east knee-wall attic. Both options end up enclosing duct, so the question is not whether to build an enclosure but what each one costs:
 
 | | This design's chase | The proposed channel |
 |---|---|---|
-| Location | Three-level chase alongside the chimney | A box along a finished office wall |
+| Runs | Vertically, in one stack beside the chimney | Horizontally, the length of a finished wall |
+| Length in unconditioned space | None | Most of it, ending in the attic |
 | Serves | All three floors, supply and return | One register |
-| Inside the envelope | Yes | Partly — it ends in an unconditioned knee-wall attic |
 | Visible | No | Yes, in a room people use |
-| Has to exist anyway | **Yes** — the main floor needs it | No |
+| Wanted for other reasons | **Yes** — see below | No |
 
-The second unit is meant to *avoid* building a chase. Needing one anyway, in a worse place, to reach a corner the first unit was going to reach through the chase already planned, is the argument turning back on itself.
+The difference that matters is not the enclosure, it is the **duct inside it**. A vertical stack in the middle of the house stays warm on every foot of its run; a horizontal channel along an exterior wall ending in a knee-wall attic does not. The channel is the shorter build and the longer thermal exposure.
 
 ### What two handlers buy
 
@@ -283,7 +270,7 @@ The second unit is meant to *avoid* building a chase. Needing one anyway, in a w
 
 - A second indoor unit, a second filter, a second condensate path, a second service point, and a second maintenance schedule for as long as the house stands.
 - **Somewhere inside conditioned space to put it**, which on the second floor of this house is not obvious. The knee-wall attic is what makes the space available, and putting the unit there is precisely what the internal framing rules out.
-- Equipment and installation cost against a riser that has to exist anyway — the main floor needs the chase regardless.
+- Equipment and installation cost against a chase the house wants regardless. The main floor needs one for its own ducts, and **the owner wants the stack for unrelated reasons** — wiring runs between floors, and the closet space the enclosure creates on each level even with duct in it. A second handler saves none of that.
 
 ### Where the single-unit case still stands
 
@@ -294,30 +281,29 @@ The second unit is meant to *avoid* building a chase. Needing one anyway, in a w
 
 ### The decision criterion
 
-**Static pressure decides whether one unit is enough.** If it can move 1,245 CFM through this layout at an acceptable external static pressure, one unit is the better buy — everything inside the envelope, half the equipment, one filter to change. That is a question the fitting counts settle, and a contractor is better placed to supply them than this model is. Ask for the counts rather than for an opinion.
+**Static pressure decides whether one unit is enough.** If it can move 1,245 CFM through this layout at an acceptable external static pressure, one unit is the better buy — everything inside the envelope, half the equipment, one filter to change. Fitting counts settle that question, and they come from whoever lays the ducts out — the schematic carries run lengths, not fittings.
 
 **But placement decides whether two units would even help.** A second handler in the north knee-wall attic does not serve the south side of those rooms, and no amount of static-pressure headroom changes that. So the two questions are independent, and they should be asked in this order:
 
 1. *Where would the second unit sit, and which registers can it reach?* If the answer is "north only, plus a channel along the office wall", the proposal has not solved the problem it was brought in to solve.
 2. *Only if it reaches everything:* does one unit hit its static-pressure limit?
 
-A second handler somewhere central and inside the envelope would be an alternative worth pricing, and would buy the per-floor zoning a single unit cannot have here. **The north knee-wall attic is not that location**, and choosing it converts the strongest argument for two units into an argument about where to put a chase.
+**If a central spot inside the envelope exists on that floor, it is worth pricing** — it would buy the per-floor zoning a single unit cannot have here. Nothing found so far reaches both ends of both rooms, but that is a search that could still turn something up.
 
-**Where to be careful.** Eldr's Manual D uses a flat 1.5× fitting factor, not true fitting equivalent lengths. Real elbows, tees and boots on a three-storey run add 50–150 ft of equivalent length, so any static-pressure figure computed with the default is optimistic. Either raise the factor to something defensible (2.5–3) and say so, or count fittings by hand for the contested run. **Do not hand over a number that flatters the case on a modelling shortcut** — it is the one thing that would cost the credibility everything else earns.
+**No static-pressure figure appears anywhere in this package, and that is deliberate.** Eldr's Manual D applies a flat 1.5× fitting factor rather than true equivalent lengths, and real elbows, tees and boots on a three-storey run add 50–150 ft. A figure computed on the default would read optimistic by a margin large enough to decide the question it is being used to answer, so none is published.
 
 The current HVAC company specialises in insulation, so envelope work is likely already in their plan. A tighter envelope lowers the load the ducts have to carry, so the two efforts work together.
 
 ---
 
-## The maintenance wall — front door to primary bedroom
+## How the floors are registered to each other
 
-The wall the upstairs-east risers pass through, and the trickiest build in the scheme. It is currently **one stud space deep**, with room for exactly one more inside the bedroom — a quirk of the doubled/offset wall created when the bedroom was extended south. Breaking in from the bedroom side showed **2–3 studs and an old conduit hole through to the basement**.
+Duct runs crossing between levels need the levels to agree about where things are, and a schematic assembled floor by floor does not guarantee that. Two physical features pierce more than one level and tie the frames together:
 
-**The conduit hole is the datum.** It is a single point piercing both the basement and the wall cavity, so it registers the two coordinate frames against each other — the same shared-anchor trick the joists provide. Measure the studs relative to it and reference every riser to it, and "I cannot tell where the studs are versus where the ducts come up" becomes exact offsets from one known hole.
+- **An old conduit hole** from the basement into the main-floor wall cavity, fixing those two against each other.
+- **A metal spike driven** from the knee-wall attic beside the office down into the primary bedroom, doing the same for the upper two.
 
-**Rectangular, not round.** The depth budget is roughly two stud bays back to back (~7″), and a bay gives about 14.5″ clear. Three round 5–6″ ducts side by side need 15–18″ and fight the studs. Residential **wall-stack duct** — 3.25x10 or 3.25x12, purpose-made to run vertically between studs in a 2x4 wall — puts the shallow dimension across the wall depth and solves the problem directly. Oval is the fallback. Prefer running each duct *within* a bay so no stud needs notching; if a riser must cross one, verify the partition is non-load-bearing first, because the south-extension quirk muddies that.
-
-**The face comes off.** The built-in over it is designed as a removable panel on a French cleat, so the risers stay reachable without demolition — which is why this scheme runs fewer ducts through the wall rather than over-provisioning so it never has to be opened.
+Anything measured from one of those is measured in both frames at once, which is what makes a riser's position on the main floor mean the same thing as its position in the basement. Within a single level the joists do the same job.
 
 ## Constraints from the rest of the basement
 

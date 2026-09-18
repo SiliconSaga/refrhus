@@ -110,7 +110,7 @@ for stem, members in runs.items():
     bends = sum(1 for a, b in zip(members, members[1:]) if a["axis"] != b["axis"])
     secs, mats, lvls = [], [], []
     for m in members:
-        s = (f'{m["section"][1]:.0f}″ ø' if m["shape"] == "round"
+        s = (f'{m["section"][1]:.0f}″ round' if m["shape"] == "round"
              else f'{m["section"][0]:.0f}x{m["section"][1]:.0f}')
         if s not in secs:
             secs.append(s)
@@ -128,7 +128,7 @@ tally = defaultdict(float)
 for d in ducts:
     if d["future"]:
         continue
-    s = (f'{d["section"][1]:.0f}″ ø' if d["shape"] == "round"
+    s = (f'{d["section"][1]:.0f}″ round' if d["shape"] == "round"
          else f'{d["section"][0]:.0f}x{d["section"][1]:.0f}')
     tally[(s, d["material"])] += d["length"]
 
