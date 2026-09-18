@@ -27,7 +27,20 @@ The plenums are very different shapes, and the figure is hard to read without kn
 | | | SW return trunk | 84% |
 | | | SE return trunk | 96% — south end |
 
-**Three trunks each, and the supply plenum is two feet long.** All three supply trunks leave within 24 inches of each other, which is what keeps the largest duct in the house a 10″ rather than a 16″: nothing has to carry the whole 1,245 CFM anywhere, because the split happens at the plenum instead of downstream. *(An earlier version of this section said four supply trunks. The adjacency pass finds three — SW, North and SE. The register schedule's "four takeoffs" counts destinations served, not trunks drawn.)*
+**Three trunks each, and the supply plenum is two feet long.** All three supply trunks leave within 24 inches of each other, so nothing carries the whole 1,245 CFM anywhere — the split happens at the plenum rather than downstream.
+
+### The model has not adopted the schedule's takeoff plan
+
+This is the clearest place the drawing and the schedule describe different houses, and it is worth stating plainly because an earlier version of this section had the schedule's answer written in as though the model already matched it.
+
+| | Takeoffs | Largest supply duct |
+|---|--:|---|
+| [Register schedule](ducting-register-schedule.md) proposes | 4 | **10″** round |
+| Model draws | 3 | **12x16** rect — a 15.1″ equivalent round |
+
+The schedule's case is that a single trunk leaving the plenum has to be 16″ round, or 10x22 rectangular, and *"a 16″ round plus insulation hanging under joists at 84″ is a real intrusion"*. Splitting the main floor into south and north sub-trunks gives four takeoffs with nothing above 10″.
+
+**The model still draws the arrangement that argument rejects.** `SE supply trunk` starts at 12x16, which is a 15.1″ equivalent — the 16″ duct the schedule says never has to exist, within an inch of it. Whichever way this is resolved, the two documents cannot both be right, and [the parts list](ducting-parts-list.md) reports what is drawn rather than what is proposed.
 
 **The return plenum is ten feet long because its connections are ten feet apart.** The north return arrives near the top at 10%, the SW and SE returns at the bottom at 84% and 96%. One plenum spanning between them replaces a collector duct running the same distance — the length is the job, not an oversight.
 

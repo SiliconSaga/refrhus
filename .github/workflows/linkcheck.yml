@@ -1,0 +1,62 @@
+# Build the site and fail the pull request on a broken link or an orphan.
+#
+# Both failures are invisible in a passing build, and both have already shipped
+# here: a measurement protocol that sat at a URL nothing linked to, and four
+# professional reports that reached the public site the same way. A build that
+# succeeds is not the same as a site you can navigate.
+#
+# This runs the same `tools/linkcheck.py` a person runs locally, against the
+# same `bundle exec jekyll build`, so a green check here means the command on
+# someone's laptop agrees.
+name: Link check
+
+on:
+  pull_request:
+    paths:
+      - '**.md'
+      - '**.html'
+      - '_config.yml'
+      - '_data/**'
+      - '_includes/**'
+      - '_layouts/**'
+      - '_sass/**'
+      - 'assets/**'
+      - 'Gemfile'
+      - 'Gemfile.lock'
+      - 'tools/linkcheck.py'
+      - '.github/workflows/linkcheck.yml'
+
+permissions:
+  contents: read
+
+# A push mid-run makes the result stale; cancel rather than report on old HEAD.
+concurrency:
+  group: linkcheck-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      # Nothing here pushes, so no credential is left in .git/config for a
+      # later step to pick up.
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      # bundler-cache installs into vendor/bundle, which `_config.yml` already
+      # excludes — without that exclusion Jekyll tries to render the site
+      # template shipped inside the jekyll gem and the build fails outright.
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Build
+        env:
+          JEKYLL_ENV: production
+        run: bundle exec jekyll build --destination _site
+
+      # Exits non-zero on either finding, and prints which files and which
+      # links, so the log says what to fix rather than that something is wrong.
+      - name: Check every link resolves and every file is reachable
+        run: python3 tools/linkcheck.py _site
