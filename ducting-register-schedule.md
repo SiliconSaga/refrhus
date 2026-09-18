@@ -1,6 +1,6 @@
 # Register schedule
 
-**The per-register schedule for the proposed scheme.** Sizes come from Eldr's equal-friction math at 0.08 in.wc/100 ft, hand-tuned as the layout firmed up; the reasoning behind the airflow is in [the scheme](ducting-scheme.md).
+**The per-register schedule for the proposed scheme.** Sizes come from Eldr's equal-friction math at 0.08 in.wc/100 ft, hand-tuned as the layout firmed up; the reasoning behind the airflow is in [the scheme](ducting-scheme.md). Re-derived against the current model on 2026-09-18 — the loads moved 2% overall and one duct changed size.
 
 Airflow is biased on purpose — **second floor ×1.35**, **basement ×0.70**, main floor unchanged — and computed on a **30°F supply-air rise**, the heat-pump figure. (A 50°F rise is a gas furnace and undersizes every heating-driven duct by 1.67×.)
 
@@ -12,18 +12,18 @@ Airflow is biased on purpose — **second floor ×1.35**, **basement ×0.70**, m
 
 | Level | Room | Room CFM | Sup | CFM ea | Round | Rect | fpm | Ret | CFM ea | Round | Rect | fpm | New? | Comment |
 |---|---|---:|:-:|---:|:-:|:-:|---:|:-:|---:|:-:|:-:|---:|---:|---:|
-| Basement | Future Media Room | 85 | 1 | 85 | 6″ | 3x10 | 435 | 1 | 84 | 6″ | 3x10 | 430 | 2 | Own ceiling return |
-| Basement | Utility Room | 82 | 1 | 82 | 6″ | 3x10 | 415 | 1 | 83 | 6″ | 3x10 | 425 | 2 | Own ceiling return |
-| Main | Kitchen | 251 | 2 | 126 | 7″ | 4x10 | 470 | 1 | 251 | 9″ | 5x14 | 569 | 2 | One tricky |
-| Main | Main Bed | 227 | 2 | 113 | 7″ | 4x10 | 424 | 1 | 227 | 9″ | 5x14 | 513 | 1 | Return narrow? |
-| Main | Living room | 143 | 2 | 71 | 6″ | 3x10 | 363 | 1 | 143 | 7″ | 4x12 | 534 | | |
-| Main | Kids Room | 64 | 1 | 64 | 6″ | 3x8 | 324 | 1 | 64 | **8″** | 4x12 | 421 | | Grille carries 64; the **duct** is sized 8″ for the **147** it shares with the utility return, which is where 421 fpm comes from |
-| Main | Main Bath | 36 | 1 | 36 | 5″ | 3x6 | 263 | — | — | — | — | — | | |
+| Basement | Future Media Room | 87 | 1 | 87 | 6″ | 3x10 | 443 | 1 | 87 | 6″ | 3x10 | 443 | 2 | Own ceiling return |
+| Basement | Utility Room | 82 | 1 | 82 | 6″ | 3x10 | 420 | 1 | 82 | 6″ | 3x10 | 420 | 2 | Own ceiling return |
+| Main | Kitchen | 254 | 2 | 127 | 7″ | 4x10 | 476 | 1 | 254 | 9″ | 5x14 | 576 | 2 | One tricky |
+| Main | Main Bed | 225 | 2 | 113 | 7″ | 4x10 | 421 | 1 | 225 | 9″ | 5x14 | 510 | 1 | Return narrow? |
+| Main | Living room | 134 | 2 | 67 | 6″ | 3x10 | 341 | 1 | 134 | 7″ | 4x12 | 502 | | |
+| Main | Kids Room | 65 | 1 | 65 | 6″ | 3x8 | 329 | 1 | 65 | **8″** | 4x12 | 421 | | Grille carries 65; the **duct** is sized 8″ for the **147** it shares with the utility return, which is where 421 fpm comes from |
+| Main | Main Bath | 36 | 1 | 36 | 5″ | 3x6 | 268 | — | — | — | — | — | | |
 | Main | Main Closet | 17 | 1 | 17 | 4″ | 3x6 | 191 | — | — | — | — | — | 1 | Tiny split from orphan |
-| 2nd | Play Room | 115 | 2 | 115 / ? | 7″ | 4x10 | 429 | 1 | **168** | 8″ | 4x14 | 481 | 1 | The **new south** duct alone is sized for the whole 115; the existing east register contributes an unknown amount on top — not a second 115 |
-| 2nd | Office | 113 | 2 | 56 | 5″ | 3x8 | 413 | 1 | 113 | 7″ | 4x10 | 423 | 2.5 | Rescue orphan counts half |
+| 2nd | Play Room | 117 | 2 | 117 / ? | 7″ | 4x10 | 436 | 1 | **168** | 8″ | 4x14 | 481 | 1 | The **new south** duct alone is sized for the whole 117; the existing east register contributes an unknown amount on top — not a second 117 |
+| 2nd | Office | 134 | 2 | 67 | **6″** | 3x10 | 342 | 1 | 134 | 7″ | 4x12 | 503 | 2.5 | Rescue orphan counts half. **Grew a nominal size** — see below |
 | 2nd | Upper Bath | 28 | — | — | — | — | — | — | — | — | — | — | | No supply — wants electric heat |
-| 2nd | Upstairs Hallway | 20 | — | — | — | — | — | — | — | — | — | — | | Swept by transit only |
+| 2nd | Upstairs Hallway | 22 | — | — | — | — | — | — | — | — | — | — | | Swept by transit only |
 
 Rectangular sizes are the shallowest option holding an **aspect ratio at or under 4:1**. Flatter than that costs friction and makes fittings awkward, so a 3x20 is not a substitute for a 4x14 even though the areas are similar.
 
@@ -53,30 +53,30 @@ Faces below are **as drawn in the model**, sized against available space, with t
 
 | Level | Register | CFM | Face | fpm | Verdict |
 |---|---|---:|:-:|---:|---|
-| Basement | Future Media — NW ceiling `[circular]` | 85 | 5x10 | 326 | ok |
-| Basement | Utility — SE ceiling `[circular]` | 82 | 5x10 | 315 | ok |
-| Main | Kitchen — SW | 126 | 6x11 | 367 | ok |
-| Main | Kitchen — SE | 126 | 4x15 | 403 | ok |
-| Main | Main Bed — NE | 113 | 6x11 | 329 | ok |
-| Main | Main Bed — W | 113 | 6x11 | 329 | ok |
-| Main | Living room — NW | 71 | 5x10 | 273 | ok |
-| Main | Living room — NE | 71 | 6x10 | 227 | ok |
-| Main | Kids Room | 64 | 6x12 | 171 | Generous; throw will be weak |
-| Main | Main Bath | 36 | 5x8 | 173 | ok |
-| Main | Main Closet | 17 | 4x8 | 102 | ok |
-| 2nd | Play Room — south | 115 | 5x10 | 442 | ok |
+| Basement | Future Media — NW ceiling `[circular]` | 87 | 5x10 | 334 | ok |
+| Basement | Utility — SE ceiling `[circular]` | 82 | 5x10 | 316 | ok |
+| Main | Kitchen — SW | 127 | 6x11 | 370 | ok |
+| Main | Kitchen — SE | 127 | 4x15 | 407 | ok |
+| Main | Main Bed — NE | 113 | 6x11 | 328 | ok |
+| Main | Main Bed — W | 113 | 6x11 | 328 | ok |
+| Main | Living room — NW | 67 | 5x10 | 257 | ok |
+| Main | Living room — NE | 67 | 6x10 | 214 | ok |
+| Main | Kids Room | 65 | 6x12 | 172 | Generous; throw will be weak |
+| Main | Main Bath | 36 | 5x8 | 175 | ok |
+| Main | Main Closet | 17 | 4x8 | 100 | ok |
+| 2nd | Play Room — south | 117 | 5x10 | 448 | ok |
 | 2nd | Play Room — east | — | 4x8 | — | Existing; contribution unknown |
-| 2nd | Office — NE floor | 56 | 4x10 | 269 | ok |
-| 2nd | Office — W floor | 56 | 4x10 | 269 | ok |
+| 2nd | Office — NE floor | 67 | 4x10 | 323 | ok |
+| 2nd | Office — W floor | 67 | 4x10 | 323 | ok |
 | | **Supply registers** | | | | **15** |
-| Basement | Future Media — SW ceiling `[circular]` | 84 | 5x12 | 202 | ok |
-| Basement | Utility — NE ceiling `[circular]` | 83 | 5x12 | 199 | ok |
-| Main | Kitchen | 251 | 8x14 | 323 | ok |
-| Main | Main Bed | 227 | 5x9 | 726 | Matches its duct — see below |
-| Main | Living room | 143 | 6x12 | 286 | ok |
-| Main | Kids Room | 64 | 4x10 | 230 | ok |
+| Basement | Future Media — SW ceiling `[circular]` | 87 | 5x12 | 209 | ok |
+| Basement | Utility — NE ceiling `[circular]` | 82 | 5x12 | 198 | ok |
+| Main | Kitchen | 254 | 8x14 | 327 | ok |
+| Main | Main Bed | 225 | 5x9 | 721 | Matches its duct — see below |
+| Main | Living room | 134 | 6x12 | 268 | ok |
+| Main | Kids Room | 65 | 4x10 | 233 | ok |
 | 2nd | Play Room — SW | 168 | 6x12 | 336 | ok |
-| 2nd | Office — SW | 113 | 6x8 | 339 | ok |
+| 2nd | Office — SW | 134 | 6x8 | 403 | ok |
 | | **Return grilles** | | | | **8** |
 
 ### The two kitchen faces, now settled
@@ -185,9 +185,9 @@ With the Upper Bath and Upstairs Hallway carrying no supply:
 
 | Level | Total supply | Return registers | Together they must carry | Sized for |
 |---|---:|:-:|---:|---:|
-| Basement | 167 | 1 | 167 | 167 |
-| Main | 737 | 4 | 737 | 737 |
-| 2nd floor | **228** | 2 | **228** | 281 — deliberately generous |
+| Basement | 169 | 1 | 169 | 169 |
+| Main | 731 | 4 | 731 | 731 |
+| 2nd floor | **251** | 2 | **251** | 281 — deliberately generous |
 
 ### Using return placement to balance the second floor
 
@@ -195,13 +195,15 @@ Oversizing the Play Room's return to drag air across from the Office is a standa
 
 | | Supply | Return | Net |
 |---|---:|---:|---|
-| Office | 113 | 60 | 53 CFM leaves |
-| Play Room | 115 | 168 | 53 CFM arrives |
+| Office | 134 | 81 | 53 CFM leaves |
+| Play Room | 117 | 170 | 53 CFM arrives |
 | Upper Bath | — | — | swept by transit |
 | Upstairs Hallway | — | — | swept by transit |
-| | **228** | **228** | balanced |
+| | **251** | **251** | balanced |
 
-That drives 53 CFM through the bath and hallway on its way to the Play Room. Shrink the Office return further to pull harder; the pair just has to keep summing to 228.
+That drives 53 CFM through the bath and hallway on its way to the Play Room. Shrink the Office return further to pull harder; the pair just has to keep summing to 251.
+
+**The Office is the one room whose duct grew** in the 2026-09-18 re-derivation: 113 → 134 CFM, which takes its supplies from 5″ to 6″. Its return duct is sized for the room's own 134 and reads 503 fpm on that basis, but the cross-flow above throttles it to 81 — where a 7″ runs a quiet 305. Sized for the room, damped to the split.
 
 **The mechanism only works if the air has a path.** Door undercuts of ¾″ or transfer grilles between office, bathroom and play room are what make this real rather than theoretical — without them the rooms pressurise and the flow stops.
 

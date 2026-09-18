@@ -1,8 +1,8 @@
 # The duct scheme
 
-**One air handler in the basement — tucked under the stairs, in what used to be the bar area — feeding all three floors, with the second floor reached through a stacked utility cabinet built alongside the chimney.**
+**One air handler in the basement — tucked under the stairs, in what used to be the bar area — feeding all three floors, with the second floor reached through a three-level chase built alongside the chimney.**
 
-The main floor is served by basement runs — south through the under-stair space, north through the basement bathroom and then west along the girder. The second floor takes one supply and one return riser up the cabinet: the supply branches short and central, the return splits in the knee-wall attic to reach the far corners of both rooms.
+The main floor is served by basement runs — south through the under-stair space, north through the basement bathroom and then west along the girder. The second floor takes one supply and one return riser up the chase: the supply branches short and central, the return splits in the knee-wall attic to reach the far corners of both rooms.
 
 | | |
 |---|---:|
@@ -16,7 +16,7 @@ The main floor is served by basement runs — south through the under-stair spac
 
 Two contractors have instead proposed a second air handler in the knee-wall attic. That option is compared against this one [below](#one-air-handler-or-two).
 
-Related: [the register schedule](ducting-register-schedule.md) for per-register sizes, [the parts list](ducting-parts-list.md) for materials and cost, [the load calculations](hvac/index.md) for where our numbers and the professional Manual J differ, and [the chimney measurements](chimney-measure-sheet.md) for the geometry the cabinet is built against.
+Related: [the register schedule](ducting-register-schedule.md) for per-register sizes, [the parts list](ducting-parts-list.md) for materials and cost, [the load calculations](hvac/index.md) for where our numbers and the professional Manual J differ, and [the chimney measurements](chimney-measure-sheet.md) for the geometry the chase is built against.
 
 ---
 
@@ -45,7 +45,7 @@ Design airflow from Eldr's per-room Manual J, on geometry that is deliberately c
 | 2nd floor | 238 | Office 100, Play Room 86 |
 | **Total** | **1,245** | |
 
-> **Two airflow totals appear across these documents and they are not interchangeable.** **1,245 CFM** is the whole-house design airflow Eldr computes, and the per-room figures now sum to the same number — the figure the *equipment* is sized on. **1,133** is the [register schedule](ducting-register-schedule.md) total, which is lower because the second-floor ×1.35 and basement ×0.70 biases are applied to it and because it was tuned against an earlier model state. **The schedule is authoritative for duct sizes; Eldr's total is authoritative for equipment.** Where a per-room figure differs between them, the schedule is the older number — the Office in particular reads 83 raw there against 100 now.
+> **Two airflow totals appear across these documents and they are not interchangeable.** **1,245 CFM** is the whole-house design airflow Eldr computes, and the per-room figures now sum to the same number — the figure the *equipment* is sized on. **1,201** is the [register schedule](ducting-register-schedule.md)'s twelve rooms summed after the second-floor ×1.35 and basement ×0.70 biases. The 44 CFM between them is closets, chases and voids that fall below the threshold for a duct of their own — not staleness. **The schedule is authoritative for duct sizes; Eldr's total is authoritative for equipment.**
 
 **The main floor is the load** — two and a half times the second floor. That reframes the problem: the second floor is not the hard part *volumetrically*, it is the hard part *geometrically*. The distinction is worth holding onto when weighing the two proposals, because a second air handler adds capacity where the difficulty is access.
 
@@ -80,7 +80,7 @@ Rooms under 10 CFM get no dedicated run — door undercut or a transfer grille i
 
 Velocities run 191–576 fpm — inside the 500–750 supply band at the top end and comfortably under it elsewhere.
 
-> **The register schedule is built on an earlier, lower set of room loads** and has not been re-derived against these. It stays authoritative for what gets installed, so the two differ by a known margin — re-deriving it is the outstanding task before anything is fabricated.
+> **The register schedule was re-derived against these same loads on 2026-09-18.** It tracks them to 2% overall; the Office was the one room to move materially (113 → 134 CFM, taking its supplies from 5″ to 6″). It remains authoritative for what gets installed.
 
 | | CFM | Round | Rectangular |
 |---|---:|---|---|
@@ -110,11 +110,13 @@ Sizes are computed with Eldr's own `ductd` equal-friction math at 0.08 in.wc/100
 | 8×16 | 128 | 12.19″ | 628 |
 | 8×24 | 192 | 14.61″ | 1015 |
 
-## The three-level utility cabinet
+## The three-level chase
 
-The cabinet is the whole argument in physical form. The standard, correct objection to retrofit second-floor ducting is that ducts in an unconditioned knee-wall attic lose 20–30%. A stacked cabinet running basement → main → second floor is a **conditioned chase**: it keeps the ducts inside the thermal envelope, which dissolves the objection rather than arguing with it.
+The chase is the whole argument in physical form. The standard, correct objection to retrofit second-floor ducting is that ducts in an unconditioned knee-wall attic lose 20–30%. A chase running basement → main → second floor keeps them inside the thermal envelope, which dissolves the objection rather than arguing with it.
 
-It carries **only the second floor**, not the whole 1,245 — the main floor is fed from basement runs and never enters the cabinet. That is what keeps a chase this modest sufficient.
+**It is not the same construction on every level.** The basement and main floor take a full built-in cabinet. The second floor has room for one, but the current thinking is a smaller enclosure holding ducts only — or none at all, with the risers leaning diagonally through the main floor so they emerge on the far side of the knee wall. "Chase" is the accurate word throughout; "cabinet" only describes the lower two levels.
+
+It carries **only the second floor**, not the whole 1,245 — the main floor is fed from basement runs and never enters the chase. That is what keeps a chase this modest sufficient.
 
 **Two figures, two scopes — and they are not one multiplication apart.**
 
@@ -152,7 +154,7 @@ Both stay inside the 500–750 band, and still do on the re-derived 301 (583 and
 
 The return riser is sized at 281 — Office 113 plus Play Room 168 — rather than the 228 mass balance requires, so the cross-flow split between the two rooms can be set by damper rather than by re-ducting.
 
-Round is unnecessary anywhere inside the cabinet or under the stairs — it is all concealed, so rectangular wins on fit. Round is worth reserving for anywhere the duct is seen.
+Round is unnecessary anywhere inside the chase or under the stairs — it is all concealed, so rectangular wins on fit. Round is worth reserving for anywhere the duct is seen.
 
 ### Basement — the binding case
 
@@ -184,15 +186,22 @@ Open space; not a constraint. The cabinet here passes the two risers through and
 
 ### Second floor
 
-Three shapes were considered:
+Three shapes were considered, and **the preference has moved to C**:
 
 | | Approach | Verdict |
 |---|---|---|
 | A | Straight cabinet wall from the chimney | **Rejected** — lands mid-latch on the attic access |
-| B | **Diagonal from the chimney to the corner** | **Preferred** — puts the attic access *inside* the cabinet, fully contained |
-| C | Ducts leaning south on the main level, exiting straight into the knee wall | Fallback — avoids the cabinet but puts duct in the attic |
+| B | Diagonal cabinet from the chimney to the corner | Viable — puts the attic access *inside* the cabinet, at the cost of floor area on the level with least to spare |
+| C | **Ducts leaning diagonally through the main floor, emerging beyond the knee wall** | **Preferred** — no second-floor cabinet needed |
 
-B costs a little floor area and buys a clean elevation with one access point instead of two. It has a quiet second advantage: a diagonal face is a better place to turn a duct than a square corner, and a 45° transition carries roughly half the equivalent length of two 90s — which you are spending anyway at that point.
+C avoids building on the second floor at all, and what it puts in the knee-wall attic is mostly **return** — which the governing principle at the top of this document permits, and which is the whole reason that principle is stated first.
+
+Two supplies are the exceptions, and both are deliberate:
+
+- **The office supply goes straight up through the office floor**, never entering the attic. It is the largest single room on the level, so the shortest and safest run serves the biggest load.
+- **The play room takes a short attic run** for its extra supply. Short is the mitigation: a few feet of insulated supply in a buffer space is a different proposition from a trunk crossing it.
+
+A small duct-only enclosure on the second floor stays available if the diagonal proves awkward to frame. B keeps one quiet advantage worth recording: a diagonal face is a better place to turn a duct than a square corner, and a 45° transition carries roughly half the equivalent length of two 90s.
 
 **The attic is used deliberately, for returns only.** One return riser comes up and splits in two, running to the far corners of both rooms; supply arrives short and central. That is the governing principle applied.
 
@@ -207,7 +216,7 @@ B costs a little floor area and buys a clean elevation with one access point ins
 | Play Room (west) | 72 | 84 ✓ |
 | Office (east, by the window) | 83 | 84 ✓ |
 
-Together **168 CFM — 83% of the floor's 202**. That flips the framing: the old ducts are the *base* and the cabinet riser is the *margin*, which is a cheaper build than the other way round. Worth confirming both are clear and intact end to end, especially the one currently dead-ending under the floor near the east window — at those numbers it is carrying real load, not a nice-to-have.
+Together **168 CFM — 90% of the 186 those two rooms need unbiased** (Office 100, Play Room 86). That flips the framing: the old ducts are the *base* and the chase riser is the *margin*, which is a cheaper build than the other way round. Worth confirming both are clear and intact end to end, especially the one currently dead-ending under the floor near the east window — at those numbers it is carrying real load, not a nice-to-have.
 
 **Office** — primary supply up through the floor from the main-floor cabinet, keeping it out of the attic entirely. The old duct near the window adds perimeter supply, which is what keeps this floor from being purely central-supply.
 
@@ -226,7 +235,7 @@ The existing supply register sits diagonally across the room from there, which i
 The trade matters more in an old house with mixed glazing than in a tight new one. Two things make it acceptable:
 
 1. The plan already includes **secondary perimeter supply** via the old window-adjacent duct in the office. The scheme is *primary central + secondary perimeter*, a recognised retrofit compromise rather than a straight inversion.
-2. There is **room to add supply later** — including a north run — if internal room balance turns out poor. The cabinet is sized with margin and the risers are not the constraint.
+2. There is **room to add supply later** — including a north run — if internal room balance turns out poor. The chase is sized with margin and the risers are not the constraint.
 
 **The assumption to check is throw.** Whether a central register at **100 CFM** reaches the office's far wall is Manual T territory. A typical floor register at that flow throws 8–12 ft against a room around 14–15 ft, so a central position needs ~7 ft — plausible with margin. It remains a catalogue lookup at register selection rather than something to take on faith.
 
@@ -256,7 +265,7 @@ The two compared:
 
 | | This design's chase | The proposed channel |
 |---|---|---|
-| Location | Utility cabinet alongside the chimney | A box along a finished office wall |
+| Location | Three-level chase alongside the chimney | A box along a finished office wall |
 | Serves | All three floors, supply and return | One register |
 | Inside the envelope | Yes | Partly — it ends in an unconditioned knee-wall attic |
 | Visible | No | Yes, in a room people use |
@@ -279,7 +288,7 @@ The second unit is meant to *avoid* building a chase. Needing one anyway, in a w
 ### Where the single-unit case still stands
 
 1. **The load is modest.** 238 CFM to the second floor against 751 to the main floor. The second floor is a geometry problem, not a capacity problem — and a second handler is a capacity answer to a geometry question.
-2. **Both supply and return reach it.** A second handler solves the *return* problem by putting the blower where the air is, which is the usual reason "you can't duct a second floor" holds in retrofits. The cabinet has measured room for both, so the single unit is not relying on the return problem going away.
+2. **Both supply and return reach it.** A second handler solves the *return* problem by putting the blower where the air is, which is the usual reason "you can't duct a second floor" holds in retrofits. The chase has measured room for both, so the single unit is not relying on the return problem going away.
 3. **The chase is conditioned.** Ducts stay inside the envelope for their whole run, which is the same benefit the internal-handler proposal is reaching for, obtained a different way.
 4. **The numbers are conservative.** See the ceiling-area caveat above.
 
