@@ -18,7 +18,7 @@ The replacement compares *runs against the same model at a known commit*: regene
 
 ## The professional reports
 
-An ACCA-approved Manual J by NJ Energy Auditor, commissioned 2026-08, in three progressions modelling the house at increasing tightness: **as-is 54,260**, plus insulation 44,067, plus air sealing 40,901 BTU/hr heating.
+An ACCA-approved Manual J by a certified energy auditor, commissioned 2026-08, in three progressions modelling the house at increasing tightness: **as-is 54,260**, plus insulation 44,067, plus air sealing 40,901 BTU/hr heating.
 
 **[The figures are summarised on their own page](professional-manual-j.md)** — design conditions, every construction assembly with its area and U-value, and the infiltration measurement. That summary is the source of the area-weighted U-values this project's side-car carries.
 

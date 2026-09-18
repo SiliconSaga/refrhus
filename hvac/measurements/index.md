@@ -85,7 +85,7 @@ Compare `U_eff` on the `BARE` points against the professionals' 0.293 and on the
 
 The vertical profile is the more interesting output. Plot `U_eff` against height and you have this house's own version of the depth-dependent below-grade U that Manual J tabulates — which is also the data any future grade-line support in Eldr would calibrate against.
 
-## What the first readings already resolved
+## What the readings so far show
 
 The 2026-08-14 session settled a modelling question that had been open. Bottom of joists measured **84 in** above the slab; bottom of subfloor **92 in**. So the basement's *clear* height is 7.00 ft and its floor-to-floor height is about 7.7 ft — and the model carries both: the Basement level height is 7.00 ft (correct for air volume) while its walls are drawn 8.00 ft (correct in kind for conduction area, over by ~3 in). Both numbers are right for their own purpose; this is not the error it looked like.
 

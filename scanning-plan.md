@@ -4,7 +4,7 @@ Distilled from the 2026-06 discussion. Raw scanner notes were in `scanning.txt` 
 
 ## Why scan at all
 
-Every hard moment in the Refrhus rebuild traces to one missing thing: accurate ground truth. The floor plan was explicitly "not to scale," the survey is a blurry JPEG good only for the footprint envelope, and the basement was mis-measured so the *whole house* was wrong. A scan is the ground truth we never had. It does not replace the model — it becomes a *reference* you trace against and overlay-check: a tool does the math, a vision-capable agent does the interpretation.
+The schematic was assembled without accurate ground truth: the floor plan is explicitly "not to scale", and the survey is a blurry JPEG good only for the footprint envelope. Because the levels are registered to each other, an error in the basement propagates through the whole house. A scan would supply the ground truth the drawing never had. It does not replace the model — it becomes a *reference* you trace against and overlay-check: a tool does the math, a vision-capable agent does the interpretation.
 
 ## Structured output vs. mesh
 

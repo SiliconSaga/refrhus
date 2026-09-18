@@ -1,6 +1,6 @@
 # The professional Manual J
 
-An ACCA-approved Manual J for this house, commissioned 2026-08 from **NJ Energy Auditor** and produced in Amply. It is the independent check every number on this site is measured against, and the source of most of the thermal assumptions our own model runs on.
+An ACCA-approved Manual J for this house, commissioned 2026-08 from a certified energy auditor. It is the independent check every number on this site is measured against, and the source of most of the thermal assumptions our own model runs on.
 
 **The reports themselves are not published here.** They were produced for the owner as a customer, not for redistribution. This page carries the figures our work depends on — enough that every claim elsewhere on the site can be traced to a number — and nothing beyond that.
 

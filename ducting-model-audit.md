@@ -54,7 +54,7 @@ A 3D adjacency pass over all 74 duct objects and 25 registers at 3″ tolerance.
 
 **Read Sweet Home 3D's own rotated dimensions, not the raw ones.** A piece tilted by `pitch` or `roll` carries `widthInPlan` / `depthInPlan` / `heightInPlan` — the bounding box *after* that tilt — and its `elevation` is measured to the bottom of that box, not of the upright model. Nineteen of the 74 carry a non-zero pitch or roll, all of them horizontal runs drawn as pitched cylinders. Reconstructing the rotation from `width`/`depth`/`height` instead puts those runs **tens of inches off in elevation** while leaving the plan position right — so they read as badly broken chains that look perfectly joined on screen. Only the yaw (`angle`) still needs applying, to the in-plan footprint.
 
-The SW return is the run that exposed this: trunks 3 and 4 overlap by 1″ in elevation (74–83″ and 82–91″), and a naive pass reported them 26″ apart. **Two rounds of model edits chased that phantom before the reader was suspected** — the owner's own observation that the pieces touched was correct throughout.
+The SW return shows the size of the error: trunks 3 and 4 overlap by 1″ in elevation (74–83″ and 82–91″), and a reader using the raw dimensions puts them 26″ apart — a break that is not there.
 
 **The opposite mistake for the parts list.** In-plan dimensions are an axis-aligned envelope, so for anything tilted off a right angle they *overstate* the part — a rolled cylinder reported a 29″ diameter. Sections and lengths come from the raw `width`/`depth`/`height`, which are true at any rotation. Two questions, two correct answers, and using either one for the other's job produces confident nonsense.
 
