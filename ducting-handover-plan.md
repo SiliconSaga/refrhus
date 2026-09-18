@@ -1,10 +1,10 @@
-# Handover package — design plan
+# How this package is built
 
-Written 2026-09-07, deliberately before a context compaction, so the next session can pick this up cold.
+*Appendix — the plan behind this site and the model workflow under it. Nothing here is needed to price the job.*
 
 **Goal:** turn the duct design into something an HVAC company can be handed — a public GitHub Pages site with real navigation, backed by the measured model, carrying a parts list and renders. The company still favours a second air handler upstairs; this package is the argument against it, made in their own units.
 
-**`Cervator/refrhus` is public**, as is `SiliconSaga/eldr`. Refr Hus is a public worked example of GDD applied to home improvement, and public repos publish Pages on the free plan — so neither the Pages tier nor CI repo access is a constraint.
+**`SiliconSaga/refrhus` is public**, as is `SiliconSaga/eldr`. Refr Hus is a public worked example of GDD applied to home improvement, and public repos publish Pages on the free plan — so neither the Pages tier nor CI repo access is a constraint.
 
 ---
 
@@ -139,7 +139,7 @@ Sweet Home 3D exports the 3D view to OBJ natively. Worth having: the air handler
 
 ## Task 5 — The site
 
-GitHub Pages from `Cervator/refrhus`, public. Side navigation across the existing documents plus the generated parts list and renders. The existing docs are already written to be read cold, so the work is navigation and presentation, not rewriting.
+GitHub Pages from `SiliconSaga/refrhus`, public. Side navigation across the existing documents plus the generated parts list and renders. The existing docs are already written to be read cold, so the work is navigation and presentation, not rewriting.
 
 Suggested order: the scheme primer as the landing page, then the argument against a second unit, the register schedule, the model audit, the parts list, the measurement records, and the renders.
 

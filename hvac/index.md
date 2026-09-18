@@ -24,19 +24,7 @@ An ACCA-approved Manual J by NJ Energy Auditor, commissioned 2026-08, in three p
 
 **The reports themselves are not published.** They were produced for the owner as a customer rather than for redistribution, so this site carries the numbers our work depends on and not the documents.
 
-### Two things in the reports that are easy to miss
-
-Both are set out in full on [the summary page](professional-manual-j.md); in short.
-
-**The measured blower door exists only in handwriting.** Progression C's Infiltration panel prints `Blower Door · 1,751 CFM50 · ACH 0.32`, but is annotated **"speculative"** — C models the *proposed post-air-sealing* state. The margin note beside it is the real measurement:
-
-> **"At Audit BD was 3751! w/ACH 0.68"**
-
-So the measured as-is figure is **3,751 CFM50 → ACH 0.68**, and that is what `../eldr-sidecar.yaml` now uses. Progression A's `ACH4 Heating 0.85 / Cooling 0.44` are **not** measurements — A's method line reads `Tightness: Loose`, an ACCA tightness-class estimate. Don't cite them as measured.
-
-Worth recording: 3,751 CFM50 × 60 ÷ 16,457 ft³ = 13.7 ACH50, over an LBL N-factor of ~20 (two storeys, shielding class 4) = **0.68**. That volume is Eldr's independently computed conditioned volume, to the cubic foot.
-
-**They load below-grade surfaces at the full outdoor ΔT.** Divide HTM by U on every below-grade row — 16.58/0.293, 16.82/0.297, 4.98/0.088, and the slab's 1.13/0.020 — and all four give **56.6**, against their design ΔT of 57 × a 0.995 elevation factor. The soil path lives inside the U-value, which is why U-0.293 is far below bare 8" masonry (~1.0 alone). That is standard Manual J, and finding it is what corrected Eldr, which had been applying an effective U *and* a ground ΔT — discounting twice. Their below-grade **cooling** HTMs do not divide out to a constant (5.73 / 9.19 / 7.73), so cooling below grade is not a single ΔT; their slab cooling HTM is 0.00, matching what Eldr does.
+Two readings in those reports are easy to get wrong and both are set out on [the summary page](professional-manual-j.md): the measured blower door exists only as a handwritten margin note (**3,751 CFM50 → ACH 0.68**, not the printed figure), and below-grade surfaces are loaded at the full outdoor ΔT with the soil path inside the U-value — which is what corrected Eldr from discounting twice.
 
 ## Our runs
 
@@ -88,11 +76,11 @@ Currently heating **40,331** against their **54,260**, or 74%. That ratio *fell*
 | Occupants | 5 | 5 | ✅ reconciled. The actual headcount, and the ACCA bedrooms+1 convention, agree |
 | SHR | 0.80 | 0.90 | Our assumed 30-grain humidity difference vs their station's 27.805 |
 
-**The attic divergence is deliberate and ours to keep.** An earlier version of this table blamed part of the ceiling gap on "our unvented-attic default halves the heating ΔT where they take the full one", which reads as an Eldr error. It is not one. The attic genuinely is unvented, and Eldr already models the seasonal asymmetry correctly: a winter factor of **0.50** from the `vented: false` shorthand, and a summer factor of **3.66** resolved from a sol-air attic temperature. Being unvented *helps* in winter — stale air does not track outdoor temperature — and *hurts* in summer, when superheated air has nowhere to go. Declaring the attic vented to match their treatment would make the schematic less true to the house in order to close a number, which is backwards. The whole remaining ceiling gap is the 563 ft² of area we have not drawn.
+**The attic divergence is deliberate and ours to keep**, and is not an Eldr error. The attic is unvented, and Eldr models the seasonal asymmetry correctly: a winter factor of **0.50** from the `vented: false` shorthand, and a summer factor of **3.66** resolved from a sol-air attic temperature. Being unvented *helps* in winter — stale air does not track outdoor temperature — and *hurts* in summer, when superheated air has nowhere to go. Declaring the attic vented to match their treatment would make the schematic less true to the house in order to close a number, which is backwards. The whole remaining ceiling gap is the 563 ft² of area we have not drawn.
 
 **Why `basement_wall` was left at 0.07.** Their area-weighted below-grade U is 0.196 (bare 8" stone at 0.293/0.297, finished R-11 at 0.088). Applying that to *our* area gives **12,236 BTU/hr against their 9,271** — a 32% overshoot replacing today's 53% undershoot, because our area is 47% too large for want of a grade line. Substituting one error for another is not accuracy. This one waits for the grade-line split or for measured wall temperatures.
 
-**Fixed since this section was first written:** Eldr's cooling load carried infiltration only as *latent*, with no sensible term, which is part of why our SHR read low. Closed in the `2026-08-14c` run — cooling gained the missing sensible term (3,223 BTU/hr here) and the SHR moved 0.70 → 0.80.
+**Cooling infiltration was latent-only for a while**, with no sensible term, which is part of why our SHR read low. Fixed: cooling gained the missing sensible term and the SHR moved 0.70 → 0.80.
 
 The pattern overall: **the geometry agrees, and the assemblies are now mostly settled.** Above-grade walls, windows, the slab and occupants are all reconciled against their measured values. What is left is three items, and only one of them is thermal:
 

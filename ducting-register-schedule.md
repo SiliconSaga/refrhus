@@ -1,6 +1,6 @@
-# Register schedule — working document
+# Register schedule
 
-**This file is meant to be edited directly.** It is the per-register duct schedule for the proposed scheme, generated 2026-09-02 and hand-tuned as the layout firms up. Sizes come from Eldr's equal-friction math at 0.08 in.wc/100 ft; the reasoning behind the airflow lives in [`ducting-scheme.md`](ducting-scheme.md).
+**The per-register schedule a contractor prices.** Sizes come from Eldr's equal-friction math at 0.08 in.wc/100 ft, hand-tuned as the layout firmed up; the reasoning behind the airflow is in [the scheme](ducting-scheme.md).
 
 Airflow is biased on purpose — **second floor ×1.35**, **basement ×0.70**, main floor unchanged — and computed on a **30°F supply-air rise**, the heat-pump figure. (A 50°F rise is a gas furnace and undersizes every heating-driven duct by 1.67×.)
 
@@ -37,7 +37,7 @@ Rectangular sizes are the shallowest option holding an **aspect ratio at or unde
 
 *The second-floor returns are sized for the cross-flow split, not for their own rooms.* The Play Room's is sized at **168** rather than its own 115, so the option to drag air across from the Office exists without re-ducting. Their combined capacity is 281 against the 228 the floor actually needs — **the dampers set the real split**, and sizing for the larger case costs a nominal size, not a redesign.
 
-Room-name mapping, since the model and conversation differ: the 2nd-floor "kids room" is **Play Room**; the main-floor "small kids room" is **Kids Room**; "bathroom" with supply only is **Main Bath**. The two basement supplies are named by position in the model and by room here — **"west basement" is Future Media Room**, **"basement east" is Utility Room**.
+Room-name mapping, since the model and these documents differ: the 2nd-floor "kids room" is **Play Room**; the main-floor "small kids room" is **Kids Room**; "bathroom" with supply only is **Main Bath**. The two basement supplies are named by position in the model and by room here — **"west basement" is Future Media Room**, **"basement east" is Utility Room**.
 
 ---
 

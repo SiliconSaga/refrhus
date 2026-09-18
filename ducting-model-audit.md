@@ -31,7 +31,7 @@ The plenums are very different shapes, and the figure is hard to read without kn
 
 ### The model has not adopted the schedule's takeoff plan
 
-This is the clearest place the drawing and the schedule describe different houses, and it is worth stating plainly because an earlier version of this section had the schedule's answer written in as though the model already matched it.
+This is the clearest place where the drawing and the schedule describe different houses.
 
 | | Takeoffs | Largest supply duct |
 |---|--:|---|
