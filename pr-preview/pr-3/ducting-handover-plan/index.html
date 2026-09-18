@@ -101,7 +101,7 @@
   <tbody>
     <tr>
       <td>Model</td>
-      <td>Basement measurement-true; all three levels registered east–west; <strong>73 <code class="language-plaintext highlighter-rouge">Ducting:</code> objects and 25 registers</strong> drawn</td>
+      <td>Basement measurement-true; all three levels registered east–west; <strong>74 <code class="language-plaintext highlighter-rouge">Ducting:</code> objects and 25 registers</strong> drawn</td>
     </tr>
     <tr>
       <td>Loads</td>
@@ -228,7 +228,7 @@ Register: Supply to play room south
   <li><strong>Required</strong> size versus <strong>drawn</strong> size, flagged both ways</li>
 </ul>
 
-<p><strong>Rotation will break a naive implementation, and the obvious fix is also wrong.</strong> Sweet Home 3D already publishes the rotated bounding box: a piece tilted by <code class="language-plaintext highlighter-rouge">pitch</code> or <code class="language-plaintext highlighter-rouge">roll</code> carries <code class="language-plaintext highlighter-rouge">widthInPlan</code> / <code class="language-plaintext highlighter-rouge">depthInPlan</code> / <code class="language-plaintext highlighter-rouge">heightInPlan</code>, and its <code class="language-plaintext highlighter-rouge">elevation</code> is the bottom of <em>that</em> box. Use those three and apply only the yaw (<code class="language-plaintext highlighter-rouge">angle</code>) to the footprint. Rotating <code class="language-plaintext highlighter-rouge">width</code>/<code class="language-plaintext highlighter-rouge">depth</code>/<code class="language-plaintext highlighter-rouge">height</code> yourself gets the plan position right but the <strong>elevation wrong by tens of inches</strong>, which manufactures broken chains out of runs that are visibly joined on screen. Twenty-four of the 73 duct objects are tilted — every horizontal cylinder run.</p>
+<p><strong>Rotation will break a naive implementation, and the obvious fix is also wrong.</strong> Sweet Home 3D already publishes the rotated bounding box: a piece tilted by <code class="language-plaintext highlighter-rouge">pitch</code> or <code class="language-plaintext highlighter-rouge">roll</code> carries <code class="language-plaintext highlighter-rouge">widthInPlan</code> / <code class="language-plaintext highlighter-rouge">depthInPlan</code> / <code class="language-plaintext highlighter-rouge">heightInPlan</code>, and its <code class="language-plaintext highlighter-rouge">elevation</code> is the bottom of <em>that</em> box. Use those three and apply only the yaw (<code class="language-plaintext highlighter-rouge">angle</code>) to the footprint. Rotating <code class="language-plaintext highlighter-rouge">width</code>/<code class="language-plaintext highlighter-rouge">depth</code>/<code class="language-plaintext highlighter-rouge">height</code> yourself gets the plan position right but the <strong>elevation wrong by tens of inches</strong>, which manufactures broken chains out of runs that are visibly joined on screen. Nineteen of the 74 carry a non-zero pitch or roll — every horizontal cylinder run.</p>
 
 <p>Connectivity has been verified under the corrected reading: <strong>every run joins, nothing dead-ends mid-run.</strong> What remains is the graph walk itself.</p>
 
