@@ -12,7 +12,7 @@ Written 2026-09-07, deliberately before a context compaction, so the next sessio
 
 | | State |
 |---|---|
-| Model | Basement measurement-true; all three levels registered east–west; **73 `Ducting:` objects and 25 registers** drawn |
+| Model | Basement measurement-true; all three levels registered east–west; **74 `Ducting:` objects and 25 registers** drawn |
 | Loads | Eldr, heat-pump airflow (30°F rise), biased 2nd ×1.35 / basement ×0.70 |
 | Schedule | `ducting-register-schedule.md` — per-register sizes, editable |
 | Audit | `ducting-model-audit.md` — drawn objects vs schedule |
@@ -105,7 +105,7 @@ Deliverables:
 - Carried CFM at every segment
 - **Required** size versus **drawn** size, flagged both ways
 
-**Rotation will break a naive implementation, and the obvious fix is also wrong.** Sweet Home 3D already publishes the rotated bounding box: a piece tilted by `pitch` or `roll` carries `widthInPlan` / `depthInPlan` / `heightInPlan`, and its `elevation` is the bottom of *that* box. Use those three and apply only the yaw (`angle`) to the footprint. Rotating `width`/`depth`/`height` yourself gets the plan position right but the **elevation wrong by tens of inches**, which manufactures broken chains out of runs that are visibly joined on screen. Twenty-four of the 73 duct objects are tilted — every horizontal cylinder run.
+**Rotation will break a naive implementation, and the obvious fix is also wrong.** Sweet Home 3D already publishes the rotated bounding box: a piece tilted by `pitch` or `roll` carries `widthInPlan` / `depthInPlan` / `heightInPlan`, and its `elevation` is the bottom of *that* box. Use those three and apply only the yaw (`angle`) to the footprint. Rotating `width`/`depth`/`height` yourself gets the plan position right but the **elevation wrong by tens of inches**, which manufactures broken chains out of runs that are visibly joined on screen. Nineteen of the 74 carry a non-zero pitch or roll — every horizontal cylinder run.
 
 Connectivity has been verified under the corrected reading: **every run joins, nothing dead-ends mid-run.** What remains is the graph walk itself.
 

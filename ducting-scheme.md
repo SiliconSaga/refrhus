@@ -65,31 +65,37 @@ Rooms under 10 CFM get no dedicated run — door undercut or a transfer grille i
 
 | Level | Room | Raw | Biased | Exact | Duct | fpm |
 |---|---|---:|---:|---:|---|---:|
-| Basement | Future Media Room | 73 | 51 | 4.7″ | 5″ | 376 |
-| Basement | Utility Room | 70 | 49 | 4.6″ | 5″ | 359 |
-| Main | Main Bed | 156 | 156 | 7.2″ | 8″ | 448 |
-| Main | Kitchen | 153 | 153 | 7.1″ | 8″ | 439 |
-| Main | Living room | 114 | 114 | 6.4″ | 7″ | 426 |
-| Main | Kids Room | 57 | 57 | 4.9″ | 5″ | 419 |
-| Main | Main Bath | 27 | 27 | 3.7″ | 4″ | 305 |
-| Main | Main Closet | 10 | 10 | 2.5″ | 4″ | 115 |
-| 2nd | Office | 83 | 113 | 6.4″ | 7″ | 421 |
-| 2nd | Play Room | 72 | 98 | 6.0″ | 7″ | 366 |
-| 2nd | Upper Bath | 21 | 28 | 3.8″ | 4″ | 324 |
-| 2nd | Upstairs Hallway | 14 | 19 | 3.2″ | 4″ | 213 |
+| Basement | Future Media Room | 124 | 87 | 5.8″ | 6″ | 443 |
+| Basement | Utility Room | 118 | 82 | 5.6″ | 6″ | 420 |
+| Main | Main Bed | 225 | 225 | 8.3″ | 9″ | 510 |
+| Main | Kitchen | 254 | 254 | 8.7″ | 9″ | 576 |
+| Main | Living room | 134 | 134 | 6.8″ | 7″ | 502 |
+| Main | Kids Room | 65 | 65 | 5.2″ | 6″ | 329 |
+| Main | Main Bath | 36 | 36 | 4.2″ | 5″ | 268 |
+| Main | Main Closet | 17 | 17 | 3.1″ | 4″ | 191 |
+| 2nd | Office | 100 | 134 | 6.8″ | 7″ | 503 |
+| 2nd | Play Room | 86 | 117 | 6.4″ | 7″ | 436 |
+| 2nd | Upper Bath | 21 | 28 | 3.7″ | 4″ | 320 |
+| 2nd | Upstairs Hallway | 17 | 22 | 3.4″ | 4″ | 255 |
 
-Velocities run 115–450 fpm throughout — quiet, with nothing strained.
+Velocities run 191–576 fpm — inside the 500–750 supply band at the top end and comfortably under it elsewhere.
+
+> **This table was re-derived on 2026-09-18 and the previous one was badly stale.** It had been computed against a much earlier model state and understated every room — Kitchen 153 against 254, Future Media 73 against 124, Utility 70 against 118 — for a biased total of 875 CFM against today's 1,202. Six of the twelve rooms move up a nominal duct size as a result.
+>
+> **The register schedule has not been re-derived**, so it still carries the older basis. It remains authoritative for what gets installed, and the gap between the two is now a known quantity rather than an unnoticed one. Re-deriving it is the outstanding task before anything is fabricated.
 
 | | CFM | Round | Rectangular |
 |---|---:|---|---|
-| Basement branch | 167 | 8″ | 4×14 |
-| Main branch | 737 | 14″ | 8×20 |
-| 2nd floor riser | **276** | **9″** | **5×16** |
-| Trunk at the unit | **1,179** | **16″** | **10×22** |
+| Basement branch | 169 | 8″ | 4×14 |
+| Main branch | 731 | 14″ | 8×20 |
+| 2nd floor riser | **301** | **10″** | **5×16** |
+| Trunk at the unit | **1,202** | **16″** | **10×22** |
+
+**The riser moves 9″ → 10″** on the re-derived figures — 301 biased CFM against the 276 the schedule was built on. That is the one sizing change here large enough to matter, and it lands on the duct this whole scheme turns on.
 
 **The biases nearly cancel at the trunk**, so the largest single piece of ductwork is insensitive to how those judgement calls land. And **the 16″ never has to exist** — if the plenum carries four takeoffs directly rather than one duct splitting later, the largest duct in the house becomes a 10″. See the trunk section of the [register schedule](ducting-register-schedule.md), which is where that decision lives.
 
-**But the uplift changes the old ducts' role.** At design friction a 3×10 carries **86 CFM**, against a biased Office at 113 and Play Room at 98. Together they cover 172 of 257 — **67%**, not the 83% the unbiased numbers suggested. They remain a substantial contribution rather than the base, and the riser should be planned to carry the shortfall rather than leaning on them running hard. A 3×10 pushed to 113 CFM reaches 542 fpm: tolerable, but bought with noise and pressure drop.
+**But the uplift changes the old ducts' role.** At design friction a 3×10 carries **86 CFM**, against a re-derived biased Office at 134 and Play Room at 117. Together the two old ducts cover 172 of 251 — **69%** — so they remain a substantial contribution rather than the base, and the riser should be planned to carry the shortfall rather than leaning on them running hard. A 3×10 pushed to the Office's full 134 CFM reaches **643 fpm**: audible, and bought with pressure drop.
 
 Sizes are computed with Eldr's own `ductd` equal-friction math at 0.08 in.wc/100 ft; rectangular equivalents use the ASHRAE relation `De = 1.30·(ab)^0.625 / (a+b)^0.25`.
 
@@ -117,13 +123,24 @@ It carries **only the second floor**, not the whole 1,245 — the main floor is 
 - **238 CFM** is Eldr's current unbiased second-floor total, aggregated across every room on the level.
 - **276 CFM** is the sum of the [register schedule](ducting-register-schedule.md)'s four second-floor rows — Play Room 115, Office 113, Upper Bath 28, Upstairs Hallway 20 — each biased at *room* level against an earlier model state, with the Play Room row since revised upward to carry the whole room rather than half of it.
 
-**The schedule is authoritative for duct sizing, so the riser is built to 276.** The two do not reconcile by applying ×1.35 to 238, which gives **321** — the figure a fresh biased calculation would ask for today, **16% above what the riser is sized to.**
+**The schedule is authoritative for what gets installed, so the riser as specified is 276 at 9″.** Two fresh figures both sit above it:
 
-The gap does not change the answer. A 9″ round carries 357 CFM at design friction, so it holds 276 and 321 alike, with velocity rising from 625 to 727 fpm. Settle which end of that range applies by re-deriving the schedule against current loads before anything is fabricated.
+| Basis | CFM | Exact | At 9″ |
+|---|---:|---:|---:|
+| Register schedule, as built to | 276 | 8.93″ | 625 fpm |
+| Four second-floor rooms, biased individually today | **301** | 9.23″ | 681 fpm |
+| Level total × 1.35 (238 → 321), closets included | **321** | 9.45″ | 727 fpm |
+
+**A 9″ round carries about 276 CFM at design friction** — which is to say the riser is sized exactly at its own design figure, with no headroom at all. An earlier version of this paragraph said a 9″ carries 357 and therefore "holds 276 and 321 alike". That conflated a **9×9 rectangular** duct — 9.84″ equivalent round, 357 CFM — with a 9″ round. They are not the same duct.
+
+The correction does not overturn the design, but it removes the margin it claimed. At 301 the 9″ runs 681 fpm and at 321 it runs 727, both inside the 500–750 supply band and both at the top of it. Equal-friction sizing on either figure calls for a **10″** (552 and 589 fpm respectively).
+
+**So the choice is explicit rather than incidental:** keep the 9″ and accept the top of the band, or take the 10″ and the quiet. Re-derive the schedule against current loads before anything is fabricated.
 
 | Duct | CFM | Round | Rectangular |
 |---|---:|:-:|:-:|
-| Supply riser | 276 | 9″ | 5×16 |
+| Supply riser — as scheduled | 276 | 9″ | 5×16 |
+| Supply riser — re-derived | **301** | **10″** | 6×16 |
 | Return riser | 281 | 9″ | 9×9 |
 
 The return riser is sized at 281 — Office 113 plus Play Room 168 — rather than the 228 mass balance requires, so the cross-flow split between the two rooms can be set by damper rather than by re-ducting.
