@@ -135,6 +135,15 @@ That leaves no margin, but it does not overturn the design. At 301 the 9″ runs
 
 **So the choice is explicit rather than incidental:** keep the 9″ and accept the top of the band, or take the 10″ and the quiet. Re-derive the schedule against current loads before anything is fabricated.
 
+**Why the riser carries 276 when the floor's registers are scheduled for 228.** Upper Bath and Upstairs Hallway have no supply register: their 48 CFM reaches them as transfer air from the Play Room and Office, so the riser carries the whole floor's load while only two rooms have an opening for it. That is the design, not a discrepancy — but it means both registers pass more than their own room's share, and the schedule never said so.
+
+| Register | Own room | Carries | Face | fpm |
+|---|---:|---:|:-:|---:|
+| Play Room — south | 115 | **139** | 5x10 | 535 |
+| Office — two floor registers | 113 | **137** | 4x10 each | 328 |
+
+Both stay inside the 500–750 band, and still do on the re-derived 301 (583 and 358 fpm). **The transfer path is what has to be checked, not the sizes** — the bath and hallway only get their air if the doors are undercut and the return pulls through them.
+
 | Duct | CFM | Round | Rectangular |
 |---|---:|:-:|:-:|
 | Supply riser — as scheduled | 276 | 9″ | 5×16 |

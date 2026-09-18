@@ -21,9 +21,9 @@ Eldr is our own open-source engine, written for this house and run against the m
 
 This package is written to be handed to an HVAC contractor. Every figure is open to challenge, and the reasoning behind each one is in the linked documents.
 
-**If you are pricing this job, five pages are the package:** this overview, [the scheme](ducting-scheme.md) for what is proposed and why, [the register schedule](ducting-register-schedule.md) for what to install, [the parts list](ducting-parts-list.md) for materials and cost, and [the load comparison](hvac/index.md) for what it is all sized against. That is the top half of the contents.
+**If you are pricing this job, read the first three groups in the contents** — this overview, **The proposal** ([scheme](ducting-scheme.md), [register schedule](ducting-register-schedule.md), [parts list](ducting-parts-list.md)) and **Load calculations** ([how the two compare](hvac/index.md), [the professional Manual J](hvac/professional-manual-j.md), [the current run](hvac/eldr-report.md)). About an hour and a half.
 
-Everything filed under **Working notes** is the owner's own record — how the house was measured, how the model is read, what is still unknown. It is published because the figures above are only checkable against it, not because anyone quoting the work needs to read it.
+**The house as measured** is the evidence under those numbers — worth dipping into for a dimension, not worth reading through. **Appendix** is method and tooling: how the model is read, how this site is built, what nobody has measured yet. It is published because the figures above are only checkable against it, not because anyone quoting the work needs it.
 
 ## Load and equipment
 

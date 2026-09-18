@@ -1,14 +1,20 @@
-# The left-hand contents, in two tiers.
+# The left-hand contents, in three tiers.
 #
-# The site serves two readers who need very different amounts of it. A
-# contractor needs the proposal — what to build and what it is sized against —
-# which is the first three groups. Everything under "Working notes" is the
-# owner's own record: how the house was measured, how the model is read, what
-# is still unknown. It stays public because the numbers above are only
-# checkable against it, but nobody pricing a job has to read it.
+# 1. THE PACKAGE — Overview, The proposal, Load calculations. What a contractor
+#    reads: what to build, and what it is sized against. `index.md` points at
+#    exactly these three groups, so if a group is added or moved here, that
+#    sentence has to move with it.
 #
-# Keep that boundary honest. A page a contractor needs belongs above it; one
-# written to be edited rather than read belongs below.
+# 2. THE HOUSE AS MEASURED — the evidence under the numbers above. Worth
+#    dipping into (chimney dimensions, joist spans) but not required reading.
+#
+# 3. APPENDIX — method, tooling and what is still unknown. How the model is
+#    read, how this site is built, what nobody has measured yet. Published
+#    because the figures above are only checkable against it; no part of it is
+#    needed to price the job.
+#
+# Keep the boundary honest: a page a contractor needs goes in tier 1, one
+# written to be edited rather than read goes in tier 3.
 
 - title: Overview
   url: /
@@ -31,7 +37,7 @@
     - title: Current Eldr run
       url: /hvac/eldr-report/
 
-- title: Working notes — the house
+- title: The house as measured
   children:
     - title: Construction history
       url: /HISTORY/
@@ -46,18 +52,15 @@
     - title: Basement post details
       url: /basement-post-details/
 
-- title: Working notes — model and method
+- title: Appendix
   children:
     - title: Model audit
       url: /ducting-model-audit/
-    - title: Handover plan
-      url: /ducting-handover-plan/
-    - title: Surface-temperature protocol
-      url: /hvac/measurements/
-
-- title: Still unmeasured
-  children:
     - title: Measurement hit-list
       url: /schematic-hitlist/
+    - title: Surface-temperature protocol
+      url: /hvac/measurements/
+    - title: How this package is built
+      url: /ducting-handover-plan/
     - title: 3D scanning options
       url: /scanning-plan/
