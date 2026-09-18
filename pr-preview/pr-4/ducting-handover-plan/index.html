@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Handover package — design plan | Refr Hus</title>
+  <title>How this package is built | Refr Hus</title>
   <meta name="description" content="A 1950s house measured by hand, modelled in Sweet Home 3D, and run through a Manual J load calculation — with the duct design that came out of it.">
   <link rel="stylesheet" href="/refrhus/pr-preview/pr-4/assets/css/style.css"><script>
   (function () {
@@ -55,7 +55,7 @@
       </ul>
     </li>
     <li class="nav-item">
-      <span class="nav-group">Working notes — the house</span>
+      <span class="nav-group">The house as measured</span>
       <ul class="nav-children">
         <li><a href="/refrhus/pr-preview/pr-4/HISTORY/">Construction history</a></li>
         <li><a href="/refrhus/pr-preview/pr-4/basement-structure/">Basement structure</a></li>
@@ -66,17 +66,12 @@
       </ul>
     </li>
     <li class="nav-item">
-      <span class="nav-group">Working notes — model and method</span>
+      <span class="nav-group">Appendix</span>
       <ul class="nav-children">
         <li><a href="/refrhus/pr-preview/pr-4/ducting-model-audit/">Model audit</a></li>
-        <li><a href="/refrhus/pr-preview/pr-4/ducting-handover-plan/">Handover plan</a></li>
-        <li><a href="/refrhus/pr-preview/pr-4/hvac/measurements/">Surface-temperature protocol</a></li>
-      </ul>
-    </li>
-    <li class="nav-item">
-      <span class="nav-group">Still unmeasured</span>
-      <ul class="nav-children">
         <li><a href="/refrhus/pr-preview/pr-4/schematic-hitlist/">Measurement hit-list</a></li>
+        <li><a href="/refrhus/pr-preview/pr-4/hvac/measurements/">Surface-temperature protocol</a></li>
+        <li><a href="/refrhus/pr-preview/pr-4/ducting-handover-plan/">How this package is built</a></li>
         <li><a href="/refrhus/pr-preview/pr-4/scanning-plan/">3D scanning options</a></li>
       </ul>
     </li>
@@ -84,11 +79,13 @@
 </nav>
 
     <main class="content">
-      <h1 id="handover-package--design-plan">Handover package — design plan</h1>
+      <h1 id="how-this-package-is-built">How this package is built</h1>
+
+<p><em>Appendix — the plan behind this site and the model workflow under it. Nothing here is needed to price the job.</em></p>
 
 <p><strong>Goal:</strong> turn the duct design into something an HVAC company can be handed — a public GitHub Pages site with real navigation, backed by the measured model, carrying a parts list and renders. The company still favours a second air handler upstairs; this package is the argument against it, made in their own units.</p>
 
-<p><strong><code class="language-plaintext highlighter-rouge">Cervator/refrhus</code> is public</strong>, as is <code class="language-plaintext highlighter-rouge">SiliconSaga/eldr</code>. Refr Hus is a public worked example of GDD applied to home improvement, and public repos publish Pages on the free plan — so neither the Pages tier nor CI repo access is a constraint.</p>
+<p><strong><code class="language-plaintext highlighter-rouge">SiliconSaga/refrhus</code> is public</strong>, as is <code class="language-plaintext highlighter-rouge">SiliconSaga/eldr</code>. Refr Hus is a public worked example of GDD applied to home improvement, and public repos publish Pages on the free plan — so neither the Pages tier nor CI repo access is a constraint.</p>
 
 <hr />
 
@@ -294,7 +291,7 @@ Register: Supply to play room south
 
 <h2 id="task-5--the-site">Task 5 — The site</h2>
 
-<p>GitHub Pages from <code class="language-plaintext highlighter-rouge">Cervator/refrhus</code>, public. Side navigation across the existing documents plus the generated parts list and renders. The existing docs are already written to be read cold, so the work is navigation and presentation, not rewriting.</p>
+<p>GitHub Pages from <code class="language-plaintext highlighter-rouge">SiliconSaga/refrhus</code>, public. Side navigation across the existing documents plus the generated parts list and renders. The existing docs are already written to be read cold, so the work is navigation and presentation, not rewriting.</p>
 
 <p>Suggested order: the scheme primer as the landing page, then the argument against a second unit, the register schedule, the model audit, the parts list, the measurement records, and the renders.</p>
 

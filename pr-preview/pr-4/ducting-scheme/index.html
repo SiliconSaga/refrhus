@@ -55,7 +55,7 @@
       </ul>
     </li>
     <li class="nav-item">
-      <span class="nav-group">Working notes — the house</span>
+      <span class="nav-group">The house as measured</span>
       <ul class="nav-children">
         <li><a href="/refrhus/pr-preview/pr-4/HISTORY/">Construction history</a></li>
         <li><a href="/refrhus/pr-preview/pr-4/basement-structure/">Basement structure</a></li>
@@ -66,17 +66,12 @@
       </ul>
     </li>
     <li class="nav-item">
-      <span class="nav-group">Working notes — model and method</span>
+      <span class="nav-group">Appendix</span>
       <ul class="nav-children">
         <li><a href="/refrhus/pr-preview/pr-4/ducting-model-audit/">Model audit</a></li>
-        <li><a href="/refrhus/pr-preview/pr-4/ducting-handover-plan/">Handover plan</a></li>
-        <li><a href="/refrhus/pr-preview/pr-4/hvac/measurements/">Surface-temperature protocol</a></li>
-      </ul>
-    </li>
-    <li class="nav-item">
-      <span class="nav-group">Still unmeasured</span>
-      <ul class="nav-children">
         <li><a href="/refrhus/pr-preview/pr-4/schematic-hitlist/">Measurement hit-list</a></li>
+        <li><a href="/refrhus/pr-preview/pr-4/hvac/measurements/">Surface-temperature protocol</a></li>
+        <li><a href="/refrhus/pr-preview/pr-4/ducting-handover-plan/">How this package is built</a></li>
         <li><a href="/refrhus/pr-preview/pr-4/scanning-plan/">3D scanning options</a></li>
       </ul>
     </li>
@@ -508,6 +503,38 @@
 <p>That leaves no margin, but it does not overturn the design. At 301 the 9″ runs 681 fpm and at 321 it runs 727, both inside the 500–750 supply band and both at the top of it. Equal-friction sizing on either figure calls for a <strong>10″</strong> (552 and 589 fpm respectively).</p>
 
 <p><strong>So the choice is explicit rather than incidental:</strong> keep the 9″ and accept the top of the band, or take the 10″ and the quiet. Re-derive the schedule against current loads before anything is fabricated.</p>
+
+<p><strong>Why the riser carries 276 when the floor’s registers are scheduled for 228.</strong> Upper Bath and Upstairs Hallway have no supply register: their 48 CFM reaches them as transfer air from the Play Room and Office, so the riser carries the whole floor’s load while only two rooms have an opening for it. That is the design, not a discrepancy — but it means both registers pass more than their own room’s share, and the schedule never said so.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Register</th>
+      <th style="text-align: right">Own room</th>
+      <th style="text-align: right">Carries</th>
+      <th style="text-align: center">Face</th>
+      <th style="text-align: right">fpm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Play Room — south</td>
+      <td style="text-align: right">115</td>
+      <td style="text-align: right"><strong>139</strong></td>
+      <td style="text-align: center">5x10</td>
+      <td style="text-align: right">535</td>
+    </tr>
+    <tr>
+      <td>Office — two floor registers</td>
+      <td style="text-align: right">113</td>
+      <td style="text-align: right"><strong>137</strong></td>
+      <td style="text-align: center">4x10 each</td>
+      <td style="text-align: right">328</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Both stay inside the 500–750 band, and still do on the re-derived 301 (583 and 358 fpm). <strong>The transfer path is what has to be checked, not the sizes</strong> — the bath and hallway only get their air if the doors are undercut and the return pulls through them.</p>
 
 <table>
   <thead>
