@@ -189,9 +189,13 @@ w("Double-wall spiral is fabricator-made rather than a stocked wholesale item, a
 w("")
 w("| | Location | Round capability |")
 w("|---|---|---|")
-w("| **Universal Fabricating & Supply** | 25 Just Rd, Fairfield NJ — roughly 8 miles | "
+w("| **[Universal Fabricating & Supply](https://www.ductfabricating.com/)** | "
+  "[25 Just Rd, Fairfield NJ](https://www.google.com/maps/search/?api=1&query="
+  "25+Just+Rd%2C+Fairfield%2C+NJ+07004) — roughly 8 miles | "
   "Single and double-wall spiral **3″–54″**, custom lengths to 20 ft |")
-w("| **Airside Sheet Metal** | 246 Brighton Rd, Andover NJ — roughly 30 miles | "
+w("| **[Airside Sheet Metal](https://www.airsidesheetmetal.com/)** | "
+  "[246 Brighton Rd, Andover NJ](https://www.google.com/maps/search/?api=1&query="
+  "246+Brighton+Rd%2C+Andover%2C+NJ+07821) — roughly 30 miles | "
   "**4″–60″**, stocked 4″–26″, 60,000 ft² shop |")
 w("")
 w("Fairfield is the near one and covers every size on this job. Andover is the "
