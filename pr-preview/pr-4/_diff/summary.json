@@ -1,0 +1,98 @@
+{
+  "changed": [
+    "/",
+    "/HISTORY/",
+    "/basement-joists/",
+    "/basement-measure-sheet/",
+    "/basement-post-details/",
+    "/basement-structure/",
+    "/chimney-measure-sheet/",
+    "/ducting-handover-plan/",
+    "/ducting-model-audit/",
+    "/ducting-parts-list/",
+    "/ducting-register-schedule/",
+    "/ducting-scheme/",
+    "/hvac/",
+    "/hvac/eldr-report/",
+    "/hvac/measurements/",
+    "/hvac/professional-manual-j/",
+    "/scanning-plan/",
+    "/schematic-hitlist/"
+  ],
+  "added": [],
+  "removed": [],
+  "groups": [
+    {
+      "exemplar": "/",
+      "identical": []
+    },
+    {
+      "exemplar": "/HISTORY/",
+      "identical": []
+    },
+    {
+      "exemplar": "/basement-joists/",
+      "identical": []
+    },
+    {
+      "exemplar": "/basement-measure-sheet/",
+      "identical": []
+    },
+    {
+      "exemplar": "/basement-post-details/",
+      "identical": []
+    },
+    {
+      "exemplar": "/basement-structure/",
+      "identical": []
+    },
+    {
+      "exemplar": "/chimney-measure-sheet/",
+      "identical": []
+    },
+    {
+      "exemplar": "/ducting-handover-plan/",
+      "identical": []
+    },
+    {
+      "exemplar": "/ducting-model-audit/",
+      "identical": []
+    },
+    {
+      "exemplar": "/ducting-parts-list/",
+      "identical": []
+    },
+    {
+      "exemplar": "/ducting-register-schedule/",
+      "identical": []
+    },
+    {
+      "exemplar": "/ducting-scheme/",
+      "identical": []
+    },
+    {
+      "exemplar": "/hvac/",
+      "identical": []
+    },
+    {
+      "exemplar": "/hvac/eldr-report/",
+      "identical": []
+    },
+    {
+      "exemplar": "/hvac/measurements/",
+      "identical": []
+    },
+    {
+      "exemplar": "/hvac/professional-manual-j/",
+      "identical": []
+    },
+    {
+      "exemplar": "/scanning-plan/",
+      "identical": []
+    },
+    {
+      "exemplar": "/schematic-hitlist/",
+      "identical": []
+    }
+  ]
+}
