@@ -1,7 +1,7 @@
 # The left-hand contents, in three tiers.
 #
 # 1. THE PACKAGE — Overview, The proposal, Load calculations. What a contractor
-#    reads: what to build, and what it is sized against. `index.md` points at
+#    reads: what to build, and what it is sized against. `index.md` describes
 #    exactly these three groups, so if a group is added or moved here, that
 #    sentence has to move with it.
 #
@@ -9,7 +9,7 @@
 #    dipping into (chimney dimensions, joist spans) but not required reading.
 #
 # 3. APPENDIX — method, tooling and what is still unknown. How the model is
-#    read, how this site is built, what nobody has measured yet. Published
+#    read, how this site is built, what is still unmeasured. Published
 #    because the figures above are only checkable against it; no part of it is
 #    needed to price the job.
 #
@@ -28,7 +28,7 @@
     - title: Parts list and cost
       url: /ducting-parts-list/
 
-- title: Load calculations
+- title: Calculations
   children:
     - title: How the two compare
       url: /hvac/

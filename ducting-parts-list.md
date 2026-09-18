@@ -17,18 +17,18 @@ Lengths are centre-line and **do not deduct for fittings**, so they run long at 
 | SE supply branch splitter for office and kids room | Basement | 1 | 8x8 | rect | 1.2 ft | 0 |
 | SE supply trunk | Basement, Main | 4 | 12x16 / 8x16 / 11x11 | rect | 20.5 ft | 2 |
 | SW supply trunk | Basement | 1 | 11x16 | rect | 2.6 ft | 0 |
-| Supply branch for little kids room | Basement, basement-main-transition | 5 | 8″ ø / 8x8 / 8x10 / 4x10 | dwspiral / rect | 19.4 ft | 3 |
-| Supply branch for main bed north and basement east | Basement | 3 | 8″ ø / 6x8 | dwspiral / rect | 12.0 ft | 1 |
+| Supply branch for little kids room | Basement, basement-main-transition | 5 | 8″ round / 8x8 / 8x10 / 4x10 | dwspiral / rect | 19.4 ft | 3 |
+| Supply branch for main bed north and basement east | Basement | 3 | 8″ round / 6x8 | dwspiral / rect | 12.0 ft | 1 |
 | Supply branch for main bed west | Main | 1 | 4x10 | rect | 7.0 ft | 0 |
-| Supply branch for office east | Basement, basement-main-transition | 5 | 8″ ø / 8x8 / 4x10 | dwspiral / rect | 27.4 ft | 2 |
+| Supply branch for office east | Basement, basement-main-transition | 5 | 8″ round / 8x8 / 4x10 | dwspiral / rect | 27.4 ft | 2 |
 | Supply branch for office west | Main | 1 | 8x8 | rect | 3.1 ft | 0 |
-| Supply branch for play room east | Basement | 2 | 5″ ø / 4x10 | dwspiral / rect | 14.6 ft | 0 |
+| Supply branch for play room east | Basement | 2 | 5″ round / 4x10 | dwspiral / rect | 14.6 ft | 0 |
 | Supply branch for play room south | 2nd floor | 2 | 6x10 | rect | 9.7 ft | 1 |
-| Supply branch for west kitchen and west basement | Basement | 4 | 8″ ø / 4x10 | dwspiral / rect | 23.0 ft | 3 |
-| Supply branch for west living room | Basement | 2 | 6″ ø / 4x10 | dwspiral / rect | 8.7 ft | 1 |
-| Supply branch for west living room and future mud room | Basement | 2 | 8″ ø | dwspiral | 16.7 ft | 1 |
+| Supply branch for west kitchen and west basement | Basement | 4 | 8″ round / 4x10 | dwspiral / rect | 23.0 ft | 3 |
+| Supply branch for west living room | Basement | 2 | 6″ round / 4x10 | dwspiral / rect | 8.7 ft | 1 |
+| Supply branch for west living room and future mud room | Basement | 2 | 8″ round | dwspiral | 16.7 ft | 1 |
 | Supply plenum | Basement | 1 | 12x20 | rect | 2.0 ft | 0 |
-| FUTURE supply branch for mud room *(future)* | Basement | 3 | 6″ ø | dwspiral | 6.5 ft | 2 |
+| FUTURE supply branch for mud room *(future)* | Basement | 3 | 6″ round | dwspiral | 6.5 ft | 2 |
 
 ## Return runs
 
@@ -43,7 +43,7 @@ Lengths are centre-line and **do not deduct for fittings**, so they run long at 
 | Return plenum | Basement | 1 | 12x20 | rect | 10.0 ft | 0 |
 | SE return trunk | Basement, Main | 3 | 12x12 / 9x9 | rect | 18.3 ft | 1 |
 | SW return branch for living room and SW basement | Basement | 1 | 4x12 | rect | 1.8 ft | 0 |
-| SW return trunk | Basement | 4 | 9x9 / 9″ ø | rect / dwspiral | 17.9 ft | 3 |
+| SW return trunk | Basement | 4 | 9x9 / 9″ round | rect / dwspiral | 17.9 ft | 3 |
 | FUTURE North return branch for mud room *(future)* | Crawlspace | 1 | 6x6 | oval | 16.0 ft | 0 |
 
 ## Registers and grilles
@@ -84,24 +84,24 @@ Future runs excluded. Round sizes are **airway** — confirm whether a supplier 
 
 | Section | Material | Linear feet |
 |---|---|---:|
-| 8″ ø | dwspiral | 71.7 |
+| 8″ round | dwspiral | 71.7 |
 | 6x10 | rect | 52.9 |
 | 4x10 | rect | 37.8 |
 | 4x8 | rect | 24.4 |
 | 9x9 | rect | 20.0 |
 | 8x8 | rect | 20.0 |
 | 8x8 | oval | 16.3 |
-| 9″ ø | dwspiral | 16.2 |
+| 9″ round | dwspiral | 16.2 |
 | 12x20 | rect | 12.0 |
 | 12x12 | rect | 11.3 |
 | 11x11 | rect | 8.3 |
 | 8x16 | rect | 8.2 |
 | 14x18 | oval | 6.8 |
-| 6″ ø | dwspiral | 6.7 |
+| 6″ round | dwspiral | 6.7 |
 | 6x8 | rect | 5.5 |
 | 8x10 | rect | 4.8 |
 | 12x16 | rect | 4.0 |
-| 5″ ø | dwspiral | 3.6 |
+| 5″ round | dwspiral | 3.6 |
 | 6x14 | oval | 2.7 |
 | 11x16 | rect | 2.6 |
 | 6x7 | rect | 2.4 |
@@ -147,11 +147,11 @@ Published estimates of labour's *share* of a duct job disagree sharply — one p
 
 ### Equipment, and why the number to quote is 4 tons
 
-Manual S on the current model recommends **3.5 tons**. The number to put in front of a contractor is **4.0**, and the reason is the state of the model rather than a preference for headroom.
+Manual S on the current model recommends **3.5 tons** — 40,331 BTU/hr is 3.4 tons of load. The figure worth quoting against is **4.0**, and the reason is the state of the model rather than a preference for headroom.
 
 The load calculation runs against geometry that is knowingly incomplete, and **every gap in it points the same way**:
 
-- **No grade line.** Basement walls are classed below-grade over their whole height. Taking the professionals' measured U-value alone moves the load to roughly 3.8 tons.
+- **No grade line.** Basement walls are classed below-grade over their whole height. Taking the professionals' measured U-value alone moves the load to roughly 45,600 BTU/hr — 3.8 tons.
 - **The second-floor roof is not drawn.** Ceiling area is modelled at 984 ft² against a professional report's 1,547 — a third of that surface is missing, and it is the hot side of the house.
 - **The load has risen at almost every correction.** 31,757 → 37,962 → 42,097, down to 39,694 only because the basement was finally *measured* rather than estimated, and back to **40,331** once the design station was corrected from Sweet Home 3D's default to Newark. The sizing verdict on the existing 4-ton unit has flipped between oversized and well-matched three times.
 
@@ -179,7 +179,7 @@ The Bosch IDS Ultra is the candidate on file. Treat both rows as placeholders un
 
 **Pre-incentive throughout.** Nothing here is netted against a rebate, credit or utility programme, so it can be compared against a quote line for line — and whatever incentives apply come off afterwards rather than being baked into a number nobody can reconcile.
 
-One caveat on the whole table: **the fittings allowance is the weakest number in it.** It is a percentage standing in for a count nobody has made, on the one quantity this model explicitly cannot derive. It is also, not coincidentally, the same count that settles the one-unit-versus-two question — so asking for it buys an answer twice.
+One caveat on the whole table: **the fittings allowance is the weakest number in it.** It is a percentage standing in for a count not yet made, on the one quantity this model explicitly cannot derive. It is also, not coincidentally, the same count that settles the one-unit-versus-two question — so asking for it buys an answer twice.
 
 ### What this is for: one air handler or two
 
@@ -199,5 +199,5 @@ On cost alone, the delta is a second indoor unit, a second filter, a second cond
 | Branch runs (one balancing damper each) | 20 |
 | Inferred direction changes | 34 |
 
-**Damper every takeoff regardless of what the balance calculation says.** A branch without one cannot be adjusted after the fact, and the first season in a house is when the balance is discovered.
+**Every takeoff wants a balancing damper, whatever the balance calculation says.** A branch without one cannot be adjusted after the fact, and the first season in a house is when the balance is discovered.
 

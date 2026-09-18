@@ -4,11 +4,13 @@ title: Overview
 
 # Refr Hus — HVAC design package
 
-A 1950s house in West Orange, NJ, rebuilt as a dimensioned architectural model and used to compute the loads a duct design can be sized against.
+A 1950s Cape Cod in West Orange, NJ, drawn to measured dimensions in [Sweet Home 3D](https://www.sweethome3d.com/) and used to work out the heating and cooling loads a duct design can be sized against.
 
-The model is not a sketch. Every exterior dimension is measured — joist by joist in the basement, the chimney on all three floors, the posts to the eighth of an inch — and cross-registered so the levels stack. Room volumes, wall areas, window orientations and duct runs are read straight out of that geometry rather than estimated from floor area.
+The schematic is not a sketch. Every exterior dimension is measured — joist by joist in the basement, the chimney on all three floors, the posts to the eighth of an inch — and cross-registered so the levels stack. Room volumes, wall areas, window orientations and duct runs are read straight out of that geometry rather than estimated from floor area.
 
-On top of it, Eldr computes the ACCA chain:
+[**Eldr**](https://github.com/SiliconSaga/eldr) is an open-source engine written for this house: it reads the Sweet Home 3D file and computes the ACCA chain from it directly, aiming at numbers that could stand up to certification rather than at a rule of thumb. It reports its own assumptions — which U-values were borrowed, which floor area sits over a space not yet drawn — so the gaps stay visible instead of being buried in a total.
+
+What it computes:
 
 | | |
 |---|---|
@@ -17,13 +19,18 @@ On top of it, Eldr computes the ACCA chain:
 | **Manual D** | Duct sizing by equal friction |
 | **Manual T** | Not done. Register throw, spread and drop need a manufacturer's catalogue — see [known drawbacks](#known-drawbacks) |
 
-Eldr is our own open-source engine, written for this house and run against the model on every change. It reports its own assumptions — which U-values were borrowed, which floor area sits over a space nobody has drawn — so the gaps are visible rather than buried.
+This is a working record of one house, not a document written for a single job. Some of it would be useful to hand an HVAC contractor asked to estimate work; the rest is here because the house keeps having projects and the measurements outlast any one of them. Every figure is open to challenge, and the reasoning behind each is in the linked pages.
 
-This package is written to be handed to an HVAC contractor. Every figure is open to challenge, and the reasoning behind each one is in the linked documents.
+**The contents is grouped by what each part is about:**
 
-**If you are pricing this job, read the first three groups in the contents** — this overview, **The proposal** ([scheme](ducting-scheme.md), [register schedule](ducting-register-schedule.md), [parts list](ducting-parts-list.md)) and **Load calculations** ([how the two compare](hvac/index.md), [the professional Manual J](hvac/professional-manual-j.md), [the current run](hvac/eldr-report.md)). About an hour and a half.
+| | |
+|---|---|
+| **The proposal** | What changing the ductwork would involve, and what it would cost — the [scheme](ducting-scheme.md), the [register schedule](ducting-register-schedule.md), the [parts list](ducting-parts-list.md) |
+| **Calculations** | Where the numbers come from and how far they can be trusted — [ours against the professionals'](hvac/index.md), [their Manual J](hvac/professional-manual-j.md), [the current run](hvac/eldr-report.md) |
+| **The house as measured** | The building itself: what was measured, how, and what it turned out to be |
+| **Appendix** | Method and tooling — how the schematic is read, how this site is built, what is still unmeasured |
 
-**The house as measured** is the evidence under those numbers — worth dipping into for a dimension, not worth reading through. **Appendix** is method and tooling: how the model is read, how this site is built, what nobody has measured yet. It is published because the figures above are only checkable against it, not because anyone quoting the work needs it.
+An HVAC company probably wants **The proposal** and little else. The **Calculations** are there for anyone who would rather check the numbers than take them.
 
 ## Load and equipment
 
@@ -54,18 +61,22 @@ Two independent load calculations sit behind this package.
 
 The two are not competing estimates. **The measured inputs come from the professional report** — wall, window, ceiling and slab U-values are taken from its construction page, and the infiltration rate is its blower-door result of 3,751 CFM50. What our model adds is geometry: per-room loads and per-register airflow, which a whole-house figure cannot give and which duct sizing needs.
 
-Where the two still differ is documented line by line in [the load calculations](hvac/index.md). The gap is concentrated in two known omissions, and both understate our number:
+Where the two still differ is documented line by line in [the calculations](hvac/index.md). In the same units throughout: ours is **40,331 BTU/hr — 3.4 tons**, theirs **54,260 — 4.5 tons**, a gap of about **1.2 tons**. It is concentrated in two known omissions, and both understate our number:
 
-- **No grade line.** Eldr classes each basement wall as below-grade over its full height, where the professionals split it at grade. Adopting their measured basement U-value alone raises our load to about **3.8 tons**.
-- **The second-floor roof is not drawn.** Ceiling area is modelled at 984 ft² against their 1,547.
+- **No grade line.** Eldr classes each basement wall as below-grade over its full height, where the professionals split it at grade and use a lower U-value on the buried part. Adopting their measured value takes ours to roughly **45,600 BTU/hr — 3.8 tons**.
+- **The second-floor roof is not drawn.** The knee-wall attic and sloped ceilings are missing, so the schematic covers 984 ft² of ceiling against their 1,547. That surface sits under an attic our own model puts at about 133°F on a summer design day, so drawing it matters more than the area alone suggests — indicatively another **3,500 BTU/hr**, taking ours to roughly **4.1 tons**.
 
-**Quote 4.0 tons rather than 3.5.** Manual S on our current model gives 3.4, but both omissions above push the real figure up, and the professional report brackets it from the other side.
+**Which is why 4.0 tons is the size to quote rather than 3.5.** Manual S on the schematic as it stands says 3.4, but that is a floor: correcting both known omissions walks it up past 4.0, and the professional report brackets it from above at 4.5.
 
-**All pricing is pre-incentive.** No rebate, credit or utility programme is netted off anywhere, so the figures compare against a quote line for line.
+**Estimated pricing is pre-incentive.** No rebate, credit or utility programme is netted off anywhere, so the figures compare against a quote line for line.
 
 ## Major proposal options
 
-**One air handler**, relocated to the basement behind the bar, feeding all three floors through a single stacked utility cabinet beside the chimney. This is the design documented here.
+**One air handler**, moved to the basement — tucked under the stairs, in what used to be the bar area — with trunks running out to each part of the house.
+
+The feature that makes it work is a **three-level chase alongside the chimney**, carrying supply and return from the basement up through the main floor to the second. Getting conditioned air upstairs is the usual difficulty with a Cape Cod, and it is why the alternative below reaches for a second unit in the attic. A chase inside the heated envelope solves the same problem without putting equipment or ductwork in unconditioned space.
+
+It is a full built-in cabinet on the basement and main floors; the second floor may take a smaller duct-only enclosure, or none at all if the risers lean diagonally through the main floor to emerge beyond the knee wall. The stack is wanted for more than ducts — wiring between floors, and the closet space each enclosure creates. This is the design documented here.
 
 **Two air handlers**, the second in the north knee-wall attic, reached through the wall at the top of the stairs. Proposed by the contractor.
 
@@ -78,9 +89,9 @@ Where the two still differ is documented line by line in [the load calculations]
 
 Two handlers buy genuine per-floor zoning, which a single unit cannot provide here: neither the basement nor the second floor alone can be a hard zone without starving the blower.
 
-Against that, the proposed location has two costs. Attic air reaches an estimated 133°F on a summer design day, and the unit, its coil and its supply ducts would sit in it. And a north knee-wall unit does not reach the south side of the upstairs rooms, which carry real load. The suggested remedy — a duct channel along the office wall into the small east attic — is itself a chase, and the single-unit design is built around one that stays inside the envelope and serves all three floors.
+Against that, the proposed location has two costs. Attic air reaches an estimated 133°F on a summer design day, and the unit, its coil and its supply ducts would sit in it. And a north knee-wall unit does not reach the south side of the upstairs rooms, which carry real load. The suggested remedy — a duct channel along the office wall into the small east attic — trades a short vertical run in warm space for a long horizontal one against an exterior wall, ending in the attic.
 
-**The deciding question is static pressure**, and it needs fitting counts this model does not contain. Ask for those before anything is fabricated.
+**The deciding question is static pressure**, and answering it needs fitting counts the schematic does not carry yet. Those counts are a contractor's to produce, and they settle the question either way.
 
 ## Known drawbacks
 
