@@ -285,15 +285,16 @@ w("**A media cleaner has a real interaction with this design and the others do n
 w("")
 w("### Equipment, and why the number to quote is 4 tons")
 w("")
-w("Manual S on the current model recommends **3.5 tons**. The number to put in front of "
-  "a contractor is **4.0**, and the reason is the state of the model rather than a "
-  "preference for headroom.")
+w("Manual S on the current model recommends **3.5 tons** — 40,331 BTU/hr is 3.4 "
+  "tons of load. The figure worth quoting against is **4.0**, and the reason is "
+  "the state of the model rather than a preference for headroom.")
 w("")
 w("The load calculation runs against geometry that is knowingly incomplete, and **every "
   "gap in it points the same way**:")
 w("")
 w("- **No grade line.** Basement walls are classed below-grade over their whole height. "
-  "Taking the professionals' measured U-value alone moves the load to roughly 3.8 tons.")
+  "Taking the professionals' measured U-value alone moves the load to roughly "
+  "45,600 BTU/hr — 3.8 tons.")
 w("- **The second-floor roof is not drawn.** Ceiling area is modelled at 984 ft² against "
   "a professional report's 1,547 — a third of that surface is missing, and it is the "
   "hot side of the house.")
@@ -351,7 +352,7 @@ w("**Pre-incentive throughout.** Nothing here is netted against a rebate, credit
   "nobody can reconcile.")
 w("")
 w("One caveat on the whole table: **the fittings allowance is the weakest number "
-  "in it.** It is a percentage standing in for a count nobody has made, on the one "
+  "in it.** It is a percentage standing in for a count not yet made, on the one "
   "quantity this model explicitly cannot derive. It is also, not coincidentally, the "
   "same count that settles the one-unit-versus-two question — so asking for it buys an "
   "answer twice.")
@@ -386,7 +387,7 @@ w(f'| — of which circular | {sum(1 for r in live_regs if r["style"] == "circul
 w(f"| Branch runs (one balancing damper each) | {len(branches)} |")
 w(f'| Inferred direction changes | {sum(r["bends"] for r in rows if not r["future"])} |')
 w("")
-w("**Damper every takeoff regardless of what the balance calculation says.** A branch "
+w("**Every takeoff wants a balancing damper, whatever the balance calculation says.** A branch "
   "without one cannot be adjusted after the fact, and the first season in a house is when "
   "the balance is discovered.")
 w("")

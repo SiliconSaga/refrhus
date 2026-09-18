@@ -1,6 +1,6 @@
 # Register schedule
 
-**The per-register schedule a contractor prices.** Sizes come from Eldr's equal-friction math at 0.08 in.wc/100 ft, hand-tuned as the layout firmed up; the reasoning behind the airflow is in [the scheme](ducting-scheme.md).
+**The per-register schedule for the proposed scheme.** Sizes come from Eldr's equal-friction math at 0.08 in.wc/100 ft, hand-tuned as the layout firmed up; the reasoning behind the airflow is in [the scheme](ducting-scheme.md).
 
 Airflow is biased on purpose — **second floor ×1.35**, **basement ×0.70**, main floor unchanged — and computed on a **30°F supply-air rise**, the heat-pump figure. (A 50°F rise is a gas furnace and undersizes every heating-driven duct by 1.67×.)
 

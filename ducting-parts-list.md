@@ -147,11 +147,11 @@ Published estimates of labour's *share* of a duct job disagree sharply — one p
 
 ### Equipment, and why the number to quote is 4 tons
 
-Manual S on the current model recommends **3.5 tons**. The number to put in front of a contractor is **4.0**, and the reason is the state of the model rather than a preference for headroom.
+Manual S on the current model recommends **3.5 tons** — 40,331 BTU/hr is 3.4 tons of load. The figure worth quoting against is **4.0**, and the reason is the state of the model rather than a preference for headroom.
 
 The load calculation runs against geometry that is knowingly incomplete, and **every gap in it points the same way**:
 
-- **No grade line.** Basement walls are classed below-grade over their whole height. Taking the professionals' measured U-value alone moves the load to roughly 3.8 tons.
+- **No grade line.** Basement walls are classed below-grade over their whole height. Taking the professionals' measured U-value alone moves the load to roughly 45,600 BTU/hr — 3.8 tons.
 - **The second-floor roof is not drawn.** Ceiling area is modelled at 984 ft² against a professional report's 1,547 — a third of that surface is missing, and it is the hot side of the house.
 - **The load has risen at almost every correction.** 31,757 → 37,962 → 42,097, down to 39,694 only because the basement was finally *measured* rather than estimated, and back to **40,331** once the design station was corrected from Sweet Home 3D's default to Newark. The sizing verdict on the existing 4-ton unit has flipped between oversized and well-matched three times.
 
@@ -179,7 +179,7 @@ The Bosch IDS Ultra is the candidate on file. Treat both rows as placeholders un
 
 **Pre-incentive throughout.** Nothing here is netted against a rebate, credit or utility programme, so it can be compared against a quote line for line — and whatever incentives apply come off afterwards rather than being baked into a number nobody can reconcile.
 
-One caveat on the whole table: **the fittings allowance is the weakest number in it.** It is a percentage standing in for a count nobody has made, on the one quantity this model explicitly cannot derive. It is also, not coincidentally, the same count that settles the one-unit-versus-two question — so asking for it buys an answer twice.
+One caveat on the whole table: **the fittings allowance is the weakest number in it.** It is a percentage standing in for a count not yet made, on the one quantity this model explicitly cannot derive. It is also, not coincidentally, the same count that settles the one-unit-versus-two question — so asking for it buys an answer twice.
 
 ### What this is for: one air handler or two
 
@@ -199,5 +199,5 @@ On cost alone, the delta is a second indoor unit, a second filter, a second cond
 | Branch runs (one balancing damper each) | 20 |
 | Inferred direction changes | 34 |
 
-**Damper every takeoff regardless of what the balance calculation says.** A branch without one cannot be adjusted after the fact, and the first season in a house is when the balance is discovered.
+**Every takeoff wants a balancing damper, whatever the balance calculation says.** A branch without one cannot be adjusted after the fact, and the first season in a house is when the balance is discovered.
 

@@ -1,6 +1,6 @@
 # The duct scheme
 
-**One air handler in the basement behind the bar, feeding all three floors through a single stacked utility cabinet beside the chimney.**
+**One air handler in the basement — tucked under the stairs, in what used to be the bar area — feeding all three floors, with the second floor reached through a stacked utility cabinet built alongside the chimney.**
 
 The main floor is served by basement runs — south through the under-stair space, north through the basement bathroom and then west along the girder. The second floor takes one supply and one return riser up the cabinet: the supply branches short and central, the return splits in the knee-wall attic to reach the far corners of both rooms.
 
@@ -47,9 +47,9 @@ Design airflow from Eldr's per-room Manual J, on geometry that is deliberately c
 
 > **Two airflow totals appear across these documents and they are not interchangeable.** **1,245 CFM** is the whole-house design airflow Eldr computes, and the per-room figures now sum to the same number — the figure the *equipment* is sized on. **1,133** is the [register schedule](ducting-register-schedule.md) total, which is lower because the second-floor ×1.35 and basement ×0.70 biases are applied to it and because it was tuned against an earlier model state. **The schedule is authoritative for duct sizes; Eldr's total is authoritative for equipment.** Where a per-room figure differs between them, the schedule is the older number — the Office in particular reads 83 raw there against 100 now.
 
-**The main floor is the load** — two and a half times the second floor. Which reframes the whole argument: the second floor is not the hard part *volumetrically*, it is the hard part *geometrically*. That distinction is the crux of the disagreement with the contractors, who are pricing the geometry and concluding the load can't be served.
+**The main floor is the load** — two and a half times the second floor. That reframes the problem: the second floor is not the hard part *volumetrically*, it is the hard part *geometrically*. The distinction is worth holding onto when weighing the two proposals, because a second air handler adds capacity where the difficulty is access.
 
-**These numbers understate the second floor and should be presented that way.** Our ceiling area on that level is 984 ft² against the professional Manual J's 1,547 — sloped roof and knee-wall surfaces nobody has modelled yet. It cuts both ways: it makes *"the south side needs real supply"* stronger than shown, and *"one unit can do it"* easier than reality. Quote them as a floor, not an estimate: *on geometry that understates our second-floor ceiling by a third, the office still needs 100 CFM.* A number biased against your own case is much harder to argue with.
+**These numbers understate the second floor and should be presented that way.** Our ceiling area on that level is 984 ft² against the professional Manual J's 1,547 — the sloped roof and knee-wall surfaces are not fully modelled yet. It cuts both ways: it makes *"the south side needs real supply"* stronger than shown, and *"one unit can do it"* easier than reality. Quote them as a floor, not an estimate: *on geometry that understates our second-floor ceiling by a third, the office still needs 100 CFM.* A number biased against your own case is much harder to argue with.
 
 ---
 
@@ -169,7 +169,7 @@ Two 15″ stud bays, and both are constrained:
 
 ### Why a horizontal air handler, elevated
 
-Not because a vertical one wouldn't fit behind the bar — it would. Because of where the connections land:
+Not because a vertical one would not fit in the space — it would. Because of where the connections land:
 
 - A **vertical upflow** unit exits through the **top**, straight into the stair soffit where there is least room.
 - A **horizontal** unit exits **sideways at mid-height**, supply one end and return the other, both where they can turn into the under-stair space.
@@ -304,9 +304,9 @@ The current HVAC company specialises in insulation, so envelope work is likely a
 
 The wall the upstairs-east risers pass through, and the trickiest build in the scheme. It is currently **one stud space deep**, with room for exactly one more inside the bedroom — a quirk of the doubled/offset wall created when the bedroom was extended south. Breaking in from the bedroom side showed **2–3 studs and an old conduit hole through to the basement**.
 
-**Use the conduit hole as the datum.** It is a single point piercing both the basement and the wall cavity, so it registers the two coordinate frames against each other — the same shared-anchor trick the joists provide. Measure the studs relative to it and reference every riser to it, and "I cannot tell where the studs are versus where the ducts come up" becomes exact offsets from one known hole.
+**The conduit hole is the datum.** It is a single point piercing both the basement and the wall cavity, so it registers the two coordinate frames against each other — the same shared-anchor trick the joists provide. Measure the studs relative to it and reference every riser to it, and "I cannot tell where the studs are versus where the ducts come up" becomes exact offsets from one known hole.
 
-**Go rectangular, not round.** The depth budget is roughly two stud bays back to back (~7″), and a bay gives about 14.5″ clear. Three round 5–6″ ducts side by side need 15–18″ and fight the studs. Residential **wall-stack duct** — 3.25x10 or 3.25x12, purpose-made to run vertically between studs in a 2x4 wall — puts the shallow dimension across the wall depth and solves the problem directly. Oval is the fallback. Prefer running each duct *within* a bay so no stud needs notching; if a riser must cross one, verify the partition is non-load-bearing first, because the south-extension quirk muddies that.
+**Rectangular, not round.** The depth budget is roughly two stud bays back to back (~7″), and a bay gives about 14.5″ clear. Three round 5–6″ ducts side by side need 15–18″ and fight the studs. Residential **wall-stack duct** — 3.25x10 or 3.25x12, purpose-made to run vertically between studs in a 2x4 wall — puts the shallow dimension across the wall depth and solves the problem directly. Oval is the fallback. Prefer running each duct *within* a bay so no stud needs notching; if a riser must cross one, verify the partition is non-load-bearing first, because the south-extension quirk muddies that.
 
 **The face comes off.** The built-in over it is designed as a removable panel on a French cleat, so the risers stay reachable without demolition — which is why this scheme runs fewer ducts through the wall rather than over-provisioning so it never has to be opened.
 
@@ -346,7 +346,7 @@ The 4-ton and 5-ton air handlers share a cabinet. Verified from Bosch's own IDS 
 
 **What it means for the basement.** In upflow the unit is 54.5″ tall on a 22 × 24 footprint. Converted to horizontal it lies down: roughly **22–24″ tall** (depending on which face it rests on) on a **54.5 × 24** footprint. Against the ~40″ of headroom at the tall end of the stair wedge, a horizontal unit leaves **16–18″ beneath it** for elevation and a duct — which is the configuration this plan assumes.
 
-Behind the bar either orientation fits: the basement's 84″ to joist bottoms clears an upflow cabinet with 29.5″ to spare. The reason to prefer horizontal is not the unit's height but **where its connections land** — sideways at mid-height, matching the wedge, rather than out of the top into the stair soffit.
+In the open part of the bar area either orientation fits: the basement's 84″ to joist bottoms clears an upflow cabinet with 29.5″ to spare. The reason to prefer horizontal is not the unit's height but **where its connections land** — sideways at mid-height, matching the wedge, rather than out of the top into the stair soffit.
 
 Electric heat kits (EHK-05B through EHK-20B, 5–20 kW) fit the cabinet without modification, which is the backup-heat path if the cold-climate performance ever needs supplementing.
 
@@ -370,7 +370,7 @@ A Bosch variable-speed unit **can** run on a third-party 24V thermostat, because
 
 The cost is granularity. The Ultra's compressor modulates **35% to 138% in 1% increments**, and a conventional thermostat can only ask for stages, so most of that resolution goes unused. A communicating thermostat unlocks it and closes the system.
 
-**Confirm before committing:** whether local telemetry is available, or whether monitoring only goes through Bosch's EasyAir cloud app. The house already runs an LGTM stack, so a local data path is worth more here than in a typical install.
+**Worth establishing before committing:** whether local telemetry is available, or whether monitoring only goes through Bosch's EasyAir cloud app. The house already runs an LGTM stack, so a local data path is worth more here than in a typical install.
 
 ## Future options, deliberately deferred
 

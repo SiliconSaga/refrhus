@@ -28,7 +28,7 @@ That is why `basement_wall` is held at 0.07 instead of their area-weighted 0.196
 
 Our ceiling area is **984 ft² against their 1,547** — a 563 ft² shortfall that is almost certainly the sloped roof and knee-wall surfaces on the still-incomplete 2nd floor, plus the unmodelled attic volume above the centre.
 
-Note this is *entirely* area. The ceiling U-value already matches theirs (0.057, area-weighted from their construction page), and the unvented attic is deliberate and correct — see [`hvac/index.md`](hvac/index.md). Nothing here is a thermal assumption to argue about; it is surface nobody has drawn.
+Note this is *entirely* area. The ceiling U-value already matches theirs (0.057, area-weighted from their construction page), and the unvented attic is deliberate and correct — see [`hvac/index.md`](hvac/index.md). Nothing here is a thermal assumption to argue about; it is surface that is not drawn yet.
 
 **What to measure:** roof angles from the 2nd-floor door onto the garage roof, including the original-versus-kitchen-extension slope change that mildens the pitch toward the backyard. Knee-wall height and the run from knee wall to ridge on each side.
 
