@@ -56,14 +56,16 @@
         <li><a href="/refrhus/basement-joists/">Basement joists</a></li>
         <li><a href="/refrhus/basement-measure-sheet/">Basement measurements</a></li>
         <li><a href="/refrhus/chimney-measure-sheet/">Chimney measurements</a></li>
-        <li><a href="/refrhus/basement-post-details.html">Basement post details</a></li>
+        <li><a href="/refrhus/basement-post-details/">Basement post details</a></li>
       </ul>
     </li>
     <li class="nav-item">
       <span class="nav-group">Load calculations</span>
       <ul class="nav-children">
         <li><a href="/refrhus/hvac/">Manual J index</a></li>
+        <li><a href="/refrhus/hvac/professional-manual-j/">The professional Manual J</a></li>
         <li><a href="/refrhus/hvac/eldr-report/">Current Eldr run</a></li>
+        <li><a href="/refrhus/hvac/measurements/">Surface-temperature protocol</a></li>
       </ul>
     </li>
     <li class="nav-item">
@@ -317,7 +319,7 @@
   </tbody>
 </table>
 
-<p>Rectangular sizes are the shallowest option holding an <strong>aspect ratio at or under 4:1</strong>. Flatter than that costs friction and makes fittings awkward, so a 3x20 is not a real substitute for a 4x14 even though the areas are similar.</p>
+<p>Rectangular sizes are the shallowest option holding an <strong>aspect ratio at or under 4:1</strong>. Flatter than that costs friction and makes fittings awkward, so a 3x20 is not a substitute for a 4x14 even though the areas are similar.</p>
 
 <p><strong>Two return decisions are baked into the table above.</strong></p>
 
@@ -337,11 +339,11 @@
 
 <p>Sized on face velocity only. <strong>Supplies assume 75% free area</strong> — the generous end for a louvred face, so a grille with heavier blades runs faster than shown, never slower. Returns are computed on gross area.</p>
 
-<p>Targets: supplies <strong>500–750 fpm</strong> is the normal band and 600 is where this document starts objecting; returns <strong>300–500 fpm</strong>, and the sizes below aim at the quiet end of it. That aim is a choice, and an expensive one — <strong>a return sized at 300 fpm is two-thirds larger than the same airflow at 500.</strong> Worth knowing before treating any “wants” figure as a requirement, because the honest floor is 500 and the rest is comfort.</p>
+<p>Targets: supplies <strong>500–750 fpm</strong> is the normal band and 600 is where this document starts objecting; returns <strong>300–500 fpm</strong>, with the sizes below aimed at the quiet end. That aim is a choice, and an expensive one — <strong>a return sized at 300 fpm is two-thirds larger than the same airflow at 500.</strong> Treat 500 as the requirement and the rest as comfort.</p>
 
 <p><strong>This is not Manual T.</strong> Throw, spread, drop and NC need the room’s dimensions against a specific manufacturer’s catalogue, and the choice of <em>where</em> on the wall or floor matters as much as the size. Treat the faces below as the starting schedule a contractor prices, not as a selection.</p>
 
-<p>Faces below are <strong>as drawn in the model</strong>, sized against available space, with the resulting velocity computed. Five need attention.</p>
+<p>Faces below are <strong>as drawn in the model</strong>, sized against available space, with the resulting velocity computed. Every face is now inside its band.</p>
 
 <table>
   <thead>
@@ -383,9 +385,9 @@
       <td>Main</td>
       <td>Kitchen — SE</td>
       <td style="text-align: right">126</td>
-      <td style="text-align: center">2x15</td>
-      <td style="text-align: right"><strong>806</strong></td>
-      <td><strong>too fast</strong></td>
+      <td style="text-align: center">4x15</td>
+      <td style="text-align: right">403</td>
+      <td>ok</td>
     </tr>
     <tr>
       <td>Main</td>
@@ -503,9 +505,9 @@
       <td>Main</td>
       <td>Kitchen</td>
       <td style="text-align: right">251</td>
-      <td style="text-align: center">3x20</td>
-      <td style="text-align: right"><strong>602</strong></td>
-      <td><strong>too fast</strong></td>
+      <td style="text-align: center">8x14</td>
+      <td style="text-align: right">323</td>
+      <td>ok</td>
     </tr>
     <tr>
       <td>Main</td>
@@ -558,15 +560,17 @@
   </tbody>
 </table>
 
-<h3 id="two-still-to-settle--both-in-the-kitchen-both-constrained-by-cabinetry">Two still to settle — both in the kitchen, both constrained by cabinetry</h3>
+<h3 id="the-two-kitchen-faces-now-settled">The two kitchen faces, now settled</h3>
+
+<p>Both were constrained by cabinetry and both have been redrawn at the size this schedule asked for:</p>
 
 <table>
   <thead>
     <tr>
       <th>Register</th>
-      <th style="text-align: center">Now</th>
+      <th style="text-align: center">Was</th>
       <th style="text-align: right">fpm</th>
-      <th style="text-align: center">Wants</th>
+      <th style="text-align: center">Now</th>
       <th style="text-align: right">fpm</th>
     </tr>
   </thead>
@@ -588,9 +592,9 @@
   </tbody>
 </table>
 
-<p><strong>The kitchen SE register is the one worth building around.</strong> At 2″ of height under the cabinetry it runs 806 fpm — not marginal, audible, and in a kitchen where people stand. Moving one cabinet over for 4″ of height halves it to 403; modifying the cabinet does the same. Either is a better trade than living with it, because this is the register a person stands beside while cooking. <strong>Both options are construction decisions rather than duct decisions</strong>, which is why the model still carries the 2″ version. Note that 806 fpm assumes a generous 75% free area — a real louvred face makes it worse, not better.</p>
+<p><strong>The kitchen SE register was the one worth building around.</strong> At 2″ of height under the cabinetry it ran 806 fpm — not marginal, audible, and in a kitchen where people stand. The 4″ height halves it to 403. <strong>Getting that height is still a construction decision</strong> — one cabinet moves over, or the cabinet is modified — so the drawn 4x15 records the decision rather than removing the work. Note that 403 fpm assumes a generous 75% free area; a heavier louvred face runs faster.</p>
 
-<p><strong>The kitchen return is about area, not length.</strong> 251 CFM needs roughly 120 in² at 300 fpm, and the drawn 3x20 gives 60. What it does <em>not</em> need is to stay 20″ long: an earlier draft of this table said 6x20 purely because it preserved the drawn dimension and grew the other, which is how a 3.3:1 grille nobody stocks ends up recommended.</p>
+<p><strong>The kitchen return was about area, not length.</strong> 251 CFM needs roughly 120 in² at 300 fpm, and the 3x20 gave 60. What it did <em>not</em> need was to stay 20″ long: preserving the drawn dimension and growing only the other gives 6x20, a 3.3:1 grille nobody stocks.</p>
 
 <table>
   <thead>
@@ -612,16 +616,16 @@
       <td style="text-align: center"><strong>8x14</strong></td>
     </tr>
     <tr>
-      <td>500 fpm — the honest ceiling</td>
+      <td>500 fpm — the ceiling</td>
       <td style="text-align: right">72 in²</td>
       <td style="text-align: center">6x12</td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>8x14 is the pick</strong> — a stock size, 323 fpm, and the figure this schedule carried before the constraint discussion started. 6x12 is defensible if space is genuinely tight, at the cost of a return you can hear. The current 3x20 is outside the range at either end.</p>
+<p><strong>8x14 is the pick</strong> — a stock size at 323 fpm, and what the model now carries. 6x12 is defensible if space is tight, at the cost of a return you can hear.</p>
 
-<p>If the 3″ height really is fixed by cabinetry, no single grille solves it — 3x40 would be needed, and the answer is two openings rather than one enormous one.</p>
+<p>If the 3″ height is fixed by cabinetry, no single grille solves it — 3x40 would be needed, and the answer is two openings rather than one enormous one.</p>
 
 <p><em>Already corrected in the model:</em> Main Bed W supply 4x8 → <strong>6x11</strong>, matching its NE twin at the same 113 CFM, and Office SW return 4x8 → <strong>6x8</strong>. Neither had a space constraint; both were simply drawn small.</p>
 
@@ -629,38 +633,43 @@
 
 <h3 id="the-main-floor-return-path-is-the-real-bottleneck">The main-floor return path is the real bottleneck</h3>
 
-<p>Worth stating plainly, because it is larger than every grille question combined. As drawn, <strong><code class="language-plaintext highlighter-rouge">Return branch for both main bedrooms</code> is a single 4x8 running 30 ft</strong>, and three returns hang off it: Main Bed, Kids Room, and — since the utility return was tapped into the Kids Room branch — the Utility Room as well.</p>
+<p>It was a single 4x8 running 30 ft with three returns hanging off it — Main Bed 227, Kids Room 64, and the Utility Room’s 83 via the Kids Room tap. That is 374 CFM through 32 in², about <strong>1,680 fpm</strong>.</p>
+
+<p><strong>The run is now split at the point where it stops being buried</strong>, which is the remedy this section used to argue for:</p>
 
 <table>
   <thead>
     <tr>
-      <th> </th>
+      <th>Segment</th>
+      <th>Serves</th>
       <th style="text-align: right">CFM</th>
+      <th style="text-align: center">Section</th>
+      <th style="text-align: right">fpm</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">Return branch for kids room and basement NE</code>, 8.9 ft</td>
+      <td>Kids Room + Utility</td>
+      <td style="text-align: right">147</td>
+      <td style="text-align: center"><strong>6x10</strong></td>
+      <td style="text-align: right">353</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Return branch for main bedroom</code>, 21 ft</td>
       <td>Main Bed</td>
       <td style="text-align: right">227</td>
-    </tr>
-    <tr>
-      <td>Kids Room</td>
-      <td style="text-align: right">64</td>
-    </tr>
-    <tr>
-      <td>Utility Room</td>
-      <td style="text-align: right">83</td>
-    </tr>
-    <tr>
-      <td><strong>Through one 4x8</strong></td>
-      <td style="text-align: right"><strong>374</strong></td>
+      <td style="text-align: center">4x8</td>
+      <td style="text-align: right">1,022</td>
     </tr>
   </tbody>
 </table>
 
-<p>A 4x8 is 32 in². At 374 CFM that is about <strong>1,680 fpm</strong> — not a sizing error to nudge, a duct carrying roughly four times what it should. Even at the ~91 CFM this duct is believed to actually pass, the two rooms behind it are being starved by the same constraint that starves the bedroom.</p>
+<p><strong>The two rooms behind the pinch are out from behind it.</strong> The Kids Room and Utility Room now return through 60 in² at a quiet 353 fpm, where before they shared a duct running four times over.</p>
 
-<p>This is the same inaccessible crawlspace duct already flagged for the Main Bed, so <strong>it is one problem wearing three hats, not three problems.</strong> It also reframes the transfer-grille plan: a grille over the bedroom door relieves the bedroom, and does nothing for the Kids Room or Utility Room behind the same pinch. Verify the topology on site before pricing a fix — this reading comes from the drawn adjacency, and it is the one place where being wrong would be expensive in the other direction.</p>
+<p><strong>The main bedroom segment still reads 1,022 fpm, and that number is notional.</strong> It is the existing duct through the inaccessible crawlspace, drawn at the size it actually is. At the ~91 CFM it is believed to pass it runs 410 fpm and is quiet — the duct is not undersized for what goes through it, it is undersized for what the room wants. That gap is a capacity problem to solve at the grille or with a transfer path, not a duct to re-size in the model.</p>
+
+<p>The split still rests on drawn adjacency. <strong>Verify the topology on site before pricing anything</strong> — specifically that the open basement run really does extend as far as the model puts the split.</p>
 
 <p><strong>The Main Bed return is not in that list, though its number is the worst.</strong> 726 fpm assumes 227 CFM actually arrives, and it cannot: behind that grille is the existing 7.5x4 through the inaccessible crawlspace, good for roughly 91 CFM. At 91 the 5x9 face runs 291 fpm and is perfectly quiet. <strong>The grille is correctly sized for the duct; the duct is the problem</strong>, and the plan of record remains a transfer grille over the bedroom door first.</p>
 
@@ -668,7 +677,7 @@
 
 <hr />
 
-<h2 id="what-a-trunk-actually-is">What a trunk actually is</h2>
+<h2 id="how-trunks-are-sized">How trunks are sized</h2>
 
 <p>The duct system is a hierarchy, and each level is sized by <strong>the air passing through that particular segment</strong> — not by anything upstream or downstream:</p>
 
@@ -799,7 +808,7 @@
 
 <h2 id="returns-are-not-a-mirror-of-the-supply-side">Returns are not a mirror of the supply side</h2>
 
-<p>Total return must equal total supply — mass balance, no way around it. But the return side is <strong>a smaller number of larger openings</strong>:</p>
+<p>Total return must equal total supply. But the return side is <strong>a smaller number of larger openings</strong>:</p>
 
 <ul>
   <li><strong>Fewer.</strong> Rooms without their own return give their air up through door undercuts or transfer grilles. Here that is Main Bath, Main Closet, Upper Bath and Upstairs Hallway.</li>
@@ -848,7 +857,7 @@
 
 <h3 id="using-return-placement-to-balance-the-second-floor">Using return placement to balance the second floor</h3>
 
-<p>Oversizing the Play Room’s return to drag air across from the Office is a real technique, and the numbers work. The only constraint is that the floor’s two returns sum to 228.</p>
+<p>Oversizing the Play Room’s return to drag air across from the Office is a standard technique, and the numbers work. The only constraint is that the floor’s two returns sum to 228.</p>
 
 <table>
   <thead>
@@ -899,7 +908,7 @@
 
 <h3 id="transit-air-sweeps-a-room-it-does-not-heat-one">Transit air sweeps a room; it does not heat one</h3>
 
-<p>Worth stating plainly, because it is the trap in leaving the Upper Bath unsupplied. Air arriving from the Office is at room temperature and has no heat to give up. Steady-state estimate for the bath, on a UA of about 16.5 BTU/hr·°F:</p>
+<p>This is the trap in leaving the Upper Bath unsupplied. Air arriving from the Office is at room temperature and has no heat to give up. Steady-state estimate for the bath, on a UA of about 16.5 BTU/hr·°F:</p>
 
 <table>
   <thead>
@@ -978,7 +987,7 @@
 
 <p><strong>Neither the basement nor the second floor can be its own hard zone</strong> on a single unit this size. Either alone starves the blower and drives static pressure up.</p>
 
-<p>What actually works, roughly in order of preference:</p>
+<p>What works, roughly in order of preference:</p>
 
 <ul>
   <li><strong>Manual balancing dampers and no zoning.</strong> A modulating compressor running long low-output cycles does much of what zoning promises, because the classic reason to zone is a single-stage unit blasting and shutting off. Simplest, cheapest, and reversible.</li>
@@ -990,7 +999,7 @@
 
 <p><strong>The caution that links back to controls:</strong> a zone panel able to stage the blower generally has to <em>communicate</em> with the unit, and zone panels are frequently where the open-controls option quietly disappears. Zoning and third-party thermostats pull against each other, the same tension as modulation and open control.</p>
 
-<p><strong>Recommendation: manual dampers now, zoning later if the balance genuinely disappoints.</strong> The stack effect is real and does not care about modulation, so this may not be the final answer — but it is the cheap experiment, and the ductwork for it is identical either way.</p>
+<p><strong>Recommendation: manual dampers now, zoning later if the balance disappoints.</strong> The stack effect is real and does not care about modulation, so this may not be the final answer — but it is the cheap experiment, and the ductwork for it is identical either way.</p>
 
 <h3 id="throttling-is-not-zoning-and-the-distinction-matters">Throttling is not zoning, and the distinction matters</h3>
 

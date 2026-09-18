@@ -56,14 +56,16 @@
         <li><a href="/refrhus/basement-joists/">Basement joists</a></li>
         <li><a href="/refrhus/basement-measure-sheet/">Basement measurements</a></li>
         <li><a href="/refrhus/chimney-measure-sheet/">Chimney measurements</a></li>
-        <li><a href="/refrhus/basement-post-details.html">Basement post details</a></li>
+        <li><a href="/refrhus/basement-post-details/">Basement post details</a></li>
       </ul>
     </li>
     <li class="nav-item">
       <span class="nav-group">Load calculations</span>
       <ul class="nav-children">
         <li><a href="/refrhus/hvac/">Manual J index</a></li>
+        <li><a href="/refrhus/hvac/professional-manual-j/">The professional Manual J</a></li>
         <li><a href="/refrhus/hvac/eldr-report/">Current Eldr run</a></li>
+        <li><a href="/refrhus/hvac/measurements/">Surface-temperature protocol</a></li>
       </ul>
     </li>
     <li class="nav-item">
@@ -97,48 +99,15 @@
 
 <h2 id="the-professional-reports">The professional reports</h2>
 
-<p><code class="language-plaintext highlighter-rouge">manual-j-professional/</code> — ACCA-approved Manual J by NJ Energy Auditor (JL), commissioned 2026-08. Three <em>progressions</em> modelling the same house at increasing tightness, which together form the do-the-envelope-work-first decision tool: each one shows what the equipment could shrink to if the preceding work is done.</p>
+<p>An ACCA-approved Manual J by NJ Energy Auditor, commissioned 2026-08, in three progressions modelling the house at increasing tightness: <strong>as-is 54,260</strong>, plus insulation 44,067, plus air sealing 40,901 BTU/hr heating.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>File</th>
-      <th>What it models</th>
-      <th style="text-align: right">Heat</th>
-      <th style="text-align: right">Cool</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">2026-08-12-manual-j-progression-a-as-is.pdf</code></td>
-      <td>As-is today</td>
-      <td style="text-align: right">54,260</td>
-      <td style="text-align: right">28,485</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">2026-08-12-manual-j-progression-b-plus-insulation.pdf</code></td>
-      <td>+ insulation</td>
-      <td style="text-align: right">—</td>
-      <td style="text-align: right">—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">2026-08-12-manual-j-progression-c-plus-air-sealing.pdf</code></td>
-      <td>+ air sealing</td>
-      <td style="text-align: right">—</td>
-      <td style="text-align: right">—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">2026-08-12-3d-floorplan.pdf</code></td>
-      <td>Their scan-derived floor plan</td>
-      <td style="text-align: right">—</td>
-      <td style="text-align: right">—</td>
-    </tr>
-  </tbody>
-</table>
+<p><strong><a href="/refrhus/hvac/professional-manual-j/">The figures are summarised on their own page</a></strong> — design conditions, every construction assembly with its area and U-value, and the infiltration measurement. That summary is the source of the area-weighted U-values this project’s side-car carries.</p>
 
-<p><strong>Read page 3 of any progression first.</strong> The <em>Construction Details</em> table is where the real information is — every assembly with its area, U-value and HTM. Page 6 carries General / Internal / Infiltration / Ventilation.</p>
+<p><strong>The reports themselves are not published.</strong> They were produced for the owner as a customer rather than for redistribution, so this site carries the numbers our work depends on and not the documents.</p>
 
-<h3 id="two-things-in-these-pdfs-that-are-easy-to-miss">Two things in these PDFs that are easy to miss</h3>
+<h3 id="two-things-in-the-reports-that-are-easy-to-miss">Two things in the reports that are easy to miss</h3>
+
+<p>Both are set out in full on <a href="/refrhus/hvac/professional-manual-j/">the summary page</a>; in short.</p>
 
 <p><strong>The measured blower door exists only in handwriting.</strong> Progression C’s Infiltration panel prints <code class="language-plaintext highlighter-rouge">Blower Door · 1,751 CFM50 · ACH 0.32</code>, but is annotated <strong>“speculative”</strong> — C models the <em>proposed post-air-sealing</em> state. The margin note beside it is the real measurement:</p>
 
@@ -156,7 +125,7 @@
 
 <p><a href="/refrhus/hvac/eldr-report/"><code class="language-plaintext highlighter-rouge">eldr-report.md</code></a> — the current run. Regenerate after any change to the model or the side-car.</p>
 
-<p><strong>How the number got here</strong>, kept as a changelog because each step was a correction worth remembering, not because the documents behind them were worth keeping:</p>
+<p><strong>How the number got here</strong>, kept as a changelog because each step was a correction rather than because the documents behind them were worth keeping:</p>
 
 <ul>
   <li><strong>The level stack</strong> replaced ceilings and floors derived from level <em>bounding boxes</em> with resolved surfaces, per-space buffer policies, hot-attic cooling and measured ACH.</li>
@@ -268,7 +237,7 @@
   </tbody>
 </table>
 
-<p><strong>The attic divergence is deliberate and it is ours to keep.</strong> An earlier version of this table blamed part of the ceiling gap on “our unvented-attic default halves the heating ΔT where they take the full one”, which reads as an Eldr error. It is not one. The attic genuinely is unvented, and Eldr already models the seasonal asymmetry correctly: a winter factor of <strong>0.50</strong> from the <code class="language-plaintext highlighter-rouge">vented: false</code> shorthand, and a summer factor of <strong>3.66</strong> resolved from a sol-air attic temperature. Being unvented <em>helps</em> in winter — stale air does not track outdoor temperature — and <em>hurts</em> in summer, when superheated air has nowhere to go. Declaring the attic vented to match their treatment would make the schematic less true to the house in order to close a number, which is backwards. The whole remaining ceiling gap is the 563 ft² of area we have not drawn.</p>
+<p><strong>The attic divergence is deliberate and ours to keep.</strong> An earlier version of this table blamed part of the ceiling gap on “our unvented-attic default halves the heating ΔT where they take the full one”, which reads as an Eldr error. It is not one. The attic genuinely is unvented, and Eldr already models the seasonal asymmetry correctly: a winter factor of <strong>0.50</strong> from the <code class="language-plaintext highlighter-rouge">vented: false</code> shorthand, and a summer factor of <strong>3.66</strong> resolved from a sol-air attic temperature. Being unvented <em>helps</em> in winter — stale air does not track outdoor temperature — and <em>hurts</em> in summer, when superheated air has nowhere to go. Declaring the attic vented to match their treatment would make the schematic less true to the house in order to close a number, which is backwards. The whole remaining ceiling gap is the 563 ft² of area we have not drawn.</p>
 
 <p><strong>Why <code class="language-plaintext highlighter-rouge">basement_wall</code> was left at 0.07.</strong> Their area-weighted below-grade U is 0.196 (bare 8” stone at 0.293/0.297, finished R-11 at 0.088). Applying that to <em>our</em> area gives <strong>12,236 BTU/hr against their 9,271</strong> — a 32% overshoot replacing today’s 53% undershoot, because our area is 47% too large for want of a grade line. Substituting one error for another is not accuracy. This one waits for the grade-line split or for measured wall temperatures.</p>
 

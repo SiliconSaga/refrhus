@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The professional Manual J | Refr Hus</title>
+  <meta name="description" content="A 1950s house measured by hand, modelled in Sweet Home 3D, and run through a Manual J load calculation — with the duct design that came out of it.">
+  <link rel="stylesheet" href="/refrhus/assets/css/style.css"><script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('refrhus-theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches
+                            ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {}
+  })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a href="/refrhus/" class="site-title">Refr Hus</a>
+    <div class="header-actions"><button class="theme-toggle" type="button" id="theme-toggle"
+              onclick="window.__refrhusToggleTheme(this)">
+        <span class="theme-icon" aria-hidden="true">&#9728;</span>
+        <span class="theme-label">enable light mode</span>
+      </button>
+      <button class="nav-toggle" type="button" aria-label="Toggle contents"
+              aria-expanded="false" aria-controls="site-nav"
+              onclick="window.__refrhusToggleNav(this)">
+        &#9776;
+      </button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="site-nav" id="site-nav" aria-label="Contents">
+  <ul class="nav-list">
+    <li class="nav-item">
+      <a href="/refrhus/">Overview</a>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">The duct design</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/ducting-scheme/">Scheme and reasoning</a></li>
+        <li><a href="/refrhus/ducting-register-schedule/">Register schedule</a></li>
+        <li><a href="/refrhus/ducting-parts-list/">Parts list and cost</a></li>
+        <li><a href="/refrhus/ducting-handover-plan/">Handover plan</a></li>
+        <li><a href="/refrhus/ducting-model-audit/">Model audit</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">The house</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/HISTORY/">Construction history</a></li>
+        <li><a href="/refrhus/basement-structure/">Basement structure</a></li>
+        <li><a href="/refrhus/basement-joists/">Basement joists</a></li>
+        <li><a href="/refrhus/basement-measure-sheet/">Basement measurements</a></li>
+        <li><a href="/refrhus/chimney-measure-sheet/">Chimney measurements</a></li>
+        <li><a href="/refrhus/basement-post-details/">Basement post details</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">Load calculations</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/hvac/">Manual J index</a></li>
+        <li><a href="/refrhus/hvac/professional-manual-j/">The professional Manual J</a></li>
+        <li><a href="/refrhus/hvac/eldr-report/">Current Eldr run</a></li>
+        <li><a href="/refrhus/hvac/measurements/">Surface-temperature protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">Still open</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/schematic-hitlist/">Measurement hit-list</a></li>
+        <li><a href="/refrhus/scanning-plan/">3D scanning options</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+    <main class="content">
+      <h1 id="the-professional-manual-j">The professional Manual J</h1>
+
+<p>An ACCA-approved Manual J for this house, commissioned 2026-08 from <strong>NJ Energy Auditor</strong> and produced in Amply. It is the independent check every number on this site is measured against, and the source of most of the thermal assumptions our own model runs on.</p>
+
+<p><strong>The reports themselves are not published here.</strong> They were produced for the owner as a customer, not for redistribution. This page carries the figures our work depends on — enough that every claim elsewhere on the site can be traced to a number — and nothing beyond that.</p>
+
+<hr />
+
+<h2 id="design-conditions">Design conditions</h2>
+
+<p>Identical across all three progressions.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Weather station</td>
+      <td>Essex County AP (#724094, ASHRAE 2021)</td>
+    </tr>
+    <tr>
+      <td>Latitude / elevation</td>
+      <td>40.876 / 173 ft (elevation factor 0.995)</td>
+    </tr>
+    <tr>
+      <td>Indoor heating / cooling</td>
+      <td>70°F / 75°F</td>
+    </tr>
+    <tr>
+      <td>Outdoor heating / cooling</td>
+      <td>13°F / 89°F</td>
+    </tr>
+    <tr>
+      <td>Design grains</td>
+      <td>27.805</td>
+    </tr>
+    <tr>
+      <td>Daily range</td>
+      <td>Medium</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>This is a different station from ours.</strong> Eldr resolves the model’s coordinates to Newark (99% heating 14°F); the professionals use Essex County Airport at 13°F. A 1°F difference on a 57°F design ΔT, and not a source of disagreement worth chasing.</p>
+
+<h2 id="the-three-progressions">The three progressions</h2>
+
+<p>The same house modelled at increasing tightness. Together they are a do-the-envelope-work-first decision tool: each shows what the equipment could shrink to if the preceding work is done.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Models</th>
+      <th style="text-align: right">Heat</th>
+      <th style="text-align: right">Cool</th>
+      <th style="text-align: right">Heating airflow</th>
+      <th style="text-align: right">Cooling airflow</th>
+      <th style="text-align: right">SHR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>A</strong></td>
+      <td>As-is today</td>
+      <td style="text-align: right"><strong>54,260</strong></td>
+      <td style="text-align: right">28,485</td>
+      <td style="text-align: right">1,653 CFM</td>
+      <td style="text-align: right">1,176 CFM</td>
+      <td style="text-align: right">0.90</td>
+    </tr>
+    <tr>
+      <td><strong>B</strong></td>
+      <td>+ insulation</td>
+      <td style="text-align: right">44,067</td>
+      <td style="text-align: right">25,498</td>
+      <td style="text-align: right">1,343 CFM</td>
+      <td style="text-align: right">1,040 CFM</td>
+      <td style="text-align: right">0.89</td>
+    </tr>
+    <tr>
+      <td><strong>C</strong></td>
+      <td>+ air sealing</td>
+      <td style="text-align: right">40,901</td>
+      <td style="text-align: right">25,108</td>
+      <td style="text-align: right">1,246 CFM</td>
+      <td style="text-align: right">1,031 CFM</td>
+      <td style="text-align: right">0.90</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Progression A is the one to compare against</strong>, because it is the house as it stands. It is the 54,260 quoted everywhere on this site.</p>
+
+<p><strong>The envelope work is worth 13,359 BTU/hr of heating load</strong> — A to C, a 25% reduction, or just over a ton. That is the argument for doing insulation and air sealing before sizing equipment, made in the professionals’ own numbers rather than ours.</p>
+
+<p>Cooling barely moves by comparison — 28,485 to 25,108, 12% — because cooling here is driven by solar gain and internal load rather than by envelope conduction.</p>
+
+<h2 id="construction-details">Construction details</h2>
+
+<p>The substance of the report, and where our own assemblies come from. Areas are net; HTM is heat transfer multiplier, heating then cooling.</p>
+
+<h3 id="walls">Walls</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Assembly</th>
+      <th style="text-align: right">Qty</th>
+      <th style="text-align: right">Net area</th>
+      <th style="text-align: right">U</th>
+      <th style="text-align: right">HTM heat / cool</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2x4 framed, stucco/siding, R-0 cavity</td>
+      <td style="text-align: right">3</td>
+      <td style="text-align: right">247.9</td>
+      <td style="text-align: right">0.240</td>
+      <td style="text-align: right">13.58 / 6.36</td>
+    </tr>
+    <tr>
+      <td>2x4 framed, stucco/siding, R-11 cavity</td>
+      <td style="text-align: right">27</td>
+      <td style="text-align: right">942.3</td>
+      <td style="text-align: right">0.097</td>
+      <td style="text-align: right">5.49 / 2.34</td>
+    </tr>
+    <tr>
+      <td>2x4 framed, R-13 cavity</td>
+      <td style="text-align: right">2</td>
+      <td style="text-align: right">130.5</td>
+      <td style="text-align: right">0.091</td>
+      <td style="text-align: right">5.15 / 1.96</td>
+    </tr>
+    <tr>
+      <td><em>Garage partition, R-11 cavity</em></td>
+      <td style="text-align: right">4</td>
+      <td style="text-align: right">222.0</td>
+      <td style="text-align: right">0.097</td>
+      <td style="text-align: right">5.49 / 3.08</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The three non-garage rows are <strong>1,320.7 ft² at an area-weighted U of 0.123</strong>, which is what <code class="language-plaintext highlighter-rouge">eldr-sidecar.yaml</code> carries for <code class="language-plaintext highlighter-rouge">exterior_wall</code>.</p>
+
+<h3 id="below-grade-walls">Below-grade walls</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Assembly</th>
+      <th style="text-align: right">Qty</th>
+      <th style="text-align: right">Net area</th>
+      <th style="text-align: right">U</th>
+      <th style="text-align: right">HTM heat / cool</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Avg depth 3 ft — 8″ stone/brick, no framing, no finish</td>
+      <td style="text-align: right">2</td>
+      <td style="text-align: right">186.8</td>
+      <td style="text-align: right">0.293</td>
+      <td style="text-align: right">16.58 / 1.68</td>
+    </tr>
+    <tr>
+      <td>Avg depth 4 ft — 8″ stone/brick, no framing, no finish</td>
+      <td style="text-align: right">2</td>
+      <td style="text-align: right">215.4</td>
+      <td style="text-align: right">0.297</td>
+      <td style="text-align: right">16.82 / 2.73</td>
+    </tr>
+    <tr>
+      <td>Avg depth 3 ft — 8″ stone/brick, wood frame R-11, finished</td>
+      <td style="text-align: right">3</td>
+      <td style="text-align: right">371.6</td>
+      <td style="text-align: right">0.088</td>
+      <td style="text-align: right">4.98 / 0.68</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>773.8 ft² at an area-weighted U of 0.196.</strong> Note the depth column: the same construction is tabulated at 0.293 at three feet and 0.297 at four, because the effective U includes the soil path. That is the mechanism Eldr has no concept of, and the reason <code class="language-plaintext highlighter-rouge">basement_wall</code> is deliberately held at 0.07 rather than adopting 0.196 — see <a href="/refrhus/hvac/">the comparison</a>.</p>
+
+<h3 id="ceilings">Ceilings</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Assembly</th>
+      <th style="text-align: right">Qty</th>
+      <th style="text-align: right">Net area</th>
+      <th style="text-align: right">U</th>
+      <th style="text-align: right">HTM heat / cool</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Under vented attic w/o radiant barrier, R-11</td>
+      <td style="text-align: right">1</td>
+      <td style="text-align: right">40.4</td>
+      <td style="text-align: right">0.081</td>
+      <td style="text-align: right">4.58 / 4.03</td>
+    </tr>
+    <tr>
+      <td>Under vented attic w/o radiant barrier, R-13</td>
+      <td style="text-align: right">3</td>
+      <td style="text-align: right">541.2</td>
+      <td style="text-align: right">0.070</td>
+      <td style="text-align: right">3.96 / 3.49</td>
+    </tr>
+    <tr>
+      <td>Under vented attic w/o radiant barrier, R-19</td>
+      <td style="text-align: right">6</td>
+      <td style="text-align: right">965.7</td>
+      <td style="text-align: right">0.049</td>
+      <td style="text-align: right">2.77 / 2.44</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>1,547.3 ft² at an area-weighted U of 0.057.</strong> Our ceiling U matches; our <em>area</em> is 984 ft², and that 563 ft² shortfall is the single largest remaining geometry gap — the sloped roof and knee-wall surfaces nobody has drawn.</p>
+
+<h3 id="floors">Floors</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Assembly</th>
+      <th style="text-align: right">Qty</th>
+      <th style="text-align: right">Net area</th>
+      <th style="text-align: right">U</th>
+      <th style="text-align: right">HTM heat / cool</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Passive floor exposed to outdoor air, no insulation</td>
+      <td style="text-align: right">1</td>
+      <td style="text-align: right">264.5</td>
+      <td style="text-align: right">0.521</td>
+      <td style="text-align: right">29.49 / 6.21</td>
+    </tr>
+    <tr>
+      <td>Basement floor &gt;2 ft below grade, 32″ short slab edge</td>
+      <td style="text-align: right">3</td>
+      <td style="text-align: right">713.9</td>
+      <td style="text-align: right">0.020</td>
+      <td style="text-align: right">1.13 / 0.00</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The slab’s <strong>0.020</strong> corrected an Eldr assumption that had been overshooting 2.5×. Its cooling HTM of 0.00 matches our own treatment: below-grade soil is a heat sink in summer, not a source.</p>
+
+<h3 id="windows-and-doors">Windows and doors</h3>
+
+<p>Ten window rows totalling <strong>152.5 ft² at an area-weighted U of 0.588</strong>, which is the figure <code class="language-plaintext highlighter-rouge">eldr-sidecar.yaml</code> carries.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Orientation / type</th>
+      <th style="text-align: right">Qty</th>
+      <th style="text-align: right">Area</th>
+      <th style="text-align: right">U</th>
+      <th style="text-align: right">SHGC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>NE clear single pane</td>
+      <td style="text-align: right">2</td>
+      <td style="text-align: right">8.3</td>
+      <td style="text-align: right">0.900</td>
+      <td style="text-align: right">0.64</td>
+    </tr>
+    <tr>
+      <td>NW clear single pane</td>
+      <td style="text-align: right">1</td>
+      <td style="text-align: right">9.8</td>
+      <td style="text-align: right">0.900</td>
+      <td style="text-align: right">0.64</td>
+    </tr>
+    <tr>
+      <td>NW clear single pane w/ storm</td>
+      <td style="text-align: right">1</td>
+      <td style="text-align: right">9.1</td>
+      <td style="text-align: right">0.570</td>
+      <td style="text-align: right">0.56</td>
+    </tr>
+    <tr>
+      <td>NE LowE double</td>
+      <td style="text-align: right">2</td>
+      <td style="text-align: right">15.0</td>
+      <td style="text-align: right">0.550</td>
+      <td style="text-align: right">0.56</td>
+    </tr>
+    <tr>
+      <td>S LowE double</td>
+      <td style="text-align: right">2</td>
+      <td style="text-align: right">20.9</td>
+      <td style="text-align: right">0.550</td>
+      <td style="text-align: right">0.56</td>
+    </tr>
+    <tr>
+      <td>SE LowE double</td>
+      <td style="text-align: right">3</td>
+      <td style="text-align: right">26.6</td>
+      <td style="text-align: right">0.550</td>
+      <td style="text-align: right">0.56</td>
+    </tr>
+    <tr>
+      <td>SW LowE double</td>
+      <td style="text-align: right">2</td>
+      <td style="text-align: right">10.7</td>
+      <td style="text-align: right">0.550</td>
+      <td style="text-align: right">0.56</td>
+    </tr>
+    <tr>
+      <td>W LowE double</td>
+      <td style="text-align: right">2</td>
+      <td style="text-align: right">18.5</td>
+      <td style="text-align: right">0.550</td>
+      <td style="text-align: right">0.56</td>
+    </tr>
+    <tr>
+      <td>SE LowE double (3A)</td>
+      <td style="text-align: right">1</td>
+      <td style="text-align: right">6.8</td>
+      <td style="text-align: right">0.530</td>
+      <td style="text-align: right">0.56</td>
+    </tr>
+    <tr>
+      <td>SW LowE double (3A)</td>
+      <td style="text-align: right">1</td>
+      <td style="text-align: right">26.8</td>
+      <td style="text-align: right">0.530</td>
+      <td style="text-align: right">0.56</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Four single-pane units survive</strong>, 27.2 ft² between them — 18% of the glass carrying 24% of the window heat loss. Three are bare at U-0.900; the fourth has a storm sash and comes in at 0.570. A blended U cannot put them in the rooms that have them, which is the whole of the residual window disagreement with our model.</p>
+
+<p>No skylights. Doors are <strong>82.3 ft²</strong>: one glass door at 43.4 ft² (U-0.530), a solid-core wood door with storm at 21.5 ft² (U-0.280), and a fibreglass-core metal door at 17.4 ft² (U-0.600).</p>
+
+<h2 id="general-internal-and-infiltration">General, internal and infiltration</h2>
+
+<p>From progression A.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Year built</td>
+      <td>1946</td>
+    </tr>
+    <tr>
+      <td>Stories / bedrooms</td>
+      <td>2 / 4</td>
+    </tr>
+    <tr>
+      <td>Estimated living area</td>
+      <td>1,604 ft²</td>
+    </tr>
+    <tr>
+      <td>Scanned living area</td>
+      <td>2,261 ft²</td>
+    </tr>
+    <tr>
+      <td>Conditioned basement</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>Fireplaces</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Ventilation</td>
+      <td>none</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Occupants: 5</strong>, on the ACCA bedrooms-plus-one convention, contributing 4,550 BTU/hr of cooling (3,550 sensible, 1,000 latent) under a 2,400 BTU/hr standard kitchen/utility/lighting scenario, and nothing to heating. Our model agrees at 5 — the actual headcount and the convention happen to coincide.</p>
+
+<p><strong>Infiltration is 13,154 BTU/hr of heating</strong>, about a quarter of progression A’s total, and the largest single line in the report.</p>
+
+<hr />
+
+<h2 id="two-things-in-the-reports-that-are-easy-to-miss">Two things in the reports that are easy to miss</h2>
+
+<p><strong>The measured blower door exists only in handwriting.</strong> Progression C’s infiltration panel prints <code class="language-plaintext highlighter-rouge">Blower Door · 1,751 CFM50 · ACH 0.32</code>, annotated <strong>“speculative”</strong> — C models the <em>proposed post-air-sealing</em> state, not the house today. The real measurement is a margin note:</p>
+
+<blockquote>
+  <p><strong>“At Audit BD was 3751! w/ACH 0.68”</strong></p>
+</blockquote>
+
+<p>So the measured as-is figure is <strong>3,751 CFM50 → ACH 0.68</strong>, and that is what <code class="language-plaintext highlighter-rouge">../eldr-sidecar.yaml</code> uses. Progression A’s printed infiltration is <em>not</em> a measurement: its method line reads <code class="language-plaintext highlighter-rouge">Tightness: Loose</code>, an ACCA tightness-class estimate, with the note <em>“Would measure &gt;=10 ACH50 via blower door test. Common for homes built pre-1950.”</em> Do not cite A’s figure as measured.</p>
+
+<p>The arithmetic was checked against Eldr’s own conditioned volume, which at the time came to 16,457 ft³: 3,751 CFM50 × 60 ÷ 16,457 = 13.7 ACH50, over an LBL N-factor of ~20 (two storeys, shielding class 4) = <strong>0.68</strong>. Two engines agreeing on a volume neither took from the other is a real cross-check.</p>
+
+<p><strong>That volume has since moved to 16,859 ft³</strong> as the basement was measured and the model gained detail, which puts the same blower-door reading at ACH <strong>0.67</strong>. The side-car deliberately still carries <strong>0.68</strong>.</p>
+
+<p><strong>Holding it is the point, not an oversight.</strong> The volume is still moving — 563 ft² of second-floor ceiling is undrawn, and drawing it will raise the conditioned volume again and push the derived ACH back down. Re-deriving on every intermediate geometry change would churn the headline load by a few hundred BTU/hr in each direction while converging on nothing. The N-factor of ~20 is itself a rule of thumb, so 0.67 against 0.68 sits inside the method’s own precision. <strong>Re-derive once the second-floor geometry is complete</strong>, not before.</p>
+
+<p><strong>They load below-grade surfaces at the full outdoor ΔT.</strong> Divide HTM by U on every below-grade row — 16.58/0.293, 16.82/0.297, 4.98/0.088, and the slab’s 1.13/0.020 — and all four give <strong>56.6</strong>, against their design ΔT of 57 × the 0.995 elevation factor. The soil path lives <em>inside</em> the U-value, which is why U-0.293 sits far below bare 8″ masonry (~1.0 on its own).</p>
+
+<p>That is standard Manual J, and finding it is what corrected Eldr, which had been applying an effective U <em>and</em> a ground ΔT — discounting twice. Their below-grade <strong>cooling</strong> HTMs do not divide out to a constant (5.73 / 9.19 / 7.73), so cooling below grade is not a single ΔT.</p>
+
+<h2 id="reading-the-numbers-against-ours">Reading the numbers against ours</h2>
+
+<p>The line-by-line comparison, and where the two engines still disagree, is on <a href="/refrhus/hvac/">the load calculations page</a>.</p>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>
+      The model, the engine and every document here are public.
+      <a href="https://github.com/SiliconSaga/refrhus">Source</a> ·
+      <a href="https://github.com/SiliconSaga/eldr">Eldr</a>
+    </p>
+  </footer>
+
+  <script>
+  (function () {
+    // --- theme -----------------------------------------------------------
+    // The button names the theme it will switch TO, icon and words agreeing:
+    // sitting in dark, it offers "☀ enable light mode".
+    function paintToggle(button, theme) {
+      var toDark = theme !== 'light';
+      button.querySelector('.theme-icon').textContent = toDark ? '☀' : '☽';
+      button.querySelector('.theme-label').textContent =
+        toDark ? 'enable light mode' : 'enable dark mode';
+    }
+
+    window.__refrhusToggleTheme = function (button) {
+      var next = document.documentElement.getAttribute('data-theme') === 'light'
+                 ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('refrhus-theme', next); } catch (e) {}
+      paintToggle(button, next);
+    };
+
+    // Correct the server-rendered label, which cannot know the resolved theme.
+    var toggle = document.getElementById('theme-toggle');
+    if (toggle) paintToggle(toggle, document.documentElement.getAttribute('data-theme'));
+
+    // --- contents --------------------------------------------------------
+    window.__refrhusToggleNav = function (button) {
+      var open = document.querySelector('.site-nav').classList.toggle('open');
+      button.setAttribute('aria-expanded', String(open));
+    };
+
+    // Mark the current page in the sidebar. Done client-side so the nav stays a
+    // plain data file rather than needing a per-page front-matter key.
+    var here = window.location.pathname.replace(/\/$/, '');
+    document.querySelectorAll('.site-nav a').forEach(function (a) {
+      if (a.getAttribute('href').replace(/\/$/, '') === here) {
+        a.classList.add('current');
+        a.setAttribute('aria-current', 'page');
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

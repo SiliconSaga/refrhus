@@ -56,14 +56,16 @@
         <li><a href="/refrhus/basement-joists/">Basement joists</a></li>
         <li><a href="/refrhus/basement-measure-sheet/">Basement measurements</a></li>
         <li><a href="/refrhus/chimney-measure-sheet/">Chimney measurements</a></li>
-        <li><a href="/refrhus/basement-post-details.html">Basement post details</a></li>
+        <li><a href="/refrhus/basement-post-details/">Basement post details</a></li>
       </ul>
     </li>
     <li class="nav-item">
       <span class="nav-group">Load calculations</span>
       <ul class="nav-children">
         <li><a href="/refrhus/hvac/">Manual J index</a></li>
+        <li><a href="/refrhus/hvac/professional-manual-j/">The professional Manual J</a></li>
         <li><a href="/refrhus/hvac/eldr-report/">Current Eldr run</a></li>
+        <li><a href="/refrhus/hvac/measurements/">Surface-temperature protocol</a></li>
       </ul>
     </li>
     <li class="nav-item">
@@ -79,17 +81,282 @@
     <main class="content">
       <h1 id="duct-model-audit">Duct model audit</h1>
 
-<p>What the drawn model says about itself, and where it disagrees with the <a href="/refrhus/ducting-register-schedule/">register schedule</a>. Currently <strong>73 <code class="language-plaintext highlighter-rouge">Ducting:</code> objects and 25 registers</strong>.</p>
+<p>What the drawn model says about itself, and where it disagrees with the <a href="/refrhus/ducting-register-schedule/">register schedule</a>. Currently <strong>74 <code class="language-plaintext highlighter-rouge">Ducting:</code> objects and 25 registers</strong>.</p>
 
 <p><strong>Per-run sections, lengths and materials are not repeated here</strong> — they live in <a href="/refrhus/ducting-parts-list/"><code class="language-plaintext highlighter-rouge">ducting-parts-list.md</code></a>, which is generated from the model on demand. This document carries only the findings that a table cannot: how the geometry was read, what the topology can and cannot tell us, and which sizing conclusions are contested.</p>
 
 <hr />
 
+<h2 id="the-plenum-area">The plenum area</h2>
+
+<p>Where the trunks leave and arrive, drawn straight from <code class="language-plaintext highlighter-rouge">Home.xml</code> rather than by hand — so it cannot drift from the model the way a hand-drawn diagram does. Green is supply, yellow return; each is the colour the object carries in Sweet Home 3D. Walls and the two basement posts are grey context.</p>
+
+<p>The crop comes from a box named <code class="language-plaintext highlighter-rouge">View: Plenum area [plan]</code> drawn in the model itself, so moving the plenum and re-dragging the box re-cuts the figure. Runs leaving the region are clipped at the frame, which is what a close-up should do to them. The air handler sits between the two plenums and is not drawn — the plenums are what the ducts connect to, and the unit’s own footprint is in <a href="/refrhus/ducting-scheme/">the scheme</a>.</p>
+
+<figure class="schematic">
+  <img src="/refrhus/assets/schematics/plenum-area-plan.svg" alt="Plenum area — plan view, generated from the model" />
+  <figcaption>Plenum area — looking down, north up the page. 27 objects; every figure below is read from <code>Home.xml</code>.</figcaption>
+</figure>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">#</th>
+      <th>Run</th>
+      <th style="text-align: center">Side</th>
+      <th>Level</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">1</td>
+      <td>Supply branch for play room east 2</td>
+      <td style="text-align: center">supply</td>
+      <td>Basement</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">2</td>
+      <td>Supply plenum</td>
+      <td style="text-align: center">supply</td>
+      <td>Basement</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">3</td>
+      <td>North supply trunk 1</td>
+      <td style="text-align: center">supply</td>
+      <td>Basement</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">4</td>
+      <td>SE supply trunk 1</td>
+      <td style="text-align: center">supply</td>
+      <td>Basement</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">5</td>
+      <td>SE supply trunk 2</td>
+      <td style="text-align: center">supply</td>
+      <td>Basement</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">6</td>
+      <td>SE supply trunk 3</td>
+      <td style="text-align: center">supply</td>
+      <td>Basement</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">7</td>
+      <td>Return plenum</td>
+      <td style="text-align: center">return</td>
+      <td>Basement</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">8</td>
+      <td>SE return trunk 1</td>
+      <td style="text-align: center">return</td>
+      <td>Basement</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">9</td>
+      <td>SE return trunk 2</td>
+      <td style="text-align: center">return</td>
+      <td>Basement</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">10</td>
+      <td>North return trunk 2</td>
+      <td style="text-align: center">return</td>
+      <td>Basement</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">11</td>
+      <td>North supply trunk 3</td>
+      <td style="text-align: center">supply</td>
+      <td>Basement</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">12</td>
+      <td>North supply trunk 4</td>
+      <td style="text-align: center">supply</td>
+      <td>Basement</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">13</td>
+      <td>North supply trunk 2</td>
+      <td style="text-align: center">supply</td>
+      <td>Basement</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">14</td>
+      <td>North return trunk 1</td>
+      <td style="text-align: center">return</td>
+      <td>Basement</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">15</td>
+      <td>SW return trunk 1</td>
+      <td style="text-align: center">return</td>
+      <td>Basement</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">16</td>
+      <td>SW supply trunk 1</td>
+      <td style="text-align: center">supply</td>
+      <td>Basement</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">17</td>
+      <td>North return branch for kitchen 1</td>
+      <td style="text-align: center">return</td>
+      <td>Basement</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">18</td>
+      <td>North supply branch for main bathroom 1</td>
+      <td style="text-align: center">supply</td>
+      <td>Basement</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">19</td>
+      <td>SW return trunk 2</td>
+      <td style="text-align: center">return</td>
+      <td>Basement</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">20</td>
+      <td>SW return trunk 3</td>
+      <td style="text-align: center">return</td>
+      <td>Basement</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">21</td>
+      <td>Supply branch for play room east 1</td>
+      <td style="text-align: center">supply</td>
+      <td>Basement</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">22</td>
+      <td>Supply branch for west living room and future mud room 1</td>
+      <td style="text-align: center">supply</td>
+      <td>Basement</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">23</td>
+      <td>North supply branch for living room east 1</td>
+      <td style="text-align: center">supply</td>
+      <td>Basement</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">24</td>
+      <td>North supply branch for orphaned kitchen register 1</td>
+      <td style="text-align: center">supply</td>
+      <td>Basement</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">25</td>
+      <td>SE supply branch splitter for office and kids room 1</td>
+      <td style="text-align: center">supply</td>
+      <td>Basement</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="which-end-connects-to-what">Which end connects to what</h3>
+
+<p>The plenums are very different shapes, and the figure is hard to read without knowing why. Position is given as a percentage along each plenum’s long axis.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Plenum</th>
+      <th>Size</th>
+      <th>Connection</th>
+      <th>Where</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Supply</strong></td>
+      <td>24 × 12 in, 2 ft</td>
+      <td>SW supply trunk</td>
+      <td>25% — west end</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>North supply trunk</td>
+      <td>73%</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>SE supply trunk</td>
+      <td>77% — east end</td>
+    </tr>
+    <tr>
+      <td><strong>Return</strong></td>
+      <td>20 × 120 in, 10 ft</td>
+      <td>North return trunk</td>
+      <td>10% — north end</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>SW return trunk</td>
+      <td>84%</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>SE return trunk</td>
+      <td>96% — south end</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Three trunks each, and the supply plenum is two feet long.</strong> All three supply trunks leave within 24 inches of each other, so nothing carries the whole 1,245 CFM anywhere — the split happens at the plenum rather than downstream.</p>
+
+<h3 id="the-model-has-not-adopted-the-schedules-takeoff-plan">The model has not adopted the schedule’s takeoff plan</h3>
+
+<p>This is the clearest place the drawing and the schedule describe different houses, and it is worth stating plainly because an earlier version of this section had the schedule’s answer written in as though the model already matched it.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th style="text-align: right">Takeoffs</th>
+      <th>Largest supply duct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="/refrhus/ducting-register-schedule/">Register schedule</a> proposes</td>
+      <td style="text-align: right">4</td>
+      <td><strong>10″</strong> round</td>
+    </tr>
+    <tr>
+      <td>Model draws</td>
+      <td style="text-align: right">3</td>
+      <td><strong>12x16</strong> rect — a 15.1″ equivalent round</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The schedule’s case is that a single trunk leaving the plenum has to be 16″ round, or 10x22 rectangular, and <em>“a 16″ round plus insulation hanging under joists at 84″ is a real intrusion”</em>. Splitting the main floor into south and north sub-trunks gives four takeoffs with nothing above 10″.</p>
+
+<p><strong>The model still draws the arrangement that argument rejects.</strong> <code class="language-plaintext highlighter-rouge">SE supply trunk</code> starts at 12x16, which is a 15.1″ equivalent — the 16″ duct the schedule says never has to exist, within an inch of it. Whichever way this is resolved, the two documents cannot both be right, and <a href="/refrhus/ducting-parts-list/">the parts list</a> reports what is drawn rather than what is proposed.</p>
+
+<p><strong>The return plenum is ten feet long because its connections are ten feet apart.</strong> The north return arrives near the top at 10%, the SW and SE returns at the bottom at 84% and 96%. One plenum spanning between them replaces a collector duct running the same distance — the length is the job, not an oversight.</p>
+
+<p><strong>Adjacency alone would report seven connections on the return plenum and four on the supply</strong>, because supply runs pass within three inches of the return plenum on their way past. Filtering to same-side contacts gives the three-and-three above. That is the same limit as the <a href="#topology-cannot-be-inferred-from-geometry--only-the-return-side-works">topology section</a> below: touching is not joining, and here the side of the system is what separates them.</p>
+
+<hr />
+
 <h2 id="connectivity">Connectivity</h2>
 
-<p>A 3D adjacency pass over all 73 duct objects and 25 registers at 3″ tolerance. <strong>Every run joins something, no trunk or plenum dead-ends mid-run, and every register attaches to a duct</strong> — the supply, SE, north and SW systems are all continuous as drawn.</p>
+<p>A 3D adjacency pass over all 74 duct objects and 25 registers at 3″ tolerance. <strong>Every run joins something, no trunk or plenum dead-ends mid-run, and every register attaches to a duct</strong> — the supply, SE, north and SW systems are all continuous as drawn.</p>
 
-<p><strong>Read Sweet Home 3D’s own rotated dimensions, not the raw ones.</strong> A piece tilted by <code class="language-plaintext highlighter-rouge">pitch</code> or <code class="language-plaintext highlighter-rouge">roll</code> carries <code class="language-plaintext highlighter-rouge">widthInPlan</code> / <code class="language-plaintext highlighter-rouge">depthInPlan</code> / <code class="language-plaintext highlighter-rouge">heightInPlan</code> — the bounding box <em>after</em> that tilt — and its <code class="language-plaintext highlighter-rouge">elevation</code> is measured to the bottom of that box, not of the upright model. Twenty-four of the 73 duct objects are tilted, all of them horizontal runs drawn as pitched cylinders. Reconstructing the rotation from <code class="language-plaintext highlighter-rouge">width</code>/<code class="language-plaintext highlighter-rouge">depth</code>/<code class="language-plaintext highlighter-rouge">height</code> instead puts those runs <strong>tens of inches off in elevation</strong> while leaving the plan position right — so they read as badly broken chains that look perfectly joined on screen. Only the yaw (<code class="language-plaintext highlighter-rouge">angle</code>) still needs applying, to the in-plan footprint.</p>
+<p><strong>Read Sweet Home 3D’s own rotated dimensions, not the raw ones.</strong> A piece tilted by <code class="language-plaintext highlighter-rouge">pitch</code> or <code class="language-plaintext highlighter-rouge">roll</code> carries <code class="language-plaintext highlighter-rouge">widthInPlan</code> / <code class="language-plaintext highlighter-rouge">depthInPlan</code> / <code class="language-plaintext highlighter-rouge">heightInPlan</code> — the bounding box <em>after</em> that tilt — and its <code class="language-plaintext highlighter-rouge">elevation</code> is measured to the bottom of that box, not of the upright model. Nineteen of the 74 carry a non-zero pitch or roll, all of them horizontal runs drawn as pitched cylinders. Reconstructing the rotation from <code class="language-plaintext highlighter-rouge">width</code>/<code class="language-plaintext highlighter-rouge">depth</code>/<code class="language-plaintext highlighter-rouge">height</code> instead puts those runs <strong>tens of inches off in elevation</strong> while leaving the plan position right — so they read as badly broken chains that look perfectly joined on screen. Only the yaw (<code class="language-plaintext highlighter-rouge">angle</code>) still needs applying, to the in-plan footprint.</p>
 
 <p>The SW return is the run that exposed this: trunks 3 and 4 overlap by 1″ in elevation (74–83″ and 82–91″), and a naive pass reported them 26″ apart. <strong>Two rounds of model edits chased that phantom before the reader was suspected</strong> — the owner’s own observation that the pieces touched was correct throughout.</p>
 
@@ -107,8 +374,9 @@
 <p>Joints here are a mix of butts and overlaps, so no single threshold separates a tee from a neighbour. <strong>The return side survives anyway</strong>, because its runs are sparse enough not to graze, and it walks into exactly the tree the design describes:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Return plenum
-├── North return trunk → kitchen branch, both-main-bedrooms
-│                        └── both-main-bedrooms → main bed, main floor kids
+├── North return trunk → kitchen branch
+│                      → main bedroom          (the buried 4x8)
+│                      → kids room + basement NE (the enlarged 6x10)
 ├── SE return trunk   → office, play room south      (the 2nd-floor riser)
 └── SW return trunk   → SW return branch (living room / SW basement)
 </code></pre></div></div>
@@ -119,13 +387,46 @@
 
 <h2 id="the-contested-sizing">The contested sizing</h2>
 
-<p><strong>The main-floor return path is the system’s real bottleneck</strong>, and it is not a grille problem. <code class="language-plaintext highlighter-rouge">Return branch for both main bedrooms</code> is a single <strong>4x8 running 30 ft</strong>, and three returns hang off it — Main Bed 227, Kids Room 64, and the Utility Room’s 83 via the Kids Room tap. That is ~374 CFM through 32 in².</p>
+<p><strong>The main-floor return path was the system’s bottleneck</strong> — a single 4x8 running 30 ft with Main Bed 227, Kids Room 64 and the Utility Room’s 83 all hanging off it, about 374 CFM through 32 in².</p>
 
-<p>It is the existing duct through the inaccessible crawlspace, so it is not a sizing error to correct in the model — but <strong>the pinch is only the buried section.</strong> The basement portion is open and can be enlarged at least as far as the splitter, and optionally onward to the Kids Room. This also reframes the remedy: a transfer grille above the bedroom door relieves the bedroom alone and does nothing for the two rooms behind the same constriction.</p>
+<p><strong>It is now drawn as two runs, split where the duct stops being buried.</strong> <code class="language-plaintext highlighter-rouge">Return branch for kids room and basement NE</code> takes the open basement portion at 6x10 over 8.9 ft, carrying 147 CFM at 353 fpm. <code class="language-plaintext highlighter-rouge">Return branch for main bedroom</code> keeps the buried 4x8 over 21 ft, because that is what is physically there. The two rooms that were behind the pinch are no longer behind it; the bedroom still is, and that remains a capacity problem to solve at the grille or with a transfer path rather than a duct to re-size.</p>
 
 <p><strong>The Utility Room return shares the Kids Room branch</strong>, which takes that branch from 64 CFM to 147. It is drawn at 8″, which runs 421 fpm and is fine; the 6″ the schedule originally specified would have run 747. A shared branch is sized for the sum, and once shared, the room name on it stops being the whole story.</p>
 
-<p><strong>Two kitchen faces remain constrained by cabinetry</strong> — the SE supply at 2″ of height running 806 fpm, and the return at 3x20 running 602. Both are construction decisions rather than duct decisions, which is why the model still carries them as drawn.</p>
+<p><strong>Both kitchen faces have been redrawn at the sizes the schedule asked for</strong> — the SE supply from 2x15 to 4x15 (806 → 403 fpm) and the return from 3x20 to 8x14 (602 → 323). Getting the SE supply’s 4″ of height still needs a cabinet moved or modified, so the model now records a decision that the carpentry has yet to catch up with.</p>
+
+<h3 id="the-north-return-trunk-and-why-an-oval-is-not-its-box">The north return trunk, and why an oval is not its box</h3>
+
+<p>Everything north of the return plenum funnels through two segments in series, both carrying the same <strong>625 CFM</strong> — kitchen 251, main bed 227, kids room and utility 147.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Segment</th>
+      <th style="text-align: center">Section</th>
+      <th style="text-align: right">Free area</th>
+      <th style="text-align: right">fpm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">North return trunk 1</code> — the vertical drop into the plenum</td>
+      <td style="text-align: center">12x12 rect</td>
+      <td style="text-align: right">144 in²</td>
+      <td style="text-align: right"><strong>625</strong></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">North return trunk 2 [oval]</code> — the horizontal run</td>
+      <td style="text-align: center">14x18 oval</td>
+      <td style="text-align: right">210 in²</td>
+      <td style="text-align: right">429</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Trunk 2 was widened from 12x14 because its <code class="language-plaintext highlighter-rouge">[oval]</code> tag costs it area the box does not show.</strong> The model draws a rectangular solid; the tag says what gets fabricated. A flat oval of the same overall dimensions has a semicircular end at each side rather than a corner, so 12x14 is <strong>137 in² of airway, not 168</strong> — and 656 fpm, not the 536 the box implies. Reading section area off the drawn box overstates every <code class="language-plaintext highlighter-rouge">[oval]</code> run in the model by roughly 20%, and the parts list prints the box because that is what a shop needs to know it must fit.</p>
+
+<p><strong>That makes trunk 1 the binding constraint</strong>, at 625 fpm through a genuinely rectangular 144 in². It is a 64″ vertical drop straight onto the plenum, so the fix is not the same kind of change as widening a horizontal run in a joist bay: it has to clear the plenum top and whatever the joist framing allows around it. <strong>Unmeasured, and worth a look on the same site visit as the return split.</strong></p>
 
 <h2 id="modelling-caveats">Modelling caveats</h2>
 

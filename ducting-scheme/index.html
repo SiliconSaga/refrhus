@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The duct scheme — primer and design thinking | Refr Hus</title>
+  <title>The duct scheme | Refr Hus</title>
   <meta name="description" content="A 1950s house measured by hand, modelled in Sweet Home 3D, and run through a Manual J load calculation — with the duct design that came out of it.">
   <link rel="stylesheet" href="/refrhus/assets/css/style.css"><script>
   (function () {
@@ -56,14 +56,16 @@
         <li><a href="/refrhus/basement-joists/">Basement joists</a></li>
         <li><a href="/refrhus/basement-measure-sheet/">Basement measurements</a></li>
         <li><a href="/refrhus/chimney-measure-sheet/">Chimney measurements</a></li>
-        <li><a href="/refrhus/basement-post-details.html">Basement post details</a></li>
+        <li><a href="/refrhus/basement-post-details/">Basement post details</a></li>
       </ul>
     </li>
     <li class="nav-item">
       <span class="nav-group">Load calculations</span>
       <ul class="nav-children">
         <li><a href="/refrhus/hvac/">Manual J index</a></li>
+        <li><a href="/refrhus/hvac/professional-manual-j/">The professional Manual J</a></li>
         <li><a href="/refrhus/hvac/eldr-report/">Current Eldr run</a></li>
+        <li><a href="/refrhus/hvac/measurements/">Surface-temperature protocol</a></li>
       </ul>
     </li>
     <li class="nav-item">
@@ -77,25 +79,60 @@
 </nav>
 
     <main class="content">
-      <h1 id="the-duct-scheme--primer-and-design-thinking">The duct scheme — primer and design thinking</h1>
+      <h1 id="the-duct-scheme">The duct scheme</h1>
 
-<p>Where the ducting design stands as of 2026-09-02, why it is shaped this way, and what is still open. Written to be readable cold — by a contractor, by a future session, or by the owner in six months.</p>
+<p><strong>One air handler in the basement behind the bar, feeding all three floors through a single stacked utility cabinet beside the chimney.</strong></p>
 
-<p>Companion documents: <code class="language-plaintext highlighter-rouge">chimney-measure-sheet.md</code> (the chimney’s geometry), and <a href="/refrhus/hvac/"><code class="language-plaintext highlighter-rouge">hvac/index.md</code></a> (the load calculations and where they disagree with the professional Manual J).</p>
+<p>The main floor is served by basement runs — south through the under-stair space, north through the basement bathroom and then west along the girder. The second floor takes one supply and one return riser up the cabinet: the supply branches short and central, the return splits in the knee-wall attic to reach the far corners of both rooms.</p>
 
-<hr />
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th style="text-align: right"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Design airflow (Eldr, equipment basis)</td>
+      <td style="text-align: right">1,245 CFM</td>
+    </tr>
+    <tr>
+      <td>Plenums</td>
+      <td style="text-align: right">12x20 supply and return</td>
+    </tr>
+    <tr>
+      <td>Largest trunk</td>
+      <td style="text-align: right">12x16</td>
+    </tr>
+    <tr>
+      <td>Straight duct</td>
+      <td style="text-align: right">344 ft across 29 runs</td>
+    </tr>
+    <tr>
+      <td>Registers and grilles</td>
+      <td style="text-align: right">15 supply, 8 return</td>
+    </tr>
+    <tr>
+      <td>Faces outside the velocity band</td>
+      <td style="text-align: right">None</td>
+    </tr>
+    <tr>
+      <td>Worst constraint</td>
+      <td style="text-align: right">Main bed return, 227 CFM design against a buried duct good for ~91</td>
+    </tr>
+  </tbody>
+</table>
 
-<h2 id="the-scheme-in-one-paragraph">The scheme in one paragraph</h2>
+<p>Two contractors have instead proposed a second air handler in the knee-wall attic. That option is compared against this one <a href="#one-air-handler-or-two">below</a>.</p>
 
-<p><strong>One air handler, relocated to the basement behind the bar, feeding all three floors through a single stacked utility cabinet built alongside the chimney.</strong> The main floor is served by basement runs — south through the under-stair space, north through the basement bathroom and then west along the girder. The second floor is served by one supply and one return riser up the cabinet, with the supply branching short and central and the return splitting in the knee-wall attic to reach the far corners of both rooms.</p>
-
-<p>The alternative on the table — a second air handler in the second-floor knee-wall attic — has been proposed by two separate contractors. This document exists partly to argue against it on evidence rather than preference.</p>
+<p>Related: <a href="/refrhus/ducting-register-schedule/">the register schedule</a> for per-register sizes, <a href="/refrhus/ducting-parts-list/">the parts list</a> for materials and cost, <a href="/refrhus/hvac/">the load calculations</a> for where our numbers and the professional Manual J differ, and <a href="/refrhus/chimney-measure-sheet/">the chimney measurements</a> for the geometry the cabinet is built against.</p>
 
 <hr />
 
 <h2 id="the-governing-principle">The governing principle</h2>
 
-<p>Everything below follows from one rule, and it is worth stating first because it decides every routing question that comes up:</p>
+<p>Everything below follows from one rule, which decides every routing question that comes up:</p>
 
 <blockquote>
   <p><strong>Supplies stay inside the thermal envelope. Returns may cross buffer spaces.</strong></p>
@@ -155,13 +192,13 @@
 
 <hr />
 
-<h2 id="per-room-duct-sizing-2026-09-02">Per-room duct sizing (2026-09-02)</h2>
+<h2 id="per-room-duct-sizing">Per-room duct sizing</h2>
 
 <p>Airflow deliberately biased before sizing, on the owner’s read of how the house behaves rather than what the model computes:</p>
 
 <ul>
   <li><strong>Second floor ×1.35.</strong> Its ceiling is modelled at 984 ft² whole-house against the professionals’ 1,547, its knee walls are not drawn at all, and it is observed to run hot. The uplift sits between the moderate correction (~×1.15) and the worst case (~×1.40).</li>
-  <li><strong>Basement ×0.70.</strong> Largely below grade, thermally massive, and observed to hold temperature with no conditioning at all. Its design-day peak overstates the airflow it actually needs.</li>
+  <li><strong>Basement ×0.70.</strong> Largely below grade, thermally massive, and observed to hold temperature with no conditioning at all. Its design-day peak overstates the airflow it needs.</li>
   <li><strong>Main floor unchanged.</strong></li>
 </ul>
 
@@ -183,115 +220,121 @@
     <tr>
       <td>Basement</td>
       <td>Future Media Room</td>
-      <td style="text-align: right">73</td>
-      <td style="text-align: right">51</td>
-      <td style="text-align: right">4.7″</td>
-      <td>5″</td>
-      <td style="text-align: right">376</td>
+      <td style="text-align: right">124</td>
+      <td style="text-align: right">87</td>
+      <td style="text-align: right">5.8″</td>
+      <td>6″</td>
+      <td style="text-align: right">443</td>
     </tr>
     <tr>
       <td>Basement</td>
       <td>Utility Room</td>
-      <td style="text-align: right">70</td>
-      <td style="text-align: right">49</td>
-      <td style="text-align: right">4.6″</td>
-      <td>5″</td>
-      <td style="text-align: right">359</td>
+      <td style="text-align: right">118</td>
+      <td style="text-align: right">82</td>
+      <td style="text-align: right">5.6″</td>
+      <td>6″</td>
+      <td style="text-align: right">420</td>
     </tr>
     <tr>
       <td>Main</td>
       <td>Main Bed</td>
-      <td style="text-align: right">156</td>
-      <td style="text-align: right">156</td>
-      <td style="text-align: right">7.2″</td>
-      <td>8″</td>
-      <td style="text-align: right">448</td>
+      <td style="text-align: right">225</td>
+      <td style="text-align: right">225</td>
+      <td style="text-align: right">8.3″</td>
+      <td>9″</td>
+      <td style="text-align: right">510</td>
     </tr>
     <tr>
       <td>Main</td>
       <td>Kitchen</td>
-      <td style="text-align: right">153</td>
-      <td style="text-align: right">153</td>
-      <td style="text-align: right">7.1″</td>
-      <td>8″</td>
-      <td style="text-align: right">439</td>
+      <td style="text-align: right">254</td>
+      <td style="text-align: right">254</td>
+      <td style="text-align: right">8.7″</td>
+      <td>9″</td>
+      <td style="text-align: right">576</td>
     </tr>
     <tr>
       <td>Main</td>
       <td>Living room</td>
-      <td style="text-align: right">114</td>
-      <td style="text-align: right">114</td>
-      <td style="text-align: right">6.4″</td>
+      <td style="text-align: right">134</td>
+      <td style="text-align: right">134</td>
+      <td style="text-align: right">6.8″</td>
       <td>7″</td>
-      <td style="text-align: right">426</td>
+      <td style="text-align: right">502</td>
     </tr>
     <tr>
       <td>Main</td>
       <td>Kids Room</td>
-      <td style="text-align: right">57</td>
-      <td style="text-align: right">57</td>
-      <td style="text-align: right">4.9″</td>
-      <td>5″</td>
-      <td style="text-align: right">419</td>
+      <td style="text-align: right">65</td>
+      <td style="text-align: right">65</td>
+      <td style="text-align: right">5.2″</td>
+      <td>6″</td>
+      <td style="text-align: right">329</td>
     </tr>
     <tr>
       <td>Main</td>
       <td>Main Bath</td>
-      <td style="text-align: right">27</td>
-      <td style="text-align: right">27</td>
-      <td style="text-align: right">3.7″</td>
-      <td>4″</td>
-      <td style="text-align: right">305</td>
+      <td style="text-align: right">36</td>
+      <td style="text-align: right">36</td>
+      <td style="text-align: right">4.2″</td>
+      <td>5″</td>
+      <td style="text-align: right">268</td>
     </tr>
     <tr>
       <td>Main</td>
       <td>Main Closet</td>
-      <td style="text-align: right">10</td>
-      <td style="text-align: right">10</td>
-      <td style="text-align: right">2.5″</td>
+      <td style="text-align: right">17</td>
+      <td style="text-align: right">17</td>
+      <td style="text-align: right">3.1″</td>
       <td>4″</td>
-      <td style="text-align: right">115</td>
+      <td style="text-align: right">191</td>
     </tr>
     <tr>
       <td>2nd</td>
       <td>Office</td>
-      <td style="text-align: right">83</td>
-      <td style="text-align: right">113</td>
-      <td style="text-align: right">6.4″</td>
+      <td style="text-align: right">100</td>
+      <td style="text-align: right">134</td>
+      <td style="text-align: right">6.8″</td>
       <td>7″</td>
-      <td style="text-align: right">421</td>
+      <td style="text-align: right">503</td>
     </tr>
     <tr>
       <td>2nd</td>
       <td>Play Room</td>
-      <td style="text-align: right">72</td>
-      <td style="text-align: right">98</td>
-      <td style="text-align: right">6.0″</td>
+      <td style="text-align: right">86</td>
+      <td style="text-align: right">117</td>
+      <td style="text-align: right">6.4″</td>
       <td>7″</td>
-      <td style="text-align: right">366</td>
+      <td style="text-align: right">436</td>
     </tr>
     <tr>
       <td>2nd</td>
       <td>Upper Bath</td>
       <td style="text-align: right">21</td>
       <td style="text-align: right">28</td>
-      <td style="text-align: right">3.8″</td>
+      <td style="text-align: right">3.7″</td>
       <td>4″</td>
-      <td style="text-align: right">324</td>
+      <td style="text-align: right">320</td>
     </tr>
     <tr>
       <td>2nd</td>
       <td>Upstairs Hallway</td>
-      <td style="text-align: right">14</td>
-      <td style="text-align: right">19</td>
-      <td style="text-align: right">3.2″</td>
+      <td style="text-align: right">17</td>
+      <td style="text-align: right">22</td>
+      <td style="text-align: right">3.4″</td>
       <td>4″</td>
-      <td style="text-align: right">213</td>
+      <td style="text-align: right">255</td>
     </tr>
   </tbody>
 </table>
 
-<p>Velocities run 115–450 fpm throughout — quiet, with nothing strained.</p>
+<p>Velocities run 191–576 fpm — inside the 500–750 supply band at the top end and comfortably under it elsewhere.</p>
+
+<blockquote>
+  <p><strong>This table was re-derived on 2026-09-18 and the previous one was badly stale.</strong> It had been computed against a much earlier model state and understated every room — Kitchen 153 against 254, Future Media 73 against 124, Utility 70 against 118 — for a biased total of 875 CFM against today’s 1,202. Six of the twelve rooms move up a nominal duct size as a result.</p>
+
+  <p><strong>The register schedule has not been re-derived</strong>, so it still carries the older basis. It remains authoritative for what gets installed, and the gap between the two is now a known quantity rather than an unnoticed one. Re-deriving it is the outstanding task before anything is fabricated.</p>
+</blockquote>
 
 <table>
   <thead>
@@ -305,34 +348,36 @@
   <tbody>
     <tr>
       <td>Basement branch</td>
-      <td style="text-align: right">167</td>
+      <td style="text-align: right">169</td>
       <td>8″</td>
       <td>4×14</td>
     </tr>
     <tr>
       <td>Main branch</td>
-      <td style="text-align: right">737</td>
+      <td style="text-align: right">731</td>
       <td>14″</td>
       <td>8×20</td>
     </tr>
     <tr>
       <td>2nd floor riser</td>
-      <td style="text-align: right"><strong>276</strong></td>
-      <td><strong>9″</strong></td>
+      <td style="text-align: right"><strong>301</strong></td>
+      <td><strong>10″</strong></td>
       <td><strong>5×16</strong></td>
     </tr>
     <tr>
       <td>Trunk at the unit</td>
-      <td style="text-align: right"><strong>1,179</strong></td>
+      <td style="text-align: right"><strong>1,202</strong></td>
       <td><strong>16″</strong></td>
       <td><strong>10×22</strong></td>
     </tr>
   </tbody>
 </table>
 
+<p><strong>The riser moves 9″ → 10″</strong> on the re-derived figures — 301 biased CFM against the 276 the schedule was built on. That is the one sizing change here large enough to matter, and it lands on the duct this whole scheme turns on.</p>
+
 <p><strong>The biases nearly cancel at the trunk</strong>, so the largest single piece of ductwork is insensitive to how those judgement calls land. And <strong>the 16″ never has to exist</strong> — if the plenum carries four takeoffs directly rather than one duct splitting later, the largest duct in the house becomes a 10″. See the trunk section of the <a href="/refrhus/ducting-register-schedule/">register schedule</a>, which is where that decision lives.</p>
 
-<p><strong>But the uplift changes the old ducts’ role.</strong> At design friction a 3×10 carries <strong>86 CFM</strong>, against a biased Office at 113 and Play Room at 98. Together they cover 172 of 257 — <strong>67%</strong>, not the 83% the unbiased numbers suggested. They remain a substantial contribution rather than the base, and the riser should be planned to carry the shortfall rather than leaning on them running hard. A 3×10 pushed to 113 CFM reaches 542 fpm: tolerable, but bought with noise and pressure drop.</p>
+<p><strong>But the uplift changes the old ducts’ role.</strong> At design friction a 3×10 carries <strong>86 CFM</strong>, against a re-derived biased Office at 134 and Play Room at 117. Together the two old ducts cover 172 of 251 — <strong>69%</strong> — so they remain a substantial contribution rather than the base, and the riser should be planned to carry the shortfall rather than leaning on them running hard. A 3×10 pushed to the Office’s full 134 CFM reaches <strong>643 fpm</strong>: audible, and bought with pressure drop.</p>
 
 <p>Sizes are computed with Eldr’s own <code class="language-plaintext highlighter-rouge">ductd</code> equal-friction math at 0.08 in.wc/100 ft; rectangular equivalents use the ASHRAE relation <code class="language-plaintext highlighter-rouge">De = 1.30·(ab)^0.625 / (a+b)^0.25</code>.</p>
 
@@ -413,7 +458,7 @@
 
 <p>The cabinet is the whole argument in physical form. The standard, correct objection to retrofit second-floor ducting is that ducts in an unconditioned knee-wall attic lose 20–30%. A stacked cabinet running basement → main → second floor is a <strong>conditioned chase</strong>: it keeps the ducts inside the thermal envelope, which dissolves the objection rather than arguing with it.</p>
 
-<p>It carries <strong>only the second floor</strong>, not the whole 1,245. The main floor is fed from basement runs and never enters the cabinet, which is why a chase this modest is sufficient.</p>
+<p>It carries <strong>only the second floor</strong>, not the whole 1,245 — the main floor is fed from basement runs and never enters the cabinet. That is what keeps a chase this modest sufficient.</p>
 
 <p><strong>Two figures, two scopes — and they are not one multiplication apart.</strong></p>
 
@@ -422,9 +467,44 @@
   <li><strong>276 CFM</strong> is the sum of the <a href="/refrhus/ducting-register-schedule/">register schedule</a>’s four second-floor rows — Play Room 115, Office 113, Upper Bath 28, Upstairs Hallway 20 — each biased at <em>room</em> level against an earlier model state, with the Play Room row since revised upward to carry the whole room rather than half of it.</li>
 </ul>
 
-<p><strong>The schedule is authoritative for duct sizing, so the riser is built to 276.</strong> But the two numbers do not reconcile by applying ×1.35 to 238: that would give <strong>321</strong>, and an earlier draft of this paragraph claimed otherwise. Worth stating plainly, because 321 is the figure a fresh biased calculation would ask for today — <strong>16% above what the riser is sized to.</strong></p>
+<p><strong>The schedule is authoritative for what gets installed, so the riser as specified is 276 at 9″.</strong> Two fresh figures both sit above it:</p>
 
-<p>That gap does not change the answer. A 9″ round carries 357 CFM at design friction, so it holds 276 and 321 alike, with the velocity rising from 625 to 727 fpm. It is worth knowing which end of its range the riser is working at, and worth re-deriving the schedule against current loads before anything is fabricated.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Basis</th>
+      <th style="text-align: right">CFM</th>
+      <th style="text-align: right">Exact</th>
+      <th style="text-align: right">At 9″</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Register schedule, as built to</td>
+      <td style="text-align: right">276</td>
+      <td style="text-align: right">8.93″</td>
+      <td style="text-align: right">625 fpm</td>
+    </tr>
+    <tr>
+      <td>Four second-floor rooms, biased individually today</td>
+      <td style="text-align: right"><strong>301</strong></td>
+      <td style="text-align: right">9.23″</td>
+      <td style="text-align: right">681 fpm</td>
+    </tr>
+    <tr>
+      <td>Level total × 1.35 (238 → 321), closets included</td>
+      <td style="text-align: right"><strong>321</strong></td>
+      <td style="text-align: right">9.45″</td>
+      <td style="text-align: right">727 fpm</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>A 9″ round carries about 276 CFM at design friction</strong> — which is to say the riser is sized exactly at its own design figure, with no headroom at all. An earlier version of this paragraph said a 9″ carries 357 and therefore “holds 276 and 321 alike”. That conflated a <strong>9×9 rectangular</strong> duct — 9.84″ equivalent round, 357 CFM — with a 9″ round. They are not the same duct.</p>
+
+<p>The correction does not overturn the design, but it removes the margin it claimed. At 301 the 9″ runs 681 fpm and at 321 it runs 727, both inside the 500–750 supply band and both at the top of it. Equal-friction sizing on either figure calls for a <strong>10″</strong> (552 and 589 fpm respectively).</p>
+
+<p><strong>So the choice is explicit rather than incidental:</strong> keep the 9″ and accept the top of the band, or take the 10″ and the quiet. Re-derive the schedule against current loads before anything is fabricated.</p>
 
 <table>
   <thead>
@@ -437,10 +517,16 @@
   </thead>
   <tbody>
     <tr>
-      <td>Supply riser</td>
+      <td>Supply riser — as scheduled</td>
       <td style="text-align: right">276</td>
       <td style="text-align: center">9″</td>
       <td style="text-align: center">5×16</td>
+    </tr>
+    <tr>
+      <td>Supply riser — re-derived</td>
+      <td style="text-align: right"><strong>301</strong></td>
+      <td style="text-align: center"><strong>10″</strong></td>
+      <td style="text-align: center">6×16</td>
     </tr>
     <tr>
       <td>Return riser</td>
@@ -485,7 +571,7 @@
 
 <p>Open space; not a constraint. The cabinet here passes the two risers through and is the natural place to take <strong>the office supply straight up through the floor</strong>, keeping that room’s supply out of the attic entirely. The office is <strong>100 CFM unbiased — 42% of the second floor’s 238</strong> — so this solves the largest single room with the shortest and safest run. (The figure was 87 CFM on an earlier model state; the percentage happens to be unchanged.)</p>
 
-<p><strong>On the schedule’s biased basis the ranking flips</strong>, and it is worth knowing why before anyone re-derives from it: Office 113 against Play Room 115. That does not mean the Play Room is the bigger load — it is the deliberate choice to size the Play Room’s new south duct for the <em>whole</em> room rather than half, because its existing east duct is unmeasured. Unbiased, the office is larger by 100 to 86.</p>
+<p><strong>On the schedule’s biased basis the ranking flips</strong>: Office 113 against Play Room 115. That does not mean the Play Room is the bigger load — it is the deliberate choice to size the Play Room’s new south duct for the <em>whole</em> room rather than half, because its existing east duct is unmeasured. Unbiased, the office is larger by 100 to 86.</p>
 
 <h3 id="second-floor">Second floor</h3>
 
@@ -566,14 +652,14 @@
 
 <p><strong>Central supply with perimeter return inverts normal practice.</strong> Convention puts supply at the perimeter — under windows, against exterior walls, where the load is and where you want to break the cold-surface draft — and returns centrally. This scheme does the reverse on the second floor.</p>
 
-<p>That is a real trade and it matters more in an old house with mixed glazing than in a tight new one. Two things make it acceptable:</p>
+<p>The trade matters more in an old house with mixed glazing than in a tight new one. Two things make it acceptable:</p>
 
 <ol>
-  <li>The plan already includes <strong>secondary perimeter supply</strong> via the old window-adjacent duct in the office. The scheme is really <em>primary central + secondary perimeter</em>, which is a recognised retrofit compromise rather than a straight inversion.</li>
+  <li>The plan already includes <strong>secondary perimeter supply</strong> via the old window-adjacent duct in the office. The scheme is <em>primary central + secondary perimeter</em>, a recognised retrofit compromise rather than a straight inversion.</li>
   <li>There is <strong>room to add supply later</strong> — including a north run — if internal room balance turns out poor. The cabinet is sized with margin and the risers are not the constraint.</li>
 </ol>
 
-<p><strong>The assumption to check is throw.</strong> Whether a central register at <strong>100 CFM</strong> actually reaches the office’s far wall is Manual T territory. Rough answer: a typical floor register at that flow throws 8–12 ft against a room around 14–15 ft, so a central position needs ~7 ft. Plausible with margin — and the margin grew rather than shrank when the load rose from the 87 CFM an earlier model state gave, since more air throws further. Still a catalogue lookup at register selection, not something to take on faith.</p>
+<p><strong>The assumption to check is throw.</strong> Whether a central register at <strong>100 CFM</strong> reaches the office’s far wall is Manual T territory. A typical floor register at that flow throws 8–12 ft against a room around 14–15 ft, so a central position needs ~7 ft — plausible with margin. It remains a catalogue lookup at register selection rather than something to take on faith.</p>
 
 <p><strong>This assumes the central register carries the whole 100 CFM.</strong> The office also has the existing perimeter duct, and if that stays in service the central register carries less and throws shorter. Either specify the central register for the full load and treat the perimeter duct as recovered capacity — the same call already made for the Play Room — or size both and check the throw at the reduced figure. <strong>What must not happen is sizing for the full load and then quietly splitting it.</strong></p>
 
@@ -593,11 +679,11 @@
 
 <h3 id="the-placement-problem-which-is-worse">The placement problem, which is worse</h3>
 
-<p><strong>A unit in the north knee-wall attic can reach the north side of those rooms and not the south.</strong> That is not a detail to solve later; it decides what the scheme can deliver. The south side of the second floor has real load — this document’s own conservative numbers say so, and they <em>understate</em> it, since a third of that ceiling area is not even drawn yet.</p>
+<p><strong>A unit in the north knee-wall attic can reach the north side of those rooms and not the south.</strong> That is not a detail to solve later; it decides what the scheme can deliver. The south side of the second floor carries load that the conservative numbers here already show, and they <em>understate</em> it: a third of that ceiling area is not drawn yet.</p>
 
-<p>The suggested remedy is a duct run in a channel along the east side of the office, into the small east knee-wall attic. Skepticism there is well placed, and the reason is worth naming precisely: <strong>a channel along a finished wall is a chase.</strong> If building a chase is acceptable, then the objection to this design — which is built around a chase — was never really about chases. It is about <em>which</em> one.</p>
+<p>The suggested remedy is a duct run in a channel along the east side of the office, into the small east knee-wall attic. <strong>A channel along a finished wall is a chase.</strong> If building a chase is acceptable, the objection to this design — which is built around a chase — was never about chases but about <em>which</em> one.</p>
 
-<p>Compare them honestly:</p>
+<p>The two compared:</p>
 
 <table>
   <thead>
@@ -638,14 +724,10 @@
 
 <p>The second unit is meant to <em>avoid</em> building a chase. Needing one anyway, in a worse place, to reach a corner the first unit was going to reach through the chase already planned, is the argument turning back on itself.</p>
 
-<h3 id="what-it-still-genuinely-buys">What it still genuinely buys</h3>
-
-<p>None of that touches the real advantage, and it should be stated plainly rather than buried under the objections.</p>
-
-<h3 id="what-two-internal-handlers-genuinely-buy">What two internal handlers genuinely buy</h3>
+<h3 id="what-two-handlers-buy">What two handlers buy</h3>
 
 <ul>
-  <li><strong>Real zoning, which one unit cannot have here.</strong> This is the strongest point in its favour, and this document’s own analysis supports it: neither the basement (167 CFM, 14% of total) nor the second floor alone can be a hard zone on a single unit this size without starving the blower. Smart throttling of individual branches works, hard per-floor zoning does not. <strong>Two handlers make per-floor zoning real instead of approximate</strong> — and there are already three thermostats in this house expecting exactly that.</li>
+  <li><strong>Real zoning, which one unit cannot have here.</strong> The strongest point in its favour, and the analysis here supports it: neither the basement (167 CFM, 14% of total) nor the second floor alone can be a hard zone on a single unit this size without starving the blower. Smart throttling of individual branches works, hard per-floor zoning does not. <strong>Two handlers make per-floor zoning real instead of approximate</strong> — and there are already three thermostats in this house expecting exactly that.</li>
   <li><strong>Much shorter duct runs, and therefore lower static pressure.</strong> Static pressure is the thing most likely to defeat the single-unit scheme, and a second handler attacks it directly rather than arguing about it.</li>
   <li><strong>Independent part-load behaviour</strong>, and no single point of failure for the whole house.</li>
 </ul>
@@ -662,27 +744,27 @@
 
 <ol>
   <li><strong>The load is modest.</strong> 238 CFM to the second floor against 751 to the main floor. The second floor is a geometry problem, not a capacity problem — and a second handler is a capacity answer to a geometry question.</li>
-  <li><strong>Both supply and return reach it.</strong> A second handler quietly solves the <em>return</em> problem by putting the blower where the air is; that is the real reason “you can’t duct a second floor” is so often true in retrofits. The cabinet has measured room for both, so the single unit is not relying on the return problem going away.</li>
+  <li><strong>Both supply and return reach it.</strong> A second handler solves the <em>return</em> problem by putting the blower where the air is, which is the usual reason “you can’t duct a second floor” holds in retrofits. The cabinet has measured room for both, so the single unit is not relying on the return problem going away.</li>
   <li><strong>The chase is conditioned.</strong> Ducts stay inside the envelope for their whole run, which is the same benefit the internal-handler proposal is reaching for, obtained a different way.</li>
   <li><strong>The numbers are conservative.</strong> See the ceiling-area caveat above.</li>
 </ol>
 
-<h3 id="the-honest-decision-criterion">The honest decision criterion</h3>
+<h3 id="the-decision-criterion">The decision criterion</h3>
 
 <p><strong>Static pressure decides whether one unit is enough.</strong> If it can move 1,245 CFM through this layout at an acceptable external static pressure, one unit is the better buy — everything inside the envelope, half the equipment, one filter to change. That is a question the fitting counts settle, and a contractor is better placed to supply them than this model is. Ask for the counts rather than for an opinion.</p>
 
 <p><strong>But placement decides whether two units would even help.</strong> A second handler in the north knee-wall attic does not serve the south side of those rooms, and no amount of static-pressure headroom changes that. So the two questions are independent, and they should be asked in this order:</p>
 
 <ol>
-  <li><em>Where would the second unit sit, and which registers can it actually reach?</em> If the answer is “north only, plus a channel along the office wall”, the proposal has not solved the problem it was brought in to solve.</li>
+  <li><em>Where would the second unit sit, and which registers can it reach?</em> If the answer is “north only, plus a channel along the office wall”, the proposal has not solved the problem it was brought in to solve.</li>
   <li><em>Only if it reaches everything:</em> does one unit hit its static-pressure limit?</li>
 </ol>
 
-<p>A second handler somewhere genuinely central and inside the envelope would be a real alternative worth pricing — it would buy the per-floor zoning a single unit cannot have here. <strong>The north knee-wall attic is not that location</strong>, and choosing it converts the strongest argument for two units into an argument about where to put a chase.</p>
+<p>A second handler somewhere central and inside the envelope would be an alternative worth pricing, and would buy the per-floor zoning a single unit cannot have here. <strong>The north knee-wall attic is not that location</strong>, and choosing it converts the strongest argument for two units into an argument about where to put a chase.</p>
 
 <p><strong>Where to be careful.</strong> Eldr’s Manual D uses a flat 1.5× fitting factor, not true fitting equivalent lengths. Real elbows, tees and boots on a three-storey run add 50–150 ft of equivalent length, so any static-pressure figure computed with the default is optimistic. Either raise the factor to something defensible (2.5–3) and say so, or count fittings by hand for the contested run. <strong>Do not hand over a number that flatters the case on a modelling shortcut</strong> — it is the one thing that would cost the credibility everything else earns.</p>
 
-<p>Also worth noting: the current HVAC company specialises in insulation, so envelope work is likely already in their plan. That is an ally for this scheme rather than an obstacle — a tighter envelope lowers the load the ducts have to carry.</p>
+<p>The current HVAC company specialises in insulation, so envelope work is likely already in their plan. A tighter envelope lowers the load the ducts have to carry, so the two efforts work together.</p>
 
 <hr />
 
@@ -694,7 +776,7 @@
 
 <p><strong>Go rectangular, not round.</strong> The depth budget is roughly two stud bays back to back (~7″), and a bay gives about 14.5″ clear. Three round 5–6″ ducts side by side need 15–18″ and fight the studs. Residential <strong>wall-stack duct</strong> — 3.25x10 or 3.25x12, purpose-made to run vertically between studs in a 2x4 wall — puts the shallow dimension across the wall depth and solves the problem directly. Oval is the fallback. Prefer running each duct <em>within</em> a bay so no stud needs notching; if a riser must cross one, verify the partition is non-load-bearing first, because the south-extension quirk muddies that.</p>
 
-<p><strong>The panel has to come off and still look intentional.</strong> Build the built-in as a rigid self-bracing box so it does not rack when lifted, and hang it on a French cleat with a few concealed screws — rigidity gives the sturdiness, few fasteners give the removability. Hide screws inside shelf interiors, behind the coat rail, or under a toe-kick. <strong>Put the removable seams on natural trim lines</strong> — design the face as board-and-batten or stile-and-rail so the panel edges fall on a batten joint. That single move is the difference between millwork and an access hatch, and it is what makes the wall read as built-in from the front door rather than as a duct chase with a lid.</p>
+<p><strong>The panel has to come off and still look intentional.</strong> Build the built-in as a rigid self-bracing box so it does not rack when lifted, and hang it on a French cleat with a few concealed screws — rigidity gives the sturdiness, few fasteners give the removability. Hide screws inside shelf interiors, behind the coat rail, or under a toe-kick. <strong>Put the removable seams on natural trim lines</strong> — design the face as board-and-batten or stile-and-rail so the panel edges fall on a batten joint. That is the difference between millwork and an access hatch.</p>
 
 <p>The alternative to all of it is over-provisioning ducts up front so the wall never needs opening. This scheme deliberately takes the other bet: <strong>fewer ducts, and a wall you can unscrew.</strong></p>
 
@@ -761,15 +843,15 @@
 
 <p>Electric heat kits (EHK-05B through EHK-20B, 5–20 kW) fit the cabinet without modification, which is the backup-heat path if the cold-climate performance ever needs supplementing.</p>
 
-<h3 id="orientation-generally">Orientation, generally</h3>
+<h3 id="air-handler-orientation">Air handler orientation</h3>
 
 <p><strong>Most residential air handlers are multi-position</strong> — the same cabinet is sold for upflow, downflow, horizontal-left and horizontal-right. The Bosch BVA line ships configured for <em>upflow or horizontal-right</em> and is field-convertible to <em>horizontal-left or downflow</em>. The IDS Ultra air handler’s drain pan is explicitly described as offering “flexibility for VT or HZ applications.”</p>
 
-<p><strong>The drain pan is the part that actually changes.</strong> Condensate has to fall toward a drain in whatever orientation the coil ends up, so conversion is usually a matter of repositioning the pan and sometimes fitting a kit. Ask specifically whether the horizontal conversion needs a part, and confirm the drain fall — a horizontal pan with insufficient slope is a recurring source of overflow.</p>
+<p><strong>The drain pan is the part that changes.</strong> Condensate has to fall toward a drain in whatever orientation the coil ends up, so conversion is usually a matter of repositioning the pan and sometimes fitting a kit. Ask specifically whether the horizontal conversion needs a part, and confirm the drain fall — a horizontal pan with insufficient slope is a recurring source of overflow.</p>
 
-<h3 id="the-controls-trade-off-which-is-a-real-decision">The controls trade-off, which is a real decision</h3>
+<h3 id="the-controls-trade-off">The controls trade-off</h3>
 
-<p>The requirement here is variable speed <strong>and</strong> open control rather than a locked ecosystem. Those pull against each other, and it is worth deciding deliberately:</p>
+<p>The requirement here is variable speed <strong>and</strong> open control rather than a locked ecosystem. The two pull against each other:</p>
 
 <table>
   <thead>
@@ -798,19 +880,19 @@
   </tbody>
 </table>
 
-<p>The good news is that a Bosch variable-speed unit <strong>can</strong> run on a third-party 24V thermostat, because the modulation logic lives in the unit rather than the stat. The IDS Ultra’s remote monitoring is documented as working “even without a communicating thermostat.” A two-stage-capable smart thermostat is the practical minimum.</p>
+<p>A Bosch variable-speed unit <strong>can</strong> run on a third-party 24V thermostat, because the modulation logic lives in the unit rather than the stat. The IDS Ultra’s remote monitoring is documented as working “even without a communicating thermostat.” A two-stage-capable smart thermostat is the practical minimum.</p>
 
 <p>The cost is granularity. The Ultra’s compressor modulates <strong>35% to 138% in 1% increments</strong>, and a conventional thermostat can only ask for stages, so most of that resolution goes unused. A communicating thermostat unlocks it and closes the system.</p>
 
-<p><strong>One thing worth confirming before committing:</strong> whether any local telemetry is available, or whether monitoring only goes through Bosch’s EasyAir cloud app. Given the house already has an LGTM stack, a local data path would be worth more here than in a typical install.</p>
+<p><strong>Confirm before committing:</strong> whether local telemetry is available, or whether monitoring only goes through Bosch’s EasyAir cloud app. The house already runs an LGTM stack, so a local data path is worth more here than in a typical install.</p>
 
 <h2 id="future-options-deliberately-deferred">Future options, deliberately deferred</h2>
 
 <ul>
-  <li><strong>Garage mudroom conversion.</strong> Split the return off the kitchen run at one end, bring supply across the <em>conditioned</em> basement, and enter at the opposite end. The governing principle holds, and supply and return land diagonally opposite — the arrangement you would choose freely. This is the case that shows the scheme extends rather than merely fits.</li>
+  <li><strong>Garage mudroom conversion.</strong> Split the return off the kitchen run at one end, bring supply across the <em>conditioned</em> basement, and enter at the opposite end. The governing principle holds, and supply and return land diagonally opposite — the arrangement you would choose freely.</li>
   <li><strong>A north supply run</strong> if room balance proves poor.</li>
   <li><strong>More second-floor supply</strong> beyond the central pair and the two old ducts.</li>
-  <li><strong>Manual T</strong> — register throw and spread — which turns “should reach the far corner” into a calculation, and speaks the contractor’s language most directly.</li>
+  <li><strong>Manual T</strong> — register throw and spread — which turns “should reach the far corner” into a calculation.</li>
   <li><strong>Grade line and second-floor ceiling geometry</strong>, the two largest remaining Manual J gaps, both parked while the duct layout takes shape.</li>
 </ul>
 

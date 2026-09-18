@@ -1,6 +1,85 @@
-<title>Refrhus Basement Posts</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Basement post details | Refr Hus</title>
+  <meta name="description" content="A 1950s house measured by hand, modelled in Sweet Home 3D, and run through a Manual J load calculation — with the duct design that came out of it.">
+  <link rel="stylesheet" href="/refrhus/assets/css/style.css"><script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('refrhus-theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches
+                            ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {}
+  })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a href="/refrhus/" class="site-title">Refr Hus</a>
+    <div class="header-actions"><button class="theme-toggle" type="button" id="theme-toggle"
+              onclick="window.__refrhusToggleTheme(this)">
+        <span class="theme-icon" aria-hidden="true">&#9728;</span>
+        <span class="theme-label">enable light mode</span>
+      </button>
+      <button class="nav-toggle" type="button" aria-label="Toggle contents"
+              aria-expanded="false" aria-controls="site-nav"
+              onclick="window.__refrhusToggleNav(this)">
+        &#9776;
+      </button>
+    </div>
+  </header>
 
-<style>
+  <div class="layout">
+    <nav class="site-nav" id="site-nav" aria-label="Contents">
+  <ul class="nav-list">
+    <li class="nav-item">
+      <a href="/refrhus/">Overview</a>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">The duct design</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/ducting-scheme/">Scheme and reasoning</a></li>
+        <li><a href="/refrhus/ducting-register-schedule/">Register schedule</a></li>
+        <li><a href="/refrhus/ducting-parts-list/">Parts list and cost</a></li>
+        <li><a href="/refrhus/ducting-handover-plan/">Handover plan</a></li>
+        <li><a href="/refrhus/ducting-model-audit/">Model audit</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">The house</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/HISTORY/">Construction history</a></li>
+        <li><a href="/refrhus/basement-structure/">Basement structure</a></li>
+        <li><a href="/refrhus/basement-joists/">Basement joists</a></li>
+        <li><a href="/refrhus/basement-measure-sheet/">Basement measurements</a></li>
+        <li><a href="/refrhus/chimney-measure-sheet/">Chimney measurements</a></li>
+        <li><a href="/refrhus/basement-post-details/">Basement post details</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">Load calculations</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/hvac/">Manual J index</a></li>
+        <li><a href="/refrhus/hvac/professional-manual-j/">The professional Manual J</a></li>
+        <li><a href="/refrhus/hvac/eldr-report/">Current Eldr run</a></li>
+        <li><a href="/refrhus/hvac/measurements/">Surface-temperature protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">Still open</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/schematic-hitlist/">Measurement hit-list</a></li>
+        <li><a href="/refrhus/scanning-plan/">3D scanning options</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+    <main class="content">
+      <style>
   :root {
     --paper:      #F1F2F0;
     --surface:    #FBFBFA;
@@ -20,99 +99,86 @@
     --paper: #101315; --surface: #171B1E; --ink: #E4E7E5; --muted: #98A0A6;
     --hair: #333A3E; --measured: #6FB4DC; --assumed: #E09355;
   }
-
-  * { box-sizing: border-box; }
-
-  body {
-    background: var(--paper); color: var(--ink);
+  .post-details * { box-sizing: border-box; }
+  .post-details {
     font-family: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
-    font-size: 17px; line-height: 1.6; margin: 0; padding: 0 20px 96px;
+    font-size: 17px; line-height: 1.6; color: var(--ink);
   }
-  .wrap { max-width: 780px; margin: 0 auto; }
-
-  header { padding: 56px 0 28px; border-bottom: 2px solid var(--ink); margin-bottom: 36px; }
-  .eyebrow {
+  .post-details .wrap { max-width: 780px; margin: 0 auto; }
+  .post-details header { padding: 56px 0 28px; border-bottom: 2px solid var(--ink); margin-bottom: 36px; }
+  .post-details .eyebrow {
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
     color: var(--muted); margin: 0 0 14px;
   }
-  h1 {
+  .post-details h1 {
     font-family: ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", sans-serif;
     font-size: clamp(30px, 5.5vw, 42px); font-weight: 700; letter-spacing: -0.025em;
     line-height: 1.08; text-wrap: balance; margin: 0 0 16px;
   }
-  .standfirst { font-size: 18px; color: var(--muted); margin: 0; max-width: 62ch; }
-
-  h2 {
+  .post-details .standfirst { font-size: 18px; color: var(--muted); margin: 0; max-width: 62ch; }
+  .post-details h2 {
     font-family: ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", sans-serif;
     font-size: 22px; font-weight: 650; letter-spacing: -0.015em; text-wrap: balance;
     margin: 52px 0 6px; padding-top: 20px; border-top: 1px solid var(--hair);
   }
-  h3 {
+  .post-details h3 {
     font-family: ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", sans-serif;
     font-size: 15px; font-weight: 650; margin: 0 0 4px;
   }
-  p { margin: 0 0 15px; max-width: 68ch; }
-  .lede { color: var(--muted); margin-top: 0; }
-
-  code, .num {
+  .post-details p { margin: 0 0 15px; max-width: 68ch; }
+  .post-details .lede { color: var(--muted); margin-top: 0; }
+  .post-details code, .post-details .num {
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-variant-numeric: tabular-nums; font-size: 0.9em;
   }
-
-  figure {
+  .post-details figure {
     margin: 26px 0; padding: 20px 18px 14px; background: var(--surface);
     border: 1px solid var(--hair); overflow-x: auto;
   }
-  figure svg { display: block; width: 100%; height: auto; max-width: 100%; }
-  figcaption {
+  .post-details figure svg { display: block; width: 100%; height: auto; max-width: 100%; }
+  .post-details figcaption {
     font-size: 14px; line-height: 1.5; color: var(--muted); margin-top: 14px;
     padding-top: 12px; border-top: 1px solid var(--hair); max-width: 66ch;
   }
-
-  .cards { display: grid; gap: 26px; margin: 26px 0; }
-  .card {
+  .post-details .cards { display: grid; gap: 26px; margin: 26px 0; }
+  .post-details .card {
     background: var(--surface); border: 1px solid var(--hair);
     border-left: 3px solid var(--measured); padding: 20px 20px 14px; overflow-x: auto;
   }
-  .card svg { display: block; width: 100%; height: auto; margin: 14px 0 4px; }
-  .cardhead { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
-  .tag {
+  .post-details .card svg { display: block; width: 100%; height: auto; margin: 14px 0 4px; }
+  .post-details .cardhead { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .post-details .tag {
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
     color: var(--muted); border: 1px solid var(--hair); padding: 2px 7px;
   }
-  .card p { font-size: 15px; margin: 8px 0 0; }
-
-  .tablewrap { overflow-x: auto; margin: 22px 0; }
-  table { border-collapse: collapse; width: 100%; font-size: 15px; }
-  th, td { text-align: left; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--hair); }
-  th {
+  .post-details .card p { font-size: 15px; margin: 8px 0 0; }
+  .post-details .tablewrap { overflow-x: auto; margin: 22px 0; }
+  .post-details table { border-collapse: collapse; width: 100%; font-size: 15px; }
+  .post-details th, .post-details td { text-align: left; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--hair); }
+  .post-details th {
     font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
     font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase;
     color: var(--muted); font-weight: 600; border-bottom: 1px solid var(--ink); white-space: nowrap;
   }
-  td.n {
+  .post-details td.n {
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-variant-numeric: tabular-nums; text-align: right; padding-right: 18px; white-space: nowrap;
   }
-  th.n { text-align: right; padding-right: 18px; }
+  .post-details th.n { text-align: right; padding-right: 18px; }
+  .post-details .legend { display: flex; flex-wrap: wrap; gap: 20px 28px; margin: 20px 0 8px; }
+  .post-details .legend div { display: flex; align-items: center; gap: 9px; font-size: 14px; color: var(--muted); }
+  .post-details .note { border-left: 3px solid var(--assumed); padding: 2px 0 2px 16px; margin: 22px 0; }
+  .post-details .note strong { color: var(--assumed); }
+  .post-details .good { border-left: 3px solid var(--measured); padding: 2px 0 2px 16px; margin: 22px 0; }
+  .post-details .good strong { color: var(--measured); }
+  .post-details ul { padding-left: 20px; max-width: 68ch; }
+  .post-details li { margin-bottom: 9px; }
+  .post-details .meas { color: var(--measured); }
+  .post-details .asm { color: var(--assumed); }</style>
 
-  .legend { display: flex; flex-wrap: wrap; gap: 20px 28px; margin: 20px 0 8px; }
-  .legend div { display: flex; align-items: center; gap: 9px; font-size: 14px; color: var(--muted); }
-
-  .note { border-left: 3px solid var(--assumed); padding: 2px 0 2px 16px; margin: 22px 0; }
-  .note strong { color: var(--assumed); }
-  .good { border-left: 3px solid var(--measured); padding: 2px 0 2px 16px; margin: 22px 0; }
-  .good strong { color: var(--measured); }
-
-  ul { padding-left: 20px; max-width: 68ch; }
-  li { margin-bottom: 9px; }
-
-  .meas { color: var(--measured); }
-  .asm  { color: var(--assumed); }
-</style>
-
+<div class="post-details">
 <div class="wrap">
 
 <header>
@@ -402,3 +468,59 @@
 </ul>
 
 </div>
+</div>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>
+      The model, the engine and every document here are public.
+      <a href="https://github.com/SiliconSaga/refrhus">Source</a> ·
+      <a href="https://github.com/SiliconSaga/eldr">Eldr</a>
+    </p>
+  </footer>
+
+  <script>
+  (function () {
+    // --- theme -----------------------------------------------------------
+    // The button names the theme it will switch TO, icon and words agreeing:
+    // sitting in dark, it offers "☀ enable light mode".
+    function paintToggle(button, theme) {
+      var toDark = theme !== 'light';
+      button.querySelector('.theme-icon').textContent = toDark ? '☀' : '☽';
+      button.querySelector('.theme-label').textContent =
+        toDark ? 'enable light mode' : 'enable dark mode';
+    }
+
+    window.__refrhusToggleTheme = function (button) {
+      var next = document.documentElement.getAttribute('data-theme') === 'light'
+                 ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('refrhus-theme', next); } catch (e) {}
+      paintToggle(button, next);
+    };
+
+    // Correct the server-rendered label, which cannot know the resolved theme.
+    var toggle = document.getElementById('theme-toggle');
+    if (toggle) paintToggle(toggle, document.documentElement.getAttribute('data-theme'));
+
+    // --- contents --------------------------------------------------------
+    window.__refrhusToggleNav = function (button) {
+      var open = document.querySelector('.site-nav').classList.toggle('open');
+      button.setAttribute('aria-expanded', String(open));
+    };
+
+    // Mark the current page in the sidebar. Done client-side so the nav stays a
+    // plain data file rather than needing a per-page front-matter key.
+    var here = window.location.pathname.replace(/\/$/, '');
+    document.querySelectorAll('.site-nav a').forEach(function (a) {
+      if (a.getAttribute('href').replace(/\/$/, '') === here) {
+        a.classList.add('current');
+        a.setAttribute('aria-current', 'page');
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

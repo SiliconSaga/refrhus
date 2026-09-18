@@ -56,14 +56,16 @@
         <li><a href="/refrhus/basement-joists/">Basement joists</a></li>
         <li><a href="/refrhus/basement-measure-sheet/">Basement measurements</a></li>
         <li><a href="/refrhus/chimney-measure-sheet/">Chimney measurements</a></li>
-        <li><a href="/refrhus/basement-post-details.html">Basement post details</a></li>
+        <li><a href="/refrhus/basement-post-details/">Basement post details</a></li>
       </ul>
     </li>
     <li class="nav-item">
       <span class="nav-group">Load calculations</span>
       <ul class="nav-children">
         <li><a href="/refrhus/hvac/">Manual J index</a></li>
+        <li><a href="/refrhus/hvac/professional-manual-j/">The professional Manual J</a></li>
         <li><a href="/refrhus/hvac/eldr-report/">Current Eldr run</a></li>
+        <li><a href="/refrhus/hvac/measurements/">Surface-temperature protocol</a></li>
       </ul>
     </li>
     <li class="nav-item">
@@ -79,7 +81,7 @@
     <main class="content">
       <h1 id="schematic-hit-list">Schematic hit-list</h1>
 
-<p>What still has to change in <code class="language-plaintext highlighter-rouge">Refrhus.sh3d</code>, who does each piece, and what it is worth. Ranked by BTU/hr impact within each section.</p>
+<p>What still has to change in <code class="language-plaintext highlighter-rouge">Refrhus.sh3d</code>, who does each piece, and what each is worth. Ranked by BTU/hr impact within each section.</p>
 
 <p>Current run: <strong>40,331</strong> heating against the professionals’ <strong>54,260</strong> — a gap of <strong>13,929 BTU/hr</strong>. That gap has moved both ways as corrections landed — wider when the basement was measured and found smaller and better-sealed than the estimate it replaced, narrower again when the design station was corrected from Sweet Home 3D’s default to Newark. <strong>Neither movement is progress or regression on its own.</strong> What matters is that the remaining difference is now concentrated in things that can be named — the grade line and the undrawn second-floor roof — rather than spread thinly across assumptions nobody had checked.</p>
 
@@ -101,7 +103,7 @@
 
 <p><strong>What to measure:</strong> the exposed height of each of the four perimeter wall runs — how much wall stands proud of the soil, from grade to the underside of the sill. One number per run is enough; note where a run varies (a walk-out or a window well changes it).</p>
 
-<p><strong>Then:</strong> the wall gets drawn as two segments, or <code class="language-plaintext highlighter-rouge">basement_wall</code> gets a genuinely averaged U. Either way the number can finally be set honestly.</p>
+<p><strong>Then:</strong> the wall gets drawn as two segments, or <code class="language-plaintext highlighter-rouge">basement_wall</code> gets an area-weighted U. Either way the number can finally be set honestly.</p>
 
 <h3 id="12-the-2nd-floor--knee-wall-attic-and-sloped-roof--3458-btuhr">1.2 The 2nd floor — knee-wall attic and sloped roof — <strong>3,458 BTU/hr</strong></h3>
 
@@ -164,7 +166,7 @@
   <li><strong>The window-well one is still a window</strong> thermally — a well does not insulate — but gets essentially no solar gain.</li>
 </ul>
 
-<p>What that leaves genuinely unexplained is your <strong>tiny southwest upstairs window</strong>: they list no southwest single-pane at all. Either they missed it or their compass differs from the model’s.</p>
+<p>What that leaves unexplained is your <strong>tiny southwest upstairs window</strong>: they list no southwest single-pane at all. Either they missed it or their compass differs from the model’s.</p>
 
 <p><strong>What to check:</strong> walk the house and confirm which units are still original glass. The falsifiable version of their claim is <em>“the only unreplaced glazing is 2 northeast + 2 northwest, one with a storm”</em> — since the survey puts your front facing roughly southwest, that means all of it is at the back.</p>
 
@@ -172,7 +174,7 @@
 
 <h3 id="14-which-wall-sections-are-the-uninsulated-ones--enables-per-room-accuracy">1.4 Which wall sections are the uninsulated ones — <strong>enables per-room accuracy</strong></h3>
 
-<p>Their four above-grade wall assemblies imply the house genuinely has different constructions in different sections:</p>
+<p>Their four above-grade wall assemblies imply the house has different constructions in different sections:</p>
 
 <table>
   <thead>
@@ -321,7 +323,7 @@ python3 realms/realm-siliconsaga/sweethome3d/tag.py <span class="nb">set  </span
 
 <hr />
 
-<h2 id="what-this-is-all-for">What this is all for</h2>
+<h2 id="what-the-remaining-work-buys">What the remaining work buys</h2>
 
 <p>Per-room CFM. The whole-house total is close enough that equipment sizing barely moves now. What the remaining work buys is <em>per-room</em> accuracy — and per-room CFM is the input to Manual T, which is the argument that the far corner of the office can actually be reached, and that the south side of the 2nd floor has a load whether or not it is convenient to duct.</p>
 

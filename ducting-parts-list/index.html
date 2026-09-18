@@ -56,14 +56,16 @@
         <li><a href="/refrhus/basement-joists/">Basement joists</a></li>
         <li><a href="/refrhus/basement-measure-sheet/">Basement measurements</a></li>
         <li><a href="/refrhus/chimney-measure-sheet/">Chimney measurements</a></li>
-        <li><a href="/refrhus/basement-post-details.html">Basement post details</a></li>
+        <li><a href="/refrhus/basement-post-details/">Basement post details</a></li>
       </ul>
     </li>
     <li class="nav-item">
       <span class="nav-group">Load calculations</span>
       <ul class="nav-children">
         <li><a href="/refrhus/hvac/">Manual J index</a></li>
+        <li><a href="/refrhus/hvac/professional-manual-j/">The professional Manual J</a></li>
         <li><a href="/refrhus/hvac/eldr-report/">Current Eldr run</a></li>
+        <li><a href="/refrhus/hvac/measurements/">Surface-temperature protocol</a></li>
       </ul>
     </li>
     <li class="nav-item">
@@ -302,37 +304,28 @@
       <td>North return trunk</td>
       <td>Basement</td>
       <td style="text-align: center">2</td>
-      <td style="text-align: center">12x12 / 10x12</td>
+      <td style="text-align: center">12x12 / 14x18</td>
       <td style="text-align: center">rect / oval</td>
       <td style="text-align: right">12.2 ft</td>
       <td style="text-align: center">1</td>
     </tr>
     <tr>
-      <td>Return branch for both main bedrooms</td>
-      <td>basement-main-transition</td>
-      <td style="text-align: center">1</td>
-      <td style="text-align: center">4x8</td>
+      <td>Return branch for kids room and basement NE</td>
+      <td>basement-main-transition, Basement, Main</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">6x10 / 8x8</td>
       <td style="text-align: center">rect</td>
-      <td style="text-align: right">30.0 ft</td>
-      <td style="text-align: center">0</td>
+      <td style="text-align: right">12.5 ft</td>
+      <td style="text-align: center">2</td>
     </tr>
     <tr>
-      <td>Return branch for main bed room</td>
+      <td>Return branch for main bedroom</td>
       <td>basement-main-transition</td>
-      <td style="text-align: center">2</td>
+      <td style="text-align: center">3</td>
       <td style="text-align: center">4x8 / 4x10</td>
       <td style="text-align: center">rect</td>
-      <td style="text-align: right">5.3 ft</td>
-      <td style="text-align: center">1</td>
-    </tr>
-    <tr>
-      <td>Return branch for main floor kids room</td>
-      <td>Basement, Main</td>
+      <td style="text-align: right">26.4 ft</td>
       <td style="text-align: center">2</td>
-      <td style="text-align: center">8x8</td>
-      <td style="text-align: center">rect</td>
-      <td style="text-align: right">3.7 ft</td>
-      <td style="text-align: center">1</td>
     </tr>
     <tr>
       <td>Return branch for office</td>
@@ -427,7 +420,7 @@
     <tr>
       <td>Return from kitchen</td>
       <td>Main</td>
-      <td style="text-align: center">3x20</td>
+      <td style="text-align: center">8x14</td>
       <td style="text-align: center">louvred</td>
     </tr>
     <tr>
@@ -511,7 +504,7 @@
     <tr>
       <td>SE supply for kitchen</td>
       <td>Main</td>
-      <td style="text-align: center">2x15</td>
+      <td style="text-align: center">4x15</td>
       <td style="text-align: center">louvred</td>
     </tr>
     <tr>
@@ -569,6 +562,8 @@
 
 <p>Future runs excluded. Round sizes are <strong>airway</strong> — confirm whether a supplier quotes inner or outer diameter on double-wall before ordering, because getting it backwards costs two inches of diameter on every round run at once.</p>
 
+<p><strong>An <code class="language-plaintext highlighter-rouge">oval</code> section is the box it must fit inside, not its airway.</strong> A flat oval turns each corner into a semicircular end, so a run listed 14x18 carries about 210 in² against the 252 the two numbers multiply to — roughly 20% less on every oval run here. The box is what is printed because the box is what has to clear the framing; size the airflow off the airway.</p>
+
 <table>
   <thead>
     <tr>
@@ -586,7 +581,7 @@
     <tr>
       <td>6x10</td>
       <td>rect</td>
-      <td style="text-align: right">44.0</td>
+      <td style="text-align: right">52.9</td>
     </tr>
     <tr>
       <td>4x10</td>
@@ -596,7 +591,7 @@
     <tr>
       <td>4x8</td>
       <td>rect</td>
-      <td style="text-align: right">33.3</td>
+      <td style="text-align: right">24.4</td>
     </tr>
     <tr>
       <td>9x9</td>
@@ -639,7 +634,7 @@
       <td style="text-align: right">8.2</td>
     </tr>
     <tr>
-      <td>10x12</td>
+      <td>14x18</td>
       <td>oval</td>
       <td style="text-align: right">6.8</td>
     </tr>
@@ -706,14 +701,14 @@
     <tr>
       <td><strong>Total</strong></td>
       <td> </td>
-      <td style="text-align: right"><strong>344.5</strong></td>
+      <td style="text-align: right"><strong>344.4</strong></td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="cost--planning-grade-only">Cost — planning grade only</h2>
 
-<p><strong>Every figure here is a band, and the bands are wide on purpose.</strong> Fabrication, access and region move installed duct pricing more than size does, so a single number would imply a precision this does not have. Use it to compare options against each other — which is what it is actually for — not to budget.</p>
+<p><strong>Every figure here is a band, and the bands are wide on purpose.</strong> Fabrication, access and region move installed duct pricing more than size does, so a single number would imply a precision this does not have. Use it to compare options against each other, not to budget.</p>
 
 <table>
   <thead>
@@ -735,7 +730,7 @@
       <td>Rectangular and oval, fabricated</td>
       <td style="text-align: right">246 ft</td>
       <td style="text-align: right">$2,463</td>
-      <td style="text-align: right">$6,159</td>
+      <td style="text-align: right">$6,156</td>
     </tr>
     <tr>
       <td>Supply registers</td>
@@ -751,21 +746,21 @@
     </tr>
     <tr>
       <td>Balancing dampers</td>
-      <td style="text-align: right">21</td>
-      <td style="text-align: right">$525</td>
-      <td style="text-align: right">$1,260</td>
+      <td style="text-align: right">20</td>
+      <td style="text-align: right">$500</td>
+      <td style="text-align: right">$1,200</td>
     </tr>
     <tr>
       <td>Duct only</td>
       <td style="text-align: right"> </td>
-      <td style="text-align: right">$3,641</td>
-      <td style="text-align: right">$9,102</td>
+      <td style="text-align: right">$3,640</td>
+      <td style="text-align: right">$9,100</td>
     </tr>
     <tr>
       <td><strong>Subtotal — duct, trim and dampers</strong></td>
       <td style="text-align: right"> </td>
-      <td style="text-align: right"><strong>$4,591</strong></td>
-      <td style="text-align: right"><strong>$12,062</strong></td>
+      <td style="text-align: right"><strong>$4,565</strong></td>
+      <td style="text-align: right"><strong>$12,000</strong></td>
     </tr>
   </tbody>
 </table>
@@ -778,7 +773,7 @@
 
 <p>The $/ft figures above are <em>installed</em>, not material-only, so labour is not a line to add — it is most of what the band’s width represents. For sanity-checking a quote that separates them: duct labour alone runs roughly <strong>$5–15 per linear foot</strong>, and HVAC labour is <strong>$75–150 per hour per technician</strong>.</p>
 
-<p>Published estimates of labour’s <em>share</em> of a duct job disagree sharply — one puts it near 22% of a whole-house replacement, another at 60%. <strong>That spread is a signal, not noise:</strong> it is the difference between duct run through open basement joists and duct fished through finished walls. This house is both, which is exactly why the bands here are wide and why a walkthrough quote will beat any figure on this page.</p>
+<p>Published estimates of labour’s <em>share</em> of a duct job disagree sharply — one puts it near 22% of a whole-house replacement, another at 60%. <strong>That spread is a signal, not noise:</strong> it is the difference between duct run through open basement joists and duct fished through finished walls. This house is both, which is why the bands here are wide and why a walkthrough quote will beat any figure on this page.</p>
 
 <h3 id="ducted-extras-priced-separately">Ducted extras, priced separately</h3>
 
@@ -804,7 +799,7 @@
     <tr>
       <td>Whole-house humidifier</td>
       <td><strong>$400–1,200</strong>, up to $2,500</td>
-      <td>Bypass or steam. Steam costs more and actually holds a setpoint</td>
+      <td>Bypass or steam. Steam costs more and holds a setpoint</td>
     </tr>
   </tbody>
 </table>
@@ -859,18 +854,18 @@
   <tbody>
     <tr>
       <td>Ductwork, straight runs</td>
-      <td style="text-align: right">$3,641</td>
-      <td style="text-align: right">$9,102</td>
+      <td style="text-align: right">$3,640</td>
+      <td style="text-align: right">$9,100</td>
     </tr>
     <tr>
       <td>Fittings allowance (25–40% of duct)</td>
       <td style="text-align: right">$910</td>
-      <td style="text-align: right">$3,641</td>
+      <td style="text-align: right">$3,640</td>
     </tr>
     <tr>
       <td>Registers, grilles, dampers</td>
-      <td style="text-align: right">$950</td>
-      <td style="text-align: right">$2,960</td>
+      <td style="text-align: right">$925</td>
+      <td style="text-align: right">$2,900</td>
     </tr>
     <tr>
       <td>Equipment, 4-ton</td>
@@ -884,17 +879,17 @@
     </tr>
     <tr>
       <td><strong>Total, pre-incentive</strong></td>
-      <td style="text-align: right"><strong>$12,201</strong></td>
-      <td style="text-align: right"><strong>$29,203</strong></td>
+      <td style="text-align: right"><strong>$12,175</strong></td>
+      <td style="text-align: right"><strong>$29,140</strong></td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>Centre of mass is around $20,702</strong>, and the upper band is what you get if every constrained thing turns out to be the hard version — duct fished through finished walls rather than run through open joists, the kitchen cabinetry modified rather than worked around, the high-end UV rather than coil lamps. A realistic landing spot sits below the top of the range rather than at it.</p>
+<p><strong>Centre of mass is around $20,658</strong>, and the upper band is what you get if every constrained thing turns out to be the hard version — duct fished through finished walls rather than run through open joists, the kitchen cabinetry modified rather than worked around, the high-end UV rather than coil lamps. A realistic landing spot sits below the top of the range rather than at it.</p>
 
 <p><strong>Pre-incentive throughout.</strong> Nothing here is netted against a rebate, credit or utility programme, so it can be compared against a quote line for line — and whatever incentives apply come off afterwards rather than being baked into a number nobody can reconcile.</p>
 
-<p>The honest caveat on the whole table: <strong>the fittings allowance is the weakest number in it.</strong> It is a percentage standing in for a count nobody has made, on the one quantity this model explicitly cannot derive. It is also, not coincidentally, the same count that settles the one-unit-versus-two question — so asking for it buys an answer twice.</p>
+<p>One caveat on the whole table: <strong>the fittings allowance is the weakest number in it.</strong> It is a percentage standing in for a count nobody has made, on the one quantity this model explicitly cannot derive. It is also, not coincidentally, the same count that settles the one-unit-versus-two question — so asking for it buys an answer twice.</p>
 
 <h3 id="what-this-is-for-one-air-handler-or-two">What this is for: one air handler or two</h3>
 
@@ -902,7 +897,7 @@
 
 <p>On cost alone, the delta is a second indoor unit, a second filter, a second condensate path — over a finished ceiling — a second service point reached through a knee-wall hatch, and a second maintenance schedule for as long as the house stands. Against a riser that <strong>has to be built anyway</strong> for the main floor.</p>
 
-<p><strong>But cost is not what decides it, and neither is static pressure alone.</strong> A north knee-wall unit does not reach the south side of those rooms, and the suggested remedy — a duct channel along the office wall — is itself a chase. Ask which registers the second unit can actually reach <em>before</em> asking whether one unit runs out of static pressure. The fitting counts settle the second question; only a site visit settles the first.</p>
+<p><strong>But cost is not what decides it, and neither is static pressure alone.</strong> A north knee-wall unit does not reach the south side of those rooms, and the suggested remedy — a duct channel along the office wall — is itself a chase. Ask which registers the second unit can reach <em>before</em> asking whether one unit runs out of static pressure. The fitting counts settle the second question; only a site visit settles the first.</p>
 
 <h2 id="counts">Counts</h2>
 
@@ -928,16 +923,16 @@
     </tr>
     <tr>
       <td>Branch runs (one balancing damper each)</td>
-      <td style="text-align: right">21</td>
+      <td style="text-align: right">20</td>
     </tr>
     <tr>
       <td>Inferred direction changes</td>
-      <td style="text-align: right">32</td>
+      <td style="text-align: right">34</td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>Damper every takeoff regardless of what the balance calculation says.</strong> A branch without one cannot be adjusted after the fact, and the first season in a house is when the balance is actually discovered.</p>
+<p><strong>Damper every takeoff regardless of what the balance calculation says.</strong> A branch without one cannot be adjusted after the fact, and the first season in a house is when the balance is discovered.</p>
 
 
     </main>
