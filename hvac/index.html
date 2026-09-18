@@ -39,17 +39,23 @@
       <a href="/refrhus/">Overview</a>
     </li>
     <li class="nav-item">
-      <span class="nav-group">The duct design</span>
+      <span class="nav-group">The proposal</span>
       <ul class="nav-children">
         <li><a href="/refrhus/ducting-scheme/">Scheme and reasoning</a></li>
         <li><a href="/refrhus/ducting-register-schedule/">Register schedule</a></li>
         <li><a href="/refrhus/ducting-parts-list/">Parts list and cost</a></li>
-        <li><a href="/refrhus/ducting-handover-plan/">Handover plan</a></li>
-        <li><a href="/refrhus/ducting-model-audit/">Model audit</a></li>
       </ul>
     </li>
     <li class="nav-item">
-      <span class="nav-group">The house</span>
+      <span class="nav-group">Load calculations</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/hvac/">How the two compare</a></li>
+        <li><a href="/refrhus/hvac/professional-manual-j/">The professional Manual J</a></li>
+        <li><a href="/refrhus/hvac/eldr-report/">Current Eldr run</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">The house as measured</span>
       <ul class="nav-children">
         <li><a href="/refrhus/HISTORY/">Construction history</a></li>
         <li><a href="/refrhus/basement-structure/">Basement structure</a></li>
@@ -60,18 +66,12 @@
       </ul>
     </li>
     <li class="nav-item">
-      <span class="nav-group">Load calculations</span>
+      <span class="nav-group">Appendix</span>
       <ul class="nav-children">
-        <li><a href="/refrhus/hvac/">Manual J index</a></li>
-        <li><a href="/refrhus/hvac/professional-manual-j/">The professional Manual J</a></li>
-        <li><a href="/refrhus/hvac/eldr-report/">Current Eldr run</a></li>
-        <li><a href="/refrhus/hvac/measurements/">Surface-temperature protocol</a></li>
-      </ul>
-    </li>
-    <li class="nav-item">
-      <span class="nav-group">Still open</span>
-      <ul class="nav-children">
+        <li><a href="/refrhus/ducting-model-audit/">Model audit</a></li>
         <li><a href="/refrhus/schematic-hitlist/">Measurement hit-list</a></li>
+        <li><a href="/refrhus/hvac/measurements/">Surface-temperature protocol</a></li>
+        <li><a href="/refrhus/ducting-handover-plan/">How this package is built</a></li>
         <li><a href="/refrhus/scanning-plan/">3D scanning options</a></li>
       </ul>
     </li>
@@ -105,21 +105,7 @@
 
 <p><strong>The reports themselves are not published.</strong> They were produced for the owner as a customer rather than for redistribution, so this site carries the numbers our work depends on and not the documents.</p>
 
-<h3 id="two-things-in-the-reports-that-are-easy-to-miss">Two things in the reports that are easy to miss</h3>
-
-<p>Both are set out in full on <a href="/refrhus/hvac/professional-manual-j/">the summary page</a>; in short.</p>
-
-<p><strong>The measured blower door exists only in handwriting.</strong> Progression C’s Infiltration panel prints <code class="language-plaintext highlighter-rouge">Blower Door · 1,751 CFM50 · ACH 0.32</code>, but is annotated <strong>“speculative”</strong> — C models the <em>proposed post-air-sealing</em> state. The margin note beside it is the real measurement:</p>
-
-<blockquote>
-  <p><strong>“At Audit BD was 3751! w/ACH 0.68”</strong></p>
-</blockquote>
-
-<p>So the measured as-is figure is <strong>3,751 CFM50 → ACH 0.68</strong>, and that is what <code class="language-plaintext highlighter-rouge">../eldr-sidecar.yaml</code> now uses. Progression A’s <code class="language-plaintext highlighter-rouge">ACH4 Heating 0.85 / Cooling 0.44</code> are <strong>not</strong> measurements — A’s method line reads <code class="language-plaintext highlighter-rouge">Tightness: Loose</code>, an ACCA tightness-class estimate. Don’t cite them as measured.</p>
-
-<p>Worth recording: 3,751 CFM50 × 60 ÷ 16,457 ft³ = 13.7 ACH50, over an LBL N-factor of ~20 (two storeys, shielding class 4) = <strong>0.68</strong>. That volume is Eldr’s independently computed conditioned volume, to the cubic foot.</p>
-
-<p><strong>They load below-grade surfaces at the full outdoor ΔT.</strong> Divide HTM by U on every below-grade row — 16.58/0.293, 16.82/0.297, 4.98/0.088, and the slab’s 1.13/0.020 — and all four give <strong>56.6</strong>, against their design ΔT of 57 × a 0.995 elevation factor. The soil path lives inside the U-value, which is why U-0.293 is far below bare 8” masonry (~1.0 alone). That is standard Manual J, and finding it is what corrected Eldr, which had been applying an effective U <em>and</em> a ground ΔT — discounting twice. Their below-grade <strong>cooling</strong> HTMs do not divide out to a constant (5.73 / 9.19 / 7.73), so cooling below grade is not a single ΔT; their slab cooling HTM is 0.00, matching what Eldr does.</p>
+<p>Two readings in those reports are easy to get wrong and both are set out on <a href="/refrhus/hvac/professional-manual-j/">the summary page</a>: the measured blower door exists only as a handwritten margin note (<strong>3,751 CFM50 → ACH 0.68</strong>, not the printed figure), and below-grade surfaces are loaded at the full outdoor ΔT with the soil path inside the U-value — which is what corrected Eldr from discounting twice.</p>
 
 <h2 id="our-runs">Our runs</h2>
 
@@ -237,11 +223,11 @@
   </tbody>
 </table>
 
-<p><strong>The attic divergence is deliberate and ours to keep.</strong> An earlier version of this table blamed part of the ceiling gap on “our unvented-attic default halves the heating ΔT where they take the full one”, which reads as an Eldr error. It is not one. The attic genuinely is unvented, and Eldr already models the seasonal asymmetry correctly: a winter factor of <strong>0.50</strong> from the <code class="language-plaintext highlighter-rouge">vented: false</code> shorthand, and a summer factor of <strong>3.66</strong> resolved from a sol-air attic temperature. Being unvented <em>helps</em> in winter — stale air does not track outdoor temperature — and <em>hurts</em> in summer, when superheated air has nowhere to go. Declaring the attic vented to match their treatment would make the schematic less true to the house in order to close a number, which is backwards. The whole remaining ceiling gap is the 563 ft² of area we have not drawn.</p>
+<p><strong>The attic divergence is deliberate and ours to keep</strong>, and is not an Eldr error. The attic is unvented, and Eldr models the seasonal asymmetry correctly: a winter factor of <strong>0.50</strong> from the <code class="language-plaintext highlighter-rouge">vented: false</code> shorthand, and a summer factor of <strong>3.66</strong> resolved from a sol-air attic temperature. Being unvented <em>helps</em> in winter — stale air does not track outdoor temperature — and <em>hurts</em> in summer, when superheated air has nowhere to go. Declaring the attic vented to match their treatment would make the schematic less true to the house in order to close a number, which is backwards. The whole remaining ceiling gap is the 563 ft² of area we have not drawn.</p>
 
 <p><strong>Why <code class="language-plaintext highlighter-rouge">basement_wall</code> was left at 0.07.</strong> Their area-weighted below-grade U is 0.196 (bare 8” stone at 0.293/0.297, finished R-11 at 0.088). Applying that to <em>our</em> area gives <strong>12,236 BTU/hr against their 9,271</strong> — a 32% overshoot replacing today’s 53% undershoot, because our area is 47% too large for want of a grade line. Substituting one error for another is not accuracy. This one waits for the grade-line split or for measured wall temperatures.</p>
 
-<p><strong>Fixed since this section was first written:</strong> Eldr’s cooling load carried infiltration only as <em>latent</em>, with no sensible term, which is part of why our SHR read low. Closed in the <code class="language-plaintext highlighter-rouge">2026-08-14c</code> run — cooling gained the missing sensible term (3,223 BTU/hr here) and the SHR moved 0.70 → 0.80.</p>
+<p><strong>Cooling infiltration was latent-only for a while</strong>, with no sensible term, which is part of why our SHR read low. Fixed: cooling gained the missing sensible term and the SHR moved 0.70 → 0.80.</p>
 
 <p>The pattern overall: <strong>the geometry agrees, and the assemblies are now mostly settled.</strong> Above-grade walls, windows, the slab and occupants are all reconciled against their measured values. What is left is three items, and only one of them is thermal:</p>
 

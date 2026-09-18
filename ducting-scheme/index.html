@@ -39,17 +39,23 @@
       <a href="/refrhus/">Overview</a>
     </li>
     <li class="nav-item">
-      <span class="nav-group">The duct design</span>
+      <span class="nav-group">The proposal</span>
       <ul class="nav-children">
         <li><a href="/refrhus/ducting-scheme/">Scheme and reasoning</a></li>
         <li><a href="/refrhus/ducting-register-schedule/">Register schedule</a></li>
         <li><a href="/refrhus/ducting-parts-list/">Parts list and cost</a></li>
-        <li><a href="/refrhus/ducting-handover-plan/">Handover plan</a></li>
-        <li><a href="/refrhus/ducting-model-audit/">Model audit</a></li>
       </ul>
     </li>
     <li class="nav-item">
-      <span class="nav-group">The house</span>
+      <span class="nav-group">Load calculations</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/hvac/">How the two compare</a></li>
+        <li><a href="/refrhus/hvac/professional-manual-j/">The professional Manual J</a></li>
+        <li><a href="/refrhus/hvac/eldr-report/">Current Eldr run</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">The house as measured</span>
       <ul class="nav-children">
         <li><a href="/refrhus/HISTORY/">Construction history</a></li>
         <li><a href="/refrhus/basement-structure/">Basement structure</a></li>
@@ -60,18 +66,12 @@
       </ul>
     </li>
     <li class="nav-item">
-      <span class="nav-group">Load calculations</span>
+      <span class="nav-group">Appendix</span>
       <ul class="nav-children">
-        <li><a href="/refrhus/hvac/">Manual J index</a></li>
-        <li><a href="/refrhus/hvac/professional-manual-j/">The professional Manual J</a></li>
-        <li><a href="/refrhus/hvac/eldr-report/">Current Eldr run</a></li>
-        <li><a href="/refrhus/hvac/measurements/">Surface-temperature protocol</a></li>
-      </ul>
-    </li>
-    <li class="nav-item">
-      <span class="nav-group">Still open</span>
-      <ul class="nav-children">
+        <li><a href="/refrhus/ducting-model-audit/">Model audit</a></li>
         <li><a href="/refrhus/schematic-hitlist/">Measurement hit-list</a></li>
+        <li><a href="/refrhus/hvac/measurements/">Surface-temperature protocol</a></li>
+        <li><a href="/refrhus/ducting-handover-plan/">How this package is built</a></li>
         <li><a href="/refrhus/scanning-plan/">3D scanning options</a></li>
       </ul>
     </li>
@@ -331,9 +331,7 @@
 <p>Velocities run 191–576 fpm — inside the 500–750 supply band at the top end and comfortably under it elsewhere.</p>
 
 <blockquote>
-  <p><strong>This table was re-derived on 2026-09-18 and the previous one was badly stale.</strong> It had been computed against a much earlier model state and understated every room — Kitchen 153 against 254, Future Media 73 against 124, Utility 70 against 118 — for a biased total of 875 CFM against today’s 1,202. Six of the twelve rooms move up a nominal duct size as a result.</p>
-
-  <p><strong>The register schedule has not been re-derived</strong>, so it still carries the older basis. It remains authoritative for what gets installed, and the gap between the two is now a known quantity rather than an unnoticed one. Re-deriving it is the outstanding task before anything is fabricated.</p>
+  <p><strong>The register schedule is built on an earlier, lower set of room loads</strong> and has not been re-derived against these. It stays authoritative for what gets installed, so the two differ by a known margin — re-deriving it is the outstanding task before anything is fabricated.</p>
 </blockquote>
 
 <table>
@@ -500,11 +498,43 @@
   </tbody>
 </table>
 
-<p><strong>A 9″ round carries about 276 CFM at design friction</strong> — which is to say the riser is sized exactly at its own design figure, with no headroom at all. An earlier version of this paragraph said a 9″ carries 357 and therefore “holds 276 and 321 alike”. That conflated a <strong>9×9 rectangular</strong> duct — 9.84″ equivalent round, 357 CFM — with a 9″ round. They are not the same duct.</p>
+<p><strong>A 9″ round carries about 276 CFM at design friction</strong>, so the riser is sized exactly at its own design figure with no headroom. (A <em>9×9 rectangular</em> duct is a different thing — 9.84″ equivalent round, 357 CFM — and the two are easy to confuse.)</p>
 
-<p>The correction does not overturn the design, but it removes the margin it claimed. At 301 the 9″ runs 681 fpm and at 321 it runs 727, both inside the 500–750 supply band and both at the top of it. Equal-friction sizing on either figure calls for a <strong>10″</strong> (552 and 589 fpm respectively).</p>
+<p>That leaves no margin, but it does not overturn the design. At 301 the 9″ runs 681 fpm and at 321 it runs 727, both inside the 500–750 supply band and both at the top of it. Equal-friction sizing on either figure calls for a <strong>10″</strong> (552 and 589 fpm respectively).</p>
 
 <p><strong>So the choice is explicit rather than incidental:</strong> keep the 9″ and accept the top of the band, or take the 10″ and the quiet. Re-derive the schedule against current loads before anything is fabricated.</p>
+
+<p><strong>Why the riser carries 276 when the floor’s registers are scheduled for 228.</strong> Upper Bath and Upstairs Hallway have no supply register: their 48 CFM reaches them as transfer air from the Play Room and Office, so the riser carries the whole floor’s load while only two rooms have an opening for it. That is the design, not a discrepancy — but it means both registers pass more than their own room’s share, and the schedule never said so.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Register</th>
+      <th style="text-align: right">Own room</th>
+      <th style="text-align: right">Carries</th>
+      <th style="text-align: center">Face</th>
+      <th style="text-align: right">fpm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Play Room — south</td>
+      <td style="text-align: right">115</td>
+      <td style="text-align: right"><strong>139</strong></td>
+      <td style="text-align: center">5x10</td>
+      <td style="text-align: right">535</td>
+    </tr>
+    <tr>
+      <td>Office — two floor registers</td>
+      <td style="text-align: right">113</td>
+      <td style="text-align: right"><strong>137</strong></td>
+      <td style="text-align: center">4x10 each</td>
+      <td style="text-align: right">328</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Both stay inside the 500–750 band, and still do on the re-derived 301 (583 and 358 fpm). <strong>The transfer path is what has to be checked, not the sizes</strong> — the bath and hallway only get their air if the doors are undercut and the return pulls through them.</p>
 
 <table>
   <thead>
@@ -776,9 +806,7 @@
 
 <p><strong>Go rectangular, not round.</strong> The depth budget is roughly two stud bays back to back (~7″), and a bay gives about 14.5″ clear. Three round 5–6″ ducts side by side need 15–18″ and fight the studs. Residential <strong>wall-stack duct</strong> — 3.25x10 or 3.25x12, purpose-made to run vertically between studs in a 2x4 wall — puts the shallow dimension across the wall depth and solves the problem directly. Oval is the fallback. Prefer running each duct <em>within</em> a bay so no stud needs notching; if a riser must cross one, verify the partition is non-load-bearing first, because the south-extension quirk muddies that.</p>
 
-<p><strong>The panel has to come off and still look intentional.</strong> Build the built-in as a rigid self-bracing box so it does not rack when lifted, and hang it on a French cleat with a few concealed screws — rigidity gives the sturdiness, few fasteners give the removability. Hide screws inside shelf interiors, behind the coat rail, or under a toe-kick. <strong>Put the removable seams on natural trim lines</strong> — design the face as board-and-batten or stile-and-rail so the panel edges fall on a batten joint. That is the difference between millwork and an access hatch.</p>
-
-<p>The alternative to all of it is over-provisioning ducts up front so the wall never needs opening. This scheme deliberately takes the other bet: <strong>fewer ducts, and a wall you can unscrew.</strong></p>
+<p><strong>The face comes off.</strong> The built-in over it is designed as a removable panel on a French cleat, so the risers stay reachable without demolition — which is why this scheme runs fewer ducts through the wall rather than over-provisioning so it never has to be opened.</p>
 
 <h2 id="constraints-from-the-rest-of-the-basement">Constraints from the rest of the basement</h2>
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Register schedule — working document | Refr Hus</title>
+  <title>Register schedule | Refr Hus</title>
   <meta name="description" content="A 1950s house measured by hand, modelled in Sweet Home 3D, and run through a Manual J load calculation — with the duct design that came out of it.">
   <link rel="stylesheet" href="/refrhus/assets/css/style.css"><script>
   (function () {
@@ -39,17 +39,23 @@
       <a href="/refrhus/">Overview</a>
     </li>
     <li class="nav-item">
-      <span class="nav-group">The duct design</span>
+      <span class="nav-group">The proposal</span>
       <ul class="nav-children">
         <li><a href="/refrhus/ducting-scheme/">Scheme and reasoning</a></li>
         <li><a href="/refrhus/ducting-register-schedule/">Register schedule</a></li>
         <li><a href="/refrhus/ducting-parts-list/">Parts list and cost</a></li>
-        <li><a href="/refrhus/ducting-handover-plan/">Handover plan</a></li>
-        <li><a href="/refrhus/ducting-model-audit/">Model audit</a></li>
       </ul>
     </li>
     <li class="nav-item">
-      <span class="nav-group">The house</span>
+      <span class="nav-group">Load calculations</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/hvac/">How the two compare</a></li>
+        <li><a href="/refrhus/hvac/professional-manual-j/">The professional Manual J</a></li>
+        <li><a href="/refrhus/hvac/eldr-report/">Current Eldr run</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">The house as measured</span>
       <ul class="nav-children">
         <li><a href="/refrhus/HISTORY/">Construction history</a></li>
         <li><a href="/refrhus/basement-structure/">Basement structure</a></li>
@@ -60,18 +66,12 @@
       </ul>
     </li>
     <li class="nav-item">
-      <span class="nav-group">Load calculations</span>
+      <span class="nav-group">Appendix</span>
       <ul class="nav-children">
-        <li><a href="/refrhus/hvac/">Manual J index</a></li>
-        <li><a href="/refrhus/hvac/professional-manual-j/">The professional Manual J</a></li>
-        <li><a href="/refrhus/hvac/eldr-report/">Current Eldr run</a></li>
-        <li><a href="/refrhus/hvac/measurements/">Surface-temperature protocol</a></li>
-      </ul>
-    </li>
-    <li class="nav-item">
-      <span class="nav-group">Still open</span>
-      <ul class="nav-children">
+        <li><a href="/refrhus/ducting-model-audit/">Model audit</a></li>
         <li><a href="/refrhus/schematic-hitlist/">Measurement hit-list</a></li>
+        <li><a href="/refrhus/hvac/measurements/">Surface-temperature protocol</a></li>
+        <li><a href="/refrhus/ducting-handover-plan/">How this package is built</a></li>
         <li><a href="/refrhus/scanning-plan/">3D scanning options</a></li>
       </ul>
     </li>
@@ -79,9 +79,9 @@
 </nav>
 
     <main class="content">
-      <h1 id="register-schedule--working-document">Register schedule — working document</h1>
+      <h1 id="register-schedule">Register schedule</h1>
 
-<p><strong>This file is meant to be edited directly.</strong> It is the per-register duct schedule for the proposed scheme, generated 2026-09-02 and hand-tuned as the layout firms up. Sizes come from Eldr’s equal-friction math at 0.08 in.wc/100 ft; the reasoning behind the airflow lives in <a href="/refrhus/ducting-scheme/"><code class="language-plaintext highlighter-rouge">ducting-scheme.md</code></a>.</p>
+<p><strong>The per-register schedule a contractor prices.</strong> Sizes come from Eldr’s equal-friction math at 0.08 in.wc/100 ft, hand-tuned as the layout firmed up; the reasoning behind the airflow is in <a href="/refrhus/ducting-scheme/">the scheme</a>.</p>
 
 <p>Airflow is biased on purpose — <strong>second floor ×1.35</strong>, <strong>basement ×0.70</strong>, main floor unchanged — and computed on a <strong>30°F supply-air rise</strong>, the heat-pump figure. (A 50°F rise is a gas furnace and undersizes every heating-driven duct by 1.67×.)</p>
 
@@ -331,7 +331,7 @@
 
 <p><em>The second-floor returns are sized for the cross-flow split, not for their own rooms.</em> The Play Room’s is sized at <strong>168</strong> rather than its own 115, so the option to drag air across from the Office exists without re-ducting. Their combined capacity is 281 against the 228 the floor actually needs — <strong>the dampers set the real split</strong>, and sizing for the larger case costs a nominal size, not a redesign.</p>
 
-<p>Room-name mapping, since the model and conversation differ: the 2nd-floor “kids room” is <strong>Play Room</strong>; the main-floor “small kids room” is <strong>Kids Room</strong>; “bathroom” with supply only is <strong>Main Bath</strong>. The two basement supplies are named by position in the model and by room here — <strong>“west basement” is Future Media Room</strong>, <strong>“basement east” is Utility Room</strong>.</p>
+<p>Room-name mapping, since the model and these documents differ: the 2nd-floor “kids room” is <strong>Play Room</strong>; the main-floor “small kids room” is <strong>Kids Room</strong>; “bathroom” with supply only is <strong>Main Bath</strong>. The two basement supplies are named by position in the model and by room here — <strong>“west basement” is Future Media Room</strong>, <strong>“basement east” is Utility Room</strong>.</p>
 
 <hr />
 

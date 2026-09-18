@@ -39,17 +39,23 @@
       <a href="/refrhus/">Overview</a>
     </li>
     <li class="nav-item">
-      <span class="nav-group">The duct design</span>
+      <span class="nav-group">The proposal</span>
       <ul class="nav-children">
         <li><a href="/refrhus/ducting-scheme/">Scheme and reasoning</a></li>
         <li><a href="/refrhus/ducting-register-schedule/">Register schedule</a></li>
         <li><a href="/refrhus/ducting-parts-list/">Parts list and cost</a></li>
-        <li><a href="/refrhus/ducting-handover-plan/">Handover plan</a></li>
-        <li><a href="/refrhus/ducting-model-audit/">Model audit</a></li>
       </ul>
     </li>
     <li class="nav-item">
-      <span class="nav-group">The house</span>
+      <span class="nav-group">Load calculations</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/hvac/">How the two compare</a></li>
+        <li><a href="/refrhus/hvac/professional-manual-j/">The professional Manual J</a></li>
+        <li><a href="/refrhus/hvac/eldr-report/">Current Eldr run</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">The house as measured</span>
       <ul class="nav-children">
         <li><a href="/refrhus/HISTORY/">Construction history</a></li>
         <li><a href="/refrhus/basement-structure/">Basement structure</a></li>
@@ -60,18 +66,12 @@
       </ul>
     </li>
     <li class="nav-item">
-      <span class="nav-group">Load calculations</span>
+      <span class="nav-group">Appendix</span>
       <ul class="nav-children">
-        <li><a href="/refrhus/hvac/">Manual J index</a></li>
-        <li><a href="/refrhus/hvac/professional-manual-j/">The professional Manual J</a></li>
-        <li><a href="/refrhus/hvac/eldr-report/">Current Eldr run</a></li>
-        <li><a href="/refrhus/hvac/measurements/">Surface-temperature protocol</a></li>
-      </ul>
-    </li>
-    <li class="nav-item">
-      <span class="nav-group">Still open</span>
-      <ul class="nav-children">
+        <li><a href="/refrhus/ducting-model-audit/">Model audit</a></li>
         <li><a href="/refrhus/schematic-hitlist/">Measurement hit-list</a></li>
+        <li><a href="/refrhus/hvac/measurements/">Surface-temperature protocol</a></li>
+        <li><a href="/refrhus/ducting-handover-plan/">How this package is built</a></li>
         <li><a href="/refrhus/scanning-plan/">3D scanning options</a></li>
       </ul>
     </li>
@@ -117,6 +117,10 @@
 <p>Eldr is our own open-source engine, written for this house and run against the model on every change. It reports its own assumptions — which U-values were borrowed, which floor area sits over a space nobody has drawn — so the gaps are visible rather than buried.</p>
 
 <p>This package is written to be handed to an HVAC contractor. Every figure is open to challenge, and the reasoning behind each one is in the linked documents.</p>
+
+<p><strong>If you are pricing this job, read the first three groups in the contents</strong> — this overview, <strong>The proposal</strong> (<a href="/refrhus/ducting-scheme/">scheme</a>, <a href="/refrhus/ducting-register-schedule/">register schedule</a>, <a href="/refrhus/ducting-parts-list/">parts list</a>) and <strong>Load calculations</strong> (<a href="/refrhus/hvac/">how the two compare</a>, <a href="/refrhus/hvac/professional-manual-j/">the professional Manual J</a>, <a href="/refrhus/hvac/eldr-report/">the current run</a>). About an hour and a half.</p>
+
+<p><strong>The house as measured</strong> is the evidence under those numbers — worth dipping into for a dimension, not worth reading through. <strong>Appendix</strong> is method and tooling: how the model is read, how this site is built, what nobody has measured yet. It is published because the figures above are only checkable against it, not because anyone quoting the work needs it.</p>
 
 <h2 id="load-and-equipment">Load and equipment</h2>
 
