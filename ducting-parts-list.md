@@ -35,10 +35,9 @@ Lengths are centre-line and **do not deduct for fittings**, so they run long at 
 | Run | Levels | Segs | Section | Material | Length | Bends |
 |---|---|:-:|:-:|:-:|---:|:-:|
 | North return branch for kitchen | Basement | 4 | 8x8 / 6x14 | oval | 19.0 ft | 3 |
-| North return trunk | Basement | 2 | 12x12 / 10x12 | rect / oval | 12.2 ft | 1 |
-| Return branch for both main bedrooms | basement-main-transition | 1 | 4x8 | rect | 30.0 ft | 0 |
-| Return branch for main bed room | basement-main-transition | 2 | 4x8 / 4x10 | rect | 5.3 ft | 1 |
-| Return branch for main floor kids room | Basement, Main | 2 | 8x8 | rect | 3.7 ft | 1 |
+| North return trunk | Basement | 2 | 12x12 / 14x18 | rect / oval | 12.2 ft | 1 |
+| Return branch for kids room and basement NE | basement-main-transition, Basement, Main | 3 | 6x10 / 8x8 | rect | 12.5 ft | 2 |
+| Return branch for main bedroom | basement-main-transition | 3 | 4x8 / 4x10 | rect | 26.4 ft | 2 |
 | Return branch for office | 2nd floor | 2 | 6x10 | rect | 11.0 ft | 1 |
 | Return branch for play room south | 2nd floor | 2 | 6x10 | rect | 20.6 ft | 1 |
 | Return plenum | Basement | 1 | 12x20 | rect | 10.0 ft | 0 |
@@ -53,7 +52,7 @@ Lengths are centre-line and **do not deduct for fittings**, so they run long at 
 |---|---|:-:|:-:|
 | NE ceiling duct return from utility room | Basement | 5x12 | circular |
 | Return from kids room | Main | 4x10 | louvred |
-| Return from kitchen | Main | 3x20 | louvred |
+| Return from kitchen | Main | 8x14 | louvred |
 | Return from living room | Main | 6x12 | louvred |
 | Return from main bed | Main | 5x9 | louvred |
 | SW ceiling duct return from future media room | Basement | 5x12 | circular |
@@ -67,7 +66,7 @@ Lengths are centre-line and **do not deduct for fittings**, so they run long at 
 | NW supply for living room | Main | 5x10 | louvred |
 | S supply for play room | 2nd floor | 5x10 | louvred |
 | SE ceiling duct supply for utility room | Basement | 5x10 | circular |
-| SE supply for kitchen | Main | 2x15 | louvred |
+| SE supply for kitchen | Main | 4x15 | louvred |
 | SW supply for kitchen | Main | 6x11 | louvred |
 | Supply for kids room | Main | 6x12 | louvred |
 | Supply for main bath | Main | 5x8 | louvred |
@@ -81,12 +80,14 @@ Lengths are centre-line and **do not deduct for fittings**, so they run long at 
 
 Future runs excluded. Round sizes are **airway** — confirm whether a supplier quotes inner or outer diameter on double-wall before ordering, because getting it backwards costs two inches of diameter on every round run at once.
 
+**An `oval` section is the box it must fit inside, not its airway.** A flat oval turns each corner into a semicircular end, so a run listed 14x18 carries about 210 in² against the 252 the two numbers multiply to — roughly 20% less on every oval run here. The box is what is printed because the box is what has to clear the framing; size the airflow off the airway.
+
 | Section | Material | Linear feet |
 |---|---|---:|
 | 8″ ø | dwspiral | 71.7 |
-| 6x10 | rect | 44.0 |
+| 6x10 | rect | 52.9 |
 | 4x10 | rect | 37.8 |
-| 4x8 | rect | 33.3 |
+| 4x8 | rect | 24.4 |
 | 9x9 | rect | 20.0 |
 | 8x8 | rect | 20.0 |
 | 8x8 | oval | 16.3 |
@@ -95,7 +96,7 @@ Future runs excluded. Round sizes are **airway** — confirm whether a supplier 
 | 12x12 | rect | 11.3 |
 | 11x11 | rect | 8.3 |
 | 8x16 | rect | 8.2 |
-| 10x12 | oval | 6.8 |
+| 14x18 | oval | 6.8 |
 | 6″ ø | dwspiral | 6.7 |
 | 6x8 | rect | 5.5 |
 | 8x10 | rect | 4.8 |
@@ -108,21 +109,21 @@ Future runs excluded. Round sizes are **airway** — confirm whether a supplier 
 | 5x8 | rect | 1.7 |
 | 4x7 | rect | 1.4 |
 | 4x9 | rect | 1.3 |
-| **Total** | | **344.5** |
+| **Total** | | **344.4** |
 
 ## Cost — planning grade only
 
-**Every figure here is a band, and the bands are wide on purpose.** Fabrication, access and region move installed duct pricing more than size does, so a single number would imply a precision this does not have. Use it to compare options against each other — which is what it is actually for — not to budget.
+**Every figure here is a band, and the bands are wide on purpose.** Fabrication, access and region move installed duct pricing more than size does, so a single number would imply a precision this does not have. Use it to compare options against each other, not to budget.
 
 | Item | Quantity | Low | High |
 |---|---:|---:|---:|
 | Round duct, double-wall spiral | 98 ft | $1,178 | $2,944 |
-| Rectangular and oval, fabricated | 246 ft | $2,463 | $6,159 |
+| Rectangular and oval, fabricated | 246 ft | $2,463 | $6,156 |
 | Supply registers | 15 | $225 | $900 |
 | Return grilles | 8 | $200 | $800 |
-| Balancing dampers | 21 | $525 | $1,260 |
-| Duct only | | $3,641 | $9,102 |
-| **Subtotal — duct, trim and dampers** | | **$4,591** | **$12,062** |
+| Balancing dampers | 20 | $500 | $1,200 |
+| Duct only | | $3,640 | $9,100 |
+| **Subtotal — duct, trim and dampers** | | **$4,565** | **$12,000** |
 
 **All figures are pre-incentive.** No rebate, tax credit or utility programme is netted off anywhere in this document. Incentives change by year, by model and by jurisdiction, and a quote that quietly assumes one is a quote that cannot be compared against another.
 
@@ -132,7 +133,7 @@ Future runs excluded. Round sizes are **airway** — confirm whether a supplier 
 
 The $/ft figures above are *installed*, not material-only, so labour is not a line to add — it is most of what the band's width represents. For sanity-checking a quote that separates them: duct labour alone runs roughly **$5–15 per linear foot**, and HVAC labour is **$75–150 per hour per technician**.
 
-Published estimates of labour's *share* of a duct job disagree sharply — one puts it near 22% of a whole-house replacement, another at 60%. **That spread is a signal, not noise:** it is the difference between duct run through open basement joists and duct fished through finished walls. This house is both, which is exactly why the bands here are wide and why a walkthrough quote will beat any figure on this page.
+Published estimates of labour's *share* of a duct job disagree sharply — one puts it near 22% of a whole-house replacement, another at 60%. **That spread is a signal, not noise:** it is the difference between duct run through open basement joists and duct fished through finished walls. This house is both, which is why the bands here are wide and why a walkthrough quote will beat any figure on this page.
 
 ### Ducted extras, priced separately
 
@@ -140,7 +141,7 @@ Published estimates of labour's *share* of a duct job disagree sharply — one p
 |---|---|---|
 | Media air cleaner | **$400–1,000** | A deep pleated filter in the return. The default choice, and the one with no downside beyond filter changes |
 | UV treatment | **$400–800**, up to $3,500 | Coil-sterilising lamps at the low end; in-duct air treatment at the high end. Effectiveness claims vary far more than price does |
-| Whole-house humidifier | **$400–1,200**, up to $2,500 | Bypass or steam. Steam costs more and actually holds a setpoint |
+| Whole-house humidifier | **$400–1,200**, up to $2,500 | Bypass or steam. Steam costs more and holds a setpoint |
 
 **A media cleaner has a real interaction with this design and the others do not.** A deep filter adds static pressure to the return side, and the return side is already this system's constraint — see the main-floor return path above. Size the filter cabinet generously and account for its pressure drop in the same breath as the return trunk, rather than adding it afterwards. **The others are additions to the system; filtration is a change to it.**
 
@@ -167,18 +168,18 @@ The Bosch IDS Ultra is the candidate on file. Treat both rows as placeholders un
 
 | | Low | High |
 |---|---:|---:|
-| Ductwork, straight runs | $3,641 | $9,102 |
-| Fittings allowance (25–40% of duct) | $910 | $3,641 |
-| Registers, grilles, dampers | $950 | $2,960 |
+| Ductwork, straight runs | $3,640 | $9,100 |
+| Fittings allowance (25–40% of duct) | $910 | $3,640 |
+| Registers, grilles, dampers | $925 | $2,900 |
 | Equipment, 4-ton | $5,500 | $10,500 |
 | Filtration, UV, humidity | $1,200 | $3,000 |
-| **Total, pre-incentive** | **$12,201** | **$29,203** |
+| **Total, pre-incentive** | **$12,175** | **$29,140** |
 
-**Centre of mass is around $20,702**, and the upper band is what you get if every constrained thing turns out to be the hard version — duct fished through finished walls rather than run through open joists, the kitchen cabinetry modified rather than worked around, the high-end UV rather than coil lamps. A realistic landing spot sits below the top of the range rather than at it.
+**Centre of mass is around $20,658**, and the upper band is what you get if every constrained thing turns out to be the hard version — duct fished through finished walls rather than run through open joists, the kitchen cabinetry modified rather than worked around, the high-end UV rather than coil lamps. A realistic landing spot sits below the top of the range rather than at it.
 
 **Pre-incentive throughout.** Nothing here is netted against a rebate, credit or utility programme, so it can be compared against a quote line for line — and whatever incentives apply come off afterwards rather than being baked into a number nobody can reconcile.
 
-The honest caveat on the whole table: **the fittings allowance is the weakest number in it.** It is a percentage standing in for a count nobody has made, on the one quantity this model explicitly cannot derive. It is also, not coincidentally, the same count that settles the one-unit-versus-two question — so asking for it buys an answer twice.
+One caveat on the whole table: **the fittings allowance is the weakest number in it.** It is a percentage standing in for a count nobody has made, on the one quantity this model explicitly cannot derive. It is also, not coincidentally, the same count that settles the one-unit-versus-two question — so asking for it buys an answer twice.
 
 ### What this is for: one air handler or two
 
@@ -186,7 +187,7 @@ The number that matters is not the total, it is **the delta between one unit and
 
 On cost alone, the delta is a second indoor unit, a second filter, a second condensate path — over a finished ceiling — a second service point reached through a knee-wall hatch, and a second maintenance schedule for as long as the house stands. Against a riser that **has to be built anyway** for the main floor.
 
-**But cost is not what decides it, and neither is static pressure alone.** A north knee-wall unit does not reach the south side of those rooms, and the suggested remedy — a duct channel along the office wall — is itself a chase. Ask which registers the second unit can actually reach *before* asking whether one unit runs out of static pressure. The fitting counts settle the second question; only a site visit settles the first.
+**But cost is not what decides it, and neither is static pressure alone.** A north knee-wall unit does not reach the south side of those rooms, and the suggested remedy — a duct channel along the office wall — is itself a chase. Ask which registers the second unit can reach *before* asking whether one unit runs out of static pressure. The fitting counts settle the second question; only a site visit settles the first.
 
 ## Counts
 
@@ -195,8 +196,8 @@ On cost alone, the delta is a second indoor unit, a second filter, a second cond
 | Supply registers | 15 |
 | Return grilles | 8 |
 | — of which circular | 4 |
-| Branch runs (one balancing damper each) | 21 |
-| Inferred direction changes | 32 |
+| Branch runs (one balancing damper each) | 20 |
+| Inferred direction changes | 34 |
 
-**Damper every takeoff regardless of what the balance calculation says.** A branch without one cannot be adjusted after the fact, and the first season in a house is when the balance is actually discovered.
+**Damper every takeoff regardless of what the balance calculation says.** A branch without one cannot be adjusted after the fact, and the first season in a house is when the balance is discovered.
 

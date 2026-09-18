@@ -43,7 +43,7 @@ elevations. **The only thing needing work is in-plane (X/Y) frame consistency.**
 
 ## The "8 ft mystery" — resolved
 
-Long misremembered as a level *height* confusion. It is actually the **kitchen's
+Long misremembered as a level *height* confusion. It is the **kitchen's
 ~8 ft north extension**, in-plane:
 
 - **Main** reaches ~8 ft north of the original exterior wall (the kitchen addition).
@@ -136,8 +136,8 @@ justified correction. The rule is about *eras*, not about compass directions.
 
 ### Framed wall vs. cinder block — where the exterior face goes
 
-Derived 2026-08-23; not previously written down, which is why the upper floors had
-drifted without anyone being able to say by how much.
+Derived 2026-08-23. It had not been written down, so the upper floors drifted
+without anyone being able to say by how much.
 
 **A framed exterior wall's OUTER face sits on the block's OUTER face.** It follows
 from the rim/band joist above: that member caps the floor framing *flush to the
@@ -145,7 +145,7 @@ block's outer face*, and the wall's sheathing continues the same plane. So an
 exterior wall of thickness `t` on a level above has its centerline at
 `block_outer_face ∓ t/2` — not on the block's centerline, and not on its inner face.
 
-Two consequences worth stating, because both were got wrong at least once:
+Two consequences, both got wrong at least once:
 
 - The wall thicknesses **differ by level** (8″ block, 7″ framed), so aligning
   *centerlines* across levels is wrong by 0.5″ and aligning *inner* faces is wrong

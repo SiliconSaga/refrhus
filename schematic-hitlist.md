@@ -1,6 +1,6 @@
 # Schematic hit-list
 
-What still has to change in `Refrhus.sh3d`, who does each piece, and what it is worth. Ranked by BTU/hr impact within each section.
+What still has to change in `Refrhus.sh3d`, who does each piece, and what each is worth. Ranked by BTU/hr impact within each section.
 
 Current run: **40,331** heating against the professionals' **54,260** — a gap of **13,929 BTU/hr**. That gap has moved both ways as corrections landed — wider when the basement was measured and found smaller and better-sealed than the estimate it replaced, narrower again when the design station was corrected from Sweet Home 3D's default to Newark. **Neither movement is progress or regression on its own.** What matters is that the remaining difference is now concentrated in things that can be named — the grade line and the undrawn second-floor roof — rather than spread thinly across assumptions nobody had checked.
 
@@ -22,7 +22,7 @@ That is why `basement_wall` is held at 0.07 instead of their area-weighted 0.196
 
 **What to measure:** the exposed height of each of the four perimeter wall runs — how much wall stands proud of the soil, from grade to the underside of the sill. One number per run is enough; note where a run varies (a walk-out or a window well changes it).
 
-**Then:** the wall gets drawn as two segments, or `basement_wall` gets a genuinely averaged U. Either way the number can finally be set honestly.
+**Then:** the wall gets drawn as two segments, or `basement_wall` gets an area-weighted U. Either way the number can finally be set honestly.
 
 ### 1.2 The 2nd floor — knee-wall attic and sloped roof — **3,458 BTU/hr**
 
@@ -54,7 +54,7 @@ Three of the differences are explainable, and two of them are things the model s
 - **The bricked-in basement window is not a window.** It is opaque wall between basement and crawlspace now.
 - **The window-well one is still a window** thermally — a well does not insulate — but gets essentially no solar gain.
 
-What that leaves genuinely unexplained is your **tiny southwest upstairs window**: they list no southwest single-pane at all. Either they missed it or their compass differs from the model's.
+What that leaves unexplained is your **tiny southwest upstairs window**: they list no southwest single-pane at all. Either they missed it or their compass differs from the model's.
 
 **What to check:** walk the house and confirm which units are still original glass. The falsifiable version of their claim is *"the only unreplaced glazing is 2 northeast + 2 northwest, one with a storm"* — since the survey puts your front facing roughly southwest, that means all of it is at the back.
 
@@ -62,7 +62,7 @@ Two count discrepancies to keep in mind while you look: Eldr finds **14 windows 
 
 ### 1.4 Which wall sections are the uninsulated ones — **enables per-room accuracy**
 
-Their four above-grade wall assemblies imply the house genuinely has different constructions in different sections:
+Their four above-grade wall assemblies imply the house has different constructions in different sections:
 
 | Area | U | Assembly |
 |---:|---:|---|
@@ -163,7 +163,7 @@ Tags survive Sweet Home 3D's own save and `normalize.sh`. They do **not** surviv
 
 ---
 
-## What this is all for
+## What the remaining work buys
 
 Per-room CFM. The whole-house total is close enough that equipment sizing barely moves now. What the remaining work buys is *per-room* accuracy — and per-room CFM is the input to Manual T, which is the argument that the far corner of the office can actually be reached, and that the south side of the 2nd floor has a load whether or not it is convenient to duct.
 

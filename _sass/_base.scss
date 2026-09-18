@@ -110,6 +110,30 @@ blockquote {
 
 img { max-width: 100%; height: auto; }
 
+// Generated schematics. The SVG carries its own max-height so a long thin
+// crop scales to fit rather than forcing a page of scroll; this gives it a
+// surface to sit on and ties the caption to it.
+.schematic {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  text-align: center;
+
+  img {
+    max-height: 80vh;
+    width: auto;
+  }
+
+  figcaption {
+    margin-top: 0.8rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+    text-align: left;
+  }
+}
+
 // Tables carry most of this site's content, and several are wide enough to
 // need their own scroll rather than pushing the page sideways.
 .content table {

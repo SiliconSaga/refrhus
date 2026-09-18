@@ -1,12 +1,12 @@
 # Surface-temperature measurements
 
-A protocol for readings that stay comparable across days, seasons and instruments. The point is not one accurate number; it is a **series** — the same spots, repeatedly, with enough context recorded that a reading from February can be compared against one from August.
+A protocol for readings that stay comparable across days, seasons and instruments. The goal is not one accurate number; it is a **series** — the same spots, repeatedly, with enough context recorded that a reading from February can be compared against one from August.
 
 Raw readings live in [`wall-temperatures.csv`](wall-temperatures.csv). Nothing here is derived or computed — store what you observed, derive later. A reading you can't reconstruct the conditions for is nearly worthless, so the conditions columns are not optional.
 
 ## Why bother
 
-Eldr's `basement_wall` U-value is currently a guess (0.07) that nobody has measured, and it is the single largest remaining disagreement with the professional Manual J — see [`../README.md`](../README.md). Interior surface temperature measures it directly, because the interior air film is a known resistance:
+Eldr's `basement_wall` U-value is currently a guess (0.07) that nobody has measured, and it is the single largest remaining disagreement with the professional Manual J — see [the load comparison](../index.md). Interior surface temperature measures it directly, because the interior air film is a known resistance:
 
 ```
 q      = (T_air − T_surface) / R_film        BTU/hr·ft²      R_film ≈ 0.68 for still air, vertical
@@ -21,7 +21,7 @@ Take that on the **bare cinder block** and on the **R-11 panelled** section and 
 
 Summer readings are still worth taking: they show the below-grade wall behaving as a heat *sink*, which is what justifies Eldr reporting zero below-grade cooling load. Just don't expect a U from them.
 
-The gradient reverses between seasons, and that is the honest check that the readings are real:
+The gradient reverses between seasons, which is the check that the readings are real:
 
 | | Coldest | Warmest | Why |
 |---|---|---|---|

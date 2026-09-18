@@ -6,7 +6,7 @@ Distilled from the 2026-06 discussion. Raw scanner notes were in `scanning.txt` 
 
 Every hard moment in the Refrhus rebuild traces to one missing thing: accurate ground truth. The floor plan was explicitly "not to scale," the survey is a blurry JPEG good only for the footprint envelope, and the basement was mis-measured so the *whole house* was wrong. A scan is the ground truth we never had. It does not replace the model — it becomes a *reference* you trace against and overlay-check: a tool does the math, a vision-capable agent does the interpretation.
 
-## The decision axis that actually matters: structured vs. mesh
+## Structured output vs. mesh
 
 Forget "which scanner" first. The real fork is **what the output IS**, because it changes the whole downstream pipeline:
 
@@ -21,7 +21,7 @@ The irony to internalize: the cheaper dedicated scanners give better geometry bu
 
 **A third category — photo-based (photogrammetry).** Most Android 3D-scan apps (and any phone without a LiDAR sensor) reconstruct geometry from ordinary photos rather than a depth sensor. They're the most accessible option — any camera works — but they produce an *unscaled* mesh: there is no metric reference, so scale must be set by hand from a known dimension, and fidelity trails both LiDAR and dedicated scanners, especially on blank/featureless walls. Useful for rough massing or a textured visual to eyeball, not for trustworthy wall dimensions. The clean way to place the three: **RoomPlan = scaled structure**, **LiDAR / dedicated scanners = scaled geometry**, **photogrammetry = unscaled geometry**. For our pipeline, a photogrammetry mesh can still be dropped in as a rough mock-up, but a survey/known-dimension scale step is mandatory before any measurement is trusted.
 
-## Accuracy reality check (this is the part that bites)
+## Accuracy
 
 - **iPad/iPhone LiDAR:** ~±1–3 cm horizontal in good conditions, but peer-reviewed testing shows most points land ~10 cm off the reference on *dynamic* (walking) scans, and accuracy degrades as the area grows and pose changes accumulate. Great for one small room held still; shaky as one coherent whole-house capture.
 - **RoomPlan specifically** reduces the room to rectangles — sloped/non-flat walls become primitive boxes, ceilings and height variation are ignored, and it does not give wall thickness. So the 2nd floor is out (angled knee-wall/roof geometry is exactly what it can't represent), and wall thickness you'd still tape-measure (easy, and already being done).
@@ -53,7 +53,7 @@ This is the literal substrate for the "scan a house with a tablet, then ask the 
 
 ## Recommendation
 
-**For this house, right now:** don't buy anything on the critical path. The survey already anchors the footprint core, and room-by-room is enough — the only genuinely unmeasurable spot left is the crawlspace under the kitchen (a deferred TODO).
+**For this house, right now:** don't buy anything on the critical path. The survey already anchors the footprint core, and room-by-room is enough — the only unmeasurable spot left is the crawlspace under the kitchen (a deferred TODO).
 
 - **If anyone can borrow a RoomPlan-capable Apple device for an afternoon:** scan just the crawlspace, export both the structured model and a point cloud/`.obj`. Then build the ingest→slice→plane-fit tool and prove the whole pipeline on the one area that can't be tape-measured. Best ROI, zero spend, unblocks a real TODO.
 - **If nobody has Apple gear:** the crawlspace is tape-measurable with patience, so no purchase blocks this house. Don't buy a $450 iPad for one crawlspace.
@@ -65,7 +65,7 @@ This is the literal substrate for the "scan a house with a tablet, then ask the 
 ## Open questions
 
 - Does the friend already own a RoomPlan-capable Apple device? (Changes the right-now answer entirely — borrow beats buy.)
-- Is whole-house coherence actually needed soon, or is room-by-room fine for the foreseeable future? (Forks "phone/Vega is fine" vs. "tripod LiDAR.")
+- Is whole-house coherence needed soon, or is room-by-room fine for the foreseeable future? (Forks "phone/Vega is fine" vs. "tripod LiDAR.")
 - Is "open formats" a hard requirement for the business, or negotiable? (Rules vendors in/out — especially the Leica's Cyclone-register step.)
 - Android: still no mainstream phone with comparable LiDAR plus a RoomPlan-equivalent — worth a periodic re-check, but not a 2026 option. The photogrammetry apps (above) are the Android fallback: accessible but unscaled and lower-fidelity, so they don't change the recommendation.
 

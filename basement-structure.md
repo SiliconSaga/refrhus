@@ -68,7 +68,7 @@ place ducts + size the air-handler space, and to firm up the Main floor and abov
 ## Open questions / scan targets
 
 - **North-center corner** — bathroom + drain-stack void + doubled rim (pipes penetrate
-  the rim into the extended kitchen). The genuinely weird part; leave loose for now.
+  the rim into the extended kitchen). The odd part; leave loose for now.
 - **Bedroom crawlspace** (S of utility) — un-enterable, peephole only; infer from the
   south-extension footprint + the single AC duct route until scanned.
 - Confirm **actual joist / rim thickness** (old lumber may exceed 1.5″).

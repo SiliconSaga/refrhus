@@ -29,7 +29,7 @@ A 1950s house in West Orange, NJ, modelled in Sweet Home 3D and tracked **explod
 
 [`HISTORY.md`](HISTORY.md) is construction ground truth — read it before moving a wall. Measurement records are `basement-joists.md`, `basement-structure.md`, `basement-measure-sheet.md`, `chimney-measure-sheet.md` and `basement-post-details.html`. [`schematic-hitlist.md`](schematic-hitlist.md) ranks what still needs measuring by load impact. [`scanning-plan.md`](scanning-plan.md) is a parked evaluation of 3D scanning.
 
-**Source images**, kept because the model was traced against them: `OriginalFloorPlan.png` (explicitly *not to scale*, which is why so much of this house was measured by hand), `OriginalPlanHVAC.png` and `LargerFloorplanMudroomHvacV2.png` (earlier HVAC concepts, superseded), and `SurveyAlone.png` (the footprint anchor).
+**Source images**, kept because the model was traced against them: `OriginalFloorPlan.png` (explicitly *not to scale*, hence the hand measuring), `OriginalPlanHVAC.png` and `LargerFloorplanMudroomHvacV2.png` (earlier HVAC concepts, superseded), and `SurveyAlone.png` (the footprint anchor).
 
 ## Pack / unpack
 

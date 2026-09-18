@@ -181,6 +181,12 @@ w("Future runs excluded. Round sizes are **airway** — confirm whether a suppli
   "inner or outer diameter on double-wall before ordering, because getting it backwards "
   "costs two inches of diameter on every round run at once.")
 w("")
+w("**An `oval` section is the box it must fit inside, not its airway.** A flat oval "
+  "turns each corner into a semicircular end, so a run listed 14x18 carries about "
+  "210 in² against the 252 the two numbers multiply to — roughly 20% less on every "
+  "oval run here. The box is what is printed because the box is what has to clear the "
+  "framing; size the airflow off the airway.")
+w("")
 w("| Section | Material | Linear feet |")
 w("|---|---|---:|")
 for (s, mat), ln in sorted(tally.items(), key=lambda kv: -kv[1]):
@@ -227,7 +233,7 @@ w("")
 w("**Every figure here is a band, and the bands are wide on purpose.** Fabrication, "
   "access and region move installed duct pricing more than size does, so a single "
   "number would imply a precision this does not have. Use it to compare options "
-  "against each other — which is what it is actually for — not to budget.")
+  "against each other, not to budget.")
 w("")
 w("| Item | Quantity | Low | High |")
 w("|---|---:|---:|---:|")
@@ -256,7 +262,7 @@ w("")
 w("Published estimates of labour's *share* of a duct job disagree sharply — one puts it "
   "near 22% of a whole-house replacement, another at 60%. **That spread is a signal, "
   "not noise:** it is the difference between duct run through open basement joists and "
-  "duct fished through finished walls. This house is both, which is exactly why the "
+  "duct fished through finished walls. This house is both, which is why the "
   "bands here are wide and why a walkthrough quote will beat any figure on this page.")
 w("")
 w("### Ducted extras, priced separately")
@@ -268,7 +274,7 @@ w("| Media air cleaner | **$400–1,000** | A deep pleated filter in the return.
 w("| UV treatment | **$400–800**, up to $3,500 | Coil-sterilising lamps at the low end; "
   "in-duct air treatment at the high end. Effectiveness claims vary far more than price does |")
 w("| Whole-house humidifier | **$400–1,200**, up to $2,500 | Bypass or steam. Steam "
-  "costs more and actually holds a setpoint |")
+  "costs more and holds a setpoint |")
 w("")
 w("**A media cleaner has a real interaction with this design and the others do not.** "
   "A deep filter adds static pressure to the return side, and the return side is "
@@ -344,7 +350,7 @@ w("**Pre-incentive throughout.** Nothing here is netted against a rebate, credit
   "whatever incentives apply come off afterwards rather than being baked into a number "
   "nobody can reconcile.")
 w("")
-w("The honest caveat on the whole table: **the fittings allowance is the weakest number "
+w("One caveat on the whole table: **the fittings allowance is the weakest number "
   "in it.** It is a percentage standing in for a count nobody has made, on the one "
   "quantity this model explicitly cannot derive. It is also, not coincidentally, the "
   "same count that settles the one-unit-versus-two question — so asking for it buys an "
@@ -366,7 +372,7 @@ w("")
 w("**But cost is not what decides it, and neither is static pressure alone.** A north "
   "knee-wall unit does not reach the south side of those rooms, and the suggested "
   "remedy — a duct channel along the office wall — is itself a chase. Ask which "
-  "registers the second unit can actually reach *before* asking whether one unit runs "
+  "registers the second unit can reach *before* asking whether one unit runs "
   "out of static pressure. The fitting counts settle the second question; only a site "
   "visit settles the first.")
 w("")
@@ -382,7 +388,7 @@ w(f'| Inferred direction changes | {sum(r["bends"] for r in rows if not r["futur
 w("")
 w("**Damper every takeoff regardless of what the balance calculation says.** A branch "
   "without one cannot be adjusted after the fact, and the first season in a house is when "
-  "the balance is actually discovered.")
+  "the balance is discovered.")
 w("")
 
 open(OUT, "w", encoding="utf-8").write("\n".join(L) + "\n")

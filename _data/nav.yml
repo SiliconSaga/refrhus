@@ -30,14 +30,18 @@
     - title: Chimney measurements
       url: /chimney-measure-sheet/
     - title: Basement post details
-      url: /basement-post-details.html
+      url: /basement-post-details/
 
 - title: Load calculations
   children:
     - title: Manual J index
       url: /hvac/
+    - title: The professional Manual J
+      url: /hvac/professional-manual-j/
     - title: Current Eldr run
       url: /hvac/eldr-report/
+    - title: Surface-temperature protocol
+      url: /hvac/measurements/
 
 - title: Still open
   children:

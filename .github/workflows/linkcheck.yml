@@ -1,0 +1,69 @@
+# Build the site and fail the pull request on a broken link or an orphan.
+#
+# Both failures are invisible in a passing build, and both have already shipped
+# here: a measurement protocol that sat at a URL nothing linked to, and four
+# professional reports that reached the public site the same way. A build that
+# succeeds is not the same as a site you can navigate.
+#
+# This runs the same `tools/linkcheck.py` a person runs locally, against the
+# same `bundle exec jekyll build`, so a green check here means the command on
+# someone's laptop agrees.
+name: Link check
+
+on:
+  pull_request:
+    paths:
+      - '**.md'
+      - '**.html'
+      - '_config.yml'
+      - '_data/**'
+      - '_includes/**'
+      - '_layouts/**'
+      - '_sass/**'
+      - 'assets/**'
+      - 'Gemfile'
+      - 'Gemfile.lock'
+      - 'tools/linkcheck.py'
+      - '.github/workflows/linkcheck.yml'
+
+permissions:
+  contents: read
+
+# A push mid-run makes the result stale; cancel rather than report on old HEAD.
+concurrency:
+  group: linkcheck-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      # Actions pinned by SHA and Ruby pinned to 3.3, matching volundr's
+      # jekyll-deploy. If this check and the deploy resolved different Rubies
+      # they could disagree about the very build this is meant to gate.
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          # Nothing here pushes, so no credential is left in .git/config for
+          # a later step to pick up.
+          persist-credentials: false
+
+      # There is no .ruby-version in this repo, so the version has to be
+      # given explicitly — setup-ruby fails outright without one.
+      #
+      # bundler-cache installs into vendor/bundle, which `_config.yml` already
+      # excludes; without that exclusion Jekyll tries to render the site
+      # template shipped inside the jekyll gem and the build fails.
+      - uses: ruby/setup-ruby@003a5c4d8d6321bd302e38f6f0ec593f77f06600 # v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      - name: Build
+        env:
+          JEKYLL_ENV: production
+        run: bundle exec jekyll build
+
+      # Exits non-zero on either finding, and prints which files and which
+      # links, so the log says what to fix rather than that something is wrong.
+      - name: Check every link resolves and every file is reachable
+        run: python3 tools/linkcheck.py _site

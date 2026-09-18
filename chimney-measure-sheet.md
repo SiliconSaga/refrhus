@@ -23,7 +23,7 @@ The main girder lands on a **4x4 stump** atop the top block of that step.
 
 **So the basement chimney is 16 × 16 in its upper reach and 16 × 24 below the step**, the extra 8″ on the north side.
 
-**On the masonry unit.** 16 × 16 with a void down the middle is a **chimney block** (flue block) — a standard product, typically 16 × 16 × 8 with a cast opening for the flue liner. One block per course, not four cinder blocks around a hole, which is why the void and the 16″ faces are consistent rather than contradictory.
+**On the masonry unit.** 16 × 16 with a void down the middle is a **chimney block** (flue block) — a standard product, typically 16 × 16 × 8 with a cast opening for the flue liner. One block per course rather than four cinder blocks around a hole, which makes the void and the 16″ faces consistent rather than contradictory.
 
 ### Main floor — drywalled, masonry inferred
 
@@ -94,4 +94,4 @@ Consequence for ducting: the north bay is tall but half-blocked, and the south b
 From `basement-structure.md`, unverified:
 
 - The east cross-beam runs chimney → east wall, seated in a cinder pocket.
-- The joist-15 beam passes **behind** the chimney without bearing on it. If that turns out false it is worth knowing before anyone cuts.
+- The joist-15 beam passes **behind** the chimney without bearing on it. Confirm it before anyone cuts.

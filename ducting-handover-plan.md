@@ -12,7 +12,7 @@ Written 2026-09-07, deliberately before a context compaction, so the next sessio
 
 | | State |
 |---|---|
-| Model | Basement measurement-true; all three levels registered east–west; **73 `Ducting:` objects and 25 registers** drawn |
+| Model | Basement measurement-true; all three levels registered east–west; **74 `Ducting:` objects and 25 registers** drawn |
 | Loads | Eldr, heat-pump airflow (30°F rise), biased 2nd ×1.35 / basement ×0.70 |
 | Schedule | `ducting-register-schedule.md` — per-register sizes, editable |
 | Audit | `ducting-model-audit.md` — drawn objects vs schedule |
@@ -20,7 +20,7 @@ Written 2026-09-07, deliberately before a context compaction, so the next sessio
 
 Both utility closets have ample space for any combination or placement of ducts, so cabinet capacity is not a constraint on the layout. Plenums are 12×20, sized as an estimate that will be refined at install.
 
-**Carried as doc-only metadata**, because there is no clean way to say it in the schematic: the `Return branch for both main bedrooms` is a single 4x8 running 30 ft and **three returns hang off it** — Main Bed 227, Kids Room 64, Utility Room 83, or about 374 CFM through 32 in². It is the existing duct through the inaccessible crawlspace, so it is not a sizing error to correct in the model. The pinch is only the *buried* section: the basement run is open and can be enlarged at least as far as the splitter. A transfer grille above the bedroom door relieves the bedroom alone and does nothing for the two rooms behind the same constriction. **Treat the docs as the home for design metadata the model cannot express.**
+**Now expressed in the model rather than carried as doc-only metadata.** The single 4x8 running 30 ft — Main Bed 227, Kids Room 64, Utility Room 83, about 374 CFM through 32 in² — is drawn as two runs split where the duct stops being buried. The open basement portion is 6x10 and carries the Kids Room and Utility returns at 353 fpm; the buried portion stays 4x8 because that is what is there. **Splitting the object was what let the model say it** — one run could only carry one section, so the distinction between the fixable half and the fixed half had to live in prose.
 
 ---
 
@@ -46,7 +46,7 @@ Every cylinder in the model is in the basement, and every basement *supply* need
 
 **The caveat that comes with standardising on double-wall:** the insulation sits inside the shell, so the airway is smaller than the nominal size. Sizing here is by *airway*, so confirm whether a supplier quotes inner or outer diameter before ordering — getting it backwards costs two inches of diameter on every round run at once.
 
-### When insulation is actually required
+### When insulation is required
 
 **Supply ducts sweat; returns do not.** A supply carries ~55°F air in cooling, and a basement at 75°F / 50% RH has a dew point right at 55°F — 60°F at 60% RH. So exposed basement supply runs condense *even in conditioned space*. Returns run near 75°F, above any indoor dew point, and never sweat.
 
@@ -105,7 +105,7 @@ Deliverables:
 - Carried CFM at every segment
 - **Required** size versus **drawn** size, flagged both ways
 
-**Rotation will break a naive implementation, and the obvious fix is also wrong.** Sweet Home 3D already publishes the rotated bounding box: a piece tilted by `pitch` or `roll` carries `widthInPlan` / `depthInPlan` / `heightInPlan`, and its `elevation` is the bottom of *that* box. Use those three and apply only the yaw (`angle`) to the footprint. Rotating `width`/`depth`/`height` yourself gets the plan position right but the **elevation wrong by tens of inches**, which manufactures broken chains out of runs that are visibly joined on screen. Twenty-four of the 73 duct objects are tilted — every horizontal cylinder run.
+**Rotation will break a naive implementation, and the obvious fix is also wrong.** Sweet Home 3D already publishes the rotated bounding box: a piece tilted by `pitch` or `roll` carries `widthInPlan` / `depthInPlan` / `heightInPlan`, and its `elevation` is the bottom of *that* box. Use those three and apply only the yaw (`angle`) to the footprint. Rotating `width`/`depth`/`height` yourself gets the plan position right but the **elevation wrong by tens of inches**, which manufactures broken chains out of runs that are visibly joined on screen. Nineteen of the 74 carry a non-zero pitch or roll — every horizontal cylinder run.
 
 Connectivity has been verified under the corrected reading: **every run joins, nothing dead-ends mid-run.** What remains is the graph walk itself.
 
@@ -181,9 +181,9 @@ Practicalities:
 
 **Still open, and all three are the owner's call rather than modelling work:**
 
-1. **The kitchen SE supply** runs 806 fpm at 2″ of cabinet height and wants 4″. Moving one cabinet over or modifying the cabinet both solve it; either is a construction decision.
-2. **The kitchen return** at 3x20 needs roughly double the area, and wants to get *rounder* rather than longer — 8x14 against the drawn 3x20.
-3. **The main-floor return path**, which is the one genuinely worth a site visit before anything is priced. The buried section cannot change; the basement run is open and can be enlarged at least as far as the splitter.
+1. **The kitchen SE supply's 4″ of cabinet height.** The model now draws 4x15 at 403 fpm, but getting the height still means moving one cabinet over or modifying it — a construction decision the drawing has run ahead of.
+2. **Where the main-floor return stops being buried.** The model now splits it there, so the split point is load-bearing: it decides how much duct can be enlarged. Worth a site visit before anything is priced.
+3. **The main bedroom's own return**, which the split does not solve. The buried 4x8 passes roughly 91 CFM against a 227 CFM design, and the remedy is a transfer path rather than a duct.
 
 ## What to be upfront about in the package
 

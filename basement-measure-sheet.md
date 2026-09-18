@@ -44,7 +44,7 @@ Measure the **full length** of a joist at three E–W positions, and note how mu
 | joist-12 or joist-15 (the 3.5″ beams by the stairs) | 271.0″ | | |
 | One in the east/utility field (joist-19…22) | 271.0″ | | |
 
-If these differ from each other, that difference *is* the phased-build stagger and it is worth having.
+If these differ from each other, that difference *is* the phased-build stagger, and worth having.
 
 ## 3. The six posts
 
@@ -120,7 +120,7 @@ Middle posts not so much, especially the N post embedded in the bar top and hidd
   * 3 and 3/8ths from north face of girder till edge of trim
   * 1.75 backwards from edge of trim to the wood paneling face that wraps the girder
   * 2 inches from the north face of the NW post to the north face of the wood paneling face
-  * Therefore: 3.75 inches from north face of post and 3.375 inches back, meaning the girder is actually 3/8ths OFF the edge of the north face of the post
+  * Therefore: 3.75 inches from north face of post and 3.375 inches back, meaning the girder is 3/8ths OFF the edge of the north face of the post
   * That seems counterintuitive, but there may well be aanother 6 inch mounting plate embedded inside the trim and paneling that again could be offset (since we have a comfortable two inches of buffer space on the north side that could hide said mounting plate)
 
 The northern girder appears to be 3 and 1/8th thick, which again might mean it is two 2x10s - it is a little difficult to be sure as the underside is encased in more wood paneling. On the carpeted / den side of the basement the joists appear contigouos from the south wall until they hit the south face of the north girder
@@ -144,7 +144,7 @@ The basement bathroom has a void between its north wall and the basement north w
 
 The structure notes say the beams **do not form one line**, and the exact latitudes were never pinned. This is the other half of nailing the posts, because a post sits under a beam.
 
-- **North girder** — 3 posts, west wall → NE post, then *turns north* without reaching the east wall. Measure its y from the north face at both ends: is it truly level, or does it step?
+- **North girder** — 3 posts, west wall → NE post, then *turns north* without reaching the east wall. Measure its y from the north face at both ends: level end to end, or does it step?
 - **East cross-beam** — chimney → east wall, seated in a cinder pocket. Measure its y. The joist-15 beam is recorded as passing *behind the chimney without bearing on it* — confirm that, it matters structurally.
 - **SW beam** — SW + S posts, stairs → west wall, sitting **further south** than the east cross-beam. Measure how much further south.
 
@@ -152,13 +152,13 @@ The structure notes say the beams **do not form one line**, and the exact latitu
 
 The model has an unnamed **36″ × 24″** block at x 550.3, y 380.2 — that is almost certainly the chimney, but nothing says so. Confirm the footprint and its position relative to the nearest joist and to the north face.
 
-Also worth noting: does the east cross-beam actually bear *on* the chimney, or into a pocket beside it?
+Does the east cross-beam bear *on* the chimney, or into a pocket beside it?
 
 ## 6. Stairs
 
 Model: **36″ wide × 96″ long**, at x 478.9, y 412.5, which puts it between the two 3.5″ zone-edge beams. Confirm width and run length, and its position relative to joist-12 and joist-15.
 
-## 7. The through-holes — the highest-leverage thing here
+## 7. The through-holes
 
 You mentioned holes going through from basement to main floor. **These are worth more than anything else on this sheet**, and the duct scheme already names one of them as the shared datum: a single point piercing both the basement ceiling and the main-floor wall cavity registers the two coordinate frames against each other, exactly the way the joists do within one level.
 

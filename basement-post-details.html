@@ -1,4 +1,6 @@
-<title>Refrhus Basement Posts</title>
+---
+title: Basement post details
+---
 
 <style>
   :root {
@@ -20,99 +22,86 @@
     --paper: #101315; --surface: #171B1E; --ink: #E4E7E5; --muted: #98A0A6;
     --hair: #333A3E; --measured: #6FB4DC; --assumed: #E09355;
   }
-
-  * { box-sizing: border-box; }
-
-  body {
-    background: var(--paper); color: var(--ink);
+  .post-details * { box-sizing: border-box; }
+  .post-details {
     font-family: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
-    font-size: 17px; line-height: 1.6; margin: 0; padding: 0 20px 96px;
+    font-size: 17px; line-height: 1.6; color: var(--ink);
   }
-  .wrap { max-width: 780px; margin: 0 auto; }
-
-  header { padding: 56px 0 28px; border-bottom: 2px solid var(--ink); margin-bottom: 36px; }
-  .eyebrow {
+  .post-details .wrap { max-width: 780px; margin: 0 auto; }
+  .post-details header { padding: 56px 0 28px; border-bottom: 2px solid var(--ink); margin-bottom: 36px; }
+  .post-details .eyebrow {
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
     color: var(--muted); margin: 0 0 14px;
   }
-  h1 {
+  .post-details h1 {
     font-family: ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", sans-serif;
     font-size: clamp(30px, 5.5vw, 42px); font-weight: 700; letter-spacing: -0.025em;
     line-height: 1.08; text-wrap: balance; margin: 0 0 16px;
   }
-  .standfirst { font-size: 18px; color: var(--muted); margin: 0; max-width: 62ch; }
-
-  h2 {
+  .post-details .standfirst { font-size: 18px; color: var(--muted); margin: 0; max-width: 62ch; }
+  .post-details h2 {
     font-family: ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", sans-serif;
     font-size: 22px; font-weight: 650; letter-spacing: -0.015em; text-wrap: balance;
     margin: 52px 0 6px; padding-top: 20px; border-top: 1px solid var(--hair);
   }
-  h3 {
+  .post-details h3 {
     font-family: ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", sans-serif;
     font-size: 15px; font-weight: 650; margin: 0 0 4px;
   }
-  p { margin: 0 0 15px; max-width: 68ch; }
-  .lede { color: var(--muted); margin-top: 0; }
-
-  code, .num {
+  .post-details p { margin: 0 0 15px; max-width: 68ch; }
+  .post-details .lede { color: var(--muted); margin-top: 0; }
+  .post-details code, .post-details .num {
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-variant-numeric: tabular-nums; font-size: 0.9em;
   }
-
-  figure {
+  .post-details figure {
     margin: 26px 0; padding: 20px 18px 14px; background: var(--surface);
     border: 1px solid var(--hair); overflow-x: auto;
   }
-  figure svg { display: block; width: 100%; height: auto; max-width: 100%; }
-  figcaption {
+  .post-details figure svg { display: block; width: 100%; height: auto; max-width: 100%; }
+  .post-details figcaption {
     font-size: 14px; line-height: 1.5; color: var(--muted); margin-top: 14px;
     padding-top: 12px; border-top: 1px solid var(--hair); max-width: 66ch;
   }
-
-  .cards { display: grid; gap: 26px; margin: 26px 0; }
-  .card {
+  .post-details .cards { display: grid; gap: 26px; margin: 26px 0; }
+  .post-details .card {
     background: var(--surface); border: 1px solid var(--hair);
     border-left: 3px solid var(--measured); padding: 20px 20px 14px; overflow-x: auto;
   }
-  .card svg { display: block; width: 100%; height: auto; margin: 14px 0 4px; }
-  .cardhead { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
-  .tag {
+  .post-details .card svg { display: block; width: 100%; height: auto; margin: 14px 0 4px; }
+  .post-details .cardhead { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .post-details .tag {
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
     color: var(--muted); border: 1px solid var(--hair); padding: 2px 7px;
   }
-  .card p { font-size: 15px; margin: 8px 0 0; }
-
-  .tablewrap { overflow-x: auto; margin: 22px 0; }
-  table { border-collapse: collapse; width: 100%; font-size: 15px; }
-  th, td { text-align: left; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--hair); }
-  th {
+  .post-details .card p { font-size: 15px; margin: 8px 0 0; }
+  .post-details .tablewrap { overflow-x: auto; margin: 22px 0; }
+  .post-details table { border-collapse: collapse; width: 100%; font-size: 15px; }
+  .post-details th, .post-details td { text-align: left; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--hair); }
+  .post-details th {
     font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
     font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase;
     color: var(--muted); font-weight: 600; border-bottom: 1px solid var(--ink); white-space: nowrap;
   }
-  td.n {
+  .post-details td.n {
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-variant-numeric: tabular-nums; text-align: right; padding-right: 18px; white-space: nowrap;
   }
-  th.n { text-align: right; padding-right: 18px; }
+  .post-details th.n { text-align: right; padding-right: 18px; }
+  .post-details .legend { display: flex; flex-wrap: wrap; gap: 20px 28px; margin: 20px 0 8px; }
+  .post-details .legend div { display: flex; align-items: center; gap: 9px; font-size: 14px; color: var(--muted); }
+  .post-details .note { border-left: 3px solid var(--assumed); padding: 2px 0 2px 16px; margin: 22px 0; }
+  .post-details .note strong { color: var(--assumed); }
+  .post-details .good { border-left: 3px solid var(--measured); padding: 2px 0 2px 16px; margin: 22px 0; }
+  .post-details .good strong { color: var(--measured); }
+  .post-details ul { padding-left: 20px; max-width: 68ch; }
+  .post-details li { margin-bottom: 9px; }
+  .post-details .meas { color: var(--measured); }
+  .post-details .asm { color: var(--assumed); }</style>
 
-  .legend { display: flex; flex-wrap: wrap; gap: 20px 28px; margin: 20px 0 8px; }
-  .legend div { display: flex; align-items: center; gap: 9px; font-size: 14px; color: var(--muted); }
-
-  .note { border-left: 3px solid var(--assumed); padding: 2px 0 2px 16px; margin: 22px 0; }
-  .note strong { color: var(--assumed); }
-  .good { border-left: 3px solid var(--measured); padding: 2px 0 2px 16px; margin: 22px 0; }
-  .good strong { color: var(--measured); }
-
-  ul { padding-left: 20px; max-width: 68ch; }
-  li { margin-bottom: 9px; }
-
-  .meas { color: var(--measured); }
-  .asm  { color: var(--assumed); }
-</style>
-
+<div class="post-details">
 <div class="wrap">
 
 <header>
@@ -401,4 +390,5 @@
   <li><strong>The bar counter does not fit the tape chain.</strong> The counter was seen overhanging the bathroom's west wall by about 3″, but the placement here makes the wall the more westerly. Likeliest reconciliation is a countertop overhanging its own base. Nothing structural depends on it.</li>
 </ul>
 
+</div>
 </div>
