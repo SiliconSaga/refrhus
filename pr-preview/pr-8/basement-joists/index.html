@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Basement joist bays — spacing reference | Refr Hus</title>
+  <meta name="description" content="A 1950s house measured by hand, modelled in Sweet Home 3D, and run through a Manual J load calculation — with the duct design that came out of it.">
+  <link rel="stylesheet" href="/refrhus/pr-preview/pr-8/assets/css/style.css"><script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('refrhus-theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches
+                            ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {}
+  })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a href="/refrhus/pr-preview/pr-8/" class="site-title">Refr Hus</a>
+    <div class="header-actions"><button class="theme-toggle" type="button" id="theme-toggle"
+              onclick="window.__refrhusToggleTheme(this)">
+        <span class="theme-icon" aria-hidden="true">&#9728;</span>
+        <span class="theme-label">enable light mode</span>
+      </button>
+      <button class="nav-toggle" type="button" aria-label="Toggle contents"
+              aria-expanded="false" aria-controls="site-nav"
+              onclick="window.__refrhusToggleNav(this)">
+        &#9776;
+      </button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="site-nav" id="site-nav" aria-label="Contents">
+  <ul class="nav-list">
+    <li class="nav-item">
+      <a href="/refrhus/pr-preview/pr-8/">Overview</a>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">The proposal</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/pr-preview/pr-8/ducting-scheme/">Scheme and reasoning</a></li>
+        <li><a href="/refrhus/pr-preview/pr-8/ducting-register-schedule/">Register schedule</a></li>
+        <li><a href="/refrhus/pr-preview/pr-8/ducting-parts-list/">Parts list and cost</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">Calculations</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/pr-preview/pr-8/hvac/">How the two compare</a></li>
+        <li><a href="/refrhus/pr-preview/pr-8/hvac/professional-manual-j/">The professional Manual J</a></li>
+        <li><a href="/refrhus/pr-preview/pr-8/hvac/eldr-report/">Current Eldr run</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">The house as measured</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/pr-preview/pr-8/HISTORY/">Construction history</a></li>
+        <li><a href="/refrhus/pr-preview/pr-8/basement-structure/">Basement structure</a></li>
+        <li><a href="/refrhus/pr-preview/pr-8/basement-joists/">Basement joists</a></li>
+        <li><a href="/refrhus/pr-preview/pr-8/basement-measure-sheet/">Basement measurements</a></li>
+        <li><a href="/refrhus/pr-preview/pr-8/chimney-measure-sheet/">Chimney measurements</a></li>
+        <li><a href="/refrhus/pr-preview/pr-8/basement-post-details/">Basement post details</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">Appendix</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/pr-preview/pr-8/ducting-model-audit/">Model audit</a></li>
+        <li><a href="/refrhus/pr-preview/pr-8/schematic-hitlist/">Measurement hit-list</a></li>
+        <li><a href="/refrhus/pr-preview/pr-8/hvac/measurements/">Surface-temperature protocol</a></li>
+        <li><a href="/refrhus/pr-preview/pr-8/ducting-handover-plan/">How this package is built</a></li>
+        <li><a href="/refrhus/pr-preview/pr-8/scanning-plan/">3D scanning options</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+    <main class="content">
+      <h1 id="basement-joist-bays--spacing-reference">Basement joist bays — spacing reference</h1>
+
+<p>Derived from <code class="language-plaintext highlighter-rouge">sh3d-internals/Home.xml</code> (the <code class="language-plaintext highlighter-rouge">basement-main-transition</code> level), west→east.
+Measured ~<strong>5–7 ft off the south wall</strong>; because some eastern joists <strong>drift</strong> (not
+perfectly parallel, up to ~½″ over a few feet), these are the spacings <em>at that Y</em> —
+other Y bands differ slightly. Relative spacing is confident to ~1/8″.</p>
+
+<p><strong>On-center</strong> = center-to-center to the previous member. <strong>Clear</strong> = gap between the
+previous member’s east face and this one’s west face. Widths tag the member type:
+<strong>1.5″ = floor joist</strong>, <strong>3.5″ = main beam</strong> (named <code class="language-plaintext highlighter-rouge">… - beam</code>), <strong>6–8″ = a post / other
+member</strong> (<code class="language-plaintext highlighter-rouge">Box</code>) placed in the line. (The ~0.75″ center-vs-face offset cancels in every
+difference, so it doesn’t touch these numbers.)</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Member</th>
+      <th style="text-align: right">Width</th>
+      <th style="text-align: right">Center x (in)</th>
+      <th style="text-align: right">On-center (in)</th>
+      <th style="text-align: right">Clear (in)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>joist-01</td>
+      <td style="text-align: right">1.5</td>
+      <td style="text-align: right">291.00</td>
+      <td style="text-align: right">—</td>
+      <td style="text-align: right">—</td>
+    </tr>
+    <tr>
+      <td>joist-02</td>
+      <td style="text-align: right">1.5</td>
+      <td style="text-align: right">307.00</td>
+      <td style="text-align: right">16.00</td>
+      <td style="text-align: right">14.50</td>
+    </tr>
+    <tr>
+      <td>Box</td>
+      <td style="text-align: right">6.0</td>
+      <td style="text-align: right">314.37</td>
+      <td style="text-align: right">7.37</td>
+      <td style="text-align: right">3.62</td>
+    </tr>
+    <tr>
+      <td>joist-03</td>
+      <td style="text-align: right">1.5</td>
+      <td style="text-align: right">323.12</td>
+      <td style="text-align: right">8.75</td>
+      <td style="text-align: right">5.00</td>
+    </tr>
+    <tr>
+      <td>Box</td>
+      <td style="text-align: right">6.0</td>
+      <td style="text-align: right">331.50</td>
+      <td style="text-align: right">8.38</td>
+      <td style="text-align: right">4.63</td>
+    </tr>
+    <tr>
+      <td>joist-04</td>
+      <td style="text-align: right">1.5</td>
+      <td style="text-align: right">339.00</td>
+      <td style="text-align: right">7.50</td>
+      <td style="text-align: right">3.75</td>
+    </tr>
+    <tr>
+      <td>joist-05</td>
+      <td style="text-align: right">1.5</td>
+      <td style="text-align: right">355.12</td>
+      <td style="text-align: right">16.12</td>
+      <td style="text-align: right">14.62</td>
+    </tr>
+    <tr>
+      <td>joist-06</td>
+      <td style="text-align: right">1.5</td>
+      <td style="text-align: right">371.12</td>
+      <td style="text-align: right">16.00</td>
+      <td style="text-align: right">14.50</td>
+    </tr>
+    <tr>
+      <td>joist-07</td>
+      <td style="text-align: right">1.5</td>
+      <td style="text-align: right">387.50</td>
+      <td style="text-align: right">16.37</td>
+      <td style="text-align: right">14.88</td>
+    </tr>
+    <tr>
+      <td>joist-08</td>
+      <td style="text-align: right">1.5</td>
+      <td style="text-align: right">403.38</td>
+      <td style="text-align: right">15.87</td>
+      <td style="text-align: right">14.38</td>
+    </tr>
+    <tr>
+      <td>joist-09</td>
+      <td style="text-align: right">1.5</td>
+      <td style="text-align: right">419.00</td>
+      <td style="text-align: right">15.62</td>
+      <td style="text-align: right">14.13</td>
+    </tr>
+    <tr>
+      <td>joist-10</td>
+      <td style="text-align: right">1.5</td>
+      <td style="text-align: right">435.50</td>
+      <td style="text-align: right">16.50</td>
+      <td style="text-align: right">15.00</td>
+    </tr>
+    <tr>
+      <td>joist-11 <em>(last regular, W)</em></td>
+      <td style="text-align: right">1.5</td>
+      <td style="text-align: right">451.25</td>
+      <td style="text-align: right">15.75</td>
+      <td style="text-align: right">14.25</td>
+    </tr>
+    <tr>
+      <td><strong>joist-12 — beam</strong></td>
+      <td style="text-align: right">3.5</td>
+      <td style="text-align: right">459.62</td>
+      <td style="text-align: right">8.38</td>
+      <td style="text-align: right">5.88</td>
+    </tr>
+    <tr>
+      <td>joist-13</td>
+      <td style="text-align: right">1.5</td>
+      <td style="text-align: right">473.00</td>
+      <td style="text-align: right">13.37</td>
+      <td style="text-align: right">10.87</td>
+    </tr>
+    <tr>
+      <td>joist-14 <em>(the extra)</em></td>
+      <td style="text-align: right">1.5</td>
+      <td style="text-align: right">485.75</td>
+      <td style="text-align: right">12.75</td>
+      <td style="text-align: right">11.25</td>
+    </tr>
+    <tr>
+      <td><strong>joist-15 — beam</strong></td>
+      <td style="text-align: right">3.5</td>
+      <td style="text-align: right">499.75</td>
+      <td style="text-align: right">14.00</td>
+      <td style="text-align: right">11.50</td>
+    </tr>
+    <tr>
+      <td>joist-16 <em>(last regular, E)</em></td>
+      <td style="text-align: right">1.5</td>
+      <td style="text-align: right">515.25</td>
+      <td style="text-align: right">15.50</td>
+      <td style="text-align: right">13.00</td>
+    </tr>
+    <tr>
+      <td>joist-17</td>
+      <td style="text-align: right">1.5</td>
+      <td style="text-align: right">530.12</td>
+      <td style="text-align: right">14.88</td>
+      <td style="text-align: right">13.38</td>
+    </tr>
+    <tr>
+      <td>Box</td>
+      <td style="text-align: right">7.5</td>
+      <td style="text-align: right">536.45</td>
+      <td style="text-align: right">6.32</td>
+      <td style="text-align: right">1.82</td>
+    </tr>
+    <tr>
+      <td>joist-18</td>
+      <td style="text-align: right">1.5</td>
+      <td style="text-align: right">545.50</td>
+      <td style="text-align: right">9.05</td>
+      <td style="text-align: right">4.55</td>
+    </tr>
+    <tr>
+      <td>joist-19</td>
+      <td style="text-align: right">1.5</td>
+      <td style="text-align: right">561.88</td>
+      <td style="text-align: right">16.37</td>
+      <td style="text-align: right">14.88</td>
+    </tr>
+    <tr>
+      <td>Box</td>
+      <td style="text-align: right">7.5</td>
+      <td style="text-align: right">570.19</td>
+      <td style="text-align: right">8.32</td>
+      <td style="text-align: right">3.82</td>
+    </tr>
+    <tr>
+      <td>joist-20</td>
+      <td style="text-align: right">1.5</td>
+      <td style="text-align: right">578.25</td>
+      <td style="text-align: right">8.06</td>
+      <td style="text-align: right">3.56</td>
+    </tr>
+    <tr>
+      <td>joist-21</td>
+      <td style="text-align: right">1.5</td>
+      <td style="text-align: right">593.88</td>
+      <td style="text-align: right">15.62</td>
+      <td style="text-align: right">14.13</td>
+    </tr>
+    <tr>
+      <td>joist-22</td>
+      <td style="text-align: right">1.5</td>
+      <td style="text-align: right">610.00</td>
+      <td style="text-align: right">16.12</td>
+      <td style="text-align: right">14.63</td>
+    </tr>
+    <tr>
+      <td>Box</td>
+      <td style="text-align: right">8.0</td>
+      <td style="text-align: right">615.44</td>
+      <td style="text-align: right">5.44</td>
+      <td style="text-align: right">0.69</td>
+    </tr>
+    <tr>
+      <td>joist-23</td>
+      <td style="text-align: right">1.5</td>
+      <td style="text-align: right">626.25</td>
+      <td style="text-align: right">10.81</td>
+      <td style="text-align: right">6.06</td>
+    </tr>
+    <tr>
+      <td>joist-24</td>
+      <td style="text-align: right">1.5</td>
+      <td style="text-align: right">642.12</td>
+      <td style="text-align: right">15.87</td>
+      <td style="text-align: right">14.38</td>
+    </tr>
+    <tr>
+      <td>Box</td>
+      <td style="text-align: right">8.0</td>
+      <td style="text-align: right">647.14</td>
+      <td style="text-align: right">5.01</td>
+      <td style="text-align: right">0.26</td>
+    </tr>
+    <tr>
+      <td>joist-25</td>
+      <td style="text-align: right">1.5</td>
+      <td style="text-align: right">658.25</td>
+      <td style="text-align: right">11.11</td>
+      <td style="text-align: right">6.36</td>
+    </tr>
+    <tr>
+      <td>Box</td>
+      <td style="text-align: right">8.0</td>
+      <td style="text-align: right">663.86</td>
+      <td style="text-align: right">5.61</td>
+      <td style="text-align: right">0.86</td>
+    </tr>
+    <tr>
+      <td>joist-26</td>
+      <td style="text-align: right">1.5</td>
+      <td style="text-align: right">674.50</td>
+      <td style="text-align: right">10.64</td>
+      <td style="text-align: right">5.89</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="reading-it">Reading it</h2>
+
+<ul>
+  <li><strong>The regular field is ~16″ on-center</strong> (joist-02→11 and 17→22 run 15.6–16.5″ o.c., ~14.5″ clear) — standard framing.</li>
+  <li><strong>The stair zone</strong> breaks it: the two <strong>3.5″ main beams</strong> (joist-12 and joist-15) flank a tighter pair of joists (13 + the extra 14).</li>
+  <li><strong>Posts</strong> — the 6–8″ <code class="language-plaintext highlighter-rouge">Box</code> members sit in the line, several mid-bay (their small “clear” values reflect a post landing right next to a joist, not a joist bay).</li>
+  <li><strong>Joist field width:</strong> west face of joist-01 (290.25″) to east face of joist-26 (675.25″) = <strong>385.0″ = 32.08 ft</strong> <em>(at the measured Y)</em>.</li>
+</ul>
+
+<h2 id="basement-width--now-realized-in-the-model">Basement width — now realized in the model</h2>
+
+<p>With both cinderblock walls placed to the joist datum (east 1″ to raw cinder, west ~8″
+through paneling), the model now carries the true E–W basement dimension:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th style="text-align: right">inches</th>
+      <th style="text-align: right">ft</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>joist field (face→face)</td>
+      <td style="text-align: right">385.0</td>
+      <td style="text-align: right">32.08</td>
+    </tr>
+    <tr>
+      <td>+ east gap to raw cinder (confident)</td>
+      <td style="text-align: right">1.0</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td>+ west gap through paneling (~est.)</td>
+      <td style="text-align: right">8.0</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td><strong>interior width</strong> (block inner face → inner face)</td>
+      <td style="text-align: right"><strong>394.0</strong></td>
+      <td style="text-align: right"><strong>32.83</strong></td>
+    </tr>
+    <tr>
+      <td>+ two 8″ cinderblock walls</td>
+      <td style="text-align: right">16.0</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td><strong>exterior width</strong></td>
+      <td style="text-align: right"><strong>410.0</strong></td>
+      <td style="text-align: right"><strong>34.17</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>So the basement is ~<strong>32.8 ft interior / 34.2 ft exterior</strong> E–W — pinned on the east,
+the only slack the ~8″ west estimate (confirm the raw west block face on the scan visit).
+This is the datum the Main and 2nd floors now re-register to (via the E/W-align invariant
+in <code class="language-plaintext highlighter-rouge">HISTORY.md</code>).</p>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>
+      The model, the engine and every document here are public.
+      <a href="https://github.com/SiliconSaga/refrhus">Source</a> ·
+      <a href="https://github.com/SiliconSaga/eldr">Eldr</a>
+    </p>
+  </footer>
+
+  <script>
+  (function () {
+    // --- theme -----------------------------------------------------------
+    // The button names the theme it will switch TO, icon and words agreeing:
+    // sitting in dark, it offers "☀ enable light mode".
+    function paintToggle(button, theme) {
+      var toDark = theme !== 'light';
+      button.querySelector('.theme-icon').textContent = toDark ? '☀' : '☽';
+      button.querySelector('.theme-label').textContent =
+        toDark ? 'enable light mode' : 'enable dark mode';
+    }
+
+    window.__refrhusToggleTheme = function (button) {
+      var next = document.documentElement.getAttribute('data-theme') === 'light'
+                 ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('refrhus-theme', next); } catch (e) {}
+      paintToggle(button, next);
+    };
+
+    // Correct the server-rendered label, which cannot know the resolved theme.
+    var toggle = document.getElementById('theme-toggle');
+    if (toggle) paintToggle(toggle, document.documentElement.getAttribute('data-theme'));
+
+    // --- contents --------------------------------------------------------
+    window.__refrhusToggleNav = function (button) {
+      var open = document.querySelector('.site-nav').classList.toggle('open');
+      button.setAttribute('aria-expanded', String(open));
+    };
+
+    // Mark the current page in the sidebar. Done client-side so the nav stays a
+    // plain data file rather than needing a per-page front-matter key.
+    var here = window.location.pathname.replace(/\/$/, '');
+    document.querySelectorAll('.site-nav a').forEach(function (a) {
+      if (a.getAttribute('href').replace(/\/$/, '') === here) {
+        a.classList.add('current');
+        a.setAttribute('aria-current', 'page');
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
