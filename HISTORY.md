@@ -41,18 +41,21 @@ assessment (see `realms/realm-siliconsaga/docs/plans/2026-06-13-sh3d-overlay-too
 Heights are correct; the split-level/extension reality is already encoded in the
 elevations. **The only thing needing work is in-plane (X/Y) frame consistency.**
 
-## The "8 ft mystery" — resolved
+## Why the Main and 2nd-floor north walls are ~8 ft apart
 
-Long misremembered as a level *height* confusion. It is the **kitchen's
-~8 ft north extension**, in-plane:
+It is in-plane, not a level-height difference — the **kitchen's ~8 ft north
+extension**:
 
-- **Main** reaches ~8 ft north of the original exterior wall (the kitchen addition).
-- The **2nd-floor** north wall ("BEDROOM 4" knee wall) sits ~**3–4 ft south** of
-  that original exterior wall.
-- So Main's north edge and the 2nd-floor north wall are separated by the extension
-  plus the knee-wall inset — they are **not supposed to match.** (The first
-  assessment measured ~243 cm / 8 ft between the Main and 2nd-floor wall-bbox north
-  edges, while their south edges matched within 3 cm.)
+- The **basement** north wall is the original footprint's north line.
+- The **2nd floor**'s north wall sits essentially on that same line — measured,
+  4.9 in south of the basement's, which is wall-thickness order rather than an
+  offset to model around.
+- **Main** extends ~7.6 ft north of it, and that extension is the whole
+  difference: the kitchen addition, continuous with the garage and crawlspace
+  north edge.
+- So the Main and 2nd-floor north edges are **not supposed to match**. Measured
+  from the model: **95.7 in / 7.98 ft / 243 cm** apart at the north, while the
+  south edges sit within 4.5 in of each other.
 
 ## Basement framing — the joist datum (measured 2026-07-23)
 
@@ -112,7 +115,7 @@ Use these — and only these — to register levels into one plan frame:
 - **Staircase** roughly aligns first ↔ second (scale / exact placement may be a
   little off — verify, don't assume).
 - **North & South walls align too — but only on the original perimeter.** See the
-  clarification below; this used to read as a blanket "don't", which was wrong.
+  clarification below.
 
 **Do NOT** expect the **extensions'** north/south walls to align with anything
 below them — they diverge by era (kitchen +8 ft north; bedroom/2nd-floor extension
@@ -145,7 +148,7 @@ block's outer face*, and the wall's sheathing continues the same plane. So an
 exterior wall of thickness `t` on a level above has its centerline at
 `block_outer_face ∓ t/2` — not on the block's centerline, and not on its inner face.
 
-Two consequences, both got wrong at least once:
+Two consequences follow, and both are easy to get backwards:
 
 - The wall thicknesses **differ by level** (8″ block, 7″ framed), so aligning
   *centerlines* across levels is wrong by 0.5″ and aligning *inner* faces is wrong

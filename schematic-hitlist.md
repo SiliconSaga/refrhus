@@ -46,7 +46,7 @@ Theirs — four single-pane units, 27.2 ft², all on the north half:
 | Northwest | 1 | 9.8 ft² | 0.900 | Clear single pane, operable window/door |
 | Northwest | 1 | 9.1 ft² | 0.570 | Clear single pane **with storm** |
 
-Yours — the tiny southwest window upstairs (same room as the mystery door), the garage window, the deck glass door and window, and three basement windows.
+Yours — the tiny southwest window upstairs (same room as the unidentified door), the garage window, the deck glass door and window, and three basement windows.
 
 Three of the differences are explainable, and two of them are things the model should get right anyway:
 
@@ -91,7 +91,7 @@ These are all model changes I can make, but each needs a judgement call that is 
 
 ### 2.1 The phantom doors — **−675 BTU/hr (we are currently over)**
 
-Eldr counts **7 doors totalling 132 ft²**; the professionals count 3 totalling 82.3 ft². Your inventory says the envelope should hold **4**: front door, porch glass door, the mystery upstairs door, and the garage↔kitchen buffer door.
+Eldr counts **7 doors totalling 132 ft²**; the professionals count 3 totalling 82.3 ft². Your inventory says the envelope should hold **4**: front door, porch glass door, the unidentified upstairs door, and the garage↔kitchen buffer door.
 
 What Eldr currently finds:
 
@@ -105,7 +105,7 @@ What Eldr currently finds:
 
 **Decide:** which of these are real envelope doors. The two small ones are almost certainly errors. Interior doors do not belong on the envelope at all.
 
-Also worth settling: their two opaque doors are 21.5 ft² wood-with-storm (clearly your front door) and 17.4 ft² metal/fibreglass. Is that second one the mystery upstairs door or the garage buffer door? They only counted two, and you have three non-glass exterior-ish doors.
+Also worth settling: their two opaque doors are 21.5 ft² wood-with-storm (clearly your front door) and 17.4 ft² metal/fibreglass. Is that second one the upstairs door or the garage buffer door? They only counted two, and you have three non-glass exterior-ish doors.
 
 ### 2.2 The bricked-in basement window
 
@@ -167,4 +167,4 @@ Tags survive Sweet Home 3D's own save and `normalize.sh`. They do **not** surviv
 
 Per-room CFM. The whole-house total is close enough that equipment sizing barely moves now. What the remaining work buys is *per-room* accuracy — and per-room CFM is the input to Manual T, which is the argument that the far corner of the office can actually be reached, and that the south side of the 2nd floor has a load whether or not it is convenient to duct.
 
-**The duct design did not wait for this list**, and that turned out to be the right call: the scheme, the register schedule and the parts list are all built on per-room figures that are good enough to size ducts, and the items above would move them by less than the biases already applied on purpose. Finish this list to sharpen the *argument*, not to unblock the *build*.
+**The duct design does not depend on this list.** The scheme, the register schedule and the parts list are built on per-room figures good enough to size ducts, and the items above would move them by less than the biases applied on purpose. Finishing the list sharpens the *argument*; it does not unblock the *build*.

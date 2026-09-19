@@ -62,7 +62,7 @@ Taking the stack as plumb — chimneys are — and anchoring on the basement's 9
 
 Two positions fall out of the second-floor readings and are worth having in the model:
 
-- **Bathroom wall, south face: y ≈ 395.3** — the 4 7/8″ gap north of the chimney, which the model previously showed as nothing at all.
+- **Bathroom wall, south face: y ≈ 395.3** — the 4 7/8″ gap north of the chimney, which the model showed as nothing at all.
 - **Knee wall, north face: y ≈ 474.3** — from the 56.5″. Beyond it to the original south perimeter (interior face 511.0) leaves roughly **32″ of attic depth**, once the wall's own thickness comes out.
 
 The basement's 94″ and the main floor's 94.25″ agree to three-quarters of an inch across two levels — the first independent cross-level check this house has produced.
