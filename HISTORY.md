@@ -46,13 +46,16 @@ elevations. **The only thing needing work is in-plane (X/Y) frame consistency.**
 It is in-plane, not a level-height difference — the **kitchen's ~8 ft north
 extension**:
 
-- **Main** reaches ~8 ft north of the original exterior wall (the kitchen addition).
-- The **2nd-floor** north wall ("BEDROOM 4" knee wall) sits ~**3–4 ft south** of
-  that original exterior wall.
-- So Main's north edge and the 2nd-floor north wall are separated by the extension
-  plus the knee-wall inset — they are **not supposed to match.** Measured, the
-  gap is ~243 cm / 8 ft between the north wall-bbox edges, while the south
-  edges match within 3 cm.
+- The **basement** north wall is the original footprint's north line.
+- The **2nd floor**'s north wall sits essentially on that same line — measured,
+  4.9 in south of the basement's, which is wall-thickness order rather than an
+  offset to model around.
+- **Main** extends ~7.6 ft north of it, and that extension is the whole
+  difference: the kitchen addition, continuous with the garage and crawlspace
+  north edge.
+- So the Main and 2nd-floor north edges are **not supposed to match**. Measured
+  from the model: **95.7 in / 7.98 ft / 243 cm** apart at the north, while the
+  south edges sit within 4.5 in of each other.
 
 ## Basement framing — the joist datum (measured 2026-07-23)
 

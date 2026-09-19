@@ -172,6 +172,8 @@ The load calculation runs against geometry that is knowingly incomplete, and **e
 
 **The sizing verdict is one to hold loosely.** 3.5 tons is what today's model says; 3.8 is what one known-missing input alone would make it; and the remaining gaps have not been priced at all. Rounding to the next tier is the cheap direction to be wrong in — an oversized heat pump with inverter turndown short-cycles far less than a single-stage unit would, while an undersized one has no remedy short of replacement.
 
+**That is a load figure, not an equipment selection.** Manual S finishes only once a specific matched indoor/outdoor pair is picked and its published capacities — minimum and maximum, at this climate's design temperatures — are checked against the loads above. Nominal tonnage is shorthand for a capacity curve, and two units of the same nominal size need not deliver the same thing at 14°F. The candidate on file below is a candidate.
+
 | | Installed, pre-incentive |
 |---|---:|
 | 3.5-ton cold-climate heat pump, this class | $5,000–9,000 |

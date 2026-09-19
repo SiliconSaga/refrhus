@@ -339,6 +339,13 @@ w("**The sizing verdict is one to hold loosely.** 3.5 tons "
   "short-cycles far less than a single-stage unit would, while an undersized one has no "
   "remedy short of replacement.")
 w("")
+w("**That is a load figure, not an equipment selection.** Manual S finishes only "
+  "once a specific matched indoor/outdoor pair is picked and its published "
+  "capacities — minimum and maximum, at this climate's design temperatures — are "
+  "checked against the loads above. Nominal tonnage is shorthand for a capacity "
+  "curve, and two units of the same nominal size need not deliver the same thing "
+  "at 14°F. The candidate on file below is a candidate.")
+w("")
 w("| | Installed, pre-incentive |")
 w("|---|---:|")
 w("| 3.5-ton cold-climate heat pump, this class | $5,000–9,000 |")
