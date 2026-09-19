@@ -1,0 +1,53 @@
+{
+  "changed": [
+    "/HISTORY/",
+    "/chimney-measure-sheet/",
+    "/ducting-model-audit/",
+    "/ducting-parts-list/",
+    "/hvac/",
+    "/hvac/measurements/",
+    "/hvac/professional-manual-j/",
+    "/scanning-plan/",
+    "/schematic-hitlist/"
+  ],
+  "added": [],
+  "removed": [],
+  "groups": [
+    {
+      "exemplar": "/HISTORY/",
+      "identical": []
+    },
+    {
+      "exemplar": "/chimney-measure-sheet/",
+      "identical": []
+    },
+    {
+      "exemplar": "/ducting-model-audit/",
+      "identical": []
+    },
+    {
+      "exemplar": "/ducting-parts-list/",
+      "identical": []
+    },
+    {
+      "exemplar": "/hvac/",
+      "identical": []
+    },
+    {
+      "exemplar": "/hvac/measurements/",
+      "identical": []
+    },
+    {
+      "exemplar": "/hvac/professional-manual-j/",
+      "identical": []
+    },
+    {
+      "exemplar": "/scanning-plan/",
+      "identical": []
+    },
+    {
+      "exemplar": "/schematic-hitlist/",
+      "identical": []
+    }
+  ]
+}
