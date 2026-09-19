@@ -160,19 +160,22 @@ roof). It was <strong>not</strong> expanded north over the kitchen extension.</l
 <p>Heights are correct; the split-level/extension reality is already encoded in the
 elevations. <strong>The only thing needing work is in-plane (X/Y) frame consistency.</strong></p>
 
-<h2 id="the-8-ft-mystery--resolved">The “8 ft mystery” — resolved</h2>
+<h2 id="why-the-main-and-2nd-floor-north-walls-are-8-ft-apart">Why the Main and 2nd-floor north walls are ~8 ft apart</h2>
 
-<p>Long misremembered as a level <em>height</em> confusion. It is the <strong>kitchen’s
-~8 ft north extension</strong>, in-plane:</p>
+<p>It is in-plane, not a level-height difference — the <strong>kitchen’s ~8 ft north
+extension</strong>:</p>
 
 <ul>
-  <li><strong>Main</strong> reaches ~8 ft north of the original exterior wall (the kitchen addition).</li>
-  <li>The <strong>2nd-floor</strong> north wall (“BEDROOM 4” knee wall) sits ~<strong>3–4 ft south</strong> of
-that original exterior wall.</li>
-  <li>So Main’s north edge and the 2nd-floor north wall are separated by the extension
-plus the knee-wall inset — they are <strong>not supposed to match.</strong> (The first
-assessment measured ~243 cm / 8 ft between the Main and 2nd-floor wall-bbox north
-edges, while their south edges matched within 3 cm.)</li>
+  <li>The <strong>basement</strong> north wall is the original footprint’s north line.</li>
+  <li>The <strong>2nd floor</strong>’s north wall sits essentially on that same line — measured,
+4.9 in south of the basement’s, which is wall-thickness order rather than an
+offset to model around.</li>
+  <li><strong>Main</strong> extends ~7.6 ft north of it, and that extension is the whole
+difference: the kitchen addition, continuous with the garage and crawlspace
+north edge.</li>
+  <li>So the Main and 2nd-floor north edges are <strong>not supposed to match</strong>. Measured
+from the model: <strong>95.7 in / 7.98 ft / 243 cm</strong> apart at the north, while the
+south edges sit within 4.5 in of each other.</li>
 </ul>
 
 <h2 id="basement-framing--the-joist-datum-measured-2026-07-23">Basement framing — the joist datum (measured 2026-07-23)</h2>
@@ -240,7 +243,7 @@ perimeter). Exceptions: the <strong>garage</strong>, and the <strong>south</stro
   <li><strong>Staircase</strong> roughly aligns first ↔ second (scale / exact placement may be a
 little off — verify, don’t assume).</li>
   <li><strong>North &amp; South walls align too — but only on the original perimeter.</strong> See the
-clarification below; this used to read as a blanket “don’t”, which was wrong.</li>
+clarification below.</li>
 </ul>
 
 <p><strong>Do NOT</strong> expect the <strong>extensions’</strong> north/south walls to align with anything
@@ -276,7 +279,7 @@ block’s outer face</em>, and the wall’s sheathing continues the same plane. 
 exterior wall of thickness <code class="language-plaintext highlighter-rouge">t</code> on a level above has its centerline at
 <code class="language-plaintext highlighter-rouge">block_outer_face ∓ t/2</code> — not on the block’s centerline, and not on its inner face.</p>
 
-<p>Two consequences, both got wrong at least once:</p>
+<p>Two consequences follow, and both are easy to get backwards:</p>
 
 <ul>
   <li>The wall thicknesses <strong>differ by level</strong> (8″ block, 7″ framed), so aligning
