@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Overview | Refr Hus</title>
+  <meta name="description" content="A 1950s house measured by hand, modelled in Sweet Home 3D, and run through a Manual J load calculation — with the duct design that came out of it.">
+  <link rel="stylesheet" href="/refrhus/pr-preview/pr-9/assets/css/style.css"><script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('refrhus-theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches
+                            ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {}
+  })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a href="/refrhus/pr-preview/pr-9/" class="site-title">Refr Hus</a>
+    <div class="header-actions"><button class="theme-toggle" type="button" id="theme-toggle"
+              onclick="window.__refrhusToggleTheme(this)">
+        <span class="theme-icon" aria-hidden="true">&#9728;</span>
+        <span class="theme-label">enable light mode</span>
+      </button>
+      <button class="nav-toggle" type="button" aria-label="Toggle contents"
+              aria-expanded="false" aria-controls="site-nav"
+              onclick="window.__refrhusToggleNav(this)">
+        &#9776;
+      </button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="site-nav" id="site-nav" aria-label="Contents">
+  <ul class="nav-list">
+    <li class="nav-item">
+      <a href="/refrhus/pr-preview/pr-9/">Overview</a>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">The proposal</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/pr-preview/pr-9/ducting-scheme/">Scheme and reasoning</a></li>
+        <li><a href="/refrhus/pr-preview/pr-9/ducting-register-schedule/">Register schedule</a></li>
+        <li><a href="/refrhus/pr-preview/pr-9/ducting-parts-list/">Parts list and cost</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">Calculations</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/pr-preview/pr-9/hvac/">How the two compare</a></li>
+        <li><a href="/refrhus/pr-preview/pr-9/hvac/professional-manual-j/">The professional Manual J</a></li>
+        <li><a href="/refrhus/pr-preview/pr-9/hvac/eldr-report/">Current Eldr run</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">The house as measured</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/pr-preview/pr-9/HISTORY/">Construction history</a></li>
+        <li><a href="/refrhus/pr-preview/pr-9/basement-structure/">Basement structure</a></li>
+        <li><a href="/refrhus/pr-preview/pr-9/basement-joists/">Basement joists</a></li>
+        <li><a href="/refrhus/pr-preview/pr-9/basement-measure-sheet/">Basement measurements</a></li>
+        <li><a href="/refrhus/pr-preview/pr-9/chimney-measure-sheet/">Chimney measurements</a></li>
+        <li><a href="/refrhus/pr-preview/pr-9/basement-post-details/">Basement post details</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <span class="nav-group">Appendix</span>
+      <ul class="nav-children">
+        <li><a href="/refrhus/pr-preview/pr-9/ducting-model-audit/">Model audit</a></li>
+        <li><a href="/refrhus/pr-preview/pr-9/schematic-hitlist/">Measurement hit-list</a></li>
+        <li><a href="/refrhus/pr-preview/pr-9/hvac/measurements/">Surface-temperature protocol</a></li>
+        <li><a href="/refrhus/pr-preview/pr-9/ducting-handover-plan/">How this package is built</a></li>
+        <li><a href="/refrhus/pr-preview/pr-9/scanning-plan/">3D scanning options</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+    <main class="content">
+      <h1 id="refr-hus--hvac-design-package">Refr Hus — HVAC design package</h1>
+
+<p>A 1950s Cape Cod in West Orange, NJ, drawn to measured dimensions in <a href="https://www.sweethome3d.com/">Sweet Home 3D</a> and used to work out the heating and cooling loads a duct design can be sized against.</p>
+
+<p>The schematic is not a sketch. Every exterior dimension is measured — joist by joist in the basement, the chimney on all three floors, the posts to the eighth of an inch — and cross-registered so the levels stack. Room volumes, wall areas, window orientations and duct runs are read straight out of that geometry rather than estimated from floor area.</p>
+
+<p><a href="https://github.com/SiliconSaga/eldr"><strong>Eldr</strong></a> is an open-source engine written for this house: it reads the Sweet Home 3D file and computes the ACCA chain from it directly, aiming at numbers that could stand up to certification rather than at a rule of thumb. It reports its own assumptions — which U-values were borrowed, which floor area sits over a space not yet drawn — so the gaps stay visible instead of being buried in a total.</p>
+
+<p>What it computes:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Manual J</strong></td>
+      <td>Heating and cooling loads — whole-house and per room, with solar gain resolved per window bearing</td>
+    </tr>
+    <tr>
+      <td><strong>Manual S</strong></td>
+      <td>Equipment sizing against those loads</td>
+    </tr>
+    <tr>
+      <td><strong>Manual D</strong></td>
+      <td>Duct sizing by equal friction</td>
+    </tr>
+    <tr>
+      <td><strong>Manual T</strong></td>
+      <td>Not done. Register throw, spread and drop need a manufacturer’s catalogue — see <a href="#known-drawbacks">known drawbacks</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This is a working record of one house, not a document written for a single job. Some of it would be useful to hand an HVAC contractor asked to estimate work; the rest is here because the house keeps having projects and the measurements outlast any one of them. Every figure is open to challenge, and the reasoning behind each is in the linked pages.</p>
+
+<p><strong>The contents is grouped by what each part is about:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>The proposal</strong></td>
+      <td>What changing the ductwork would involve, and what it would cost — the <a href="/refrhus/pr-preview/pr-9/ducting-scheme/">scheme</a>, the <a href="/refrhus/pr-preview/pr-9/ducting-register-schedule/">register schedule</a>, the <a href="/refrhus/pr-preview/pr-9/ducting-parts-list/">parts list</a></td>
+    </tr>
+    <tr>
+      <td><strong>Calculations</strong></td>
+      <td>Where the numbers come from and how far they can be trusted — <a href="/refrhus/pr-preview/pr-9/hvac/">ours against the professionals’</a>, <a href="/refrhus/pr-preview/pr-9/hvac/professional-manual-j/">their Manual J</a>, <a href="/refrhus/pr-preview/pr-9/hvac/eldr-report/">the current run</a></td>
+    </tr>
+    <tr>
+      <td><strong>The house as measured</strong></td>
+      <td>The building itself: what was measured, how, and what it turned out to be</td>
+    </tr>
+    <tr>
+      <td><strong>Appendix</strong></td>
+      <td>Method and tooling — how the schematic is read, how this site is built, what is still unmeasured</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>An HVAC company probably wants <strong>The proposal</strong> and little else. The <strong>Calculations</strong> are there for anyone who would rather check the numbers than take them.</p>
+
+<h2 id="load-and-equipment">Load and equipment</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th style="text-align: right"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Heating load, 70°F / 14°F design</td>
+      <td style="text-align: right"><strong>40,331 BTU/hr</strong></td>
+    </tr>
+    <tr>
+      <td>Cooling load, 75°F / 91°F design</td>
+      <td style="text-align: right"><strong>23,125 BTU/hr</strong> (18,228 sensible)</td>
+    </tr>
+    <tr>
+      <td>Sensible heat ratio</td>
+      <td style="text-align: right">0.79</td>
+    </tr>
+    <tr>
+      <td>Design supply airflow</td>
+      <td style="text-align: right"><strong>1,245 CFM</strong></td>
+    </tr>
+    <tr>
+      <td>Manual S on the current model</td>
+      <td style="text-align: right">3.4 tons</td>
+    </tr>
+    <tr>
+      <td><strong>Size to quote</strong></td>
+      <td style="text-align: right"><strong>4.0 tons</strong></td>
+    </tr>
+    <tr>
+      <td>Existing unit</td>
+      <td style="text-align: right">4.0 tons</td>
+    </tr>
+    <tr>
+      <td>Duct, straight runs</td>
+      <td style="text-align: right">344 ft across 29 live runs</td>
+    </tr>
+    <tr>
+      <td>Registers and grilles</td>
+      <td style="text-align: right">25</td>
+    </tr>
+    <tr>
+      <td>Whole job, pre-incentive</td>
+      <td style="text-align: right"><strong>$12,200–29,200</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Design temperatures come from the Newark, NJ station.</p>
+
+<p><strong>Airflow assumes a 30°F supply-air rise</strong>, which is the heat-pump figure. A 50°F rise is a gas furnace and undersizes every heating-driven duct by 1.67×.</p>
+
+<h2 id="where-these-numbers-come-from">Where these numbers come from</h2>
+
+<p>Two independent load calculations sit behind this package.</p>
+
+<p><strong>A professional Manual J</strong>, commissioned in August 2026 from an ACCA-certified energy auditor. It covers the house in three progressions — as-is, plus insulation, plus air sealing — so each one shows what the equipment could shrink to if the preceding envelope work is done. The as-is progression gives <strong>54,260 BTU/hr heating</strong>. It also includes a blower-door test and a construction-details page listing every assembly with its measured area and U-value.</p>
+
+<p><strong>Our own model</strong>, built in Sweet Home 3D from hand measurements and run through <a href="https://github.com/SiliconSaga/eldr">Eldr</a>, an open-source Manual J engine. It gives <strong>40,331 BTU/hr</strong>, or 74% of the professional figure.</p>
+
+<p>The two are not competing estimates. <strong>The measured inputs come from the professional report</strong> — wall, window, ceiling and slab U-values are taken from its construction page, and the infiltration rate is its blower-door result of 3,751 CFM50. What our model adds is geometry: per-room loads and per-register airflow, which a whole-house figure cannot give and which duct sizing needs.</p>
+
+<p>Where the two still differ is documented line by line in <a href="/refrhus/pr-preview/pr-9/hvac/">the calculations</a>. In the same units throughout: ours is <strong>40,331 BTU/hr — 3.4 tons</strong>, theirs <strong>54,260 — 4.5 tons</strong>, a gap of about <strong>1.2 tons</strong>. It is concentrated in two known omissions, and both understate our number:</p>
+
+<ul>
+  <li><strong>No grade line.</strong> Eldr classes each basement wall as below-grade over its full height, where the professionals split it at grade and use a lower U-value on the buried part. Adopting their measured value takes ours to roughly <strong>45,600 BTU/hr — 3.8 tons</strong>.</li>
+  <li><strong>The second-floor roof is not drawn.</strong> The knee-wall attic and sloped ceilings are missing, so the schematic covers 984 ft² of ceiling against their 1,547. That surface sits under an attic our own model puts at about 133°F on a summer design day, so drawing it matters more than the area alone suggests — indicatively another <strong>3,500 BTU/hr</strong>, taking ours to roughly <strong>4.1 tons</strong>.</li>
+</ul>
+
+<p><strong>Which is why 4.0 tons is the size to quote rather than 3.5.</strong> Manual S on the schematic as it stands says 3.4, but that is a floor: correcting both known omissions walks it up past 4.0, and the professional report brackets it from above at 4.5.</p>
+
+<p><strong>Estimated pricing is pre-incentive.</strong> No rebate, credit or utility programme is netted off anywhere, so the figures compare against a quote line for line.</p>
+
+<h2 id="major-proposal-options">Major proposal options</h2>
+
+<p><strong>One air handler</strong>, moved to the basement — tucked under the stairs, in what used to be the bar area — with trunks running out to each part of the house.</p>
+
+<p>The feature that makes it work is a <strong>three-level chase alongside the chimney</strong>, carrying supply and return from the basement up through the main floor to the second. Getting conditioned air upstairs is the usual difficulty with a Cape Cod, and it is why the alternative below reaches for a second unit in the attic. A chase inside the heated envelope solves the same problem without putting equipment or ductwork in unconditioned space.</p>
+
+<p>It is a full built-in cabinet on the basement and main floors; the second floor may take a smaller duct-only enclosure, or none at all if the risers lean diagonally through the main floor to emerge beyond the knee wall. The stack is wanted for more than ducts — wiring between floors, and the closet space each enclosure creates. This is the design documented here.</p>
+
+<p><strong>Two air handlers</strong>, the second in the north knee-wall attic, reached through the wall at the top of the stairs. Proposed by the contractor.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>One unit</th>
+      <th>Two units</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Per-floor zoning</td>
+      <td>Damper throttling only</td>
+      <td>Real, independent</td>
+    </tr>
+    <tr>
+      <td>Second-floor duct location</td>
+      <td>Conditioned chase</td>
+      <td>Unconditioned attic</td>
+    </tr>
+    <tr>
+      <td>Equipment, filters, condensate paths</td>
+      <td>One</td>
+      <td>Two</td>
+    </tr>
+    <tr>
+      <td>Reaches the south side of the upstairs rooms</td>
+      <td>Yes</td>
+      <td>No — see below</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Two handlers buy genuine per-floor zoning, which a single unit cannot provide here: neither the basement nor the second floor alone can be a hard zone without starving the blower.</p>
+
+<p>Against that, the proposed location has two costs. Attic air reaches an estimated 133°F on a summer design day, and the unit, its coil and its supply ducts would sit in it. And a north knee-wall unit does not reach the south side of the upstairs rooms, which carry real load. The suggested remedy — a duct channel along the office wall into the small east attic — trades a short vertical run in warm space for a long horizontal one against an exterior wall, ending in the attic.</p>
+
+<p><strong>The deciding question is static pressure</strong>, and answering it needs fitting counts the schematic does not carry yet. Those counts are a contractor’s to produce, and they settle the question either way.</p>
+
+<h2 id="known-drawbacks">Known drawbacks</h2>
+
+<p><strong>Total effective length is not derivable from this model.</strong> No elbows, tees or takeoffs are drawn, and duct sizing uses a flat fitting factor rather than true equivalent lengths. Real fittings on a three-storey run add 50–150 ft of equivalent length. Since the one-unit-versus-two question turns on static pressure, this is the most consequential gap in the package.</p>
+
+<p><strong>The main bedroom’s return is undersized.</strong> Its duct runs through an inaccessible crawlspace and passes roughly 91 CFM against a 227 CFM design. The rest of that run has been split off and enlarged, so the Kids Room and Utility Room are no longer behind the same pinch, but the bedroom still is. Worth verifying on site before pricing a remedy.</p>
+
+<p><strong>The kitchen SE supply needs cabinet work.</strong> It is drawn at 4x15, which runs a comfortable 403 fpm, but the 4″ of height that requires means moving one cabinet over or modifying it. The drawing records the decision; the carpentry has not happened.</p>
+
+<p><strong>Some loads are deliberately biased.</strong> Second-floor airflow is multiplied by 1.35 and the basement by 0.70, because the second floor runs hot and the basement holds temperature unconditioned. The second floor’s ceiling area is modelled at 984 ft² against a professional report’s 1,547, which makes the second-floor figures conservative.</p>
+
+<p><strong>Our own load figures are not ACCA-certified.</strong> The professional Manual J referenced above is; this model is not, and is offered as the per-room detail that report does not carry rather than as a replacement for it.</p>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>
+      The model, the engine and every document here are public.
+      <a href="https://github.com/SiliconSaga/refrhus">Source</a> ·
+      <a href="https://github.com/SiliconSaga/eldr">Eldr</a>
+    </p>
+  </footer>
+
+  <script>
+  (function () {
+    // --- theme -----------------------------------------------------------
+    // The button names the theme it will switch TO, icon and words agreeing:
+    // sitting in dark, it offers "☀ enable light mode".
+    function paintToggle(button, theme) {
+      var toDark = theme !== 'light';
+      button.querySelector('.theme-icon').textContent = toDark ? '☀' : '☽';
+      button.querySelector('.theme-label').textContent =
+        toDark ? 'enable light mode' : 'enable dark mode';
+    }
+
+    window.__refrhusToggleTheme = function (button) {
+      var next = document.documentElement.getAttribute('data-theme') === 'light'
+                 ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('refrhus-theme', next); } catch (e) {}
+      paintToggle(button, next);
+    };
+
+    // Correct the server-rendered label, which cannot know the resolved theme.
+    var toggle = document.getElementById('theme-toggle');
+    if (toggle) paintToggle(toggle, document.documentElement.getAttribute('data-theme'));
+
+    // --- contents --------------------------------------------------------
+    window.__refrhusToggleNav = function (button) {
+      var open = document.querySelector('.site-nav').classList.toggle('open');
+      button.setAttribute('aria-expanded', String(open));
+    };
+
+    // Mark the current page in the sidebar. Done client-side so the nav stays a
+    // plain data file rather than needing a per-page front-matter key.
+    var here = window.location.pathname.replace(/\/$/, '');
+    document.querySelectorAll('.site-nav a').forEach(function (a) {
+      if (a.getAttribute('href').replace(/\/$/, '') === here) {
+        a.classList.add('current');
+        a.setAttribute('aria-current', 'page');
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
