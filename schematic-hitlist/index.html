@@ -271,17 +271,13 @@
 
 <p>If it is still drawn as glass, it is overstating loss. <strong>Decide:</strong> delete it, or leave it drawn and I tag it so it reads as wall.</p>
 
-<h3 id="23-the-three-duplicate-garage-rooms--no-load-impact-confusing">2.3 The three duplicate Garage rooms — <em>no load impact, confusing</em></h3>
+<h3 id="23-driveway-porch-walkway-driveway-extended-drawn-as-rooms">2.3 Driveway, Porch, Walkway, Driveway Extended drawn as rooms</h3>
 
-<p><code class="language-plaintext highlighter-rouge">tag.py list</code> shows three rooms of exactly 442.8 ft² on the Garage level — two unnamed, one named <code class="language-plaintext highlighter-rouge">Garage</code>. <strong>Decide:</strong> delete the two unnamed ones.</p>
+<p>These four are outdoor paving drawn as rooms on the Garage level (976.2 / 50.1 / 49.5 / 230.1 ft²). They no longer distort anything — all four read as unconditioned, so they stay out of the per-room table and out of the loads — but they are still four outdoor surfaces described as rooms.</p>
 
-<h3 id="24-driveway-porch-walkway-driveway-extended-drawn-as-rooms--reads-as-nonsense">2.4 Driveway, Porch, Walkway, Driveway Extended drawn as rooms — <em>reads as nonsense</em></h3>
+<p><strong>Decide:</strong> keep them as site context on a level marked <code class="language-plaintext highlighter-rouge">role: ignore</code>, or drop them from the model.</p>
 
-<p>These four are outdoor paving drawn as rooms on the Garage level (986.8 / 53.2 / 49.5 / 230.1 ft²). They now show up in the per-room cooling table, which is meaningless.</p>
-
-<p><strong>Decide:</strong> keep them as site context and move them to a level marked <code class="language-plaintext highlighter-rouge">role: ignore</code>, or drop them from the model.</p>
-
-<h3 id="25-the-three-basement-wall-stubs-with-implausible-heights">2.5 The three basement wall stubs with implausible heights</h3>
+<h3 id="24-the-three-basement-wall-stubs-with-implausible-heights">2.4 The three basement wall stubs with implausible heights</h3>
 
 <p>Heights of 0.08 ft, 0.17 ft and 3.00 ft. <strong>Decide:</strong> real features or leftovers.</p>
 
