@@ -111,17 +111,13 @@ Also worth settling: their two opaque doors are 21.5 ft² wood-with-storm (clear
 
 If it is still drawn as glass, it is overstating loss. **Decide:** delete it, or leave it drawn and I tag it so it reads as wall.
 
-### 2.3 The three duplicate Garage rooms — *no load impact, confusing*
+### 2.3 Driveway, Porch, Walkway, Driveway Extended drawn as rooms
 
-`tag.py list` shows three rooms of exactly 442.8 ft² on the Garage level — two unnamed, one named `Garage`. **Decide:** delete the two unnamed ones.
+These four are outdoor paving drawn as rooms on the Garage level (976.2 / 50.1 / 49.5 / 230.1 ft²). They no longer distort anything — all four read as unconditioned, so they stay out of the per-room table and out of the loads — but they are still four outdoor surfaces described as rooms.
 
-### 2.4 Driveway, Porch, Walkway, Driveway Extended drawn as rooms — *reads as nonsense*
+**Decide:** keep them as site context on a level marked `role: ignore`, or drop them from the model.
 
-These four are outdoor paving drawn as rooms on the Garage level (986.8 / 53.2 / 49.5 / 230.1 ft²). They now show up in the per-room cooling table, which is meaningless.
-
-**Decide:** keep them as site context and move them to a level marked `role: ignore`, or drop them from the model.
-
-### 2.5 The three basement wall stubs with implausible heights
+### 2.4 The three basement wall stubs with implausible heights
 
 Heights of 0.08 ft, 0.17 ft and 3.00 ft. **Decide:** real features or leftovers.
 

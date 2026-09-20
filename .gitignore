@@ -13,5 +13,9 @@ _site/
 .jekyll-metadata
 vendor/
 
+# Byte-code from running the tools/ scripts directly (subschematic.py gets
+# imported by ad-hoc checks, which leaves a cache beside it).
+__pycache__/
+
 # OS / temp
 .DS_Store
